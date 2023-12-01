@@ -77,4 +77,28 @@ button img {
 }
 button img:hover {
   transform: scale(1.2);
+}
+
+.box-colors {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  max-height: 8rem;
+  overflow-y: scroll;
+}
+.box-colors span {
+  font-weight: bold;
+}
+.box-colors li {
+  color: white;
+  cursor: pointer;
+}
+.box-colors li:hover {
+  background-color: rgba(0, 0, 0, 0.5);
 }/*# sourceMappingURL=index.css.map */

@@ -84,3 +84,27 @@ button{
         transform: scale(1.2);
     }
 }
+
+.box-colors{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    background-color: rgba(0,0,0, 0.75);
+    width: fit-content;
+    margin-left: .5rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    max-height: 8rem;
+    overflow-y: scroll;
+    span{
+        font-weight: bold;
+    }
+    li{
+        color: white;
+        cursor: pointer;
+        &:hover{
+            background-color: rgba(0,0,0, 0.5);
+        }
+    }
+    
+}
