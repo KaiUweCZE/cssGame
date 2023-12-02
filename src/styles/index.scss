@@ -1,12 +1,10 @@
-
-
 //variables
-$primary-color: rgb(30,30,30);
+$primary-color: rgb(30, 30, 30);
 $secondary-color: white;
 $warning: hsl(356, 58%, 44%);
 $warning2: #C14C4E;
 
-*{
+* {
     font-family: 'Open Sans', sans-serif;
     padding: 0;
     margin: 0;
@@ -14,48 +12,69 @@ $warning2: #C14C4E;
     color: $primary-color;
 }
 
-.container-form{
+.container-mission {
     display: flex;
     flex-direction: column;
     position: relative;
-    img{
+    gap: 2rem;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.container-playground {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40vh;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    img {
         position: absolute;
         height: 1.5rem;
         width: 1.5rem;
     }
 }
 
-.left-bracket{
+.left-bracket {
     top: 0;
     left: 3rem;
 }
 
-.right-bracket{
+.right-bracket {
     top: 4rem;
     color: #019bca;
     filter: brightness(0) saturate(100%) invert(71%) sepia(80%) saturate(5877%) hue-rotate(163deg) brightness(92%) contrast(99%);
 }
 
-.element-class__bridge{
+.element-class__bridge {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 5rem;
     column-gap: 1rem;
     row-gap: 1rem;
     padding-inline: 2rem;
-    input[type="text"]{
+
+    input[type="text"] {
         font-weight: bold;
         max-width: 5rem;
         border: none;
         border-bottom: 2px dotted $primary-color;
-        &:focus{
+
+        &:focus {
             outline: none;
             background-color: whitesmoke;
         }
     }
 }
 
-.error-message{
+.error-message {
     display: flex;
     background-color: $warning;
     width: fit-content;
@@ -65,46 +84,122 @@ $warning2: #C14C4E;
     box-shadow: 0 0px 8px -2px rgb(0, 0, 0);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    p{
+
+    p {
         color: $secondary-color;
     }
 }
 
-button{
+button {
     display: flex;
     border: none;
     background-color: transparent;
     width: 2rem;
     height: 2rem;
     cursor: pointer;
-    img{
+
+    img {
         transition: .5s;
     }
-    img:hover{
+
+    img:hover {
         transform: scale(1.2);
     }
 }
 
-.box-colors{
+.box-colors {
     display: flex;
     flex-direction: column;
     list-style: none;
-    background-color: rgba(0,0,0, 0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     width: fit-content;
     margin-left: .5rem;
     padding: .5rem;
     border-radius: .5rem;
     max-height: 8rem;
     overflow-y: scroll;
-    span{
+
+    span {
         font-weight: bold;
     }
-    li{
+
+    li {
         color: white;
         cursor: pointer;
-        &:hover{
-            background-color: rgba(0,0,0, 0.5);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
         }
     }
-    
+
+}
+
+.start {
+    display: flex;
+    width: 100%;
+    border: 4px solid black;
+    border-radius: 0% 23% 44% 0% / 30% 23% 0% 10%;
+    border-left: none;
+    border-bottom: none;
+}
+
+.crossover {
+    display: flex;
+    width: 100%;
+    position: relative;
+    align-items: flex-start;
+    .crossover__image {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+
+}
+
+.end {
+    display: flex;
+    width: 100%;
+    border: 4px solid red;
+    border-radius: 25% 0% 44% 0% / 30% 23% 0% 10%;
+    border-right: none;
+    border-bottom: none;
+}
+
+.emoji-character {
+    position: absolute;
+    top: -3.5rem;
+    img {
+        width: 4rem;
+        aspect-ratio: 1/1;
+    }
+}
+
+/*.emoji-character.run{
+    animation: emoji-run 5s linear;
+}*/
+
+.bridge {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    img {
+        width: 100%;
+    }
+}
+
+/*@keyframes emoji-run {
+    0%{transform: rotate(0);
+        transform: translateX(0);};
+    100%{transform: rotate(720deg);
+        transform: translateX(92vw);};
+}*/
+
+.target-area{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    width: 100%;
+    background-color: transparent;
+    z-index: -1;
 }
