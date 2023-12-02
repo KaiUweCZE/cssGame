@@ -1,13 +1,12 @@
 import React from "react";
-import CssForm from "./components/CssForm";
+import Mission from "./components/Mission";
 
 
 const App = () => {
 
     return(
         <>
-            <h2>Welcome</h2>
-            <CssForm />
+            <Mission />
         </>
     )
 }
