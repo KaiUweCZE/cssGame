@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
-import wave from '../styles/images/wave.png'
+import wave from '../styles/images/ocean.svg'
 import Bridge from './Bridge'
 import CheckPoint from './CheckPoint'
+import River from './River'
 
 
 
@@ -35,7 +36,7 @@ const CrossRoad = () => {
         <div className='crossover'>
             <CheckPoint ref={checkpointRef}/>
             <Bridge ref={bridgeRef}/>
-            <img className='crossover__image' src={wave} alt="" srcset="" onClick={() => checkBridgePosition()}/>
+            <River />
         </div>
     )
 }
