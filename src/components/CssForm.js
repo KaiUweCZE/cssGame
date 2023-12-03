@@ -10,7 +10,7 @@ import { EmojiContext, StyleContext } from "../contexts/FormContext";
 
 const CssForm = () => {
     const {property, setProperty, setPropertyValue} = useContext(StyleContext);
-    const {position, setPosition, setSpecialClass} = useContext(EmojiContext)
+    const {setPosition, setSpecialClass} = useContext(EmojiContext)
     const [error, setError] = useState(false);
     const [errotMessage, setErrorMessage] = useState("")
     const [icon, setIcon] = useState(playIcon)

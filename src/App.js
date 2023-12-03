@@ -1,12 +1,12 @@
 import React from "react";
-import Mission from "./components/Mission";
+import Background from "./components/Background";
 
 
 const App = () => {
 
     return(
         <>
-            <Mission />
+            <Background />
         </>
     )
 }
