@@ -1,4 +1,4 @@
-import React, {createContext, useState} from "react";
+import React, {createContext, useState, useRef, useEffect} from "react";
 
 
 export const StyleContext = createContext({
@@ -50,5 +50,57 @@ export const EmojiProvider = ({children}) => {
         <EmojiContext.Provider value={contextValue}>
             {children}
         </EmojiContext.Provider>
+    )
+}
+
+
+export const ResultContext = createContext({
+    isCorrect: "",
+    setIsCorrect: () => {},
+    checkpointRef: () => {},
+    bridgeRef: () => {},
+    checkBridgePosition: () => {}
+})
+
+export const ResultProvider = ({children}) => {
+    const [isCorrect, setIsCorrect] = useState(false)
+    const checkpointRef = useRef(null)
+    const bridgeRef = useRef(null)
+
+    const checkBridgePosition = () => {
+        const checkpointPosition = checkpointRef.current.getBoundingClientRect();
+        const bridgePosition = bridgeRef.current.getBoundingClientRect();
+
+        const tolerance = 5;
+        const isCorrectPosition = (
+            Math.abs(bridgePosition.left - checkpointPosition.left) < tolerance &&
+            Math.abs(bridgePosition.right - checkpointPosition.right) < tolerance &&
+            Math.abs(bridgePosition.top - checkpointPosition.top) < tolerance
+            //bridgePosition.bottom == checkpointPosition.bottom
+        );
+
+        setIsCorrect(isCorrectPosition)
+    }
+
+    useEffect(() => {
+        if (isCorrect) {
+            console.log("Congrats");
+        } else {
+            console.log("Total error");
+        }
+    }, [isCorrect])
+
+    const contextValue = {
+        isCorrect,
+        setIsCorrect,
+        checkpointRef,
+        bridgeRef,
+        checkBridgePosition
+    }
+
+    return(
+        <ResultContext.Provider value={contextValue}>
+            {children}
+        </ResultContext.Provider>
     )
 }

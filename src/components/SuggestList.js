@@ -32,7 +32,7 @@ const SuggestList = (props) => {
 
     return(
         visible ?
-            <ul className="box-colors">
+            <ul className="box-properties">
             {
                 suggestions.map((property, index) => {
 
