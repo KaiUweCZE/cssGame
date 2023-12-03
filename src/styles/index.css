@@ -8,7 +8,7 @@
 
 .container-background {
   position: absolute;
-  width: 98vw;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -129,11 +129,12 @@ button img:hover {
 
 .start {
   display: flex;
+  position: relative;
   width: 100%;
-  border: 4px solid black;
-  border-radius: 0% 23% 44% 0%/30% 23% 0% 10%;
   border-left: none;
   border-bottom: none;
+  background-size: contain;
+  background-repeat: repeat;
 }
 
 .crossover {
@@ -150,11 +151,22 @@ button img:hover {
 
 .end {
   display: flex;
+  position: relative;
   width: 100%;
-  border: 4px solid red;
-  border-radius: 25% 0% 44% 0%/30% 23% 0% 10%;
   border-right: none;
   border-bottom: none;
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.lawn {
+  width: 100%;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: repeat-x;
+  position: absolute;
+  top: -2rem;
+  border-radius: 5rem 5rem 0 0;
 }
 
 .emoji-character {
@@ -219,15 +231,15 @@ button img:hover {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 200%;
-  height: 200%;
+  width: 150%;
+  height: 300%;
+  max-height: 800px;
   background: black;
   transform: translate(-50%, -75%);
 }
 
 .wave:before {
   border-radius: 45%;
-  width: 180%;
   background: rgb(255, 255, 255);
   animation: animate 7s linear infinite;
 }
