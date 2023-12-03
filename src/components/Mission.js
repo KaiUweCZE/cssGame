@@ -1,18 +1,20 @@
 import React from "react";
 import CssForm from "./CssForm";
 import PlayGround from "./PlayGround";
-import { EmojiProvider, StyleProvider } from "../contexts/FormContext";
+import { EmojiProvider, ResultProvider, StyleProvider } from "../contexts/FormContext";
 
 const Mission = () => {
 
     return(
         <StyleProvider>
-            <EmojiProvider>
-            <div className="container-mission">
-                <CssForm/>
-                <PlayGround/>
-            </div>
-            </EmojiProvider>
+        <EmojiProvider>
+        <ResultProvider>
+        <div className="container-mission">
+            <CssForm/>
+            <PlayGround/>
+        </div>
+        </ResultProvider>
+        </EmojiProvider>
         </StyleProvider>
     )
 }
