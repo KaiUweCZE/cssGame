@@ -1,5 +1,6 @@
 import React from "react";
 import Mission from "./Mission";
+import "../styles/gameStyles.css"
 
 
 const Background = () => {
