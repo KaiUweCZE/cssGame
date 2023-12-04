@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Bridge from './Bridge'
 import CheckPoint from './CheckPoint'
 import River from './River'

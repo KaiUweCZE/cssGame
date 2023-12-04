@@ -11,7 +11,7 @@ import { EmojiContext, StyleContext, ResultContext } from "../contexts/FormConte
 
 const CssForm = () => {
     const { property, setProperty, setPropertyValue } = useContext(StyleContext);
-    const { setPosition, setSpecialClass } = useContext(EmojiContext)
+    const { setSpecialClass } = useContext(EmojiContext)
     const [error, setError] = useState(false);
     const [errotMessage, setErrorMessage] = useState("")
     const [icon, setIcon] = useState(playIcon)
@@ -23,6 +23,7 @@ const CssForm = () => {
     useEffect(() => {
         if(hasChecked){
             setResultText(isCorrect ? "Congrats" : "Oops")
+            setSpecialClass(isCorrect ? "run" : "drop")
             setTimeout(() => setResultText(""), 2000)
         }    
     },[isCorrect, hasChecked])
