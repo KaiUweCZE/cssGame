@@ -6,5 +6,23 @@
         margin: 0;
         box-sizing: border-box;
         color: $primary-color;
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+}
+
+@mixin medium-screen{
+    @media (max-width: 65rem){
+        @content;
+    }
+}
+
+@mixin small-screen{
+    @media (max-width: 40rem) {
+        @content;
     }
 }
