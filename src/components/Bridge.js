@@ -1,12 +1,17 @@
 import React, { forwardRef, useContext } from "react";
 import plankImg from "../styles/images/plank.webp";
-import { StyleContext } from "../contexts/FormContext";
+import { LevelContext, StyleContext } from "../contexts/FormContext";
 
-
+// game component that users will set up
 const Bridge = forwardRef((props,ref) => {
+    const{style} = useContext(LevelContext)
     const {property, propertyValue} = useContext(StyleContext)
 
+
     const specificStyle = {
+        // specific style from levelData
+        ...style,
+        // user's style
         [property]: propertyValue
     }
 

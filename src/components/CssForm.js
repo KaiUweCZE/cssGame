@@ -16,6 +16,7 @@ const CssForm = () => {
     const [errotMessage, setErrorMessage] = useState("")
     const [icon, setIcon] = useState(playIcon)
     const [value, setValue] = useState("")
+    const [value2, setValue2] = useState("")
     const { isCorrect, checkBridgePosition } = useContext(ResultContext)
     const [resultText, setResultText] = useState("")
     const [hasChecked, setHasChecked] = useState(false)
@@ -43,7 +44,7 @@ const CssForm = () => {
 
     const checkResult = (e) => {
         e.preventDefault();
-        checkTypo(property)
+        checkTypo(value2)
         setHasChecked(true)
         if (!error) {
             setPropertyValue(value)
@@ -55,12 +56,12 @@ const CssForm = () => {
             <span className="element-class">.bridge</span>
             <img className="left-bracket" src={leftBracket} alt="" />
             <form className="element-class__bridge" action="">
-                <input type="text" value={property} name="" id="" onChange={(e) => setProperty(e.target.value)} />
+                <input type="text" value={value2} name="" id="" onChange={(e) => setValue2(e.target.value)} />
                 <input type="text" name="" id="" onChange={(e) => setValue(e.target.value)} />
                 <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)} onClick={(e) => checkResult(e)}><img src={icon} alt="" /></button>
             </form>
             <img className="right-bracket" src={rightBracket} alt="" />
-            <SuggestList value={property} func={setProperty} />
+            <SuggestList value={value2} func={setValue2} />
             {
                 error ? <ErrorMessage text={errotMessage} /> : ""
             }
