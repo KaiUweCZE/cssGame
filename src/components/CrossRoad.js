@@ -4,9 +4,9 @@ import CheckPoint from './CheckPoint'
 import River from './River'
 import {ResultContext} from '../contexts/FormContext'
 
-
-
+// middle part of playground component
 const CrossRoad = () => {
+    // information about bridge & checkpoint position to result
     const{bridgeRef, checkpointRef} = useContext(ResultContext)
 
     return(
