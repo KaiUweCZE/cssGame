@@ -13,9 +13,7 @@ const MasterCharacter = () => {
     }
 
     return (
-        <div id="b2d" className={`emoji-character ${specialClass}`} style={emojiPosition}>
-            <img src={masterImg} alt=""/>
-        </div>
+        <img src={masterImg} alt="" className={`emoji-character ${specialClass}`} style={emojiPosition}/>
     )
 }
 
