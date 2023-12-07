@@ -1,10 +1,13 @@
-/* Color Theme Swatches in Hex */
 * {
   font-family: "Open Sans", sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   color: rgb(30, 30, 30);
+}
+* body {
+  width: 100vw;
+  overflow-x: hidden;
 }
 * ul {
   list-style: none;
@@ -18,7 +21,6 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  justify-content: center;
 }
 
 .container-mission {
@@ -83,7 +85,7 @@
 
 .error-message {
   display: flex;
-  background-color: hsl(356, 58%, 44%);
+  background-color: #b02e37;
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.25rem;
@@ -191,15 +193,10 @@ button img:hover {
 
 .emoji-character {
   display: flex;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 4rem;
   position: absolute;
   top: -3.5rem;
   transform-origin: center;
-}
-.emoji-character img {
-  width: 4rem;
-  height: 4rem;
 }
 
 .bridge {

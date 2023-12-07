@@ -1,12 +1,31 @@
 //variables
 $primary-color: rgb(30, 30, 30);
 $secondary-color: white;
-$warning: hsl(356, 58%, 44%);
-$warning2: #ff3131;
+$accent-color: #50A0BF;  
+$warning-color: #b02e37;
+$warning-alt-color: #ff3131;
 
-/* Color Theme Swatches in Hex */
+// background themes
 $background-primary: #50A0BF;
 $background-secondary: #79BED9;
-$background-marginal-primary: #F2B680;
-$background-marginal-secondary: #F2C6AC;
-$background-marginal-last: #F2A2A2;
+$background-accent: #F2B680;
+$background-light: #F2C6AC;
+$background-alert: #F2A2A2;
+
+
+// fonts settings
+$primary-font: 'Open Sans', sans-serif;
+
+//margins and paddings
+$default-margin: .5rem;
+$default-padding: .5rem;
+
+//responzive breakpoints
+$breakpoint-sm: 40rem; // ? 36rem ??
+$breakpoint-md: 60rem; // 48rem ??
+$breakpoint-lg: 992px; // 62rem?
+$breakpoint-xl: 75rem; // or more? 
+
+// shadows and border
+$default-radius: .5rem;
+$default-shadow: 0 0 8px rgba(0,0,0, 1);
