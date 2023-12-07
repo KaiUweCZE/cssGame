@@ -5,7 +5,6 @@ import HamburgerMenu from "./HamburgerMenu";
 const Navbar = () => {
     const [isActive, setIsActive] = useState(false)
 
-
     const specialClass = isActive ? "active" : ""
 
     return(

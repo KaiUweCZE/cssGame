@@ -9,20 +9,32 @@ import SuggestList from "./SuggestList";
 import ResultMessage from "./ResultMessage";
 import { EmojiContext, StyleContext, ResultContext } from "../contexts/FormContext";
 
+// key component for posting 
 const CssForm = () => {
+    // set values for .bridge
     const { property, setProperty, setPropertyValue } = useContext(StyleContext);
+    // set class for emoji character
     const { setSpecialClass } = useContext(EmojiContext)
+    // check if error occurs (typo error)
     const [error, setError] = useState(false);
+    // error message for typo error
     const [errotMessage, setErrorMessage] = useState("")
+    // form button image
     const [icon, setIcon] = useState(playIcon)
-    const [value, setValue] = useState("")
-    const [value2, setValue2] = useState("")
+    // text of css value from form
+    const [cssValue, setCssValue] = useState("")
+    // text of css property from form
+    const [cssProperty, setCssProperty] = useState("")
+    // values from Result Context
     const { isCorrect, checkBridgePosition } = useContext(ResultContext)
+    // Message text after post form
     const [resultText, setResultText] = useState("")
+    // check if the form has already been sent
     const [hasChecked, setHasChecked] = useState(false)
 
     useEffect(() => {
         if(hasChecked){
+            // a result message will be displayed for 2 secs
             setResultText(isCorrect ? "Congrats" : "Oops")
             setSpecialClass(isCorrect ? "run" : "drop")
             setTimeout(() => setResultText(""), 2000)
@@ -30,24 +42,33 @@ const CssForm = () => {
     },[isCorrect, hasChecked])
 
     const checkTypo = (input) => {
+        // is property in the list?
         if (list.includes(input)) {
+            // set css property
             setProperty(input);
+            // if the error form a previous reply was true set it to false
             setError(false)
+            // minimum delay for checkBridge function
             setTimeout(checkBridgePosition, 0);
+            // answer was checked
+            setHasChecked(true)
         } else {
+            // property is not in the list
             setProperty("")
+            // error occurs
             setError(true)
+            // text to error component
             setErrorMessage("Oh man, we do not know this property in thi universum!");
         }
     }
 
-
+    // check result
     const checkResult = (e) => {
         e.preventDefault();
-        checkTypo(value2)
-        setHasChecked(true)
+        // check css property
+        checkTypo(cssProperty)
         if (!error) {
-            setPropertyValue(value)
+            setPropertyValue(cssValue)
         }
     }
 
@@ -56,12 +77,12 @@ const CssForm = () => {
             <span className="element-class">.bridge</span>
             <img className="left-bracket" src={leftBracket} alt="" />
             <form className="element-class__bridge" action="">
-                <input type="text" value={value2} name="" id="" onChange={(e) => setValue2(e.target.value)} />
-                <input type="text" name="" id="" onChange={(e) => setValue(e.target.value)} />
+                <input type="text" value={cssProperty} name="" id="" onChange={(e) => setCssProperty(e.target.value)} />
+                <input type="text" name="" id="" onChange={(e) => setCssValue(e.target.value)} />
                 <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)} onClick={(e) => checkResult(e)}><img src={icon} alt="" /></button>
             </form>
             <img className="right-bracket" src={rightBracket} alt="" />
-            <SuggestList value={value2} func={setValue2} />
+            <SuggestList value={cssProperty} func={setCssProperty} />
             {
                 error ? <ErrorMessage text={errotMessage} /> : ""
             }

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-
+// hamburger menu for small screen
 const HamburgerMenu = (props) => {
     //const [isActive, setIsActive] = useState(false)
 
+    // set the opposite value of the props.state
     const clickedOnMenu = () => {
         props.setState(!props.state)
     }

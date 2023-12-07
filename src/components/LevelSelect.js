@@ -3,10 +3,10 @@ import { LevelContext } from "../contexts/FormContext";
 import { levelData } from "../data/LevelData";
 
 
+// component for selecting levels
 const LevelSelect = () => {
     const {setStyle} = useContext(LevelContext)
     const [result, setResult] = useState("")
-
 
     const setUpLevel = (level) =>{
         const currentLevel = levelData.find(e => e.name.toLocaleLowerCase() === level.toLocaleLowerCase())

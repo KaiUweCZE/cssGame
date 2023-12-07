@@ -3,12 +3,15 @@ import dirt from '../styles/images/edit/dirt.png'
 import lawn from '../styles/images/lawn.webp'
 
 
+// last part of playground component
 const EndPoint = () => {
 
     const specificStyle = {
+        // main texture of component
         'backgroundImage': `url(${dirt})`
     }
     const lawnStyle = {
+        // texture on the top of the component
         'backgroundImage': `url(${lawn})`
     }
 
