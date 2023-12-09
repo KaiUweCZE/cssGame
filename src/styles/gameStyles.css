@@ -232,7 +232,7 @@ button img:hover {
 }
 @keyframes dive {
   50% {
-    transform: translateX(30vw) rotate(2turn);
+    transform: translateX(20vw) rotate(2turn);
   }
   100% {
     transform: translateX(0) rotate(0turn);
