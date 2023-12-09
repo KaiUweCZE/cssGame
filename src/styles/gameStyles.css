@@ -164,6 +164,7 @@ button img:hover {
   position: relative;
   align-items: flex-start;
   z-index: 1;
+  overflow: hidden;
 }
 .crossover .crossover__image {
   position: absolute;

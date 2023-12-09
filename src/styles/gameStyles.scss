@@ -166,6 +166,7 @@ button {
     position: relative;
     align-items: flex-start;
     z-index: 1;
+    overflow: hidden;
     .crossover__image {
         position: absolute;
         width: 100%;
