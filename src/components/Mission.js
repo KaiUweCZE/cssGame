@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import CssForm from "./CssForm";
 import PlayGround from "./PlayGround";
-import { EmojiProvider, LevelProvider, ResultProvider, StyleProvider } from "../contexts/FormContext";
+import { BridgeStyleProvider, CrossoverStyleProvider, EmojiProvider, LevelProvider, ResultProvider } from "../contexts/FormContext";
 import LevelSelect from "./LevelSelect";
+import EmptyBox from "./EmptyBox";
 
 const Mission = () => {
-
+    const [nextClass, setNextClass] = useState()
     return(
-        <StyleProvider>
+        <CrossoverStyleProvider >
+        <BridgeStyleProvider>
         <EmojiProvider>
         <ResultProvider>
         <LevelProvider>
         <div className="container-mission">
-            <CssForm/>
+            <div className="box__classes">
+                <CssForm name="bridge"/>
+                {
+                    nextClass ? <CssForm name="crossover"/> : <EmptyBox state={nextClass} func={setNextClass}/>
+                }
+            </div>
             <PlayGround/>
             <LevelSelect />
         </div>
         </LevelProvider>
         </ResultProvider>
         </EmojiProvider>
-        </StyleProvider>
+        </BridgeStyleProvider>
+        </CrossoverStyleProvider>
     )
 }
 

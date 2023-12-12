@@ -41,9 +41,13 @@
 .container-form {
     display: flex;
     flex-direction: column;
+    width: fit-content;
     position: relative;
+    .headline{
+        display: flex;
+        align-items: center;
+    }
     img {
-        position: absolute;
         height: 1.5rem;
         width: 1.5rem;
     }
@@ -53,11 +57,10 @@
 .element-class__bridge {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 5rem;
+    width: fit-content;
     column-gap: 1rem;
     row-gap: 1rem;
     padding-inline: 2rem;
-
     input[type="text"] {
         font-weight: bold;
         max-width: 5rem;
@@ -369,6 +372,32 @@ animation: animate 15s linear infinite;
         transition: .3s;
         &:hover{
             background-color: rgba(white, 0.15);
+        }
+    }
+}
+
+.box__classes{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+    gap: 3rem;
+    width: fit-content;
+    margin: 1rem;
+}
+
+.empty-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255, 0.25);
+    width: 100%;
+    img{
+        width: 2rem;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        transition: .5s;
+        &:hover{
+            transform: scale(1.2);
         }
     }
 }

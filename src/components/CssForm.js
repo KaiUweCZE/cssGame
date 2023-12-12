@@ -7,12 +7,13 @@ import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
 import ResultMessage from "./ResultMessage";
-import { EmojiContext, StyleContext, ResultContext } from "../contexts/FormContext";
+import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext } from "../contexts/FormContext";
 
 // key component for posting 
-const CssForm = () => {
+const CssForm = (props) => {
+    const context = props.name === "bridge" 
     // set values for .bridge
-    const { property, setProperty, setPropertyValue } = useContext(StyleContext);
+    const { property, setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
     // set class for emoji character
     const { setSpecialClass } = useContext(EmojiContext)
     // check if error occurs (typo error)
@@ -74,8 +75,10 @@ const CssForm = () => {
 
     return (
         <div className="container-form">
-            <span className="element-class">.bridge</span>
-            <img className="left-bracket" src={leftBracket} alt="" />
+            <div className="headline">
+                <span className="element-class">.{props.name}</span>
+                <img className="left-bracket" src={leftBracket} alt="" />
+            </div>
             <form className="element-class__bridge" action="">
                 <input type="text" value={cssProperty} name="" id="" onChange={(e) => setCssProperty(e.target.value)} />
                 <input type="text" name="" id="" onChange={(e) => setCssValue(e.target.value)} />
