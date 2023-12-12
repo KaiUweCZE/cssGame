@@ -66,6 +66,13 @@
   height: 1.5rem;
   width: 1.5rem;
 }
+.container-form .class-button {
+  cursor: pointer;
+  transition: 0.5s;
+}
+.container-form .class-button:hover {
+  transform: scale(1.2);
+}
 
 .element-class__bridge {
   display: grid;
