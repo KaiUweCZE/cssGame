@@ -2,14 +2,14 @@ import React, {createContext, useState, useRef, useEffect} from "react";
 
 
 // to setting the result style of a given level
-export const StyleContext = createContext({
+export const BridgeStyleContext = createContext({
     property: "",
     value: "",
     setProperty: () => {},
     setPropertyValue: () => {}
 });
 
-export const StyleProvider = ({children}) => {
+export const BridgeStyleProvider = ({children}) => {
     const [property, setProperty] = useState("")
     const [propertyValue, setPropertyValue] = useState("")
 
@@ -21,11 +21,37 @@ export const StyleProvider = ({children}) => {
     };
 
     return(
-        <StyleContext.Provider value={contextValue}>
+        <BridgeStyleContext.Provider value={contextValue}>
             {children}
-        </StyleContext.Provider>
+        </BridgeStyleContext.Provider>
     )
 }
+
+export const CrossoverStyleContext = createContext({
+    property: "",
+    value: "",
+    setProperty: () => {},
+    setPropertyValue: () => {}
+});
+
+export const CrossoverStyleProvider = ({children}) => {
+    const [property, setProperty] = useState("")
+    const [propertyValue, setPropertyValue] = useState("")
+
+    const contextValue = {
+        property,
+        propertyValue,
+        setProperty,
+        setPropertyValue
+    };
+
+    return(
+        <CrossoverStyleContext.Provider value={contextValue}>
+            {children}
+        </CrossoverStyleContext.Provider>
+    )
+}
+
 
 // for emoji character manipulation
 export const EmojiContext = createContext({
