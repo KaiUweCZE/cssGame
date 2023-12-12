@@ -3,6 +3,7 @@ import leftBracket from '../styles/images/left-bracket.svg'
 import rightBracket from '../styles/images/right-bracket.svg'
 import playIcon from '../styles/images/play2a.webp'
 import playIconaAfter from '../styles/images/play2b.webp'
+import plusIcon from '../styles/images/plus.svg'
 import minusIcon from '../styles/images/minus.svg'
 import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
@@ -33,6 +34,9 @@ const CssForm = (props) => {
     const [resultText, setResultText] = useState("")
     // check if the form has already been sent
     const [hasChecked, setHasChecked] = useState(false)
+    // manage to amount of inputs
+    const [inputsAmount, setInputsAmount] = useState(0)
+    const [stopAdd, setStopAdd] = useState(false)
 
     useEffect(() => {
         if(hasChecked){
@@ -78,6 +82,18 @@ const CssForm = (props) => {
         props.func(!props.state)
     }
 
+    const handleIncrement = () => {
+        setInputsAmount(inputsAmount + 1)
+        inputsAmount === 2 ? setStopAdd(true) : ""
+        console.log(inputsAmount);
+    }
+
+    const hangleDecrement = () => {
+        setInputsAmount(inputsAmount - 1)
+        setStopAdd(false)
+        console.log(inputsAmount);
+    }
+
     return (
         <div className="container-form">
             <div className="headline">
@@ -85,9 +101,26 @@ const CssForm = (props) => {
                 <img className="left-bracket" src={leftBracket} alt="" />
             </div>
             <form className="element-class__bridge" action="">
-                <input type="text" value={cssProperty} name="" id="" onChange={(e) => setCssProperty(e.target.value)} />
-                <input type="text" name="" id="" onChange={(e) => setCssValue(e.target.value)} />
-                <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)} onClick={(e) => checkResult(e)}><img src={icon} alt="" /></button>
+                <div className="form__row">
+                    <input type="text" value={cssProperty} name="" id="" onChange={(e) => setCssProperty(e.target.value)} />
+                    <input type="text" name="" id="" onChange={(e) => setCssValue(e.target.value)} />
+                </div>
+                {
+                Array.from({ length: inputsAmount }, () => (
+                <div className="form__row">
+                    <input type="text" />
+                    <input type="text" />
+                    <img onClick={hangleDecrement} src={minusIcon} alt="" />
+                </div>))
+                }
+                <div className="box-buttons">
+                    {
+                        stopAdd ? ""
+                        :
+                        <img src={plusIcon} alt="" onClick={handleIncrement}/>
+                    }
+                    <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)} onClick={(e) => checkResult(e)}><img src={icon} alt="" /></button>
+                </div>
             </form>
             <img className="right-bracket" src={rightBracket} alt="" />
             <SuggestList value={cssProperty} func={setCssProperty} />
