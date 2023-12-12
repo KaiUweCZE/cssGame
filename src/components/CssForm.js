@@ -3,6 +3,7 @@ import leftBracket from '../styles/images/left-bracket.svg'
 import rightBracket from '../styles/images/right-bracket.svg'
 import playIcon from '../styles/images/play2a.webp'
 import playIconaAfter from '../styles/images/play2b.webp'
+import minusIcon from '../styles/images/minus.svg'
 import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
@@ -11,7 +12,7 @@ import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext 
 
 // key component for posting 
 const CssForm = (props) => {
-    const context = props.name === "bridge" 
+    const context = props.name === "bridge"
     // set values for .bridge
     const { property, setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
     // set class for emoji character
@@ -73,6 +74,10 @@ const CssForm = (props) => {
         }
     }
 
+    const handleClick = () => {
+        props.func(!props.state)
+    }
+
     return (
         <div className="container-form">
             <div className="headline">
@@ -90,6 +95,9 @@ const CssForm = (props) => {
                 error ? <ErrorMessage text={errotMessage} /> : ""
             }
             { resultText === "" ? "" : <ResultMessage text={resultText} />}
+        {
+            props.name === "crossover" ? <img className="class-button" onClick={handleClick} src={minusIcon} alt="" /> : ""
+        }
         </div>
     )
 }
