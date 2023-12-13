@@ -5,6 +5,7 @@ import playIcon from '../styles/images/play2a.webp'
 import playIconaAfter from '../styles/images/play2b.webp'
 import plusIcon from '../styles/images/plus.svg'
 import minusIcon from '../styles/images/minus.svg'
+import closeIcon from '../styles/images/close.svg'
 import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
@@ -15,7 +16,7 @@ import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext 
 const CssForm = (props) => {
     const context = props.name === "bridge"
     // set values for .bridge
-    const { property, setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
+    const { setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
     // set class for emoji character
     const { setSpecialClass } = useContext(EmojiContext)
     // check if error occurs (typo error)
@@ -64,9 +65,11 @@ const CssForm = (props) => {
             // error occurs
             setError(true)
             // text to error component
-            setErrorMessage("Oh man, we do not know this property in thi universum!");
+            setErrorMessage("Oh man, this is not a correct css property");
+            setTimeout(() => setError(false), 2000)
         }
     }
+
 
     // check result
     const checkResult = (e) => {
@@ -95,6 +98,7 @@ const CssForm = (props) => {
     }
 
     return (
+        <>
         <div className="container-form">
             <div className="headline">
                 <span className="element-class">.{props.name}</span>
@@ -110,14 +114,14 @@ const CssForm = (props) => {
                 <div className="form__row">
                     <input type="text" />
                     <input type="text" />
-                    <img onClick={hangleDecrement} src={minusIcon} alt="" />
+                    <img className="icon" onClick={hangleDecrement} src={minusIcon} alt="" />
                 </div>))
                 }
                 <div className="box-buttons">
                     {
                         stopAdd ? ""
                         :
-                        <img src={plusIcon} alt="" onClick={handleIncrement}/>
+                        <img className="icon" src={plusIcon} alt="" onClick={handleIncrement}/>
                     }
                     <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)} onClick={(e) => checkResult(e)}><img src={icon} alt="" /></button>
                 </div>
@@ -127,11 +131,13 @@ const CssForm = (props) => {
             {
                 error ? <ErrorMessage text={errotMessage} /> : ""
             }
-            { resultText === "" ? "" : <ResultMessage text={resultText} />}
+           
         {
-            props.name === "crossover" ? <img className="class-button" onClick={handleClick} src={minusIcon} alt="" /> : ""
+            props.name === "crossover" ? <img className="class-button" onClick={handleClick} src={closeIcon} alt="" /> : ""
         }
         </div>
+        { resultText === "" ? "" : <ResultMessage text={resultText} />}
+        </>
     )
 }
 

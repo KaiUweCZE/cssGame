@@ -151,7 +151,7 @@ button {
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: -70%;
+    bottom: -8rem;
     list-style: none;
     background-color: rgba(0, 0, 0, 0.75);
     width: fit-content;
@@ -361,11 +361,15 @@ animation: animate 15s linear infinite;
 
 // Text that will be display after reply
 .message-result{
-    position: relative;
+    display: flex;
+    position: absolute;
+    left: 100%;
+    bottom: -100%;
     font-size: 3rem;
     font-weight: bold;
-    top: 50%;
-    margin: 0 auto;
+    justify-self: center;
+    align-self: center;
+    //margin: 0 auto;
     text-shadow: 0 0 3px black;
 }
 // a design of the text according to replied
