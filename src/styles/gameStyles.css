@@ -67,6 +67,8 @@
   width: 1.5rem;
 }
 .container-form .class-button {
+  position: absolute;
+  left: 90%;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -90,6 +92,13 @@
 }
 .form__row img {
   cursor: pointer;
+}
+.form__row .icon {
+  left: 90%;
+}
+
+.icon {
+  position: absolute;
 }
 
 .element-class__bridge {
@@ -116,7 +125,9 @@
 
 .error-message {
   display: flex;
-  background-color: #b02e37;
+  position: absolute;
+  bottom: -60%;
+  background-color: rgba(0, 0, 0, 0.65);
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.25rem;
@@ -148,6 +159,8 @@ button img:hover {
 .box-properties {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  bottom: -70%;
   list-style: none;
   background-color: rgba(0, 0, 0, 0.75);
   width: -moz-fit-content;

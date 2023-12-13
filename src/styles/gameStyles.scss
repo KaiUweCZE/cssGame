@@ -52,6 +52,9 @@
         width: 1.5rem;
     }
     .class-button{
+        position: absolute;
+        left: 90%;
+        //bottom: 90%;
         cursor: pointer;
         transition: .5s;
         &:hover{
@@ -76,6 +79,13 @@
     img{
         cursor: pointer;
     }
+    .icon{
+        left: 90%;
+    }
+}
+
+.icon{
+    position: absolute;
 }
 
 // css setting form for bridge class
@@ -102,7 +112,9 @@
 // error messages setting
 .error-message {
     display: flex;
-    background-color: $warning-color;
+    position: absolute;
+    bottom: -60%;
+    background-color: rgba(0, 0, 0, 0.65);
     width: fit-content;
     padding: .25rem;
     margin: .5rem;
@@ -138,6 +150,8 @@ button {
 .box-properties {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    bottom: -70%;
     list-style: none;
     background-color: rgba(0, 0, 0, 0.75);
     width: fit-content;

@@ -2,6 +2,25 @@
 @import './addons/variables', './addons/mixins';
 @include main-setting;
 
+// homepage styles
+.container-home{
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    h2{
+        font-size: 2rem;
+    }
+    section{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+    p{
+        font-size: 1.25rem;
+        //text-wrap: balance;
+    }
+}
+
 // main navigation and menu
 .container-menu{
     display: flex;
