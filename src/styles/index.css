@@ -16,6 +16,23 @@
   text-decoration: none;
 }
 
+.container-home {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+.container-home h2 {
+  font-size: 2rem;
+}
+.container-home section {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.container-home p {
+  font-size: 1.25rem;
+}
+
 .container-menu {
   display: flex;
   position: relative;
