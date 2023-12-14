@@ -114,7 +114,7 @@ const CssForm = (props) => {
                 <div className="form__row">
                     <input type="text" value={cssProperty} name="" id="" 
                     onFocus={() => setIsFocused(true)}
-                    onBlur={() => setIsFocused(false)}
+                    onBlur={() => setTimeout(() => setIsFocused(false), 100)}
                     onChange={(e) => setCssProperty(e.target.value)}
                      />
                     <input type="text" name="" id="" onChange={(e) => setCssValue(e.target.value)} />
