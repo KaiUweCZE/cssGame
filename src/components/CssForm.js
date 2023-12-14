@@ -36,8 +36,10 @@ const CssForm = (props) => {
     // check if the form has already been sent
     const [hasChecked, setHasChecked] = useState(false)
     // manage to amount of inputs
-    const [inputsAmount, setInputsAmount] = useState(0)
+    const [inputsAmount, setInputsAmount] = useState([])
     const [stopAdd, setStopAdd] = useState(false)
+    // focus state
+    const [isFocused, setIsFocused] = useState(false)
 
     useEffect(() => {
         if(hasChecked){
@@ -86,13 +88,17 @@ const CssForm = (props) => {
     }
 
     const handleIncrement = () => {
-        setInputsAmount(inputsAmount + 1)
-        inputsAmount === 2 ? setStopAdd(true) : ""
+        const inputId = Date.now();
+        setInputsAmount(prev => [...prev, inputId])
+        inputsAmount.length === 2 ? setStopAdd(true) : ""
         console.log(inputsAmount);
     }
 
-    const hangleDecrement = () => {
-        setInputsAmount(inputsAmount - 1)
+    const hangleDecrement = (id) => {
+        console.log(id);
+        setInputsAmount(
+            prev =>
+            prev.filter(i => i !== id))
         setStopAdd(false)
         console.log(inputsAmount);
     }
@@ -106,15 +112,19 @@ const CssForm = (props) => {
             </div>
             <form className="element-class__bridge" action="">
                 <div className="form__row">
-                    <input type="text" value={cssProperty} name="" id="" onChange={(e) => setCssProperty(e.target.value)} />
+                    <input type="text" value={cssProperty} name="" id="" 
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
+                    onChange={(e) => setCssProperty(e.target.value)}
+                     />
                     <input type="text" name="" id="" onChange={(e) => setCssValue(e.target.value)} />
                 </div>
                 {
-                Array.from({ length: inputsAmount }, () => (
-                <div className="form__row">
+                inputsAmount.map( id => (
+                <div className="form__row" key={id}>
                     <input type="text" />
                     <input type="text" />
-                    <img className="icon" onClick={hangleDecrement} src={minusIcon} alt="" />
+                    <img className="icon" onClick={() => hangleDecrement(id)} src={minusIcon} alt="" />
                 </div>))
                 }
                 <div className="box-buttons">
@@ -127,7 +137,12 @@ const CssForm = (props) => {
                 </div>
             </form>
             <img className="right-bracket" src={rightBracket} alt="" />
-            <SuggestList value={cssProperty} func={setCssProperty} />
+            {
+            isFocused ? 
+            <SuggestList value={cssProperty} func={setCssProperty}/>
+            :
+            ""
+            }
             {
                 error ? <ErrorMessage text={errotMessage} /> : ""
             }
