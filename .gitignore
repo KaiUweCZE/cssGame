@@ -129,4 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-src/pages/examples
+src/pages/Examples.js
+src/styles/examples.css

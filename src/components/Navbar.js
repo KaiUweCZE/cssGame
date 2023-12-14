@@ -13,8 +13,9 @@ const Navbar = () => {
                 <HamburgerMenu state={isActive} setState={setIsActive}/>
                 <ul className={`menu ${specialClass}`}>
                     <NavLink className="menu__item" to="/">Home</NavLink>
-                    <NavLink className="menu__item" to="about">About</NavLink>
-                    <NavLink className="menu__item" to="game">Game</NavLink>
+                    <NavLink className="menu__item" to="/about">About</NavLink>
+                    <NavLink className="menu__item" to="/game">Game</NavLink>
+                    <NavLink className="menu__item" to="/examples">Examples</NavLink> 
                 </ul>
             </nav>
         </header>
