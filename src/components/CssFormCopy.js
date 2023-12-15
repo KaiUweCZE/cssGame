@@ -10,13 +10,13 @@ import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
 import ResultMessage from "./ResultMessage";
-import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext } from "../contexts/FormContext";
+import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext } from "../contexts/FormContextCopy";
 
 // key component for posting 
 const CssForm = (props) => {
     const context = props.name === "bridge"
     // set values for .bridge
-    const { property, propertyValue, setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
+    //const { property, propertyValue, setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
     // set class for emoji character
     const { setSpecialClass } = useContext(EmojiContext)
     // check if error occurs (typo error)
@@ -26,9 +26,9 @@ const CssForm = (props) => {
     // form button image
     const [icon, setIcon] = useState(playIcon)
     // text of css value from form
-    const [cssValue, setCssValue] = useState("")
+    const [cssValues, setCssValues] = useState([""])
     // text of css property from form
-    const [cssProperty, setCssProperty] = useState("")
+    const [cssProperties, setCssProperties] = useState([""])
     // values from Result Context
     const { isCorrect, checkBridgePosition } = useContext(ResultContext)
     // Message text after post form
@@ -42,8 +42,7 @@ const CssForm = (props) => {
     const [isFocused, setIsFocused] = useState(false)
 
     ///
-    const [properties, setProperties] = useState([""]);
-    const [values, setValues] = useState([""]);
+    const {properties, values, handlePropertyChange, handleValueChange, handleAddInput, handleRemoveInput} = useContext(BridgeStyleContext)
 
     useEffect(() => {
         if(hasChecked){
@@ -54,7 +53,7 @@ const CssForm = (props) => {
         }    
     },[isCorrect, hasChecked])
 
-    const checkTypo = (input, index) => {
+    /*const checkTypo = (input, index) => {
         // is property in the list?
         if (list.includes(input)) {
             // set css property
@@ -68,95 +67,79 @@ const CssForm = (props) => {
             setHasChecked(true)
         } else {
             // property is not in the list
-            setProperty("")
             // error occurs
             setError(true)
             // text to error component
             setErrorMessage("Oh man, this is not a correct css property");
             setTimeout(() => setError(false), 2000)
         }
-    }
+    }*/
 
+    const checkTypo = (property) => {
+        return list.includes(property) || property === "" 
+    }
 
     // check result
-    const checkResult = (e, index) => {
-        e.preventDefault();
-        // check css property
-        checkTypo(cssProperty, index)
-        if (!error) {
-            handleValueChange(cssValue, index)
-            //setPropertyValue(cssValue)
-            console.log(property, propertyValue);
+    const checkResult = () => {
+        const propertiesValidator = cssProperties.every(checkTypo)
+        if (!propertiesValidator) {
+            console.error("Některé z vlastností nejsou korektní.");
+            // Zde byste mohli nastavit chybový stav nebo zobrazit chybovou zprávu uživateli
+        } else {
+            // Zde byste mohli provést další akce, např. odeslání dat na server
+            console.log("Všechny vlastnosti jsou korektní:", properties, values);
         }
     }
+
+    const handleAddInput2 = () => {
+        if (!stopAdd) {
+            setCssProperties([...properties, ""]);
+            setCssValues([...values, ""])
+        }else if(cssProperties.length === 3){
+            setStopAdd(true)
+        }
+    };
+
+    const handleRemoveInput2 = index => {
+        if (cssProperties.length === 1) {
+            console.log("další prvky odebrat");
+        } else{
+            const filteredProperties = properties.filter((_, i) => i !== index);
+            setCssProperties(filteredProperties);
+            const filteredValues = values.filter((_, i) => i !== index);
+            setCssValues(filteredValues);
+            setStopAdd(false)
+        }
+        
+    };
 
     const handleClick = () => {
         props.func(!props.state)
     }
 
-    const handleIncrement = () => {
-        const inputId = Date.now();
-        setInputsAmount(prev => [...prev, inputId])
-        setProperty(prev => [...prev, ""]);
-        setPropertyValue(prev=> [...prev, ""])
-        inputsAmount.length === 2 ? setStopAdd(true) : ""
-        console.log(inputsAmount);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        checkResult()
+        console.log(properties, values);
     }
 
-    const hangleDecrement = (id) => {
-        const index = inputsAmount.findIndex(item => item === id);
-        setInputsAmount(prev => prev.filter(item => item !== id));
-        setProperty(prev => prev.filter((_, i) => i !== index));
-        setPropertyValue(prev => prev.filter((_, i) => i !== index));
-        setStopAdd(false)
-    }
-
-    const handlePropertyChange = (id, value) => {
-        const index = inputsAmount.findIndex(item => item === id);
-        setProperty(prev => {
+    // Tato funkce nastaví hodnotu cssProperties na základě indexu
+    const setPropertyAtIndex = (index, value) => {
+        setCssProperties(prev => {
             const newProperties = [...prev];
             newProperties[index] = value;
             return newProperties;
         });
     };
 
-    const handleValueChange = (id, value) => {
-        const index = inputsAmount.findIndex(item => item === id);
-        setPropertyValue(prev => {
+    // Tato funkce nastaví hodnotu cssValues na základě indexu
+    const setValueAtIndex = (index, value) => {
+        setCssValues(prev => {
             const newValues = [...prev];
             newValues[index] = value;
             return newValues;
         });
     };
-    /////
-    const handlePropertyChange2 = (index, newProperty) => {
-        const updatedProperties = [...properties];
-        updatedProperties[index] = newProperty;
-        setProperties(updatedProperties);
-    };
-
-    const handleValueChange2 = (index, newValue) => {
-        const updatedValues = [...values];
-        updatedValues[index] = newValue;
-        setValues(updatedValues)
-    };
-
-    const handleAddInput = () => {
-        setProperties([...properties, ""]);
-        setValues([...values, ""]);
-    };
-
-    const handleRemoveInput = index => {
-        const filteredProperties = properties.filter((_, i) => i !== index);
-        setProperties(filteredProperties);
-        const filteredValues = values.filter((_, i) => i !== index);
-        setValues(filteredValues);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(properties, values);
-    }
 
     return (
         <>
@@ -166,38 +149,31 @@ const CssForm = (props) => {
                 <img className="left-bracket" src={leftBracket} alt="" />
             </div>
             <form className="element-class__bridge" onSubmit={handleSubmit}>
-                {properties.map((property, index) => (
+                {cssProperties.map((property, index) => (
                     <div className="form__row" key={index}>
                         <input
                             type="text"
                             value={property}
-                            onChange={(e) => handlePropertyChange2(index, e.target.value)}
+                            onChange={(e) => setPropertyAtIndex(index, e.target.value)}
                         />
                         <input
                             type="text"
-                            value={values[index] || ""}
-                            onChange={(e) => handleValueChange2(index, e.target.value)}
+                            value={cssValues[index] || ""}
+                            onChange={(e) => setValueAtIndex(index, e.target.value)}
                         />
-                        <img className="icon" onClick={() => handleRemoveInput(index)} src={minusIcon} alt="" />
+                        <img className="icon" onClick={() => {handleRemoveInput(index), handleRemoveInput2(index)}} src={minusIcon} alt="" />
                     </div>
                 ))}
-                <input type="submit" className="example-button" value="Odeslat"/>
                 <div className="box-buttons">
                     {
                         stopAdd ? ""
                         :
-                        <img className="icon" src={plusIcon} alt="" onClick={handleAddInput}/>
+                        <img className="icon" src={plusIcon} alt="" onClick={() => {handleAddInput(), handleAddInput2()}}/>
                     }
-                    <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)} onClick={(e) => checkResult(e)}><img src={icon} alt="" /></button>
+                    <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)}  type="submit"><img src={icon} /></button>
                 </div>
             </form>
-            <div className="grid">
-                {
-                    properties.map((property, index) => (
-                        <p key={index}>{property}: {values[index]}</p>
-                    ))
-                }
-            </div>   
+            <img className="right-bracket" src={rightBracket} alt="" />
         </div>
     
         </>
