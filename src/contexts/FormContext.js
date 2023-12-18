@@ -103,6 +103,8 @@ export const EmojiProvider = ({children}) => {
 export const ResultContext = createContext({
     isCorrect: "",
     setIsCorrect: () => {},
+    resultText: "",
+    setResultText: () => {},
     checkpointRef: () => {},
     bridgeRef: () => {},
     checkBridgePosition: () => {}
@@ -110,9 +112,10 @@ export const ResultContext = createContext({
 
 export const ResultProvider = ({children}) => {
     const [isCorrect, setIsCorrect] = useState(false)
+    const [resultText, setResultText] = useState("")
     const checkpointRef = useRef(null)
     const bridgeRef = useRef(null)
-    
+
     // the position of the bridhe is compared with the position of the auxilliary
     // element, which is set at the correct location
     const checkBridgePosition = () => {
@@ -134,8 +137,10 @@ export const ResultProvider = ({children}) => {
     // Auxiliary check
     useEffect(() => {
         if (isCorrect) {
+            //setResultText("Congrats")
             console.log("Congrats");
         } else {
+            //setResultText("Oops")
             console.log("Total error");
         }
     }, [isCorrect])
@@ -143,6 +148,8 @@ export const ResultProvider = ({children}) => {
     const contextValue = {
         isCorrect,
         setIsCorrect,
+        resultText,
+        setResultText,
         checkpointRef,
         bridgeRef,
         checkBridgePosition

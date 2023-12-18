@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ResultContext } from "../contexts/FormContext";
 
 
-const ResultMessage = (props) => {
-
+const ResultMessage = () => {
+    const{resultText} = useContext(ResultContext)
     return(
-        <h2 className={props.text === "Congrats" ? "message-result win" : "message-result lost"}>{props.text}</h2>
+        <h2 className={resultText === "Congrats" ? "message-result win" : "message-result lost"}>{resultText}</h2>
     )
 }
 

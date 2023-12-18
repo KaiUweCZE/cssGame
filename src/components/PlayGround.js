@@ -3,6 +3,7 @@ import StartPoint from "./StartPoint";
 import CrossRoad from "./CrossRoad";
 import EndPoint from "./EndPoint";
 import MasterCharacter from "./MasterCharacter";
+import ResultMessage from "./ResultMessage";
 
 
 const PlayGround = () => {
@@ -14,6 +15,7 @@ const PlayGround = () => {
             <CrossRoad />
             <EndPoint />
             <MasterCharacter />
+            <ResultMessage />
         </div>
     )
 }
