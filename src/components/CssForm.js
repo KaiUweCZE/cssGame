@@ -10,13 +10,13 @@ import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
 import ResultMessage from "./ResultMessage";
-import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext } from "../contexts/FormContextCopy";
+import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext } from "../contexts/FormContext";
 
 // key component for posting 
 const CssForm = (props) => {
     const context = props.name === "bridge"
     // set values for .bridge
-    const { setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
+    //const { property, propertyValue, setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
     // set class for emoji character
     const { setSpecialClass } = useContext(EmojiContext)
     // check if error occurs (typo error)
@@ -26,9 +26,9 @@ const CssForm = (props) => {
     // form button image
     const [icon, setIcon] = useState(playIcon)
     // text of css value from form
-    const [cssValue, setCssValue] = useState("")
+    const [cssValues, setCssValues] = useState([""])
     // text of css property from form
-    const [cssProperty, setCssProperty] = useState("")
+    const [cssProperties, setCssProperties] = useState([""])
     // values from Result Context
     const { isCorrect, checkBridgePosition } = useContext(ResultContext)
     // Message text after post form
@@ -36,10 +36,14 @@ const CssForm = (props) => {
     // check if the form has already been sent
     const [hasChecked, setHasChecked] = useState(false)
     // manage to amount of inputs
-    const [inputsAmount, setInputsAmount] = useState([])
     const [stopAdd, setStopAdd] = useState(false)
     // focus state
     const [isFocused, setIsFocused] = useState(false)
+    const [suggestValue, setSuggestValue] = useState("")
+    const [propertyIndex, setPropertyIndex] = useState(null)
+
+    ///
+    const {properties, values, setProperties, setValues, handleAddInput, handleRemoveInput} = useContext(BridgeStyleContext)
 
     useEffect(() => {
         if(hasChecked){
@@ -50,58 +54,75 @@ const CssForm = (props) => {
         }    
     },[isCorrect, hasChecked])
 
-    const checkTypo = (input) => {
-        // is property in the list?
-        if (list.includes(input)) {
-            // set css property
-            setProperty(input);
-            // if the error form a previous reply was true set it to false
-            setError(false)
-            // minimum delay for checkBridge function
-            setTimeout(checkBridgePosition, 0);
-            // answer was checked
-            setHasChecked(true)
-        } else {
-            // property is not in the list
-            setProperty("")
-            // error occurs
-            setError(true)
-            // text to error component
-            setErrorMessage("Oh man, this is not a correct css property");
-            setTimeout(() => setError(false), 2000)
-        }
+    const checkTypo = (property) => {
+        return list.includes(property) || property === "" 
     }
-
 
     // check result
-    const checkResult = (e) => {
-        e.preventDefault();
-        // check css property
-        checkTypo(cssProperty)
-        if (!error) {
-            setPropertyValue(cssValue)
-        }
+    const checkResult = () => {
+        const propertiesValidator = cssProperties.every(checkTypo);
+    if (!propertiesValidator) {
+        console.error("Některé z vlastností nejsou korektní.");
+        setError(true)
+        // text to error component
+        setErrorMessage("Oh man, this is not a correct css property");
+        setTimeout(() => setError(false), 2000)
+    } else {
+        setProperties(cssProperties)
+        setValues(cssValues)
+        setError(false)
+        setTimeout(checkBridgePosition, 0)
+        console.log("Všechny vlastnosti jsou korektní:", cssProperties, cssValues);
+        console.log("vlastnosti a hodnoty: ",properties, values);
+        //setTimeout(checkBridgePosition, 0);
+        setHasChecked(true)
     }
+    }
+
+    const handleAddInput2 = () => {
+        if (!stopAdd) {
+            setCssProperties(properties => [...properties, ""]);
+            setCssValues(values => [...values, ""])
+        }else if(cssProperties.length === 3){
+            setStopAdd(true)
+        }
+    };
+
+    const handleRemoveInput2 = index => {
+        if (cssProperties.length > 1) {
+            setCssProperties(prevProperties => prevProperties.filter((_, i) => i !== index));
+            setCssValues(prevValues => prevValues.filter((_, i) => i !== index));
+            setStopAdd(false);
+        }
+        
+    };
 
     const handleClick = () => {
         props.func(!props.state)
     }
 
-    const handleIncrement = () => {
-        const inputId = Date.now();
-        setInputsAmount(prev => [...prev, inputId])
-        inputsAmount.length === 2 ? setStopAdd(true) : ""
-        console.log(inputsAmount);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        checkResult()
     }
 
-    const hangleDecrement = (id) => {
-        console.log(id);
-        setInputsAmount(
-            prev =>
-            prev.filter(i => i !== id))
-        setStopAdd(false)
-        console.log(inputsAmount);
-    }
+    // Tato funkce nastaví hodnotu cssProperties na základě indexu
+    const setPropertyAtIndex = (index, value) => {
+        setCssProperties(prev => {
+            const newProperties = [...prev];
+            newProperties[index] = value;
+            return newProperties;
+        });
+    };
+
+    // Tato funkce nastaví hodnotu cssValues na základě indexu
+    const setValueAtIndex = (index, value) => {
+        setCssValues(prev => {
+            const newValues = [...prev];
+            newValues[index] = value;
+            return newValues;
+        });
+    };
 
     return (
         <>
@@ -110,36 +131,40 @@ const CssForm = (props) => {
                 <span className="element-class">.{props.name}</span>
                 <img className="left-bracket" src={leftBracket} alt="" />
             </div>
-            <form className="element-class__bridge" action="">
-                <div className="form__row">
-                    <input type="text" value={cssProperty} name="" id="" 
-                    onFocus={() => setIsFocused(true)}
-                    onBlur={() => setTimeout(() => setIsFocused(false), 100)}
-                    onChange={(e) => setCssProperty(e.target.value)}
-                     />
-                    <input type="text" name="" id="" onChange={(e) => setCssValue(e.target.value)} />
-                </div>
-                {
-                inputsAmount.map( id => (
-                <div className="form__row" key={id}>
-                    <input type="text" />
-                    <input type="text" />
-                    <img className="icon" onClick={() => hangleDecrement(id)} src={minusIcon} alt="" />
-                </div>))
-                }
+            <form className="element-class__bridge" onSubmit={handleSubmit}>
+                {cssProperties.map((property, index) => (
+                    <div className="form__row" key={index}>
+                        <input
+                            type="text"
+                            value={property}
+                            onFocus={() => {
+                                setIsFocused(true);
+                                //setSuggestValue(property);
+                                setPropertyIndex(index);
+                            }}
+                            onBlur={() => setTimeout(() => {setIsFocused(false)}, 50)}
+                            onChange={(e) => {setPropertyAtIndex(index, e.target.value), setSuggestValue(e.target.value)}}
+                        />
+                        <input
+                            type="text"
+                            value={cssValues[index] || ""}
+                            onChange={(e) => setValueAtIndex(index, e.target.value)}
+                        />
+                        {index > 0 ? <img className="icon" onClick={() => {handleRemoveInput(index), handleRemoveInput2(index)}} src={minusIcon} alt="" /> : ""}
+                    </div>
+                ))}
                 <div className="box-buttons">
                     {
                         stopAdd ? ""
                         :
-                        <img className="icon" src={plusIcon} alt="" onClick={handleIncrement}/>
+                        <img className="icon" src={plusIcon} alt="" onClick={() => {handleAddInput(), handleAddInput2()}}/>
                     }
-                    <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)} onClick={(e) => checkResult(e)}><img src={icon} alt="" /></button>
+                    <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)}  type="submit"><img src={icon} /></button>
                 </div>
             </form>
             <img className="right-bracket" src={rightBracket} alt="" />
-            {
-            isFocused ? 
-            <SuggestList value={cssProperty} func={setCssProperty}/>
+            { isFocused ? 
+            <SuggestList value={suggestValue} func={setPropertyAtIndex} valueIndex={propertyIndex} />
             :
             ""
             }

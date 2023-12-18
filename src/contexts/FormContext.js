@@ -2,30 +2,50 @@ import React, {createContext, useState, useRef, useEffect} from "react";
 
 
 // to setting the result style of a given level
-export const BridgeStyleContext = createContext({
-    property: "",
-    value: "",
-    setProperty: () => {},
-    setPropertyValue: () => {}
-});
+export const BridgeStyleContext = createContext(null);
 
-export const BridgeStyleProvider = ({children}) => {
-    const [property, setProperty] = useState("")
-    const [propertyValue, setPropertyValue] = useState("")
+export const BridgeStyleProvider = ({ children }) => {
+    const [properties, setProperties] = useState([""]);
+    const [values, setValues] = useState([""]);
+    const [stopAdd, setStopAdd] = useState(false);
 
-    const contextValue = {
-        property,
-        propertyValue,
-        setProperty,
-        setPropertyValue
+    const handleAddInput = () => {
+        if (properties.length >= 4) {
+            setStopAdd(true)
+        } else if(!stopAdd){
+            setProperties([...properties, ""]);
+            setValues([...values, ""]);
+        }
     };
 
-    return(
+    const handleRemoveInput = index => {
+        if (properties.length === 1) {
+            console.log("další prvky nelze odebrat");
+        } else{
+            const filteredProperties = properties.filter((_, i) => i !== index);
+            setProperties(filteredProperties);
+            const filteredValues = values.filter((_, i) => i !== index);
+            setValues(filteredValues);
+            setStopAdd(false)
+        }
+        
+    };
+
+    const contextValue = {
+        properties,
+        values,
+        setProperties,
+        setValues,
+        handleAddInput,
+        handleRemoveInput,
+    };
+
+    return (
         <BridgeStyleContext.Provider value={contextValue}>
             {children}
         </BridgeStyleContext.Provider>
-    )
-}
+    );
+};
 
 export const CrossoverStyleContext = createContext({
     property: "",
