@@ -30,9 +30,7 @@ const CssForm = (props) => {
     // text of css property from form
     const [cssProperties, setCssProperties] = useState([""])
     // values from Result Context
-    const { isCorrect, checkBridgePosition } = useContext(ResultContext)
-    // Message text after post form
-    const [resultText, setResultText] = useState("")
+    const { isCorrect, setResultText, checkBridgePosition } = useContext(ResultContext)
     // check if the form has already been sent
     const [hasChecked, setHasChecked] = useState(false)
     // manage to amount of inputs
@@ -176,7 +174,7 @@ const CssForm = (props) => {
             props.name === "crossover" ? <img className="class-button" onClick={handleClick} src={closeIcon} alt="" /> : ""
         }
         </div>
-        { resultText === "" ? "" : <ResultMessage text={resultText} />}
+        {/* resultText === "" ? "" : <ResultMessage text={resultText} />*/}
         </>
     )
 }

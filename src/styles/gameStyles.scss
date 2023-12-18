@@ -363,13 +363,13 @@ animation: animate 15s linear infinite;
 .message-result{
     display: flex;
     position: absolute;
-    left: 100%;
-    bottom: -100%;
+    bottom: 60vh;
     font-size: 3rem;
     font-weight: bold;
     justify-self: center;
     align-self: center;
-    //margin: 0 auto;
+    z-index: 5;
+    margin: 0 auto;
     text-shadow: 0 0 3px black;
 }
 // a design of the text according to replied
