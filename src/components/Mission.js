@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CssFormCopy from "./CssFormCopy";
+import CssFormCopy from "./CssForm";
 import PlayGround from "./PlayGround";
-import { BridgeStyleProvider, CrossoverStyleProvider, EmojiProvider, LevelProvider, ResultProvider } from "../contexts/FormContextCopy";
+import { BridgeStyleProvider, CrossoverStyleProvider, EmojiProvider, LevelProvider, ResultProvider } from "../contexts/FormContext";
 import LevelSelect from "./LevelSelect";
 import EmptyBox from "./EmptyBox";
 

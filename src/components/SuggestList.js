@@ -25,9 +25,10 @@ const SuggestList = (props) => {
         
     }, [props.value])
 
-    const confrimText = (e) => {
+    const confrimText = (property) => {
         setVisible(false)
-        props.func(e)
+        console.log("this is property: ", property);
+        props.func(props.valueIndex, property)
     }
 
     return(
@@ -37,7 +38,7 @@ const SuggestList = (props) => {
                 suggestions.map((property, index) => {
 
                     return(
-                        <li key={index} onClick={e => confrimText(e.target.outerText)}>{property}</li>
+                        <li key={index} onMouseDown={() => confrimText(property)}>{property}</li>
                     )
                 })
             }
