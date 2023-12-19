@@ -8,16 +8,18 @@ import {CrossoverStyleContext, ResultContext, LevelContext} from '../contexts/Fo
 const CrossRoad = () => {
     // information about bridge & checkpoint position to result
     const{bridgeRef, checkpointRef} = useContext(ResultContext)
-    //const{style} = useContext(LevelContext)
-    const {property, propertyValue} = useContext(CrossoverStyleContext)
+    const{style} = useContext(LevelContext)
+    const {properties, values} = useContext(CrossoverStyleContext)
 
 
     const specificStyle = {
         // specific style from levelData
-        //...style,
-        // user's style
-        [property]: propertyValue
+        ...style,
     }
+
+    properties.forEach((property, index) => {
+        specificStyle[property] = values[index];
+    });
 
     return(
         <div className='crossover' style={specificStyle}>
