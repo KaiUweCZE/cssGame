@@ -15,8 +15,6 @@ import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext 
 // key component for posting 
 const CssForm = (props) => {
     const context = props.name === "bridge"
-    // set values for .bridge
-    //const { property, propertyValue, setProperty, setPropertyValue } = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
     // set class for emoji character
     const { setSpecialClass } = useContext(EmojiContext)
     // check if error occurs (typo error)
@@ -41,7 +39,7 @@ const CssForm = (props) => {
     const [propertyIndex, setPropertyIndex] = useState(null)
 
     ///
-    const {properties, values, setProperties, setValues, handleAddInput, handleRemoveInput} = useContext(BridgeStyleContext)
+    const {properties, values, setProperties, setValues, handleAddInput, handleRemoveInput} = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
 
     useEffect(() => {
         if(hasChecked){
@@ -174,7 +172,6 @@ const CssForm = (props) => {
             props.name === "crossover" ? <img className="class-button" onClick={handleClick} src={closeIcon} alt="" /> : ""
         }
         </div>
-        {/* resultText === "" ? "" : <ResultMessage text={resultText} />*/}
         </>
     )
 }
