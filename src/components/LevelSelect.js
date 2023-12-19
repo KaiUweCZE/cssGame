@@ -18,6 +18,7 @@ const LevelSelect = () => {
         <ul className="menu-level">
             <li onClick={(e) => setUpLevel(e.target.innerText)}>level 1</li>
             <li onClick={(e) => setUpLevel(e.target.innerText)}>level 2</li>
+            <li onClick={(e) => setUpLevel(e.target.innerText)}>level 3</li>
         </ul>
     )
 }

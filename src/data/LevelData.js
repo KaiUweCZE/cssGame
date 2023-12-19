@@ -42,7 +42,8 @@ export const levelData = [
         bohužel
         Jednoduše odhalit, že se nejedná o naši fakturu,“`,
         bridgeStyles: {
-            "alignItems": "flex-end"
+            "alignItems": "flex-start",
+            "margin-inline": "2rem"
         }
     },
     {
