@@ -11,20 +11,20 @@ const CrossRoad = () => {
     const{style} = useContext(LevelContext)
     const {properties, values} = useContext(CrossoverStyleContext)
 
-
-    const specificStyle = {
-        // specific style from levelData
+    const levelStyle = {
         ...style,
     }
+
+    const specificStyle = {}
 
     properties.forEach((property, index) => {
         specificStyle[property] = values[index];
     });
 
     return(
-        <div className='crossover' style={specificStyle}>
+        <div className='crossover' style={specificStyle} >
             <CheckPoint ref={checkpointRef}/>
-            <Bridge ref={bridgeRef}/>
+            <Bridge ref={bridgeRef} style={levelStyle}/>
             <River />
         </div>
     )

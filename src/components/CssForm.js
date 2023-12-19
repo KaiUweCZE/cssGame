@@ -9,7 +9,7 @@ import closeIcon from '../styles/images/close.svg'
 import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
-import ResultMessage from "./ResultMessage";
+import { useFormInputs } from "../functions/cssFormFunctions";
 import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext } from "../contexts/FormContext";
 
 // key component for posting 
@@ -24,9 +24,6 @@ const CssForm = (props) => {
     // form button image
     const [icon, setIcon] = useState(playIcon)
     // text of css value from form
-    const [cssValues, setCssValues] = useState([""])
-    // text of css property from form
-    const [cssProperties, setCssProperties] = useState([""])
     // values from Result Context
     const { isCorrect, setResultText, checkBridgePosition } = useContext(ResultContext)
     // check if the form has already been sent
@@ -37,8 +34,8 @@ const CssForm = (props) => {
     const [isFocused, setIsFocused] = useState(false)
     const [suggestValue, setSuggestValue] = useState("")
     const [propertyIndex, setPropertyIndex] = useState(null)
+    const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2 } = useFormInputs([""], [""]);
 
-    ///
     const {properties, values, setProperties, setValues, handleAddInput, handleRemoveInput} = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
 
     useEffect(() => {
@@ -75,24 +72,6 @@ const CssForm = (props) => {
     }
     }
 
-    const handleAddInput2 = () => {
-        if (!stopAdd) {
-            setCssProperties(properties => [...properties, ""]);
-            setCssValues(values => [...values, ""])
-        }else if(cssProperties.length === 3){
-            setStopAdd(true)
-        }
-    };
-
-    const handleRemoveInput2 = index => {
-        if (cssProperties.length > 1) {
-            setCssProperties(prevProperties => prevProperties.filter((_, i) => i !== index));
-            setCssValues(prevValues => prevValues.filter((_, i) => i !== index));
-            setStopAdd(false);
-        }
-        
-    };
-
     const handleClick = () => {
         props.func(!props.state)
     }
@@ -102,23 +81,6 @@ const CssForm = (props) => {
         checkResult()
     }
 
-    // Tato funkce nastaví hodnotu cssProperties na základě indexu
-    const setPropertyAtIndex = (index, value) => {
-        setCssProperties(prev => {
-            const newProperties = [...prev];
-            newProperties[index] = value;
-            return newProperties;
-        });
-    };
-
-    // Tato funkce nastaví hodnotu cssValues na základě indexu
-    const setValueAtIndex = (index, value) => {
-        setCssValues(prev => {
-            const newValues = [...prev];
-            newValues[index] = value;
-            return newValues;
-        });
-    };
 
     return (
         <>
@@ -146,7 +108,7 @@ const CssForm = (props) => {
                             value={cssValues[index] || ""}
                             onChange={(e) => setValueAtIndex(index, e.target.value)}
                         />
-                        {index > 0 ? <img className="icon" onClick={() => {handleRemoveInput(index), handleRemoveInput2(index)}} src={minusIcon} alt="" /> : ""}
+                        {index > 0 ? <img className="icon" onClick={() => {handleRemoveInput(index), handleRemoveInput2(set,index)}} src={minusIcon} alt="" /> : ""}
                     </div>
                 ))}
                 <div className="box-buttons">

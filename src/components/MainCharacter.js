@@ -1,9 +1,9 @@
 import React, { useContext} from "react";
-import masterImg from '../styles/images/master.webp'
+import masterImg from '../styles/images/main-character.webp'
 import { EmojiContext } from "../contexts/FormContext";
 
 
-const MasterCharacter = () => {
+const MainCharacter = () => {
     const {position, setPosition, specialClass} = useContext(EmojiContext)
 
     /*const emojiPosition = {
@@ -17,4 +17,4 @@ const MasterCharacter = () => {
 }
 
 
-export default MasterCharacter
+export default MainCharacter
