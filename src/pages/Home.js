@@ -19,6 +19,15 @@ const Home = () => {
                     kdykoliv mu bude po ruce nápomocen průvodce....  
                 </p>
             </section>
+            <section>
+                <h2>Plány</h2>
+                <ul>
+                    <li>Projet skripta CSS a udělat by voko lvl mapu</li>
+                    <li>Backend kvůli registraci/přihlašování</li>
+                    <li>mapa s levly</li>
+                    <li>předělat .bridge, seamless texture</li>
+                </ul>
+            </section>
         </main>
     )
 }

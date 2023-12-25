@@ -9,7 +9,7 @@ import closeIcon from '../styles/images/close.svg'
 import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
-import { useFormInputs } from "../functions/cssFormFunctions";
+import { useFormInputs } from "../Functions/cssFormFunctions";
 import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext } from "../contexts/FormContext";
 
 // key component for posting 
@@ -42,7 +42,7 @@ const CssForm = (props) => {
         if(hasChecked){
             // a result message will be displayed for 2 secs
             setResultText(isCorrect ? "Congrats" : "Oops")
-            setSpecialClass(isCorrect ? "run" : "drop")
+            setSpecialClass(isCorrect ? "true" : "false")
             setTimeout(() => setResultText(""), 2000)
         }    
     },[isCorrect, hasChecked])
@@ -108,7 +108,7 @@ const CssForm = (props) => {
                             value={cssValues[index] || ""}
                             onChange={(e) => setValueAtIndex(index, e.target.value)}
                         />
-                        {index > 0 ? <img className="icon" onClick={() => {handleRemoveInput(index), handleRemoveInput2(set,index)}} src={minusIcon} alt="" /> : ""}
+                        {index > 0 ? <img className="icon" onClick={() => {handleRemoveInput(index), handleRemoveInput2(index)}} src={minusIcon} alt="" /> : ""}
                     </div>
                 ))}
                 <div className="box-buttons">
