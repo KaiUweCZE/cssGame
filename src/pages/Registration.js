@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import SignInForm from "../components/SignInForm";
+import SignUpForm from "../components/SignUpForm";
 
 
 const Registration = () => {
+    const [formType, setFormType] = useState(false)
+
 
     return(
         <div className="wrapper">
-            <div className="container-registration">
-                <div className="registration__info"></div>
-                <form className="registration__form" action="">
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="submit" value="Sign in" />
-                </form>
+            <div className="form__background">
+                <div className="container-registration">
+                    <article className="registration__info">
+                        <div>
+                            <button className={formType ? 'active' : ''} onMouseDown={() => setFormType(true)}>Sign Up</button>
+                            <button className={formType ? '' : 'active'}  onMouseDown={() => setFormType(false)}>Login</button>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur 
+                            adipisicing elit. 
+                            Cumque aspernatur 
+                            eligendi in exercitationem quam, suscipit illo.
+                        </p>
+                    </article>
+                    { formType ?
+                        <SignUpForm /> 
+                        :
+                        <SignInForm />
+                    }
+                </div>
             </div>
         </div>
         
