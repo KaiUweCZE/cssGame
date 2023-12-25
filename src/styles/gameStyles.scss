@@ -256,21 +256,29 @@ button {
     width: 100%;
     height: 100%;
     align-items: flex-end;
+    div{
+        width: 100%;
+        height: 3rem;
+        background-size: cover;
+    }
     img {
         width: 100%;
     }
 }
 
 // animation for right answer 
-.emoji-character.run{
+.emoji-character.true{
     left: 90%;
     animation: rotate 4s linear;
 }
 
 // animation for bad answer
-.emoji-character.drop{
+.emoji-character.false{
     opacity: 1;
-    animation: dive 6s linear;
+    animation: error-run 6s linear;
+    @media (max-width: 86rem) {
+        animation: error-run-small 6s linear;
+    }
 }
 
 @keyframes rotate {
@@ -284,9 +292,18 @@ button {
     }
 }
 
-@keyframes dive {
+@keyframes error-run {
     50%{
-        transform: translateX(20vw) rotate(2turn);
+        transform: translateX(24rem) rotate(2turn);
+    }    
+    100%{
+        transform: translateX(0) rotate(0turn);
+    }
+}
+
+@keyframes error-run-small {
+    50%{
+        transform: translateX(28vw) rotate(2turn);
     }    
     100%{
         transform: translateX(0) rotate(0turn);
@@ -443,4 +460,13 @@ animation: animate 15s linear infinite;
             transform: scale(1.2);
         }
     }
+}
+
+
+.obstacle{
+    display: flex;
+    position: absolute;
+    top: -9.9rem;
+    left: -6rem;
+    height: 10rem;
 }

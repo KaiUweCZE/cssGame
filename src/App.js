@@ -4,7 +4,6 @@ import SharedLayout from "./components/SharedLayout";
 import Home from "./pages/Home";
 import Game from "./pages/Game";
 import About from "./pages/About";
-import Examples from "./pages/Examples";
 import Registration from "./pages/Registration";
 
 const App = () => {
@@ -17,7 +16,6 @@ const App = () => {
                 <Route path="/about" element={<About/>}/>
                 <Route path="/game" element={<Game/>}/>
                 <Route path="/registration" element={<Registration/>}/>
-                <Route path="/examples" element={<Examples/>}/>
             </Route>
         </Routes>
         </BR>
