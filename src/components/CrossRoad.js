@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Bridge from './Bridge'
 import CheckPoint from './CheckPoint'
 import River from './River'
+import Obstacle from './Obstacle'
 import {CrossoverStyleContext, ResultContext, LevelContext} from '../contexts/FormContext'
 
 // middle part of playground component
@@ -26,6 +27,7 @@ const CrossRoad = () => {
             <CheckPoint ref={checkpointRef}/>
             <Bridge ref={bridgeRef} style={levelStyle}/>
             <River />
+            <Obstacle />
         </div>
     )
 }
