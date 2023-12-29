@@ -184,21 +184,49 @@ export const ResultProvider = ({children}) => {
 
 // for selecting and setting basic parameters of a given level
 export const LevelContext = createContext({
+    level: {partOfBridge : 1},
     style:{},
-    setStyle: () => {}
+    setStyle: () => {},
+    setLevel: () => {}
 })
 
 export const LevelProvider = ({children}) => {
     const [style, setStyle] = useState({})
-
+    const [level, setLevel] = useState({partOfBridge : 1})
+    
+    /*useEffect(() => {
+        
+    }, [level])*/
     const contextValue = {
         style,
-        setStyle
+        level,
+        setStyle,
+        setLevel
     }
 
     return(
         <LevelContext.Provider value={contextValue}>
             {children}
         </LevelContext.Provider>
+    )
+}
+
+export const CheckContext = createContext({
+    active: false,
+    setActive: () => {}
+})
+
+export const CheckContextProvider = ({children}) => {
+    const [active, setActive] = useState(false)
+
+    const contextValue = {
+        active,
+        setActive
+    }
+
+    return(
+        <CheckContext.Provider value={contextValue}>
+            {children}
+        </CheckContext.Provider>
     )
 }

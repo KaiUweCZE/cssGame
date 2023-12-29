@@ -4,6 +4,7 @@ import CrossRoad from "./CrossRoad";
 import EndPoint from "./EndPoint";
 import MasterCharacter from "./MainCharacter";
 import ResultMessage from "./ResultMessage";
+import CheckClass from "./CheckClass";
 
 
 const PlayGround = () => {
@@ -16,6 +17,7 @@ const PlayGround = () => {
             <EndPoint />
             <MasterCharacter />
             <ResultMessage />
+            <CheckClass />
         </div>
     )
 }

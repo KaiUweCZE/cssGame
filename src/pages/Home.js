@@ -27,6 +27,13 @@ const Home = () => {
                     <li>mapa s levly</li>
                     <li>předělat .bridge, seamless texture</li>
                 </ul>
+                <ul>
+                    <h2>Levely na zkoušku</h2>
+                    <li>1. na align items</li>
+                    <li>2. transform rotate</li>
+                    <li>3. marginy</li>
+                    <li>4. zkouška nastavení rozkouskování prkna na více částí</li>
+                </ul>
             </section>
         </main>
     )

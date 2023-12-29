@@ -13,8 +13,14 @@ export const levelData = [
         výzev k zaplacení se v poslední době zvyšuje.`,
         //specific styles for .bridge etc.
         bridgeStyles: {
+            "display": "flex",
+            "width": "100%",
+            "height": "100%",
+            //align-items: flex-end;
             "alignItems": "flex-end"
-        }
+        },
+        partOfBridge: 1,
+        obstacle: false
     },
     {
         id: 2,
@@ -30,7 +36,9 @@ export const levelData = [
         bridgeStyles: {
             "alignItems": "flex-start",
             "transform": "rotate(90deg)"
-        }
+        },
+        partOfBridge: 1,
+        obstacle: false
     },
     {
         id: 3,
@@ -44,7 +52,9 @@ export const levelData = [
         bridgeStyles: {
             "alignItems": "flex-start",
             "margin-inline": "2rem"
-        }
+        },
+        partOfBridge: 1,
+        obstacle: false
     },
     {
         id: 4,
@@ -56,7 +66,9 @@ export const levelData = [
         stovky.`,
         bridgeStyles: {
             "alignItems": "flex-end"
-        }
+        },
+        partOfBridge: 3,
+        obstacle: false
     },
     {
         id: 5,
@@ -68,7 +80,9 @@ export const levelData = [
         nedokáže na první pohled odhalit,“ dodala.`,
         bridgeStyles: {
             "alignItems": "flex-end"
-        }
+        },
+        partOfBridge: 1,
+        obstacle: true
     },
     {
         id: 6,
@@ -80,6 +94,8 @@ export const levelData = [
         které se službami, jako jsou Firm`,
         bridgeStyles: {
             "alignItems": "flex-end"
-        }
+        },
+        partOfBridge: 1,
+        obstacle: false
     }
 ]
