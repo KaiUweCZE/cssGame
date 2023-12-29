@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import CssForm from "./CssForm";
 import PlayGround from "./PlayGround";
-import { BridgeStyleProvider, CrossoverStyleProvider, EmojiProvider, LevelProvider, ResultProvider } from "../contexts/FormContext";
+import { BridgeStyleProvider, CheckContextProvider, CrossoverStyleProvider, EmojiProvider, LevelProvider, ResultProvider } from "../contexts/FormContext";
 import LevelSelect from "./LevelSelect";
 import EmptyBox from "./EmptyBox";
 
 const Mission = () => {
     const [nextClass, setNextClass] = useState()
     return(
+        <CheckContextProvider>
         <CrossoverStyleProvider >
         <BridgeStyleProvider>
         <EmojiProvider>
@@ -28,6 +29,7 @@ const Mission = () => {
         </EmojiProvider>
         </BridgeStyleProvider>
         </CrossoverStyleProvider>
+        </CheckContextProvider>
     )
 }
 

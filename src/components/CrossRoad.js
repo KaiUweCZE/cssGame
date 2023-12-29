@@ -3,14 +3,15 @@ import Bridge from './Bridge'
 import CheckPoint from './CheckPoint'
 import River from './River'
 import Obstacle from './Obstacle'
-import {CrossoverStyleContext, ResultContext, LevelContext} from '../contexts/FormContext'
+import {CrossoverStyleContext, ResultContext, LevelContext, CheckContext} from '../contexts/FormContext'
 
 // middle part of playground component
 const CrossRoad = () => {
     // information about bridge & checkpoint position to result
     const{bridgeRef, checkpointRef} = useContext(ResultContext)
-    const{style} = useContext(LevelContext)
+    const{style, level} = useContext(LevelContext)
     const {properties, values} = useContext(CrossoverStyleContext)
+    const {active, setActive} = useContext(CheckContext)
 
     const levelStyle = {
         ...style,
@@ -27,7 +28,7 @@ const CrossRoad = () => {
             <CheckPoint ref={checkpointRef}/>
             <Bridge ref={bridgeRef} style={levelStyle}/>
             <River />
-            <Obstacle />
+            {level.obstacle ? <Obstacle /> : ""}
         </div>
     )
 }
