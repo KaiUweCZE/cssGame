@@ -29,14 +29,13 @@ const CssForm = (props) => {
     // check if the form has already been sent
     const [hasChecked, setHasChecked] = useState(false)
     // manage to amount of inputs
-    const [stopAdd, setStopAdd] = useState(false)
+    //const [stopAdd, setStopAdd] = useState(false);
     // focus state
     const [isFocused, setIsFocused] = useState(false)
     const [suggestValue, setSuggestValue] = useState("")
     const [propertyIndex, setPropertyIndex] = useState(null)
-    const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2 } = useFormInputs([""], [""]);
-
-    const {properties, values, setProperties, setValues, handleAddInput, handleRemoveInput} = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
+    const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2} = useFormInputs([""], [""]);
+    const {properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd} = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
 
     useEffect(() => {
         if(hasChecked){
