@@ -23,7 +23,7 @@ if (!propertiesValidator) {
 export const useFormInputs =(initialProps = [], initialValues = [], onAddCallback) => {
     const [cssProperties, setCssProperties] = useState(initialProps);
     const [cssValues, setCssValues] = useState(initialValues);
-  
+
     const setPropertyAtIndex = (index, value) => {
       setCssProperties(prev => {
         const newProperties = [...prev];
@@ -41,8 +41,13 @@ export const useFormInputs =(initialProps = [], initialValues = [], onAddCallbac
     };
   
     const handleAddInput2 = () => {
-      setCssProperties(properties => [...properties, ""]);
-      setCssValues(values => [...values, ""]);
+      if (cssProperties.length >= 4) {
+        console.log("Done!");
+      } else {
+        setCssProperties(properties => [...properties, ""]);
+        setCssValues(values => [...values, ""]);
+      }
+      
     };
   
     const handleRemoveInput2 = (index) => {
@@ -52,3 +57,14 @@ export const useFormInputs =(initialProps = [], initialValues = [], onAddCallbac
   
     return { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2 };
   };
+
+
+export const handleAddInput = (array, setArray, setValues, setStop) => {
+  if (array.length >= 4) {
+      setStop(true)
+      console.log("Done!");
+  } else if(!stopAdd){
+      setArray([...properties, ""]);
+      setValues([...values, ""]);
+  }
+};

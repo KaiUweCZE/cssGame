@@ -10,8 +10,11 @@ export const BridgeStyleProvider = ({ children }) => {
     const [stopAdd, setStopAdd] = useState(false);
 
     const handleAddInput = () => {
-        if (properties.length >= 4) {
+        if (properties.length >= 3) {
+            setProperties([...properties, ""]);
+            setValues([...values, ""]);
             setStopAdd(true)
+            console.log("Done!");
         } else if(!stopAdd){
             setProperties([...properties, ""]);
             setValues([...values, ""]);
@@ -36,6 +39,7 @@ export const BridgeStyleProvider = ({ children }) => {
         values,
         setProperties,
         setValues,
+        stopAdd,
         handleAddInput,
         handleRemoveInput,
     };
@@ -55,8 +59,11 @@ export const CrossoverStyleProvider = ({children}) => {
     const [stopAdd, setStopAdd] = useState(false);
 
     const handleAddInput = () => {
-        if (properties.length >= 4) {
+        if (properties.length >= 3) {
+            setProperties([...properties, ""]);
+            setValues([...values, ""]);
             setStopAdd(true)
+            console.log("Done!");
         } else if(!stopAdd){
             setProperties([...properties, ""]);
             setValues([...values, ""]);
@@ -81,6 +88,7 @@ export const CrossoverStyleProvider = ({children}) => {
         values,
         setProperties,
         setValues,
+        stopAdd,
         handleAddInput,
         handleRemoveInput,
     };
