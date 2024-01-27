@@ -347,6 +347,9 @@
     border-radius: .5rem;
     background-size: 400% 100%;
     animation: gradient 7s linear infinite;
+    h2{
+        color: white;
+    }
 }
 
 @keyframes gradient {
@@ -365,3 +368,33 @@
       background-position-y: 0%;
     }
   }
+
+
+.users-list{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+width: fit-content;
+margin: 1rem;
+background-color: #0A3A40;
+}
+
+.users-list__item{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin: .5rem;
+    padding: .5rem;
+    background-color: #43848d;
+    position: relative;
+    li{
+        color: white;
+        //background-color: #5b96bda9;
+    }
+    img{
+        position: absolute;
+        width: 1.5rem;
+        bottom: 0;
+        right: 0;
+        filter: brightness(8);
+    }
+}

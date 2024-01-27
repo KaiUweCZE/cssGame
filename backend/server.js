@@ -1,23 +1,28 @@
 import cors from 'cors'
+import dotenv from 'dotenv'
 import express from 'express'
-import { expressMiddleware } from '@apollo/server/express4'
-import {ApolloServer} from "@apollo/server";
-import { readFile } from 'node:fs/promises';
-import {startStandaloneServer} from "@apollo/server/standalone";
-import { resolvers } from './resolvers.js';
-
-const PORT = 9000;
+import { graphqlHTTP } from 'express-graphql';
+import { connectDB } from './db.js';
+import { schema } from './schema.js';
+//import { readFile } from 'node:fs/promises';
+//import { expressMiddleware } from '@apollo/server/express4'
+//import {ApolloServer} from "@apollo/server";
 
 const app = express();
-app.use(cors(), express.json())
+dotenv.config();
 
-app.post('/login')
+// take a port from .env file
+const PORT = process.env.PORT || 9001;
 
-const typeDefs = await readFile('./schema.graphql', 'utf8')
+// connection to the database
+connectDB();
 
-const server = new ApolloServer({ typeDefs, resolvers });
-await server.start()
-app.use('/graphql', expressMiddleware(server));
+app.use(cors())
+
+app.use('/graphql', graphqlHTTP({
+    schema,
+    graphiql: process.env.NODE_ENV === 'development'
+}))
 
 app.listen( {port: PORT}, () => {
     console.log(`Server is running on port: ${PORT}`);

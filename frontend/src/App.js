@@ -7,12 +7,14 @@ import About from "./pages/About";
 import Graph from "./pages/Graph";
 import Registration from "./pages/Registration";
 import {ApolloClientProvider} from "./client";
+import { UserContextProvider } from "./contexts/UserContext";
 
 
 const App = () => {
 
     return(
         <ApolloClientProvider>
+            <UserContextProvider>
             <BR>
             <Routes>
                 <Route path="/" element={<SharedLayout />}>
@@ -24,6 +26,7 @@ const App = () => {
                 </Route>
             </Routes>
             </BR>
+            </UserContextProvider>
         </ApolloClientProvider>
     )
 }
