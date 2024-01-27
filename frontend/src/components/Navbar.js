@@ -1,15 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import homeIcon from "../styles/images/icons/home.webp";
 import loginIcon from "../styles/images/icons/login.webp";
 import gameIcon from "../styles/images/icons/gamepad.webp";
 import infoIcon from "../styles/images/icons/info.webp"
+import { UserContext } from "../contexts/UserContext";
+import { gql, useMutation } from "@apollo/client";
+
+const LOGOUT_USER = gql `
+    mutation LogoutUser($id: ID!){
+        logoutUser(id: $id){
+            id
+        }
+    }
+`
 
 const Navbar = () => {
     const [isActive, setIsActive] = useState(false)
-
     const specialClass = isActive ? "active" : ""
+    const {login, setLogin} = useContext(UserContext)
+
+    const handleLogout = () => {
+        setLogin(false)
+    }
 
     return(
         <header className="container-menu">
@@ -18,7 +32,7 @@ const Navbar = () => {
                 <ul className={`menu ${specialClass}`}>
                 <NavLink className="menu__item" to="/attempt">
                         <img src={infoIcon} alt="" />
-                        <span>Graph</span>
+                        <span>Users</span>
                     </NavLink>
                     <NavLink className="menu__item" to="/">
                         <img src={homeIcon} alt="" />
@@ -35,7 +49,13 @@ const Navbar = () => {
                     <NavLink className="menu__item" to="/registration">
                         <img src={loginIcon} alt="" />
                         <span>Sign In</span>
-                    </NavLink> 
+                    </NavLink>
+                    {
+                        login ?
+                        <NavLink onClick={handleLogout}>Logout</NavLink>
+                        :
+                        ''
+                    }
                 </ul>
             </nav>
         </header>
