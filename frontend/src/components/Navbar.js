@@ -6,24 +6,14 @@ import loginIcon from "../styles/images/icons/login.webp";
 import gameIcon from "../styles/images/icons/gamepad.webp";
 import infoIcon from "../styles/images/icons/info.webp"
 import { UserContext } from "../contexts/UserContext";
-import { gql, useMutation } from "@apollo/client";
 
-const LOGOUT_USER = gql `
-    mutation LogoutUser($id: ID!){
-        logoutUser(id: $id){
-            id
-        }
-    }
-`
+
 
 const Navbar = () => {
     const [isActive, setIsActive] = useState(false)
     const specialClass = isActive ? "active" : ""
-    const {login, setLogin} = useContext(UserContext)
+    const {login, setLogin, logout} = useContext(UserContext)
 
-    const handleLogout = () => {
-        setLogin(false)
-    }
 
     return(
         <header className="container-menu">
@@ -46,16 +36,16 @@ const Navbar = () => {
                         <img src={gameIcon} alt="" />
                         <span>Game</span>
                     </NavLink>
-                    <NavLink className="menu__item" to="/registration">
-                        <img src={loginIcon} alt="" />
-                        <span>Sign In</span>
-                    </NavLink>
                     {
                         login ?
-                        <NavLink onClick={handleLogout}>Logout</NavLink>
+                        <NavLink onClick={logout}>Logout</NavLink>
                         :
-                        ''
+                        <NavLink className="menu__item" to="/registration">
+                            <img src={loginIcon} alt="" />
+                            <span>Sign In</span>
+                        </NavLink>
                     }
+
                 </ul>
             </nav>
         </header>
