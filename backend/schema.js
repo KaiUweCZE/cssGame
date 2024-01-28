@@ -3,6 +3,8 @@ import {
     GraphQLString, GraphQLList, GraphQLSchema,
     GraphQLNonNull } from "graphql";
 import { User } from "./User.js";
+import jwt from "jsonwebtoken";
+import bcryptjs from 'bcryptjs'
 
 const UserType = new GraphQLObjectType({
     name:'User',
@@ -14,6 +16,14 @@ const UserType = new GraphQLObjectType({
         level: {type: GraphQLString}
     }
 })
+
+const AuthPayloadType = new GraphQLObjectType({
+    name: 'AuthPayload',
+    fields: {
+      token: { type: GraphQLString },
+      user: { type: UserType },
+    },
+  });
 
 const RootQueryType = new GraphQLObjectType({
     name:'Query',
@@ -45,10 +55,11 @@ const mutation = new GraphQLObjectType({
                 password: {type: new GraphQLNonNull(GraphQLString)}
             },
             resolve(parent, args){
+                const hashedPassword = bcryptjs.hashSync(args.password, 10)
                 const user = new User({
                     name: args.name,
                     email: args.email,
-                    password: args.password
+                    password: hashedPassword
                 })
                 return user.save()
             }
@@ -61,21 +72,24 @@ const mutation = new GraphQLObjectType({
             }
         },
         loginUser: {
-            type: UserType,
+            type: AuthPayloadType,
             args:{
                 name:{type: new GraphQLNonNull(GraphQLString)},
                 password:{type: new GraphQLNonNull(GraphQLString)}
             },
             resolve: async (parent, args)=>{
-                const user = await User.findOne({name: args.name, password: args.password})
+                const user = await User.findOne({name: args.name })
+                if (!user) throw new Error('User does not exist');
+                const isValidPassword = bcryptjs.compareSync(args.password, user.password)
+                if (!isValidPassword) throw new Error('Password does not match');
+                const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '1h'})
                 if (!user){
                     throw new Error('Invalid credentials')
                 }
-
-                return user;
+                return {token, user};
             }
         },
-        logoutUser: {
+        /*logoutUser: {
             type:UserType,
             args:{id:{type: new GraphQLNonNull(GraphQLString)}},
             resolve: async(parent, args) => {
@@ -86,7 +100,7 @@ const mutation = new GraphQLObjectType({
 
                 return user
             }
-        }
+        }*/
     }
 })
 

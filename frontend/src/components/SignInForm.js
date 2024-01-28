@@ -5,8 +5,11 @@ import { UserContext } from "../contexts/UserContext";
 const LOGIN_USER =gql`
     mutation LoginUser($name: String!, $password: String!){
         loginUser(name: $name, password: $password){
-            id
-            name
+            token
+            user{
+                id
+                name
+            }
         }
     }
 `
@@ -22,10 +25,12 @@ const SignInForm = () => {
         try {
             const response = await loginUser({variables: {name: username, password: password}})
             if (response.data.loginUser) {
+                const { token } = response.data.loginUser;
+                localStorage.setItem('authToken', token)
                 setLogin(true)
                 setUsername('')
                 setPassword('')
-                console.log('Login was successful');
+                console.log('Login was successful'), token;
             }
         } catch (error) {
             console.error(error);
