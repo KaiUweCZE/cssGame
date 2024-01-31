@@ -10,7 +10,9 @@ import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
 import { useFormInputs } from "../Functions/cssFormFunctions";
-import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext } from "../contexts/FormContext";
+import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext, LevelProvider, LevelContext } from "../contexts/FormContext";
+import useLevelUp from "../Functions/Queries";
+import { UserContext } from "../contexts/UserContext";
 
 // key component for posting 
 const CssForm = (props) => {
@@ -35,6 +37,10 @@ const CssForm = (props) => {
     const [propertyIndex, setPropertyIndex] = useState(null)
     const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2} = useFormInputs([""], [""]);
     const {properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd} = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
+    // custom hook to set level to database
+    const {levelUp} = useLevelUp()
+    const {user, setUser} = useContext(UserContext)
+    const {level} = useContext(LevelContext)
 
     useEffect(() => {
         if(hasChecked){
@@ -42,8 +48,11 @@ const CssForm = (props) => {
             setResultText(isCorrect ? "Congrats" : "Oops")
             setSpecialClass(isCorrect ? "true" : "false")
             setTimeout(() => setResultText(""), 2000)
-        }    
-    },[isCorrect, hasChecked])
+            if (isCorrect) {
+                levelUp(user.id, user.level < level.level ? level.level : user.level)
+            }
+            }
+            },[isCorrect, hasChecked])
 
     const checkTypo = (property) => {
         return list.includes(property) || property === "" 
