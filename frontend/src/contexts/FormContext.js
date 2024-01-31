@@ -192,7 +192,6 @@ export const ResultProvider = ({children}) => {
 
 // for selecting and setting basic parameters of a given level
 export const LevelContext = createContext({
-    level: {partOfBridge : 1},
     style:{},
     setStyle: () => {},
     setLevel: () => {}
@@ -200,11 +199,25 @@ export const LevelContext = createContext({
 
 export const LevelProvider = ({children}) => {
     const [style, setStyle] = useState({})
-    const [level, setLevel] = useState({partOfBridge : 1})
+    const [level, setLevel] = useState(() => {
+        const savedLevel = localStorage.getItem('level');
+        return savedLevel ? JSON.parse(savedLevel) : { partOfBridge: 1 };
+    });
     
-    /*useEffect(() => {
-        
-    }, [level])*/
+    useEffect(() => {
+        const savedLevel = localStorage.getItem('level')
+        if (savedLevel) {
+            const levelObject = JSON.parse(savedLevel)
+            setLevel(levelObject)
+            const levelNum = levelObject.bridgeStyles
+            setStyle(levelNum)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('level', JSON.stringify(level))
+    },[level])
+
     const contextValue = {
         style,
         level,
