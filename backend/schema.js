@@ -1,7 +1,8 @@
 import { 
     GraphQLObjectType, GraphQLID, GraphQLBoolean,
     GraphQLString, GraphQLList, GraphQLSchema,
-    GraphQLNonNull } from "graphql";
+    GraphQLNonNull, 
+    GraphQLInt} from "graphql";
 import { User } from "./User.js";
 import jwt from "jsonwebtoken";
 import bcryptjs from 'bcryptjs'
@@ -13,7 +14,7 @@ const UserType = new GraphQLObjectType({
         name: {type: GraphQLString},
         email: {type: GraphQLString},
         password: {type: GraphQLString},
-        level: {type: GraphQLString}
+        level: {type: GraphQLInt}
     }
 })
 
@@ -52,14 +53,14 @@ const mutation = new GraphQLObjectType({
             args:{
                 name: {type: new GraphQLNonNull(GraphQLString)},
                 email: {type: new GraphQLNonNull(GraphQLString)},
-                password: {type: new GraphQLNonNull(GraphQLString)}
+                password: {type: new GraphQLNonNull(GraphQLString)},
             },
             resolve(parent, args){
                 const hashedPassword = bcryptjs.hashSync(args.password, 10)
                 const user = new User({
                     name: args.name,
                     email: args.email,
-                    password: hashedPassword
+                    password: hashedPassword,
                 })
                 return user.save()
             }
@@ -89,18 +90,23 @@ const mutation = new GraphQLObjectType({
                 return {token, user};
             }
         },
-        /*logoutUser: {
-            type:UserType,
-            args:{id:{type: new GraphQLNonNull(GraphQLString)}},
+        increaseLevel: {
+            type: UserType,
+            args:{
+                id:{type: new GraphQLNonNull(GraphQLID)},
+                level:{type: new GraphQLNonNull(GraphQLInt)}
+            },
             resolve: async(parent, args) => {
                 const user = await User.findById(args.id)
-                if(!user){
-                    throw new Error('Logout failed')
+                if (!user) {
+                    throw new Error('User not found')
+                } else {
+                    user.level = args.level
+                    await user.save()
+                    return user
                 }
-
-                return user
             }
-        }*/
+        }
     }
 })
 
