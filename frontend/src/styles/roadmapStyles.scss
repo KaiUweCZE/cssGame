@@ -1,0 +1,156 @@
+$parallaxSpeedOne: -20;
+$parallaxSpeedTwo: -10;
+$parallaxSpeedThree: -8;
+
+$primary-color: #0A3A40;
+.parallax{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6,1fr);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200vh;
+    position: sticky;
+    z-index: -1;
+    img{
+        max-width: 100%;
+    }
+    .one{
+        grid-column: 1/2;
+        grid-row: 4;
+        animation: parallaxOne linear;
+        animation-timeline: scroll();
+    }
+    .two{
+        grid-column: 2/3;
+        grid-row: 2;
+        animation: parallaxTwo linear;
+        animation-timeline: scroll();
+    }
+    .three{
+        grid-column: 3/6;
+        grid-row: 3;
+        animation: parallaxThree linear;
+        animation-timeline: scroll();
+    } 
+}
+
+@keyframes parallaxOne {
+    to {
+        transform: translateY($parallaxSpeedOne * 50px) scale(2.2);
+    }
+}
+
+@keyframes parallaxTwo {
+    to {
+        transform: translateY($parallaxSpeedTwo * 50px) scale(1.5);
+    }
+}
+
+@keyframes parallaxThree {
+    to {
+        transform: translateY($parallaxSpeedThree * 50px) scale(2.75);
+    }
+}
+
+.roadmap{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    place-items: center;
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
+    margin-block: 2rem;
+    row-gap: 1rem;
+}
+
+.roadmap__item{
+    display: flex;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 0 dashed white;
+    background-color: $primary-color;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    span{
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+    }
+    &:hover{
+        transition: .5s;
+        transform: scale(1.2);
+        border: 2px dashed white;
+    }
+}
+
+.locked{
+    img{
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+
+.one{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.two{
+    grid-column: 6;
+    grid-row: 1;
+}
+
+.three{
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.four{
+    grid-column: 6;
+    grid-row: 3;
+}
+
+.five{
+    grid-column: 8;
+    grid-row: 3;
+}
+
+.six{
+    grid-column: 4;
+    grid-row: 4;
+}
+
+.seven{
+    grid-column: 10;
+    grid-row: 4;
+}
+
+.eight{
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.nine{
+    grid-column: 6;
+    grid-row: 5;
+}
+
+.ten{
+    grid-column: 6;
+    grid-row: 6;
+}
+
+.eleven{
+    grid-column: 10;
+    grid-row: 6;
+}
+
+.twelve{
+    grid-column: 2;
+    grid-row: 7;
+}
