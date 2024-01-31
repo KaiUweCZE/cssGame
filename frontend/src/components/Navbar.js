@@ -5,6 +5,8 @@ import homeIcon from "../styles/images/icons/home.webp";
 import loginIcon from "../styles/images/icons/login.webp";
 import gameIcon from "../styles/images/icons/gamepad.webp";
 import infoIcon from "../styles/images/icons/info.webp"
+import leaveIcon from "../styles/images/icons/leave.svg"
+import mapIcon from "../styles/images/icons/map.webp"
 import { UserContext } from "../contexts/UserContext";
 
 
@@ -20,10 +22,15 @@ const Navbar = () => {
             <nav className="navigation">
                 <HamburgerMenu state={isActive} setState={setIsActive}/>
                 <ul className={`menu ${specialClass}`}>
-                <NavLink className="menu__item" to="/attempt">
-                        <img src={infoIcon} alt="" />
-                        <span>Users</span>
-                    </NavLink>
+                    {
+                        login ?
+                        <NavLink className="menu__item" to='/map'>
+                            <img src={mapIcon} alt="" />
+                            <span>Map</span>
+                        </NavLink>
+                        : ""
+                    }
+                    
                     <NavLink className="menu__item" to="/">
                         <img src={homeIcon} alt="" />
                         <span>Home</span>
@@ -38,9 +45,12 @@ const Navbar = () => {
                     </NavLink>
                     {
                         login ?
-                        <NavLink onClick={logout}>Logout</NavLink>
+                        <NavLink className="menu__item logout" onClick={logout}>
+                            <img src={leaveIcon} alt="" />
+                            <span>Logout</span>    
+                        </NavLink>
                         :
-                        <NavLink className="menu__item" to="/registration">
+                        <NavLink className="menu__item" to="/login">
                             <img src={loginIcon} alt="" />
                             <span>Sign In</span>
                         </NavLink>

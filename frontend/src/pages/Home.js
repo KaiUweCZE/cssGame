@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 
 const Home = () => {
+    const {user} = useContext(UserContext)
 
     return(
         <main className="container-home">
@@ -34,6 +36,22 @@ const Home = () => {
                     <li>3. marginy</li>
                     <li>4. zkouška nastavení rozkouskování prkna na více částí</li>
                 </ul>
+            </section>
+
+            <section>
+                {
+                    user ?
+                    <article>
+                        <ul>
+                            <li>{user.name}</li>
+                            <li>{user.id}</li>
+                            <li>{user.level}</li>
+                        </ul>
+
+                    </article>
+                    :
+                    "nic nebylo obdrženo"
+                }
             </section>
         </main>
     )
