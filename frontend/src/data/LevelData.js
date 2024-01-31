@@ -4,6 +4,7 @@ export const levelData = [
     {
         id: 1,
         name: "Level 1",
+        level: 1,
         about: `Vypadá jako reálná faktura od Seznamu. 
         Údaje odpovídají, logo je nápadně podobné tomu, 
         které používá česká internetová společnost. 
@@ -25,6 +26,7 @@ export const levelData = [
     {
         id: 2,
         name: "Level 2",
+        level: 2,
         about: `„Z faktury je evidentní, že se 
         zneužívá naše logo a název služby Firmy.cz,“ 
         říká pro SZ Byznys manažerka PR a interní 
@@ -43,6 +45,7 @@ export const levelData = [
     {
         id: 3,
         name: "Level 3",
+        level: 3,
         about: `Problémem podle Kapuciánové je i to, 
         že faktury vypadají realisticky. „Kromě loga,
         které není naše (rozhodně ne aktuální, možná se 
@@ -59,6 +62,7 @@ export const levelData = [
     {
         id: 4,
         name: "Level 4",
+        level: 4,
         about: `ti Alza a snaží se oklamat zákazníky,“ 
         upozorňuje na varianty zneužívání společnost v 
         tiskové zprávě. 
@@ -73,6 +77,7 @@ export const levelData = [
     {
         id: 5,
         name: "Level 5",
+        level: 5,
         about: `kturační údaje jsou správné, co však 
         správné není, jsou kontaktní e-mail a bankovní 
         údaje. To ale člověk, který chce 
@@ -87,6 +92,7 @@ export const levelData = [
     {
         id: 6,
         name: "Level 6",
+        level: 6,
         about: `rvní takový případ, který Seznam řeší. 
         Podobné podvody jeho jménem probíhaly již 
         před dvěma roky. Útočníci si navíc zpravidla 

@@ -13,7 +13,6 @@ const Mission = () => {
         <BridgeStyleProvider>
         <EmojiProvider>
         <ResultProvider>
-        <LevelProvider>
         <div className="container-mission">
             <div className="box__classes">
                 <CssForm name="bridge"/>
@@ -22,9 +21,7 @@ const Mission = () => {
                 }
             </div>
             <PlayGround/>
-            <LevelSelect />
         </div>
-        </LevelProvider>
         </ResultProvider>
         </EmojiProvider>
         </BridgeStyleProvider>
