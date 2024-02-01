@@ -221,7 +221,7 @@ export const LevelContext = createContext({
 })
 
 export const LevelProvider = ({children}) => {
-    const [style, setStyle] = useState({bridge: "", partOfBridge: ""})
+    const [style, setStyle] = useState({container: "", bridge: "", partOfBridge: ""})
     const [level, setLevel] = useState(() => {
         const savedLevel = localStorage.getItem('level');
         return savedLevel ? JSON.parse(savedLevel) : { partOfBridge: 1 };
@@ -232,12 +232,10 @@ export const LevelProvider = ({children}) => {
         if (savedLevel) {
             const levelObject = JSON.parse(savedLevel)
             setLevel(levelObject)
+            const containerStyle = levelObject.containerStyles
             const bridgeStyle = levelObject.bridgeStyles
             const partStyle = levelObject.partOfBridgeStyles
-            setStyle({bridge: bridgeStyle, partOfBridge: partStyle})
-            console.log("style je: ", levelObject);
-            console.log("style bridgeStyle je: ", bridgeStyle);
-            console.log("style partStyle je: ", partStyle);
+            setStyle({container: containerStyle, bridge: bridgeStyle, partOfBridge: partStyle})
         }
     }, [])
 
@@ -266,10 +264,13 @@ export const CheckContext = createContext({
 
 export const CheckContextProvider = ({children}) => {
     const [active, setActive] = useState(false)
+    const [aboutClass, setAboutClass] = useState("")
 
     const contextValue = {
         active,
-        setActive
+        setActive,
+        aboutClass,
+        setAboutClass
     }
 
     return(

@@ -160,7 +160,7 @@ const CssForm = (props) => {
             }
            
         {
-            props.name === "crossover" ? <img className="class-button" onClick={handleClick} src={closeIcon} alt="" /> : ""
+            props.name === "container" ? <img className="class-button" onClick={handleClick} src={closeIcon} alt="" /> : ""
         }
         </div>
         </>

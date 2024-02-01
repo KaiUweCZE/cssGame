@@ -25,7 +25,7 @@ const RoadMap = () => {
         setResult(currentLevel.name)
         console.log(currentLevel);
         setLevel(currentLevel)
-        setStyle({bridge: currentLevel.bridgeStyles, partOfBridge: currentLevel.partOfBridgeStyles})
+        setStyle({container: currentLevel.containerStyles, bridge: currentLevel.bridgeStyles, partOfBridge: currentLevel.partOfBridgeStyles})
         //setStyle({bridge: bridgeStyle, partOfBridge: partStyle})
         navigate('/game')
     }

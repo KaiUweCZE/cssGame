@@ -16,12 +16,12 @@ export const levelData = [
         Má to však háček – jde o podvrh a peníze by 
         zamířily k podvodníkům. A počet těchto falešných 
         výzev k zaplacení se v poslední době zvyšuje.`,
+        containerStyles: {},
         //specific styles for .bridge etc.
         bridgeStyles: {
             "display": "flex",
             "position": "absolute",
             "top": "5rem",
-            "align-items": "flex-start"
         },
         partOfBridgeStyles:{},
         partOfBridge: 1,
@@ -37,8 +37,8 @@ export const levelData = [
         zhledem blíží k nějakému historickému), nelze
         bohužel
         Jednoduše odhalit, že se nejedná o naši fakturu,“`,
+        containerStyles: {},
         bridgeStyles: {
-            "alignItems": "flex-start",
             "margin-inline": "2rem"
         },
         partOfBridgeStyles:{},
@@ -55,8 +55,8 @@ export const levelData = [
         zhledem blíží k nějakému historickému), nelze
         bohužel
         Jednoduše odhalit, že se nejedná o naši fakturu,“`,
+        containerStyles: {},
         bridgeStyles: {
-            "alignItems": "flex-start",
             "width": "50%"
         },
         partOfBridgeStyles:{},
@@ -73,19 +73,18 @@ export const levelData = [
         zhledem blíží k nějakému historickému), nelze
         bohužel
         Jednoduše odhalit, že se nejedná o naši fakturu,“`,
-        bridgeStyles: {
-            "alignItems": "flex-start",
-            "height": "5rem",
-            "background": "red"
+        containerStyles: {
+            "padding-inline": "1rem",
         },
+        bridgeStyles: {},
         partOfBridgeStyles:{},
         partOfBridge: 1,
         obstacle: false
     },
     {
-        id: 10,
-        name: "Level 1",
-        level: 1,
+        id: 5,
+        name: "Level 5",
+        level: 5,
         about: `Vypadá jako reálná faktura od Seznamu. 
         Údaje odpovídají, logo je nápadně podobné tomu, 
         které používá česká internetová společnost. 
@@ -93,19 +92,58 @@ export const levelData = [
         Má to však háček – jde o podvrh a peníze by 
         zamířily k podvodníkům. A počet těchto falešných 
         výzev k zaplacení se v poslední době zvyšuje.`,
-        //specific styles for .bridge etc.
-        bridgeStyles: {
+        containerStyles: {
             "display": "flex",
-            "width": "100%",
-            "height": "100%",
-            //align-items: flex-end;
             "alignItems": "flex-end"
+        },
+        bridgeStyles: {
+            "width": "100%",
         },
         partOfBridgeStyles:{},
         partOfBridge: 1,
         obstacle: false
     },
-   
+    {
+        id: 6,
+        name: "Level 6",
+        level: 6,
+        about: `Vypadá jako reálná faktura od Seznamu. 
+        Údaje odpovídají, logo je nápadně podobné tomu, 
+        které používá česká internetová společnost. 
+        Klasická výzva k uhrazení reklamních služeb. 
+        Má to však háček – jde o podvrh a peníze by 
+        zamířily k podvodníkům. A počet těchto falešných 
+        výzev k zaplacení se v poslední době zvyšuje.`,
+        containerStyles: {
+            "padding-inline": "1rem"
+        },
+        bridgeStyles: {
+            "display": "flex",
+            "width": "100%",
+        },
+        partOfBridgeStyles:{},
+        partOfBridge: 1,
+        obstacle: false
+    },
+    {
+        id: 7,
+        name: "Level 7",
+        level: 7,
+        about: `ti Alza a snaží se oklamat zákazníky,“ 
+        upozorňuje na varianty zneužívání společnost v 
+        tiskové zprávě. 
+        Jen za letošní rok podobných případů řešila 
+        stovky.`,
+        containerStyles: {
+            "display": "flex",
+            "flex-direction": "column",
+        },
+        bridgeStyles: {
+        },
+        partOfBridgeStyles:{},
+        partOfBridge: 3,
+        obstacle: false
+    },
 ]
 
 /*
@@ -130,27 +168,6 @@ export const levelData = [
         },
         partOfBridgeStyles:{},
         partOfBridge: 1,
-        obstacle: false
-    },
-    {
-        id: 5,
-        name: "Level 5",
-        level: 5,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
-        bridgeStyles: {
-            "display": "flex",
-            "flex-direction": "column",
-            "alignItems": "flex-start",
-            "width": "100%",
-            "height": "100%",
-            
-        },
-        partOfBridgeStyles:{},
-        partOfBridge: 3,
         obstacle: false
     },
     {
