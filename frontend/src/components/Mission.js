@@ -17,7 +17,7 @@ const Mission = () => {
             <div className="box__classes">
                 <CssForm name="bridge"/>
                 {
-                    nextClass ? <CssForm name="crossover" state={nextClass} func={setNextClass} /> : <EmptyBox state={nextClass} func={setNextClass}/>
+                    nextClass ? <CssForm name="container" state={nextClass} func={setNextClass} /> : <EmptyBox state={nextClass} func={setNextClass}/>
                 }
             </div>
             <PlayGround/>

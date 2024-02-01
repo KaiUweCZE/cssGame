@@ -17,7 +17,7 @@ const CrossRoad = () => {
     }
 
     return(
-        <div className='crossover' >
+        <div className='crossover'>
             <CheckPoint ref={checkpointRef} parts={level.partOfBridge}/>
             <Bridge ref={bridgeRef} style={levelStyle}/>
             <River />
