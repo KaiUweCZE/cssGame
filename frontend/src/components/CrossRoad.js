@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Bridge from './Bridge'
 import CheckPoint from './CheckPoint'
 import River from './River'
@@ -26,7 +26,7 @@ const CrossRoad = () => {
 
     return(
         <div className='crossover' style={specificStyle} >
-            <CheckPoint ref={checkpointRef}/>
+            <CheckPoint ref={checkpointRef} parts={level.partOfBridge}/>
             <Bridge ref={bridgeRef} style={levelStyle}/>
             <River />
             {level.obstacle ? <Obstacle /> : ""}

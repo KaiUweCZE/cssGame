@@ -260,6 +260,21 @@ button img:hover {
   width: 100%;
 }
 
+.target-area {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  height: 4rem;
+  width: 100%;
+  background-color: transparent;
+  z-index: -1;
+}
+
+.target-area__part {
+  height: 4rem;
+  width: 100%;
+}
+
 .emoji-character.true {
   left: 90%;
   animation: rotate 4s linear;
@@ -308,6 +323,11 @@ button img:hover {
   width: 100%;
   background-color: transparent;
   z-index: -1;
+}
+
+.target-area.part {
+  background-color: blue;
+  max-width: 33.34%;
 }
 
 .box-wave {
@@ -479,6 +499,7 @@ button img:hover {
 .grid__item {
   grid-column: span 1;
   grid-row: span 1;
+  max-width: 33.34%;
 }
 
 .grid__item:nth-child(1) {
