@@ -36,6 +36,9 @@ export const levelData = [
          případně kampaně, 
         které si zákazník může na svou firmu objednat.“`,
         bridgeStyles: {
+            "display": "flex",
+            "width": "100%",
+            "height": "100%",
             "alignItems": "flex-start",
             "transform": "rotate(90deg)"
         },
@@ -69,8 +72,16 @@ export const levelData = [
         Jen za letošní rok podobných případů řešila 
         stovky.`,
         bridgeStyles: {
-            "alignItems": "flex-end"
+            "display": "flex",
+            "flex-direction": "column",
+            "alignItems": "flex-start",
+            "width": "100%",
+            "height": "100%",
+            
         },
+        /*partOfBridgeStyles:{
+
+        },*/
         partOfBridge: 3,
         obstacle: false
     },
@@ -78,6 +89,21 @@ export const levelData = [
         id: 5,
         name: "Level 5",
         level: 5,
+        about: `ti Alza a snaží se oklamat zákazníky,“ 
+        upozorňuje na varianty zneužívání společnost v 
+        tiskové zprávě. 
+        Jen za letošní rok podobných případů řešila 
+        stovky.`,
+        bridgeStyles: {
+            "alignItems": "flex-end"
+        },
+        partOfBridge: 3,
+        obstacle: false
+    },
+    {
+        id: 6,
+        name: "Level 6",
+        level: 6,
         about: `kturační údaje jsou správné, co však 
         správné není, jsou kontaktní e-mail a bankovní 
         údaje. To ale člověk, který chce 
@@ -90,9 +116,9 @@ export const levelData = [
         obstacle: true
     },
     {
-        id: 6,
-        name: "Level 6",
-        level: 6,
+        id: 7,
+        name: "Level 7",
+        level: 7,
         about: `rvní takový případ, který Seznam řeší. 
         Podobné podvody jeho jménem probíhaly již 
         před dvěma roky. Útočníci si navíc zpravidla 

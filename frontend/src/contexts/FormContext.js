@@ -133,20 +133,34 @@ export const ResultContext = createContext({
     setIsCorrect: () => {},
     resultText: "",
     setResultText: () => {},
-    checkpointRef: () => {},
-    bridgeRef: () => {},
+    checkpointRef: [],
+    bridgeRef: [],
     checkBridgePosition: () => {}
 })
 
 export const ResultProvider = ({children}) => {
     const [isCorrect, setIsCorrect] = useState(false)
     const [resultText, setResultText] = useState("")
-    const checkpointRef = useRef(null)
-    const bridgeRef = useRef(null)
+    const checkpointRef = useRef([])
+    const bridgeRef = useRef([])
+
+    const addToCheckpointRef = (el) => {
+        if (el && !checkpointRef.current.includes(el)) {
+            checkpointRef.current.push(el);
+            console.log("CHECK POINT", checkpointRef);
+        }
+    };
+
+    const addToBridgeRef = (el) => {
+        if (el && !bridgeRef.current.includes(el)) {
+            bridgeRef.current.push(el);
+            console.log("BRIDGE:", bridgeRef);
+        }
+    };
 
     // the position of the bridhe is compared with the position of the auxilliary
     // element, which is set at the correct location
-    const checkBridgePosition = () => {
+    /*const checkBridgePosition = () => {
         const checkpointPosition = checkpointRef.current.getBoundingClientRect();
         const bridgePosition = bridgeRef.current.getBoundingClientRect();
 
@@ -158,17 +172,40 @@ export const ResultProvider = ({children}) => {
             Math.abs(bridgePosition.top - checkpointPosition.top) < tolerance
             //bridgePosition.bottom == checkpointPosition.bottom
         );
-
+        console.log("bridge: ", bridgePosition, "checkpoint:", checkpointPosition);
         setIsCorrect(isCorrectPosition)
+    }*/
+
+    const checkBridgePosition = () => {
+        const tolerance = 5;
+
+        bridgeRef.current.forEach((bridgeEl) => {
+            const bridgePosition = bridgeEl.getBoundingClientRect()
+
+            console.log("jednotlivé pozice: ", bridgePosition);
+            const isCorrectPosition  = checkpointRef.current.some((checkEl) => {
+                const checkpointPosition = checkEl.getBoundingClientRect()
+                console.log("další pozice: ", checkpointPosition);
+                return (
+                    Math.abs(bridgePosition.left - checkpointPosition.left) < tolerance &&
+                    Math.abs(bridgePosition.right - checkpointPosition.right) < tolerance &&
+                    Math.abs(bridgePosition.top - checkpointPosition.top) < tolerance
+                    //bridgePosition.bottom == checkpointPosition.bottom
+                );
+            })
+            setIsCorrect(isCorrectPosition)
+        })
+        
+        // set a tolerance of 5px for the result
+        //console.log("bridge: ", bridgePosition, "checkpoint:", checkpointPosition);
     }
 
     // Auxiliary check
     useEffect(() => {
         if (isCorrect) {
-            //setResultText("Congrats")
+
             console.log("Congrats");
         } else {
-            //setResultText("Oops")
             console.log("Total error");
         }
     }, [isCorrect])
@@ -179,6 +216,8 @@ export const ResultProvider = ({children}) => {
         resultText,
         setResultText,
         checkpointRef,
+        addToCheckpointRef,
+        addToBridgeRef,
         bridgeRef,
         checkBridgePosition
     }
