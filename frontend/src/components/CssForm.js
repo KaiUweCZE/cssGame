@@ -10,13 +10,12 @@ import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
 import { useFormInputs } from "../Functions/cssFormFunctions";
-import { EmojiContext, BridgeStyleContext, ResultContext, CrossoverStyleContext, LevelProvider, LevelContext } from "../contexts/FormContext";
+import { EmojiContext, BridgeContext, ResultContext, ContainerContext, LevelProvider, LevelContext } from "../contexts/FormContext";
 import useLevelUp from "../Functions/Queries";
 import { UserContext } from "../contexts/UserContext";
 
 // key component for posting 
 const CssForm = (props) => {
-    const context = props.name === "bridge"
     // set class for emoji character
     const { setSpecialClass } = useContext(EmojiContext)
     // check if error occurs (typo error)
@@ -36,7 +35,30 @@ const CssForm = (props) => {
     const [suggestValue, setSuggestValue] = useState("")
     const [propertyIndex, setPropertyIndex] = useState(null)
     const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2} = useFormInputs([""], [""]);
-    const {properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd} = props.name === "bridge" ? useContext(BridgeStyleContext) : useContext(CrossoverStyleContext);
+    const context = props.name === "bridge" ? useContext(BridgeContext) : useContext(ContainerContext)
+    const { properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd } = props.name === "bridge" ? 
+        {
+            properties: context.propertiesBridge,
+            valuese: context.valuesBridg,
+            setProperties: context.setPropertiesBridge,
+            setValues: context.setValuesBridge,
+            handleAddInput: context.handleAddInput,
+            handleRemoveInput: context.handleRemoveInput,
+            stopAdd: context.stopAdd
+        } 
+        : 
+        {
+            properties: context.propertiesContainer,
+            values: context.valuesContainer,
+            setProperties: context.setPropertiesContainer,
+            setValues: context.setValuesContainer,
+            handleAddInput: context.handleAddInput,
+            handleRemoveInput: context.handleRemoveInput,
+            stopAdd: context.stopAdd
+        };
+
+
+   
     // custom hook to set level to database
     const {levelUp} = useLevelUp()
     const {user, setUser} = useContext(UserContext)

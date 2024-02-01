@@ -2,32 +2,32 @@ import React, {createContext, useState, useRef, useEffect} from "react";
 
 
 // to setting the result style of a given level
-export const BridgeStyleContext = createContext(null);
+export const BridgeContext = createContext(null);
 
-export const BridgeStyleProvider = ({ children }) => {
-    const [properties, setProperties] = useState([""]);
-    const [values, setValues] = useState([""]);
+export const BridgeProvider = ({ children }) => {
+    const [propertiesBridge, setPropertiesBridge] = useState([""]);
+    const [valuesBridge, setValuesBridge] = useState([""]);
     const [stopAdd, setStopAdd] = useState(false);
 
     const handleAddInput = () => {
-        if (properties.length >= 3) {
-            setProperties([...properties, ""]);
-            setValues([...values, ""]);
+        if (propertiesBridge.length >= 3) {
+            setPropertiesBridge([...propertiesBridge, ""]);
+            setValuesBridge([...valuesBridge, ""]);
             setStopAdd(true)
             console.log("Done!");
         } else if(!stopAdd){
-            setProperties([...properties, ""]);
-            setValues([...values, ""]);
+            setProperties([...propertiesBridge, ""]);
+            setValues([...valuesBridge, ""]);
         }
     };
 
     const handleRemoveInput = index => {
-        if (properties.length === 1) {
+        if (propertiesBridge.length === 1) {
             console.log("další prvky nelze odebrat");
         } else{
-            const filteredProperties = properties.filter((_, i) => i !== index);
+            const filteredProperties = propertiesBridge.filter((_, i) => i !== index);
             setProperties(filteredProperties);
-            const filteredValues = values.filter((_, i) => i !== index);
+            const filteredValues = valuesBridge.filter((_, i) => i !== index);
             setValues(filteredValues);
             setStopAdd(false)
         }
@@ -35,68 +35,68 @@ export const BridgeStyleProvider = ({ children }) => {
     };
 
     const contextValue = {
-        properties,
-        values,
-        setProperties,
-        setValues,
+        propertiesBridge,
+        valuesBridge,
+        setPropertiesBridge,
+        setValuesBridge,
         stopAdd,
         handleAddInput,
         handleRemoveInput,
     };
 
     return (
-        <BridgeStyleContext.Provider value={contextValue}>
+        <BridgeContext.Provider value={contextValue}>
             {children}
-        </BridgeStyleContext.Provider>
+        </BridgeContext.Provider>
     );
 };
 
-export const CrossoverStyleContext = createContext(null);
+export const ContainerContext = createContext(null);
 
-export const CrossoverStyleProvider = ({children}) => {
-    const [properties, setProperties] = useState([""]);
-    const [values, setValues] = useState([""]);
+export const ContainerProvider = ({children}) => {
+    const [propertiesContainer, setPropertiesContainer] = useState([""]);
+    const [valuesContainer, setValuesContainer] = useState([""]);
     const [stopAdd, setStopAdd] = useState(false);
 
     const handleAddInput = () => {
-        if (properties.length >= 3) {
-            setProperties([...properties, ""]);
-            setValues([...values, ""]);
+        if (propertiesContainer.length >= 3) {
+            setPropertiesContainer([...propertiesContainer, ""]);
+            setValuesContainer([...valuesContainer, ""]);
             setStopAdd(true)
             console.log("Done!");
         } else if(!stopAdd){
-            setProperties([...properties, ""]);
-            setValues([...values, ""]);
+            setPropertiesContainer([...propertiesContainer, ""]);
+            setValuesContainer([...valuesContainer, ""]);
         }
     };
 
     const handleRemoveInput = index => {
-        if (properties.length === 1) {
+        if (propertiesContainer.length === 1) {
             console.log("další prvky nelze odebrat");
         } else{
-            const filteredProperties = properties.filter((_, i) => i !== index);
-            setProperties(filteredProperties);
-            const filteredValues = values.filter((_, i) => i !== index);
-            setValues(filteredValues);
+            const filteredProperties = propertiesContainer.filter((_, i) => i !== index);
+            setPropertiesContainer(filteredProperties);
+            const filteredValues = valuesContainer.filter((_, i) => i !== index);
+            setValuesContainer(filteredValues);
             setStopAdd(false)
         }
         
     };
 
     const contextValue = {
-        properties,
-        values,
-        setProperties,
-        setValues,
+        propertiesContainer,
+        valuesContainer,
+        setPropertiesContainer,
+        setValuesContainer,
         stopAdd,
         handleAddInput,
         handleRemoveInput,
     };
 
     return(
-        <CrossoverStyleContext.Provider value={contextValue}>
+        <ContainerContext.Provider value={contextValue}>
             {children}
-        </CrossoverStyleContext.Provider>
+        </ContainerContext.Provider>
     )
 }
 
@@ -158,24 +158,8 @@ export const ResultProvider = ({children}) => {
         }
     };
 
-    // the position of the bridhe is compared with the position of the auxilliary
+    // the position of the part of bridge is compared with the position of the auxilliary
     // element, which is set at the correct location
-    /*const checkBridgePosition = () => {
-        const checkpointPosition = checkpointRef.current.getBoundingClientRect();
-        const bridgePosition = bridgeRef.current.getBoundingClientRect();
-
-        // set a tolerance of 5px for the result
-        const tolerance = 5;
-        const isCorrectPosition = (
-            Math.abs(bridgePosition.left - checkpointPosition.left) < tolerance &&
-            Math.abs(bridgePosition.right - checkpointPosition.right) < tolerance &&
-            Math.abs(bridgePosition.top - checkpointPosition.top) < tolerance
-            //bridgePosition.bottom == checkpointPosition.bottom
-        );
-        console.log("bridge: ", bridgePosition, "checkpoint:", checkpointPosition);
-        setIsCorrect(isCorrectPosition)
-    }*/
-
     const checkBridgePosition = () => {
         const tolerance = 5;
 
@@ -237,7 +221,7 @@ export const LevelContext = createContext({
 })
 
 export const LevelProvider = ({children}) => {
-    const [style, setStyle] = useState({})
+    const [style, setStyle] = useState({bridge: "", partOfBridge: ""})
     const [level, setLevel] = useState(() => {
         const savedLevel = localStorage.getItem('level');
         return savedLevel ? JSON.parse(savedLevel) : { partOfBridge: 1 };
@@ -248,8 +232,12 @@ export const LevelProvider = ({children}) => {
         if (savedLevel) {
             const levelObject = JSON.parse(savedLevel)
             setLevel(levelObject)
-            const levelNum = levelObject.bridgeStyles
-            setStyle(levelNum)
+            const bridgeStyle = levelObject.bridgeStyles
+            const partStyle = levelObject.partOfBridgeStyles
+            setStyle({bridge: bridgeStyle, partOfBridge: partStyle})
+            console.log("style je: ", levelObject);
+            console.log("style bridgeStyle je: ", bridgeStyle);
+            console.log("style partStyle je: ", partStyle);
         }
     }, [])
 

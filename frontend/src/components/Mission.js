@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CssForm from "./CssForm";
 import PlayGround from "./PlayGround";
-import { BridgeStyleProvider, CheckContextProvider, CrossoverStyleProvider, EmojiProvider, LevelProvider, ResultProvider } from "../contexts/FormContext";
+import { BridgeProvider, CheckContextProvider, ContainerProvider, EmojiProvider, LevelProvider, ResultProvider } from "../contexts/FormContext";
 import LevelSelect from "./LevelSelect";
 import EmptyBox from "./EmptyBox";
 
@@ -9,8 +9,8 @@ const Mission = () => {
     const [nextClass, setNextClass] = useState()
     return(
         <CheckContextProvider>
-        <CrossoverStyleProvider >
-        <BridgeStyleProvider>
+        <ContainerProvider >
+        <BridgeProvider>
         <EmojiProvider>
         <ResultProvider>
         <div className="container-mission">
@@ -24,8 +24,8 @@ const Mission = () => {
         </div>
         </ResultProvider>
         </EmojiProvider>
-        </BridgeStyleProvider>
-        </CrossoverStyleProvider>
+        </BridgeProvider>
+        </ContainerProvider>
         </CheckContextProvider>
     )
 }
