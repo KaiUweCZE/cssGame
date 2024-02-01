@@ -91,18 +91,22 @@
 }
 @media (max-width: 40rem) {
   .container-menu .menu {
+    display: none;
     position: absolute;
     height: -moz-fit-content;
     height: fit-content;
     top: 4rem;
-    padding: 1rem;
-    margin-right: 0;
+    padding: 0.5rem;
+    margin-right: 0.75rem;
     border-radius: 0 0 0.5rem 0.5rem;
     background-color: #0A3A40;
     flex-direction: column;
     transition: 0.5s;
     opacity: 0;
     z-index: 5;
+  }
+  .container-menu .menu.active {
+    display: flex;
   }
   .container-menu .menu .menu__item {
     z-index: 2;
@@ -147,7 +151,7 @@
     align-items: center;
     cursor: pointer;
     overflow: hidden;
-    margin-right: 2vw;
+    margin-right: 6.5vw;
   }
   .menu-hamburger span {
     display: flex;
