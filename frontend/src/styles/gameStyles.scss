@@ -159,24 +159,10 @@ button {
     padding-block: .5rem;
     border-radius: .5rem;
     max-height: 8rem;
-    overflow-y: scroll;
-
-    //need to make scrollbar mixin? 
-    &::-webkit-scrollbar {
-        width: .5rem;
-    }
-    &::-webkit-scrollbar-thumb{
-        background-color: rgba($background-secondary, 0.5);
-
-        &:hover{
-            background-color: rgba($background-secondary, 1);
-        }
-    }
-
+    @include scroll-primary;
     span {
         font-weight: bold;
     }
-
     li {
         padding-inline: .5rem;
         color: white;
@@ -490,18 +476,6 @@ animation: animate 15s linear infinite;
     height: 10rem;
 }
 
-.glass{
-    position: absolute;
-    top: -145%;
-    right: 2rem;
-    width: 3rem;
-    cursor: pointer;
-    transition: .5s;
-    &:hover{
-        transform: scale(1.2);
-    }
-}
-
 // try to set up grid style for level with grid display
 .bridge.grid{
     display: grid;
@@ -531,38 +505,77 @@ animation: animate 15s linear infinite;
     grid-row: 3;
 }
 
-.checkClass{
+.glass{
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.35);
+    top: -145%;
+    right: -95%;
+    width: 3rem;
+    cursor: pointer;
+    transition: .5s;
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+
+.about-class{
+    display: flex;
+    position: absolute;
+    width: 12rem;
+    right: -95%;
+    top: -50vh;
+    flex-direction: column;
     background-color: rgba(0, 0, 0, .65);
+    border-radius: .35rem;
+}
+
+.about-class__article{  
     z-index: 1;
     transition: .3s;
-    top: -46vh;
-    right: -95%;
     padding: .5rem;
     border-radius: .5rem;
-    li, h2{
+    opacity: 0;
+    height: 0;
+    animation: blure .5s linear forwards;
+    @include scroll-primary;
+    li{
+        font-size: 1rem;
+        list-style: none;
         color: white;
     }
 }
 
+@keyframes blure {
+    0% {
+        height: 0;
+        opacity: 0;
+    }
+    50% {
+        height: 6rem;
+        opacity: 0;
+    }
+    100% {
+        height: 6rem;
+        opacity: 1;
+    }
+}
 
-.glass__list{
+.about-class__menu{
     display: flex;
-    position: absolute;
-    top: -50vh;
-    right: 1.5%;
-    border-radius: .25rem;
-    background-color: rgba(0, 0, 0, .65);
     z-index: 1;
     li{
+        display: flex;
+        padding: .25rem;
+        justify-content: center;
+        width: 100%;
         color: white;
         font-weight: bold;
         cursor: pointer;
-        padding: .25rem;
         transition: .5s;
         &:hover{
             background-color: rgba(255, 255, 255, 0.15);
+        }
+        &.active{
+        background-color: rgba(255, 255, 255, 0.15);
         }
     }
 }

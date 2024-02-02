@@ -475,18 +475,6 @@ button img:hover {
   height: 10rem;
 }
 
-.glass {
-  position: absolute;
-  top: -145%;
-  right: 2rem;
-  width: 3rem;
-  cursor: pointer;
-  transition: 0.5s;
-}
-.glass:hover {
-  transform: scale(1.2);
-}
-
 .bridge.grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* 3 sloupce */
@@ -516,37 +504,85 @@ button img:hover {
   grid-row: 3;
 }
 
-.checkClass {
+.glass {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.35);
+  top: -145%;
+  right: -95%;
+  width: 3rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.glass:hover {
+  transform: scale(1.2);
+}
+
+.about-class {
+  display: flex;
+  position: absolute;
+  width: 12rem;
+  right: -95%;
+  top: -50vh;
+  flex-direction: column;
   background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 0.35rem;
+}
+
+.about-class__article {
   z-index: 1;
   transition: 0.3s;
-  top: -46vh;
-  right: -95%;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  opacity: 0;
+  height: 0;
+  animation: blure 0.5s linear forwards;
+  overflow-y: scroll;
 }
-.checkClass li, .checkClass h2 {
+.about-class__article::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.about-class__article::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 190, 217, 0.5);
+}
+.about-class__article::-webkit-scrollbar-thumb:hover {
+  background-color: #79bed9;
+}
+.about-class__article li {
+  font-size: 1rem;
+  list-style: none;
   color: white;
 }
 
-.glass__list {
+@keyframes blure {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  50% {
+    height: 6rem;
+    opacity: 0;
+  }
+  100% {
+    height: 6rem;
+    opacity: 1;
+  }
+}
+.about-class__menu {
   display: flex;
-  position: absolute;
-  top: -50vh;
-  right: 1.5%;
-  border-radius: 0.25rem;
-  background-color: rgba(0, 0, 0, 0.65);
   z-index: 1;
 }
-.glass__list li {
+.about-class__menu li {
+  display: flex;
+  padding: 0.25rem;
+  justify-content: center;
+  width: 100%;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  padding: 0.25rem;
   transition: 0.5s;
 }
-.glass__list li:hover {
+.about-class__menu li:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.about-class__menu li.active {
   background-color: rgba(255, 255, 255, 0.15);
 }/*# sourceMappingURL=gameStyles.css.map */
