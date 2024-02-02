@@ -16,8 +16,8 @@ export const BridgeProvider = ({ children }) => {
             setStopAdd(true)
             console.log("Done!");
         } else if(!stopAdd){
-            setProperties([...propertiesBridge, ""]);
-            setValues([...valuesBridge, ""]);
+            setPropertiesBridge([...propertiesBridge, ""]);
+            setValuesBridge([...valuesBridge, ""]);
         }
     };
 
@@ -26,9 +26,9 @@ export const BridgeProvider = ({ children }) => {
             console.log("další prvky nelze odebrat");
         } else{
             const filteredProperties = propertiesBridge.filter((_, i) => i !== index);
-            setProperties(filteredProperties);
+            setPropertiesBridge(filteredProperties);
             const filteredValues = valuesBridge.filter((_, i) => i !== index);
-            setValues(filteredValues);
+            setValuesBridge(filteredValues);
             setStopAdd(false)
         }
         
