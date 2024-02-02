@@ -1,17 +1,16 @@
 import React from "react";
 
-const AboutClass = (props) => {
+const AboutClassInfo = (props) => {
 
     return(
-        <ul className="checkClass">
-            <h2>{props.name}</h2>
+        <article className="about-class__article">
             {Object.entries(props.information).map(([key, value]) => {
                 return(
                     <li>{key}: {value}</li>
                 )
                 })}
-        </ul>
+        </article>
     )
 }
 
-export default AboutClass
+export default AboutClassInfo

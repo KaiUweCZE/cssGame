@@ -1,7 +1,7 @@
 import React, { forwardRef, useContext } from "react";
 import barkTexture from "../styles/images/bark.webp"
 import { LevelContext, BridgeContext, CheckContext, ResultContext, ContainerContext } from "../contexts/FormContext";
-import AboutClass from "./AboutClass";
+import AboutClass from "./AboutClassComponents/AboutClass";
 
 // game component that users will set up
 const Bridge = forwardRef((props,ref) => {
@@ -53,25 +53,11 @@ const Bridge = forwardRef((props,ref) => {
             </>
         }
         </div>
-        { // this will be component (it shows information about class)
-            active ? <AboutClass name={`.${aboutClass}`} information={aboutClass === "bridge" ? style.bridge : style.container}/>
-             :
-             ""
-            
-        }
+        {/* this will be component (it shows information about class) */}
+        <AboutClass style={aboutClass === "bridge" ? style.bridge : style.container} />
         </>
     )
 })
 
 
 export default Bridge
-/*
-<ul className="checkClass">
-                <h2>.bridge</h2>
-                {Object.entries(style.bridge).map(([key, value]) => {
-                return(
-                    <li>{key}: {value}</li>
-                )
-                })}
-                </ul>
-*/
