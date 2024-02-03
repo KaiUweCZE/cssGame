@@ -247,6 +247,7 @@ button img:hover {
 
 .container-bridge {
   display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -467,12 +468,12 @@ button img:hover {
   transform: scale(1.2);
 }
 
-.obstacle {
-  display: flex;
+img.obstacle {
   position: absolute;
-  top: -9.9rem;
-  left: -6rem;
-  height: 10rem;
+  top: -12rem;
+  left: -10rem;
+  height: 12rem;
+  width: 12rem;
 }
 
 .bridge.grid {

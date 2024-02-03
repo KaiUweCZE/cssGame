@@ -1,4 +1,4 @@
-import React, {createContext, useState, useRef, useEffect} from "react";
+import React, { createContext, useState, useRef, useEffect, useContext } from "react";
 
 
 // to setting the result style of a given level
@@ -15,7 +15,7 @@ export const BridgeProvider = ({ children }) => {
             setValuesBridge([...valuesBridge, ""]);
             setStopAdd(true)
             console.log("Done!");
-        } else if(!stopAdd){
+        } else if (!stopAdd) {
             setPropertiesBridge([...propertiesBridge, ""]);
             setValuesBridge([...valuesBridge, ""]);
         }
@@ -24,14 +24,14 @@ export const BridgeProvider = ({ children }) => {
     const handleRemoveInput = index => {
         if (propertiesBridge.length === 1) {
             console.log("další prvky nelze odebrat");
-        } else{
+        } else {
             const filteredProperties = propertiesBridge.filter((_, i) => i !== index);
             setPropertiesBridge(filteredProperties);
             const filteredValues = valuesBridge.filter((_, i) => i !== index);
             setValuesBridge(filteredValues);
             setStopAdd(false)
         }
-        
+
     };
 
     const contextValue = {
@@ -53,7 +53,7 @@ export const BridgeProvider = ({ children }) => {
 
 export const ContainerContext = createContext(null);
 
-export const ContainerProvider = ({children}) => {
+export const ContainerProvider = ({ children }) => {
     const [propertiesContainer, setPropertiesContainer] = useState([""]);
     const [valuesContainer, setValuesContainer] = useState([""]);
     const [stopAdd, setStopAdd] = useState(false);
@@ -64,7 +64,7 @@ export const ContainerProvider = ({children}) => {
             setValuesContainer([...valuesContainer, ""]);
             setStopAdd(true)
             console.log("Done!");
-        } else if(!stopAdd){
+        } else if (!stopAdd) {
             setPropertiesContainer([...propertiesContainer, ""]);
             setValuesContainer([...valuesContainer, ""]);
         }
@@ -73,14 +73,14 @@ export const ContainerProvider = ({children}) => {
     const handleRemoveInput = index => {
         if (propertiesContainer.length === 1) {
             console.log("další prvky nelze odebrat");
-        } else{
+        } else {
             const filteredProperties = propertiesContainer.filter((_, i) => i !== index);
             setPropertiesContainer(filteredProperties);
             const filteredValues = valuesContainer.filter((_, i) => i !== index);
             setValuesContainer(filteredValues);
             setStopAdd(false)
         }
-        
+
     };
 
     const contextValue = {
@@ -93,7 +93,7 @@ export const ContainerProvider = ({children}) => {
         handleRemoveInput,
     };
 
-    return(
+    return (
         <ContainerContext.Provider value={contextValue}>
             {children}
         </ContainerContext.Provider>
@@ -105,11 +105,11 @@ export const ContainerProvider = ({children}) => {
 export const EmojiContext = createContext({
     position: 0,
     specialClass: "",
-    setPosition: () => {},
-    setSpecialClass: () => {}
+    setPosition: () => { },
+    setSpecialClass: () => { }
 })
 
-export const EmojiProvider = ({children}) => {
+export const EmojiProvider = ({ children }) => {
     const [position, setPosition] = useState(0)
     const [specialClass, setSpecialClass] = useState("")
 
@@ -120,7 +120,7 @@ export const EmojiProvider = ({children}) => {
         setSpecialClass
     }
 
-    return(
+    return (
         <EmojiContext.Provider value={contextValue}>
             {children}
         </EmojiContext.Provider>
@@ -130,31 +130,31 @@ export const EmojiProvider = ({children}) => {
 // Result evaluation
 export const ResultContext = createContext({
     isCorrect: "",
-    setIsCorrect: () => {},
+    setIsCorrect: () => { },
     resultText: "",
-    setResultText: () => {},
+    setResultText: () => { },
     checkpointRef: [],
     bridgeRef: [],
-    checkBridgePosition: () => {}
+    checkBridgePosition: () => { }
 })
 
-export const ResultProvider = ({children}) => {
+export const ResultProvider = ({ children }) => {
     const [isCorrect, setIsCorrect] = useState(false)
     const [resultText, setResultText] = useState("")
     const checkpointRef = useRef([])
     const bridgeRef = useRef([])
+    //const { level } = useContext(LevelContext)
+    //const { valuesContainer, setValuesContainer } = useContext(ContainerContext)
 
-    const addToCheckpointRef = (el) => {
-        if (el && !checkpointRef.current.includes(el)) {
-            checkpointRef.current.push(el);
-            console.log("CHECK POINT", checkpointRef);
+    const addToCheckpointRef = (element) => {
+        if (element && !checkpointRef.current.includes(element)) {
+            checkpointRef.current.push(element);
         }
     };
 
-    const addToBridgeRef = (el) => {
-        if (el && !bridgeRef.current.includes(el)) {
-            bridgeRef.current.push(el);
-            console.log("BRIDGE:", bridgeRef);
+    const addToBridgeRef = (element) => {
+        if (element && !bridgeRef.current.includes(element)) {
+            bridgeRef.current.push(element);
         }
     };
 
@@ -162,12 +162,10 @@ export const ResultProvider = ({children}) => {
     // element, which is set at the correct location
     const checkBridgePosition = () => {
         const tolerance = 5;
-
         bridgeRef.current.forEach((bridgeEl) => {
             const bridgePosition = bridgeEl.getBoundingClientRect()
-
             console.log("jednotlivé pozice: ", bridgePosition);
-            const isCorrectPosition  = checkpointRef.current.some((checkEl) => {
+            const isCorrectPosition = checkpointRef.current.some((checkEl) => {
                 const checkpointPosition = checkEl.getBoundingClientRect()
                 console.log("další pozice: ", checkpointPosition);
                 return (
@@ -178,21 +176,12 @@ export const ResultProvider = ({children}) => {
                 );
             })
             setIsCorrect(isCorrectPosition)
+
         })
-        
+
         // set a tolerance of 5px for the result
         //console.log("bridge: ", bridgePosition, "checkpoint:", checkpointPosition);
     }
-
-    // Auxiliary check
-    useEffect(() => {
-        if (isCorrect) {
-
-            console.log("Congrats");
-        } else {
-            console.log("Total error");
-        }
-    }, [isCorrect])
 
     const contextValue = {
         isCorrect,
@@ -206,7 +195,7 @@ export const ResultProvider = ({children}) => {
         checkBridgePosition
     }
 
-    return(
+    return (
         <ResultContext.Provider value={contextValue}>
             {children}
         </ResultContext.Provider>
@@ -215,18 +204,18 @@ export const ResultProvider = ({children}) => {
 
 // for selecting and setting basic parameters of a given level
 export const LevelContext = createContext({
-    style:{},
-    setStyle: () => {},
-    setLevel: () => {}
+    style: {},
+    setStyle: () => { },
+    setLevel: () => { }
 })
 
-export const LevelProvider = ({children}) => {
-    const [style, setStyle] = useState({container: "", bridge: "", partOfBridge: ""})
+export const LevelProvider = ({ children }) => {
+    const [style, setStyle] = useState({ container: "", bridge: "", partOfBridge: "" })
     const [level, setLevel] = useState(() => {
         const savedLevel = localStorage.getItem('level');
         return savedLevel ? JSON.parse(savedLevel) : { partOfBridge: 1 };
     });
-    
+
     useEffect(() => {
         const savedLevel = localStorage.getItem('level')
         if (savedLevel) {
@@ -235,13 +224,13 @@ export const LevelProvider = ({children}) => {
             const containerStyle = levelObject.containerStyles
             const bridgeStyle = levelObject.bridgeStyles
             const partStyle = levelObject.partOfBridgeStyles
-            setStyle({container: containerStyle, bridge: bridgeStyle, partOfBridge: partStyle})
+            setStyle({ container: containerStyle, bridge: bridgeStyle, partOfBridge: partStyle })
         }
     }, [])
 
     useEffect(() => {
         localStorage.setItem('level', JSON.stringify(level))
-    },[level])
+    }, [level])
 
     const contextValue = {
         style,
@@ -250,7 +239,7 @@ export const LevelProvider = ({children}) => {
         setLevel
     }
 
-    return(
+    return (
         <LevelContext.Provider value={contextValue}>
             {children}
         </LevelContext.Provider>
@@ -259,10 +248,10 @@ export const LevelProvider = ({children}) => {
 
 export const CheckContext = createContext({
     active: false,
-    setActive: () => {}
+    setActive: () => { }
 })
 
-export const CheckContextProvider = ({children}) => {
+export const CheckContextProvider = ({ children }) => {
     const [active, setActive] = useState(false)
     const [aboutClass, setAboutClass] = useState("")
 
@@ -273,7 +262,7 @@ export const CheckContextProvider = ({children}) => {
         setAboutClass
     }
 
-    return(
+    return (
         <CheckContext.Provider value={contextValue}>
             {children}
         </CheckContext.Provider>

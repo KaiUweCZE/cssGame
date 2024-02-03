@@ -24,17 +24,9 @@ const Home = () => {
             <section>
                 <h2>Plány</h2>
                 <ul>
-                    <li>Projet skripta CSS a udělat by voko lvl mapu</li>
-                    <li>Backend kvůli registraci/přihlašování</li>
-                    <li>mapa s levly</li>
-                    <li>předělat .bridge, seamless texture</li>
-                </ul>
-                <ul>
-                    <h2>Levely na zkoušku</h2>
-                    <li>1. na align items</li>
-                    <li>2. transform rotate</li>
-                    <li>3. marginy</li>
-                    <li>4. zkouška nastavení rozkouskování prkna na více částí</li>
+                    <li>Zaměřit se na vyřešení obstacle elemenut</li>
+                    <li>přidat alespoň 5 různých levelů na flex a na grid</li>
+                    <li>Možnost zasáhnout do jednotlivých částí mostu?</li>
                 </ul>
             </section>
 
@@ -42,6 +34,7 @@ const Home = () => {
                 {
                     user ?
                     <article>
+                        <h2>User</h2>
                         <ul>
                             <li>{user.name}</li>
                             <li>{user.id}</li>
