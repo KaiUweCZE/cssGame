@@ -67,6 +67,7 @@ $primary-color: #0A3A40;
 
 .roadmap__item{
     display: flex;
+    position: relative;
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
@@ -80,10 +81,21 @@ $primary-color: #0A3A40;
         font-weight: bold;
         color: white;
     }
-    &:hover{
+    &::after{
+        content: '';
+        position: absolute;
+        width: 5.25rem;
+        height: 5.25rem;
+        opacity: 0;
+        border-radius: 50%;
+        background-color: black;
+        filter: blur(2px);
+        z-index: -1;
         transition: .5s;
-        transform: scale(1.2);
-        border: 2px dashed white;
+    }
+    &:hover::after{
+        opacity: 1;
+        transform: scale(1.1);
     }
 }
 

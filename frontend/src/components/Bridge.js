@@ -2,6 +2,7 @@ import React, { forwardRef, useContext } from "react";
 import barkTexture from "../styles/images/bark.webp"
 import { LevelContext, BridgeContext, CheckContext, ResultContext, ContainerContext } from "../contexts/FormContext";
 import AboutClass from "./AboutClassComponents/AboutClass";
+import Obstacle from "./Obstacle";
 
 // game component that users will set up
 const Bridge = forwardRef((props,ref) => {
@@ -16,7 +17,6 @@ const Bridge = forwardRef((props,ref) => {
         // specific style from levelData
         ...style.bridge,
     }
-
     
     const containerStyle = {
         ...style.container,
@@ -51,7 +51,8 @@ const Bridge = forwardRef((props,ref) => {
                     })
                 }
             </>
-        }
+            }
+            {level.obstacle ? <Obstacle /> : ""}
         </div>
         {/* this will be component (it shows information about class) */}
         <AboutClass style={aboutClass === "bridge" ? style.bridge : style.container} />

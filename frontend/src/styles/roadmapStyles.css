@@ -59,6 +59,7 @@
 
 .roadmap__item {
   display: flex;
+  position: relative;
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
@@ -73,10 +74,21 @@
   font-weight: bold;
   color: white;
 }
-.roadmap__item:hover {
+.roadmap__item::after {
+  content: "";
+  position: absolute;
+  width: 5.25rem;
+  height: 5.25rem;
+  opacity: 0;
+  border-radius: 50%;
+  background-color: black;
+  filter: blur(2px);
+  z-index: -1;
   transition: 0.5s;
-  transform: scale(1.2);
-  border: 2px dashed white;
+}
+.roadmap__item:hover::after {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .locked img {

@@ -144,6 +144,98 @@ export const levelData = [
         partOfBridge: 3,
         obstacle: false
     },
+    {
+        id: 8,
+        name: "Level 8",
+        level: 8,
+        about: `ti Alza a snaží se oklamat zákazníky,“ 
+        upozorňuje na varianty zneužívání společnost v 
+        tiskové zprávě. 
+        Jen za letošní rok podobných případů řešila 
+        stovky.`,
+        containerStyles: {},
+        bridgeStyles: {
+            "position": "absolute",
+            "top": "-4rem",
+            "left": "100%"
+        },
+        partOfBridgeStyles:{},
+        partOfBridge: 1,
+        obstacle: false
+    },
+    {
+        id: 9,
+        name: "Level 9",
+        level: 9,
+        about: `ti Alza a snaží se oklamat zákazníky,“ 
+        upozorňuje na varianty zneužívání společnost v 
+        tiskové zprávě. 
+        Jen za letošní rok podobných případů řešila 
+        stovky.`,
+        containerStyles: {},
+        bridgeStyles: {},
+        partOfBridgeStyles:{},
+        partOfBridge: 1,
+        obstacle: true,
+        note: "Need to set up obstacle resolver"
+    },
+    {
+        id: 10,
+        name: "Level 10",
+        level: 10,
+        about: `ti Alza a snaží se oklamat zákazníky,“ 
+        upozorňuje na varianty zneužívání společnost v 
+        tiskové zprávě. 
+        Jen za letošní rok podobných případů řešila 
+        stovky.`,
+        containerStyles: {
+        },
+        bridgeStyles: {
+            "display": "none"
+        },
+        partOfBridgeStyles:{},
+        partOfBridge: 1,
+        obstacle: false
+    },
+    {
+        id: 11,
+        name: "Level 11",
+        level: 11,
+        about: `ti Alza a snaží se oklamat zákazníky,“ 
+        upozorňuje na varianty zneužívání společnost v 
+        tiskové zprávě. 
+        Jen za letošní rok podobných případů řešila 
+        stovky.`,
+        containerStyles: {
+            "display":"flex",
+            "gap": ".5rem"
+        },
+        bridgeStyles: {},
+        partOfBridgeStyles:{},
+        partOfBridge: 3,
+        obstacle: false
+    },
+    {
+        id: 12,
+        name: "Level 12",
+        level: 12,
+        about: `ti Alza a snaží se oklamat zákazníky,“ 
+        upozorňuje na varianty zneužívání společnost v 
+        tiskové zprávě. 
+        Jen za letošní rok podobných případů řešila 
+        stovky.`,
+        containerStyles: {
+            "display": "flex",
+            "flex-direction": "row",
+            "align-items": "center"
+        },
+        bridgeStyles: {
+            "flex-direction": "column"
+        },
+        partOfBridgeStyles:{},
+        partOfBridge: 3,
+        obstacle: false
+    },
 ]
 
 /*
