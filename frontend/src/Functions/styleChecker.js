@@ -15,6 +15,7 @@ export const styleChecker = (level, styles) => {
             return false
         }
     } else {
+        return true
         console.log("No styleResult found for this level");
     }
 };

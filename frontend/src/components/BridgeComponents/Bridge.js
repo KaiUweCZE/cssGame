@@ -1,8 +1,11 @@
-import React, { forwardRef, useContext } from "react";
-import barkTexture from "../styles/images/bark.webp"
-import { LevelContext, BridgeContext, CheckContext, ResultContext, ContainerContext } from "../contexts/FormContext";
-import AboutClass from "./AboutClassComponents/AboutClass";
-import Obstacle from "./Obstacle";
+import React, { forwardRef, useContext, useEffect } from "react";
+import barkTexture from "../../styles/images/bark.webp"
+import { LevelContext, BridgeContext, CheckContext, ResultContext, ContainerContext } from "../../contexts/FormContext";
+import AboutClass from "../AboutClassComponents/AboutClass";
+import Obstacle from "../Obstacle";
+import OneBridgeElement from "./OneBridgeElement";
+import ManyBridgeElement from "./ManyBridgeElement";
+import MasterBridgeElement from "./MasterBridgeElement";
 
 // game component that users will set up
 const Bridge = forwardRef((props,ref) => {
@@ -12,6 +15,7 @@ const Bridge = forwardRef((props,ref) => {
     const {active, aboutClass} = useContext(CheckContext)
     const {addToBridgeRef} = useContext(ResultContext)
 
+    const styleOfPart = level.partOfBridgeStyles.childrenStyle ? level.partOfBridgeStyles : ""
     const partsNumber = level  ? level.partOfBridge : 1;
     const bridgeStyle = {
         // specific style from levelData
@@ -40,17 +44,14 @@ const Bridge = forwardRef((props,ref) => {
         <div className="container-bridge" style={containerStyle}>
             { // if there is one option we apply different style and css class
             partsNumber === 1 ?
-            <div className="bridge" ref={addToBridgeRef} style={{...bridgeStyle, backgroundImage: `url(${barkTexture})`}}></div>
+            <OneBridgeElement add={addToBridgeRef} style={bridgeStyle} background={barkTexture}/>
             :
-            <>
-                { // here we render parts and send info about each to checkpointRef([])
-                    elements.map((part, index) => {
-                        return(
-                            <div key={index} ref={addToBridgeRef} className="bridge__item" style={{...style.partOfBridge, backgroundImage: `url(${barkTexture})`}}></div>
-                        )
-                    })
-                }
-            </>
+            (
+            level.master ?
+            <MasterBridgeElement elements={elements} add={addToBridgeRef} style={bridgeStyle} partStyle={styleOfPart} background={barkTexture}/>
+            :
+            <ManyBridgeElement elements={elements} add={addToBridgeRef} background={barkTexture}/>
+            )
             }
             {level.obstacle ? <Obstacle /> : ""}
         </div>

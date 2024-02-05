@@ -1,10 +1,10 @@
 import React, {forwardRef, useContext, useState} from "react";
-import { ResultContext } from "../contexts/FormContext";
+import { LevelContext, ResultContext } from "../contexts/FormContext";
 
 // this component signs a place for right answer
 const CheckPoint = forwardRef((props, ref) => {
     const {addToCheckpointRef} = useContext(ResultContext)
-
+    const {level} = useContext(LevelContext)
     // If we have multiple parts, we create an array and
     // store each part separately to check the position 
     const elements = Array.from({length: props.parts})
@@ -19,7 +19,9 @@ const CheckPoint = forwardRef((props, ref) => {
                 { // here we render parts and send info about each to checkpointRef([])
                     elements.map((part, index) => {
                         return(
-                            <div key={index} ref={addToCheckpointRef} className="target-area__part"></div>
+                            <div key={index} ref={addToCheckpointRef} className="target-area__part" style={{
+                                ...level.correctPosition?.childrenStyle[index]
+                            }}></div>
                         )
                     })
                 }
