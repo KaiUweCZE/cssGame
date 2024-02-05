@@ -23,7 +23,7 @@ export const levelData = [
             "position": "absolute",
             "top": "5rem",
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
     },
@@ -41,7 +41,7 @@ export const levelData = [
         bridgeStyles: {
             "margin-inline": "2rem"
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
     },
@@ -59,7 +59,7 @@ export const levelData = [
         bridgeStyles: {
             "width": "50%"
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
     },
@@ -77,7 +77,7 @@ export const levelData = [
             "padding-inline": "1rem",
         },
         bridgeStyles: {},
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
     },
@@ -99,7 +99,7 @@ export const levelData = [
         bridgeStyles: {
             "width": "100%",
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
     },
@@ -121,7 +121,7 @@ export const levelData = [
             "display": "flex",
             "width": "100%",
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
     },
@@ -140,7 +140,7 @@ export const levelData = [
         },
         bridgeStyles: {
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 3,
         obstacle: false
     },
@@ -159,7 +159,7 @@ export const levelData = [
             "top": "-4rem",
             "left": "100%"
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
     },
@@ -174,7 +174,7 @@ export const levelData = [
         stovky.`,
         containerStyles: {},
         bridgeStyles: {},
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: true,
         styleResolver: true,
@@ -194,7 +194,7 @@ export const levelData = [
         bridgeStyles: {
             "display": "none"
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
     },
@@ -208,11 +208,12 @@ export const levelData = [
         Jen za letošní rok podobných případů řešila 
         stovky.`,
         containerStyles: {
-            "display":"flex",
+        },
+        bridgeStyles: {
+            "display": "flex",
             "gap": ".5rem"
         },
-        bridgeStyles: {},
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {},
         partOfBridge: 3,
         obstacle: false
     },
@@ -227,14 +228,82 @@ export const levelData = [
         stovky.`,
         containerStyles: {
             "display": "flex",
-            "flex-direction": "row",
-            "align-items": "center"
+            "flex-direction": "column",
+            "justify-content": "flex-end"
+
         },
         bridgeStyles: {
-            "flex-direction": "column"
+            "display": "flex",
+            "flex-direction": "column",
+            "align-items": "flex-end",
+            "height": "fit-content",
         },
-        partOfBridgeStyles:{},
+        partOfBridgeStyles: {
+            mainStyle:{},
+            childrenStyle: {}
+        },
         partOfBridge: 3,
+        master: true,
+        obstacle: false
+    },
+    {
+        id: 13,
+        name: "Level 13",
+        level: 13,
+        about: `ti Alza a snaží se oklamat zákazníky,“ 
+        upozorňuje na varianty zneužívání společnost v 
+        tiskové zprávě. 
+        Jen za letošní rok podobných případů řešila 
+        stovky.`,
+        startPointStyle: {
+        },
+        endPointStyle: {
+            "position": "relative",
+            "top": "12rem",
+        },
+        containerStyles: {
+            "display": "flex",
+            "flex-direction": "column",
+        },
+        bridgeStyles: {
+            "display": "flex",
+            "position": "relative",
+            "height": "100%"
+        },
+        partOfBridgeStyles: {
+            mainStyle: {
+            },
+            childrenStyle: {
+                0: {
+                    "marginTop": "8rem",
+                },
+                1: {
+                    "marginTop": "4rem",
+                },
+                2: {
+                    "marginTop": "0rem",
+                },
+            }
+
+
+        },
+        partOfBridge: 3,
+        master: true,
+        correctPosition: {
+            mainStyle: {
+            },
+            childrenStyle: {
+                0: {
+                    "marginTop": "0rem",
+                },
+                1: {
+                    "marginTop": "4rem",
+                },
+                2: {
+                    "marginTop": "8rem",
+                },
+            }
+        },
         obstacle: false
     },
 ]
