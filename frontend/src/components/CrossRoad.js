@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Bridge from './Bridge'
+import Bridge from './BridgeComponents/Bridge'
 import CheckPoint from './CheckPoint'
 import River from './River'
 import Obstacle from './Obstacle'

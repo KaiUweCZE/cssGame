@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import dirt from '../styles/images/edit/dirt.png'
 import lawn from '../styles/images/lawn.webp'
+import { LevelContext } from '../contexts/FormContext'
 
 const StartPoint = () => {
+    const{level} = useContext(LevelContext)
 
     const startStyle = {
-        'backgroundImage': `url(${dirt})`
+        'backgroundImage': `url(${dirt})`,
+        ...level?.startPointStyle
     }
+
+    console.log(level?.startPointStyle);
     const lawnStyle = {
         'backgroundImage': `url(${lawn})`
     }

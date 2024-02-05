@@ -143,8 +143,6 @@ export const ResultProvider = ({ children }) => {
     const [resultText, setResultText] = useState("")
     const checkpointRef = useRef([])
     const bridgeRef = useRef([])
-    //const { level } = useContext(LevelContext)
-    //const { valuesContainer, setValuesContainer } = useContext(ContainerContext)
 
     const addToCheckpointRef = (element) => {
         if (element && !checkpointRef.current.includes(element)) {
@@ -162,26 +160,39 @@ export const ResultProvider = ({ children }) => {
     // element, which is set at the correct location
     const checkBridgePosition = () => {
         const tolerance = 5;
-        bridgeRef.current.forEach((bridgeEl) => {
-            const bridgePosition = bridgeEl.getBoundingClientRect()
-            console.log("jednotlivé pozice: ", bridgePosition);
-            const isCorrectPosition = checkpointRef.current.some((checkEl) => {
-                const checkpointPosition = checkEl.getBoundingClientRect()
-                console.log("další pozice: ", checkpointPosition);
-                return (
-                    Math.abs(bridgePosition.left - checkpointPosition.left) < tolerance &&
-                    Math.abs(bridgePosition.right - checkpointPosition.right) < tolerance &&
-                    Math.abs(bridgePosition.top - checkpointPosition.top) < tolerance
-                    //bridgePosition.bottom == checkpointPosition.bottom
-                );
-            })
-            setIsCorrect(isCorrectPosition)
-
-        })
-
-        // set a tolerance of 5px for the result
-        //console.log("bridge: ", bridgePosition, "checkpoint:", checkpointPosition);
+        let correctPositions = 0;
+    
+        // Assuming bridgeRef and checkpointRef are arrays of equal length
+        for (let i = 0; i < bridgeRef.current.length; i++) {
+            const bridgeRect = bridgeRef.current[i].getBoundingClientRect();
+            console.log("first cyklus start", checkpointRef.current.length);
+            for (let j = 0; j < checkpointRef.current.length; j++) {
+                const checkRect = checkpointRef.current[j].getBoundingClientRect();
+                console.log(checkRect.left, checkRect.right, checkRect.top);
+                const isLeftCorrect = Math.abs(bridgeRect.left - checkRect.left) < tolerance;
+                const isRightCorrect = Math.abs(bridgeRect.right - checkRect.right) < tolerance;
+                const isTopCorrect = Math.abs(bridgeRect.top - checkRect.top) < tolerance;
+                console.log("second cyklus");
+                console.log(`Bridge ${j}: Left ${isLeftCorrect ? 'OK' : 'NO'}, Right ${isRightCorrect ? 'OK' : 'NO'}, Top ${isTopCorrect ? 'OK' : 'NO'}`);
+                if (isLeftCorrect && isRightCorrect && isTopCorrect) {
+                    correctPositions += 1;
+                } else {
+                    // If any position is not correct, no need to check further
+                    setIsCorrect(false);
+                }
+                // Log the positions and whether they are correct
+            }
+        }
+    
+        // If all positions are correct
+        if (correctPositions === bridgeRef.current.length) {
+            console.log("All positions are correct!");
+            setIsCorrect(true);
+        } else {
+            setIsCorrect(false);
+        }
     }
+
 
     const contextValue = {
         isCorrect,
