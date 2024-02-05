@@ -13,6 +13,7 @@ import { useFormInputs } from "../Functions/cssFormFunctions";
 import { EmojiContext, BridgeContext, ResultContext, ContainerContext, LevelProvider, LevelContext } from "../contexts/FormContext";
 import useLevelUp from "../Functions/Queries";
 import { UserContext } from "../contexts/UserContext";
+import { styleChecker } from "../Functions/styleChecker";
 
 // key component for posting 
 const CssForm = (props) => {
@@ -56,9 +57,6 @@ const CssForm = (props) => {
             handleRemoveInput: context.handleRemoveInput,
             stopAdd: context.stopAdd
         };
-
-
-   
     // custom hook to set level to database
     const {levelUp} = useLevelUp()
     const {user, setUser} = useContext(UserContext)
@@ -67,8 +65,9 @@ const CssForm = (props) => {
     useEffect(() => {
         if(hasChecked){
             // a result message will be displayed for 2 secs
-            setResultText(isCorrect ? "Congrats" : "Oops")
-            setSpecialClass(isCorrect ? "true" : "false")
+            const styleResult = styleChecker(level.level, values)
+            setResultText(isCorrect &&  styleResult ? "Congrats" : "Oops")
+            setSpecialClass(isCorrect && styleResult ? "true" : "false")
             setTimeout(() => setResultText(""), 2000)
             if (isCorrect) {
                 levelUp(user.id, user.level < level.level ? level.level : user.level)
@@ -84,7 +83,7 @@ const CssForm = (props) => {
     const checkResult = () => {
         const propertiesValidator = cssProperties.every(checkTypo);
     if (!propertiesValidator) {
-        console.error("Některé z vlastností nejsou korektní.");
+        //console.error("Některé z vlastností nejsou korektní.");
         setError(true)
         // text to error component
         setErrorMessage("Oh man, this is not a correct css property");
@@ -94,8 +93,8 @@ const CssForm = (props) => {
         setValues(cssValues)
         setError(false)
         setTimeout(checkBridgePosition, 0)
-        console.log("Všechny vlastnosti jsou korektní:", cssProperties, cssValues);
-        console.log("vlastnosti a hodnoty: ",properties, values);
+        //console.log("Všechny vlastnosti jsou korektní:", cssProperties, cssValues);
+        //console.log("vlastnosti a hodnoty: ",properties, values);
         //setTimeout(checkBridgePosition, 0);
         setHasChecked(true)
     }

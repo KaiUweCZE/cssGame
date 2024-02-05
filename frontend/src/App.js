@@ -10,7 +10,7 @@ import {ApolloClientProvider} from "./client";
 import { UserContextProvider } from "./contexts/UserContext";
 import RoadMap from "./pages/RoadMap";
 import ProtectedLayout from "./components/ProtectedLayout";
-import { CheckContextProvider, LevelProvider } from "./contexts/FormContext";
+import { LevelProvider } from "./contexts/FormContext";
 
 
 const App = () => {

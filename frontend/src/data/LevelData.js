@@ -177,7 +177,8 @@ export const levelData = [
         partOfBridgeStyles:{},
         partOfBridge: 1,
         obstacle: true,
-        note: "Need to set up obstacle resolver"
+        styleResolver: true,
+        styleResult: "hidden"
     },
     {
         id: 10,

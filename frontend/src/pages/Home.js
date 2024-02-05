@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 
-
 const Home = () => {
     const {user} = useContext(UserContext)
 
@@ -45,6 +44,10 @@ const Home = () => {
                     :
                     "nic nebylo obdrženo"
                 }
+            </section>
+
+            <section>
+                <h2>Style Resolver</h2>
             </section>
         </main>
     )
