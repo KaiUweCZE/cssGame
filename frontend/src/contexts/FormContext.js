@@ -103,21 +103,28 @@ export const ContainerProvider = ({ children }) => {
 
 // for emoji character manipulation
 export const EmojiContext = createContext({
-    position: 0,
     specialClass: "",
-    setPosition: () => { },
     setSpecialClass: () => { }
 })
 
 export const EmojiProvider = ({ children }) => {
-    const [position, setPosition] = useState(0)
     const [specialClass, setSpecialClass] = useState("")
 
+    const handleEmojiClass = (correct, levelSpecifics) => {
+        
+        if(correct && levelSpecifics){
+            setSpecialClass(levelSpecifics)
+        } else if(correct){
+            setSpecialClass("true")
+        }else{
+            setSpecialClass("false")
+        }
+    }
+
     const contextValue = {
-        position,
         specialClass,
-        setPosition,
-        setSpecialClass
+        setSpecialClass,
+        handleEmojiClass
     }
 
     return (

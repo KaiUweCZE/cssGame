@@ -3,7 +3,7 @@
 @include main-setting;
 
 // containers 
-.container-background{
+.container-background {
     display: flex;
     position: relative;
     width: 100%;
@@ -22,10 +22,11 @@
     background-color: $background-secondary;
     z-index: 1;
     overflow: hidden;
-    @media (min-width: 85rem){
+
+    @media (min-width: 85rem) {
         box-shadow: inset 0 0 15px rgb(68, 68, 68);
     }
-   
+
 }
 
 .container-playground {
@@ -43,48 +44,55 @@
     flex-direction: column;
     width: fit-content;
     position: relative;
-    .headline{
+
+    .headline {
         display: flex;
         align-items: center;
     }
+
     img {
         height: 1.5rem;
         width: 1.5rem;
     }
-    .class-button{
+
+    .class-button {
         position: absolute;
         left: 90%;
         //bottom: 90%;
         cursor: pointer;
         transition: .5s;
-        &:hover{
+
+        &:hover {
             transform: scale(1.2);
         }
     }
 }
 
-.box-buttons{
+.box-buttons {
     display: flex;
     flex-direction: column;
-    img{
+
+    img {
         align-self: center;
         cursor: pointer;
     }
 }
 
-.form__row{
+.form__row {
     height: 1.5rem;
     display: flex;
     gap: 1rem;
-    img{
+
+    img {
         cursor: pointer;
     }
-    .icon{
+
+    .icon {
         left: 90%;
     }
 }
 
-.icon{
+.icon {
     position: absolute;
 }
 
@@ -96,12 +104,14 @@
     column-gap: 1rem;
     row-gap: 1rem;
     padding-inline: 2rem;
+
     input[type="text"] {
         font-weight: bold;
         max-width: 5rem;
         border: none;
         border-bottom: 2px dotted $primary-color;
         background-color: transparent;
+
         &:focus {
             outline: none;
             background-color: rgba(255, 255, 255, 0.15);
@@ -160,9 +170,11 @@ button {
     border-radius: .5rem;
     max-height: 8rem;
     @include scroll-primary;
+
     span {
         font-weight: bold;
     }
+
     li {
         padding-inline: .5rem;
         color: white;
@@ -194,6 +206,7 @@ button {
     position: relative;
     align-items: flex-start;
     z-index: 1;
+
     //overflow: hidden;
     .crossover__image {
         position: absolute;
@@ -216,7 +229,7 @@ button {
 }
 
 // seamless texture on top of .start and .end
-.lawn{
+.lawn {
     width: 100%;
     height: 2rem;
     background-size: contain;
@@ -242,11 +255,13 @@ button {
     position: relative;
     width: 100%;
     height: 100%;
-    div{
+
+    div {
         width: 100%;
         height: 4rem;
         background-size: cover;
     }
+
     img {
         width: 100%;
         height: 4rem;
@@ -254,11 +269,11 @@ button {
     }
 }
 
-.bridge{
+.bridge {
     display: flex;
 }
 
-.target-area{
+.target-area {
     display: flex;
     position: absolute;
     flex-direction: row;
@@ -269,57 +284,112 @@ button {
 }
 
 
-.target-area__part{
+.target-area__part {
     height: 4rem;
     width: 100%;
 }
 
 // animation for right answer 
-.emoji-character.true{
+.emoji-character.true {
     left: 90%;
     animation: rotate 4s linear;
 }
 
 // animation for bad answer
-.emoji-character.false{
+.emoji-character.false {
     opacity: 1;
     animation: error-run 6s linear;
+
     @media (max-width: 86rem) {
         animation: error-run-small 6s linear;
     }
 }
 
+.emoji-character.stairs-run {
+    left: 90%;
+    top: 8rem;
+    z-index: 1;
+    animation: fromStairs 6s linear;
+}
+
 @keyframes rotate {
     0% {
-      transform: rotate(0deg);
-      left: 0;
+        transform: rotate(0deg);
+        left: 0;
+    }
+
+    100% {
+        transform: rotate(1080deg);
+        left: 90%;
+    }
+}
+
+@keyframes fromStairs {
+    0% {
+        transform: rotate(0deg);
+        left: 0;
+        top: -3.95rem;
+    }
+
+    44% {
+        transform: rotate(475deg);
+        left: 44%;
+        top: -3.95rem;
+    }
+    50%{
+        transform: rotate(540deg);
+        left: 44%;
+        top: 0rem;
+    }
+    61%{
+        transform: rotate(650deg);
+        left: 55%;
+        top: 0rem;
+    }
+    70%{
+        transform: rotate(750deg);
+        left: 55%;
+        top: 4rem;
+    }
+    81%{
+        transform: rotate(860deg);
+        left: 66%;
+        top: 4rem;
+    }
+    90%{
+        transform: rotate(960deg);
+        left: 66%;
+        top: 8rem;
     }
     100% {
-      transform: rotate(1080deg);
-      left: 90%;
+        transform: rotate(1080deg);
+        left: 90%;
+        top: 8rem;
     }
 }
 
 @keyframes error-run {
-    50%{
+    50% {
         transform: translateX(24rem) rotate(2turn);
-    }    
-    100%{
+    }
+
+    100% {
         transform: translateX(0) rotate(0turn);
     }
 }
 
 @keyframes error-run-small {
-    50%{
+    50% {
         transform: translateX(28vw) rotate(2turn);
-    }    
-    100%{
+    }
+
+    100% {
         transform: translateX(0) rotate(0turn);
     }
 }
 
 // box with wave element
-.box-wave{
+.box-wave {
     display: flex;
     position: absolute;
     bottom: 0;
@@ -329,55 +399,59 @@ button {
 }
 
 
-.wave{
-position: absolute;
-bottom: 0;
-width: 100%;
-height: 100%;
-background-color: #2C74B3;
-box-shadow: inset 0 0 50px 0 rgba(0, 0, 0, 0.5);
-overflow: hidden;
-z-index: -1;
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2C74B3;
+    box-shadow: inset 0 0 50px 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: -1;
 }
+
 .wave:before,
-.wave:after{
-content:'';
-position: absolute;
-top: 0;
-left: 50%;
-width: 180%;
-height: 300%;
-max-height: 800px;
-max-width: 600px;
-background: black;
-transform: translate(-50%, -75%);
+.wave:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 180%;
+    height: 300%;
+    max-height: 800px;
+    max-width: 600px;
+    background: black;
+    transform: translate(-50%, -75%);
 }
-.wave:before{
-border-radius: 45%;
-//width: 180%;
-background: rgba(255, 255, 255, 1);
-background-color: rgba($background-secondary, 1);
-animation: animate 7s linear infinite;
+
+.wave:before {
+    border-radius: 45%;
+    //width: 180%;
+    background: rgba(255, 255, 255, 1);
+    background-color: rgba($background-secondary, 1);
+    animation: animate 7s linear infinite;
 }
-.wave:after{
-border-radius: 40%;
-background: rgba(255, 255, 255, 0.5);
-background-color: rgba($background-secondary, 0.5);
-animation: animate 15s linear infinite;
+
+.wave:after {
+    border-radius: 40%;
+    background: rgba(255, 255, 255, 0.5);
+    background-color: rgba($background-secondary, 0.5);
+    animation: animate 15s linear infinite;
 }
 
 // animation for waves motion
-@keyframes animate{
-0%{
-    transform: translate(-50%, -75%) rotate(0deg);
-}
-100%{
-    transform: translate(-50%, -75%) rotate(360deg);
-}
+@keyframes animate {
+    0% {
+        transform: translate(-50%, -75%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -75%) rotate(360deg);
+    }
 }
 
 // Text that will be display after reply
-.message-result{
+.message-result {
     display: flex;
     position: absolute;
     bottom: 60vh;
@@ -389,13 +463,14 @@ animation: animate 15s linear infinite;
     margin: 0 auto;
     text-shadow: 0 0 3px black;
 }
+
 // a design of the text according to replied
-.win{
+.win {
     color: #3DD9AD;
 }
 
-.lost{
-    color:red;
+.lost {
+    color: red;
 }
 
 // marginal elements
@@ -411,7 +486,7 @@ animation: animate 15s linear infinite;
 }
 
 // level menu
-.menu-level{
+.menu-level {
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -422,7 +497,8 @@ animation: animate 15s linear infinite;
     border-radius: .3rem;
     padding-block: .5rem;
     box-shadow: 0 0 3px black;
-    li{
+
+    li {
         display: flex;
         width: 100%;
         padding-inline: .5rem;
@@ -430,13 +506,14 @@ animation: animate 15s linear infinite;
         font-weight: bold;
         color: white;
         transition: .3s;
-        &:hover{
+
+        &:hover {
             background-color: rgba(white, 0.15);
         }
     }
 }
 
-.box__classes{
+.box__classes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     position: relative;
@@ -445,24 +522,26 @@ animation: animate 15s linear infinite;
     margin: 1rem;
 }
 
-.empty-box{
+.empty-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255,255,255, 0.25);
+    background-color: rgba(255, 255, 255, 0.25);
     width: 100%;
-    img{
+
+    img {
         width: 2rem;
         aspect-ratio: 1/1;
         cursor: pointer;
         transition: .5s;
-        &:hover{
+
+        &:hover {
             transform: scale(1.2);
         }
     }
 }
 
-img.obstacle{
+img.obstacle {
     position: absolute;
     top: -12rem;
     left: -10rem;
@@ -480,12 +559,13 @@ img.obstacle{
 }*/
 
 
-.bridge__item{
+.bridge__item {
     //grid-column: span 1;
     //grid-row: span 1;
     height: 4rem;
     max-width: 100% * .3334;
 }
+
 /*
 .bridge__item:nth-child(1) {
     grid-column: 1;
@@ -503,19 +583,20 @@ img.obstacle{
 }
 */
 
-.glass{
+.glass {
     position: absolute;
     top: -145%;
     right: -95%;
     width: 3rem;
     cursor: pointer;
     transition: .5s;
-    &:hover{
+
+    &:hover {
         transform: scale(1.2);
     }
 }
 
-.about-class{
+.about-class {
     display: flex;
     position: absolute;
     width: 12rem;
@@ -526,7 +607,7 @@ img.obstacle{
     border-radius: .35rem;
 }
 
-.about-class__article{  
+.about-class__article {
     z-index: 1;
     transition: .3s;
     padding: .5rem;
@@ -535,7 +616,8 @@ img.obstacle{
     height: 0;
     animation: blure .5s linear forwards;
     @include scroll-primary;
-    li{
+
+    li {
         font-size: 1rem;
         list-style: none;
         color: white;
@@ -547,20 +629,23 @@ img.obstacle{
         height: 0;
         opacity: 0;
     }
+
     50% {
         height: 6rem;
         opacity: 0;
     }
+
     100% {
         height: 6rem;
         opacity: 1;
     }
 }
 
-.about-class__menu{
+.about-class__menu {
     display: flex;
     z-index: 1;
-    li{
+
+    li {
         display: flex;
         padding: .25rem;
         justify-content: center;
@@ -569,11 +654,13 @@ img.obstacle{
         font-weight: bold;
         cursor: pointer;
         transition: .5s;
-        &:hover{
+
+        &:hover {
             background-color: rgba(255, 255, 255, 0.15);
         }
-        &.active{
-        background-color: rgba(255, 255, 255, 0.15);
+
+        &.active {
+            background-color: rgba(255, 255, 255, 0.15);
         }
     }
 }

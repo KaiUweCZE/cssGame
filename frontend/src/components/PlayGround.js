@@ -2,7 +2,7 @@ import React from "react";
 import StartPoint from "./StartPoint";
 import CrossRoad from "./CrossRoad";
 import EndPoint from "./EndPoint";
-import MasterCharacter from "./MainCharacter";
+import MainEmoji from "./MainEmoji";
 import ResultMessage from "./ResultMessage";
 
 
@@ -14,7 +14,7 @@ const PlayGround = () => {
             <StartPoint />
             <CrossRoad />
             <EndPoint />
-            <MasterCharacter />
+            <MainEmoji />
             <ResultMessage />
         </div>
     )

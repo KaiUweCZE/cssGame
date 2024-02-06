@@ -18,7 +18,7 @@ import { styleChecker } from "../Functions/styleChecker";
 // key component for posting 
 const CssForm = (props) => {
     // set class for emoji character
-    const { setSpecialClass } = useContext(EmojiContext)
+    const { handleEmojiClass } = useContext(EmojiContext)
     // check if error occurs (typo error)
     const [error, setError] = useState(false);
     // error message for typo error
@@ -67,7 +67,8 @@ const CssForm = (props) => {
             // a result message will be displayed for 2 secs
             const styleResult = styleChecker(level.level, values)
             setResultText(isCorrect &&  styleResult ? "Congrats" : "Oops")
-            setSpecialClass(isCorrect && styleResult ? "true" : "false")
+            handleEmojiClass(isCorrect && styleResult, level.emojiRun)
+            //setSpecialClass(isCorrect && styleResult ? "true" : "false")
             setTimeout(() => setResultText(""), 2000)
             if (isCorrect) {
                 levelUp(user.id, user.level < level.level ? level.level : user.level)
