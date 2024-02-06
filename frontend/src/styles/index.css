@@ -262,25 +262,6 @@
   padding: 0.35rem 0.25rem 0.35rem 0.25rem;
   position: relative;
   z-index: 1;
-  /*&::before{
-      content: '';
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      width: 0%;
-      height: 1.25rem;
-      padding-block: .35rem;
-      background-color: rgba(255, 255, 255, 0.2);
-      z-index: -1;
-      transition: .5s;
-      opacity: 0;
-      border-radius: .25rem;
-  }*/
-  /*&.active::before{
-      width: 98%;
-      opacity: 1;
-  }*/
 }
 .registration__info button.active {
   transition: 0.5s;

@@ -481,9 +481,14 @@ button {
 
 .right-bracket {
     top: 4rem;
-    color: #019bca;
-    filter: brightness(0) saturate(100%) invert(71%) sepia(80%) saturate(5877%) hue-rotate(163deg) brightness(92%) contrast(99%);
-}
+    filter: brightness(30%);
+    //filter: invert(49%) sepia(43%) saturate(424%) hue-rotate(139deg) brightness(46%) contrast(93%);
+    //filter: brightness(0) saturate(100%) invert(71%) sepia(80%) saturate(5877%) hue-rotate(163deg) brightness(92%) contrast(99%);
+    //filter: invert(17%) sepia(26%) saturate(1101%) hue-rotate(138deg) brightness(104%) contrast(100%);
+    //filter: invert(15%) sepia(95%) saturate(367%) hue-rotate(138deg) brightness(9%) contrast(98%);
+    //filter: brightness(0) saturate(100%) invert(71%) sepia(80%) saturate(5877%) hue-rotate(163deg) brightness(98%) contrast(99%);
+}   
+
 
 // level menu
 .menu-level {

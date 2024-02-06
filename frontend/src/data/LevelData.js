@@ -1,5 +1,5 @@
 
-// id, level, name, about, bridgeStyles(specific style for bridge),
+// id, level, name, bridgeStyles(specific style for bridge),
 // partOfBridgeStyles(pecific style for parts of bridge)
 // partOfBridge(some level has seperated parts of bridge)
 // obsatcle(This is another element for )
@@ -7,15 +7,6 @@
 export const levelData = [
     {
         id: 1,
-        name: "Level 1",
-        level: 1,
-        about: `Vypadá jako reálná faktura od Seznamu. 
-        Údaje odpovídají, logo je nápadně podobné tomu, 
-        které používá česká internetová společnost. 
-        Klasická výzva k uhrazení reklamních služeb. 
-        Má to však háček – jde o podvrh a peníze by 
-        zamířily k podvodníkům. A počet těchto falešných 
-        výzev k zaplacení se v poslední době zvyšuje.`,
         containerStyles: {},
         //specific styles for .bridge etc.
         bridgeStyles: {
@@ -29,14 +20,6 @@ export const levelData = [
     },
     {
         id: 2,
-        name: "Level 2",
-        level: 2,
-        about: `Problémem podle Kapuciánové je i to, 
-        že faktury vypadají realisticky. „Kromě loga,
-        které není naše (rozhodně ne aktuální, možná se 
-        zhledem blíží k nějakému historickému), nelze
-        bohužel
-        Jednoduše odhalit, že se nejedná o naši fakturu,“`,
         containerStyles: {},
         bridgeStyles: {
             "margin-inline": "2rem"
@@ -47,14 +30,6 @@ export const levelData = [
     },
     {
         id: 3,
-        name: "Level 3",
-        level: 3,
-        about: `Problémem podle Kapuciánové je i to, 
-        že faktury vypadají realisticky. „Kromě loga,
-        které není naše (rozhodně ne aktuální, možná se 
-        zhledem blíží k nějakému historickému), nelze
-        bohužel
-        Jednoduše odhalit, že se nejedná o naši fakturu,“`,
         containerStyles: {},
         bridgeStyles: {
             "width": "50%"
@@ -65,14 +40,6 @@ export const levelData = [
     },
     {
         id: 4,
-        name: "Level 4",
-        level: 4,
-        about: `Problémem podle Kapuciánové je i to, 
-        že faktury vypadají realisticky. „Kromě loga,
-        které není naše (rozhodně ne aktuální, možná se 
-        zhledem blíží k nějakému historickému), nelze
-        bohužel
-        Jednoduše odhalit, že se nejedná o naši fakturu,“`,
         containerStyles: {
             "padding-inline": "1rem",
         },
@@ -83,15 +50,6 @@ export const levelData = [
     },
     {
         id: 5,
-        name: "Level 5",
-        level: 5,
-        about: `Vypadá jako reálná faktura od Seznamu. 
-        Údaje odpovídají, logo je nápadně podobné tomu, 
-        které používá česká internetová společnost. 
-        Klasická výzva k uhrazení reklamních služeb. 
-        Má to však háček – jde o podvrh a peníze by 
-        zamířily k podvodníkům. A počet těchto falešných 
-        výzev k zaplacení se v poslední době zvyšuje.`,
         containerStyles: {
             "display": "flex",
             "alignItems": "flex-end"
@@ -105,15 +63,6 @@ export const levelData = [
     },
     {
         id: 6,
-        name: "Level 6",
-        level: 6,
-        about: `Vypadá jako reálná faktura od Seznamu. 
-        Údaje odpovídají, logo je nápadně podobné tomu, 
-        které používá česká internetová společnost. 
-        Klasická výzva k uhrazení reklamních služeb. 
-        Má to však háček – jde o podvrh a peníze by 
-        zamířily k podvodníkům. A počet těchto falešných 
-        výzev k zaplacení se v poslední době zvyšuje.`,
         containerStyles: {
             "padding-inline": "1rem"
         },
@@ -127,13 +76,6 @@ export const levelData = [
     },
     {
         id: 7,
-        name: "Level 7",
-        level: 7,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
         containerStyles: {
             "display": "flex",
             "flex-direction": "column",
@@ -146,13 +88,6 @@ export const levelData = [
     },
     {
         id: 8,
-        name: "Level 8",
-        level: 8,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
         containerStyles: {},
         bridgeStyles: {
             "position": "absolute",
@@ -165,13 +100,6 @@ export const levelData = [
     },
     {
         id: 9,
-        name: "Level 9",
-        level: 9,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
         containerStyles: {},
         bridgeStyles: {},
         partOfBridgeStyles: {},
@@ -182,13 +110,6 @@ export const levelData = [
     },
     {
         id: 10,
-        name: "Level 10",
-        level: 10,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
         containerStyles: {
         },
         bridgeStyles: {
@@ -200,18 +121,11 @@ export const levelData = [
     },
     {
         id: 11,
-        name: "Level 11",
-        level: 11,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
         containerStyles: {
-        },
-        bridgeStyles: {
             "display": "flex",
             "gap": ".5rem"
+        },
+        bridgeStyles: {
         },
         partOfBridgeStyles: {},
         partOfBridge: 3,
@@ -219,13 +133,6 @@ export const levelData = [
     },
     {
         id: 12,
-        name: "Level 12",
-        level: 12,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
         containerStyles: {
             "display": "flex",
             "flex-direction": "column",
@@ -248,13 +155,6 @@ export const levelData = [
     },
     {
         id: 13,
-        name: "Level 13",
-        level: 13,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
         startPointStyle: {
         },
         endPointStyle: {
@@ -263,7 +163,59 @@ export const levelData = [
         },
         containerStyles: {
             "display": "flex",
-            "flex-direction": "column",
+        },
+        bridgeStyles: {
+            "display": "flex",
+            "position": "relative",
+            "height": "100%"
+        },
+        partOfBridgeStyles: {
+            mainStyle: {
+            },
+            childrenStyle: {
+                0: {
+                    "marginTop": "8rem",
+                },
+                1: {
+                    "marginTop": "4rem",
+                },
+                2: {
+                    "marginTop": "0rem",
+                },
+            }
+
+
+        },
+        partOfBridge: 3,
+        master: true,
+        correctPosition: {
+            mainStyle: {
+            },
+            childrenStyle: {
+                0: {
+                    "marginTop": "0rem",
+                },
+                1: {
+                    "marginTop": "4rem",
+                },
+                2: {
+                    "marginTop": "8rem",
+                },
+            }
+        },
+        obstacle: false,
+        emojiRun: "stairs-run"
+    },
+    {
+        id: 14,
+        startPointStyle: {
+        },
+        endPointStyle: {
+            "position": "relative",
+            "top": "12rem",
+        },
+        containerStyles: {
+            "display": "flex",
         },
         bridgeStyles: {
             "display": "flex",

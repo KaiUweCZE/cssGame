@@ -21,8 +21,8 @@ const RoadMap = () => {
 
 
     const setUpLevel = (level) =>{
-        const currentLevel = levelData.find(e => e.level === level)
-        setResult(currentLevel.name)
+        const currentLevel = levelData.find(e => e.id === level)
+        setResult(currentLevel.id)
         console.log(currentLevel);
         setLevel(currentLevel)
         setStyle({container: currentLevel.containerStyles, bridge: currentLevel.bridgeStyles, partOfBridge: currentLevel.partOfBridgeStyles})
