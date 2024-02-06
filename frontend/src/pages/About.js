@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { aboutLevelData } from "../data/LevelInfo";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../contexts/UserContext";
 
 //I need to try subgrid
 const About = () => {
     const navigate = useNavigate()
-    const location = useLocation()
+    const {user} = useContext(UserContext)
 
     const toClass = (i) => {
         navigate(`/level/${i}`)
@@ -16,13 +17,22 @@ const About = () => {
             {
             aboutLevelData.map((level) => {
                 return(
-                    <article key={level.id}>
-                        <h2>level name</h2>
-                        <p>{level.introduction}</p>
-                        <button onClick={() => toClass(level.id)}>více</button>
-                    </article>
+                <>
+                   {
+                        user.level + 1 < level.id ?
+                        <article className="low-level" key={level.id}>
+                            <h2>Your level is too low {level.id}</h2>
+                        </article>
+                        :
+                        <article key={level.id}>
+                            <h2>level {level.id}</h2>
+                            <p>{level.introduction}</p>
+                            <button onClick={() => toClass(level.id)}>more</button>
+                        </article>
+                    } 
+                </>
                 )
-            })
+                })
             }
         </div>
     )
