@@ -454,8 +454,7 @@ button img:hover {
 
 .right-bracket {
   top: 4rem;
-  color: #019bca;
-  filter: brightness(0) saturate(100%) invert(71%) sepia(80%) saturate(5877%) hue-rotate(163deg) brightness(92%) contrast(99%);
+  filter: brightness(30%);
 }
 
 .menu-level {

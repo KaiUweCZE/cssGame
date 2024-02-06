@@ -287,31 +287,11 @@
         position: relative;
         z-index: 1;
 
-        /*&::before{
-            content: '';
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            width: 0%;
-            height: 1.25rem;
-            padding-block: .35rem;
-            background-color: rgba(255, 255, 255, 0.2);
-            z-index: -1;
-            transition: .5s;
-            opacity: 0;
-            border-radius: .25rem;
-        }*/
         &.active {
             transition: .5s;
             border-radius: .25rem;
             background-color: rgba(255, 255, 255, 0.2);
         }
-
-        /*&.active::before{
-            width: 98%;
-            opacity: 1;
-        }*/
     }
 
     p {
@@ -329,8 +309,6 @@
     opacity: 0;
     animation: opacity .85s ease-in forwards;
     padding-inline: .5rem;
-
-    //transform: translateY(-150%);
     input {
         background-color: transparent;
         font-size: 1.25rem;

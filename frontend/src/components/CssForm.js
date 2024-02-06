@@ -10,7 +10,7 @@ import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
 import { useFormInputs } from "../Functions/cssFormFunctions";
-import { EmojiContext, BridgeContext, ResultContext, ContainerContext, LevelProvider, LevelContext } from "../contexts/FormContext";
+import { EmojiContext, BridgeContext, ResultContext, ContainerContext, LevelContext } from "../contexts/FormContext";
 import useLevelUp from "../Functions/Queries";
 import { UserContext } from "../contexts/UserContext";
 import { styleChecker } from "../Functions/styleChecker";
@@ -65,13 +65,13 @@ const CssForm = (props) => {
     useEffect(() => {
         if(hasChecked){
             // a result message will be displayed for 2 secs
-            const styleResult = styleChecker(level.level, values)
+            const styleResult = styleChecker(level.id, values)
             setResultText(isCorrect &&  styleResult ? "Congrats" : "Oops")
             handleEmojiClass(isCorrect && styleResult, level.emojiRun)
             //setSpecialClass(isCorrect && styleResult ? "true" : "false")
             setTimeout(() => setResultText(""), 2000)
             if (isCorrect) {
-                levelUp(user.id, user.level < level.level ? level.level : user.level)
+                levelUp(user.id, user.level < level.id ? level.id : user.level)
             }
             }
             },[isCorrect, hasChecked])

@@ -11,6 +11,7 @@ import { UserContextProvider } from "./contexts/UserContext";
 import RoadMap from "./pages/RoadMap";
 import ProtectedLayout from "./components/ProtectedLayout";
 import { LevelProvider } from "./contexts/FormContext";
+import ClassInfo from "./pages/ClassInfo";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
                     <Route element={<ProtectedLayout />}>
                         <Route path="/attempt" element={<Graph/>}/>
                         <Route path="/map" element={<RoadMap/>} />
+                        <Route path="/level/:id" element={<ClassInfo />} />
                     </Route>
                 </Route>
             </Routes>

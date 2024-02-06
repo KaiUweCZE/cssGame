@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import CssForm from "./CssForm";
 import PlayGround from "./PlayGround";
-import { BridgeProvider, CheckContextProvider, ContainerProvider, EmojiProvider, LevelProvider, ResultProvider } from "../contexts/FormContext";
-import LevelSelect from "./LevelSelect";
+import { BridgeProvider, CheckContextProvider, ContainerProvider, EmojiProvider, ResultProvider } from "../contexts/FormContext";
 import EmptyBox from "./EmptyBox";
 
 const Mission = () => {
