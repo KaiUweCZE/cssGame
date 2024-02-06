@@ -7,8 +7,53 @@ export const aboutLevelData = [
             Ipsum dignissimos aliquid, excepturi dicta reiciendis ea aliquam magni harum! 
             Iste rerum adipisci libero repellendus ea ab assumenda itaque vitae repudiandae aperiam.`,
         fullData:{
-            video:{},
-            text:{},
+            video:{
+                src: "https://www.youtube.com/embed/fF_NVrd1s14?si=cTyvY6EZ1Zm1mWvH",
+                text: `Problematika position je trochu obšírnější a pro hlubší ponoření doporučuji shlédnout video od Kevina Powella,
+                skvělého lekotra, který dokáže srozumitelně zasvětit do CSS`
+            },
+            text:{
+                description: `
+                V CSS, position je zásadní vlastnost, 
+                která umožňuje přesné umístění HTML 
+                elementů na stránce. Pomocí této vlastnosti 
+                můžete ovlivnit, jak a kde se element zobrazí 
+                ve vztahu k ostatním elementům nebo k viewportu 
+                prohlížeče. Existuje pět hlavních hodnot 
+                position: static, relative, absolute, fixed, a sticky.
+                `,
+                li: [
+                    {
+                        headline: "static",
+                        p:`static: Toto je výchozí hodnota. Elementy s position: static jsou umístěny v normálním toku dokumentu, což znamená, že nejsou ovlivněny top, right, bottom, a left vlastnostmi.`,
+
+                    },
+                    {
+                        headline: "relative",
+                        p:`Element s position: relative je umístěn relativně vzhledem k jeho normální pozici v toku dokumentu. Můžete použít top, right, bottom, a left vlastnosti k jeho posunutí od této výchozí pozice, aniž byste ovlivnili umístění jiných elementů.`,
+                        
+
+                    },
+                    {
+                        headline: "absolute",
+                        p:`Element s position: absolute je vyjmut z normálního toku dokumentu a umístěn relativně k nejbližšímu umístěnému předkovi (tedy předkovi s hodnotou position jinou než static). Pokud takový předek neexistuje, bude se vztahovat k dokumentu jako celku. Top, right, bottom, a left vlastnosti poté určují jeho pozici vzhledem k tomuto předku.`,
+
+
+                    },
+                    {
+                        headline: "fixed",
+                        p:`Element s position: fixed je umístěn relativně k viewportu, což znamená, že zůstává na stejném místě i při rolování stránky. Stejně jako u absolute, můžete použít top, right, bottom, a left pro určení jeho pozice.`,
+
+
+                    },
+                    {
+                        headline: "sticky",
+                        p:`Element s position: sticky je kombinací relative a fixed pozicování. Element se chová jako relative pozicovaný, dokud nenarazí na stanovený bod při rolování, v tom okamžiku se chová jako fixed pozicovaný. To je užitečné pro hlavičky tabulek a navigační menu, které mají zůstat viditelné na stránce při rolování.`,
+                    }
+                ],
+                aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
+                nicméně emoji se musí dostat přes řeku!`
+            },
             images:{},
             tips:{}
         }

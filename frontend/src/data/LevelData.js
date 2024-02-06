@@ -7,7 +7,12 @@
 export const levelData = [
     {
         id: 1,
-        containerStyles: {},
+        containerStyles: {
+            "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
+        },
         //specific styles for .bridge etc.
         bridgeStyles: {
             "display": "flex",
@@ -20,8 +25,14 @@ export const levelData = [
     },
     {
         id: 2,
-        containerStyles: {},
+        containerStyles: {
+            "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
+        },
         bridgeStyles: {
+            "display": "flex",
             "margin-inline": "2rem"
         },
         partOfBridgeStyles: {},
@@ -30,8 +41,14 @@ export const levelData = [
     },
     {
         id: 3,
-        containerStyles: {},
+        containerStyles: {
+            "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
+        },
         bridgeStyles: {
+            "display": "flex",
             "width": "50%"
         },
         partOfBridgeStyles: {},
@@ -41,9 +58,15 @@ export const levelData = [
     {
         id: 4,
         containerStyles: {
+            "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
             "padding-inline": "1rem",
         },
-        bridgeStyles: {},
+        bridgeStyles: {
+            "display": "flex",
+        },
         partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false
@@ -52,9 +75,13 @@ export const levelData = [
         id: 5,
         containerStyles: {
             "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
             "alignItems": "flex-end"
         },
         bridgeStyles: {
+            "display": "flex",
             "width": "100%",
         },
         partOfBridgeStyles: {},
@@ -64,6 +91,10 @@ export const levelData = [
     {
         id: 6,
         containerStyles: {
+            "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
             "padding-inline": "1rem"
         },
         bridgeStyles: {
@@ -79,8 +110,13 @@ export const levelData = [
         containerStyles: {
             "display": "flex",
             "flex-direction": "column",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
+            
         },
         bridgeStyles: {
+            "display": "flex",
         },
         partOfBridgeStyles: {},
         partOfBridge: 3,
@@ -88,8 +124,14 @@ export const levelData = [
     },
     {
         id: 8,
-        containerStyles: {},
+        containerStyles: {
+            "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
+        },
         bridgeStyles: {
+            "display": "flex",
             "position": "absolute",
             "top": "-4rem",
             "left": "100%"
@@ -100,7 +142,12 @@ export const levelData = [
     },
     {
         id: 9,
-        containerStyles: {},
+        containerStyles: {
+            "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
+        },
         bridgeStyles: {},
         partOfBridgeStyles: {},
         partOfBridge: 1,
@@ -111,8 +158,13 @@ export const levelData = [
     {
         id: 10,
         containerStyles: {
+            "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
         },
         bridgeStyles: {
+            "display": "flex",
             "display": "none"
         },
         partOfBridgeStyles: {},
@@ -123,9 +175,13 @@ export const levelData = [
         id: 11,
         containerStyles: {
             "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
             "gap": ".5rem"
         },
         bridgeStyles: {
+            "display": "flex",
         },
         partOfBridgeStyles: {},
         partOfBridge: 3,
@@ -135,6 +191,9 @@ export const levelData = [
         id: 12,
         containerStyles: {
             "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
             "flex-direction": "column",
             "justify-content": "flex-end"
 
@@ -163,6 +222,9 @@ export const levelData = [
         },
         containerStyles: {
             "display": "flex",
+            "position": "relative",
+            "width": "100%",
+            "height": "100%",
         },
         bridgeStyles: {
             "display": "flex",
@@ -183,8 +245,6 @@ export const levelData = [
                     "marginTop": "0rem",
                 },
             }
-
-
         },
         partOfBridge: 3,
         master: true,
@@ -206,35 +266,77 @@ export const levelData = [
         obstacle: false,
         emojiRun: "stairs-run"
     },
+
     {
         id: 14,
         startPointStyle: {
         },
         endPointStyle: {
-            "position": "relative",
-            "top": "12rem",
         },
         containerStyles: {
             "display": "flex",
+            "width": "100%",
+            "height": "100%",
         },
         bridgeStyles: {
-            "display": "flex",
-            "position": "relative",
-            "height": "100%"
+            "display": "grid",
+            "grid-template-rows": "repeat(3, 1fr)",
         },
         partOfBridgeStyles: {
             mainStyle: {
+                "width": "11.112vw",
+                "max-width": "100%"
+
             },
             childrenStyle: {
                 0: {
-                    "marginTop": "8rem",
+                    "max-width": "9.5rem",
                 },
                 1: {
-                    "marginTop": "4rem",
+                    "max-width": "9.5rem",
                 },
                 2: {
-                    "marginTop": "0rem",
+                    "max-width": "9.5rem",
                 },
+            }
+
+
+        },
+        partOfBridge: 3,
+        master: true,
+        correctPosition: {
+            mainStyle: {
+            },
+            childrenStyle: {
+            }
+        },
+        obstacle: false,
+        emojiRun: false
+    },
+    {
+        id: 15,
+        startPointStyle: {
+        },
+        endPointStyle: {
+        },
+        containerStyles: {
+            "display": "flex",
+            "width": "100%",
+            "height": "100%",
+        },
+        bridgeStyles: {
+            "display": "flex",
+            "flex-direction": "column",
+            "flex-wrap": "wrap-reverse",
+            "height": "100%"
+            //"grid-template-rows": "repeat(3, 1fr)",
+        },
+        partOfBridgeStyles: {
+            mainStyle: {
+                "width": "50%",
+                "max-width": "100%"
+            },
+            childrenStyle: {
             }
 
 
@@ -247,17 +349,22 @@ export const levelData = [
             childrenStyle: {
                 0: {
                     "marginTop": "0rem",
+                    "width": "50%"
                 },
                 1: {
-                    "marginTop": "4rem",
+                    "marginTop": "0rem",
+                    "width": "50%"
                 },
                 2: {
+                    "position": "absolute",
                     "marginTop": "8rem",
+                    "left": "0",
+                    "width": "50%"
                 },
             }
         },
         obstacle: false,
-        emojiRun: "stairs-run"
+        emojiRun: false
     },
 ]
 

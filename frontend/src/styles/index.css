@@ -200,14 +200,106 @@
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
 }
-.container-about article h2,
-.container-about article p,
-.container-about article button {
+.container-about article.low-level {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10rem;
+}
+.container-about article h2, .container-about article p, .container-about article button {
   color: white;
+  font-weight: bold;
 }
 .container-about article button {
-  font-weight: bold;
-  justify-content: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.2rem;
+  padding-inline: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 1.1rem;
+  transition: 1s;
+}
+.container-about article button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.container-level {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  row-gap: 1rem;
+}
+.container-level main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}
+.container-level hr {
+  border: 0.1rem solid #297883;
+  opacity: 0.15;
+}
+.container-level h2 {
+  font-size: 1.85rem;
+  text-transform: uppercase;
+}
+.container-level h3, .container-level p, .container-level li {
+  font-size: 1.5rem;
+}
+.container-level h2, .container-level h3, .container-level p, .container-level li {
+  color: rgb(60, 60, 60);
+}
+.container-level ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.container-level li {
+  display: flex;
+  flex-direction: column;
+}
+.container-level li div {
+  display: flex;
+  align-items: center;
+}
+.container-level img {
+  height: 1.25rem;
+  width: 1.25rem;
+  position: relative;
+  top: 0.17rem;
+}
+.container-level .video__section {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}
+.container-level .video__section iframe {
+  width: 840px;
+  height: 473px;
+  margin: 0 auto;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem black;
+}
+@media (max-width: 65rem) {
+  .container-level .video__section iframe {
+    width: 560px;
+    height: 315px;
+  }
 }
 
 .wrapper {
