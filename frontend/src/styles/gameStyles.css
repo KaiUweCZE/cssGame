@@ -295,6 +295,13 @@ button img:hover {
   }
 }
 
+.emoji-character.stairs-run {
+  left: 90%;
+  top: 8rem;
+  z-index: 1;
+  animation: fromStairs 6s linear;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -303,6 +310,48 @@ button img:hover {
   100% {
     transform: rotate(1080deg);
     left: 90%;
+  }
+}
+@keyframes fromStairs {
+  0% {
+    transform: rotate(0deg);
+    left: 0;
+    top: -3.95rem;
+  }
+  44% {
+    transform: rotate(475deg);
+    left: 44%;
+    top: -3.95rem;
+  }
+  50% {
+    transform: rotate(540deg);
+    left: 44%;
+    top: 0rem;
+  }
+  61% {
+    transform: rotate(650deg);
+    left: 55%;
+    top: 0rem;
+  }
+  70% {
+    transform: rotate(750deg);
+    left: 55%;
+    top: 4rem;
+  }
+  81% {
+    transform: rotate(860deg);
+    left: 66%;
+    top: 4rem;
+  }
+  90% {
+    transform: rotate(960deg);
+    left: 66%;
+    top: 8rem;
+  }
+  100% {
+    transform: rotate(1080deg);
+    left: 90%;
+    top: 8rem;
   }
 }
 @keyframes error-run {

@@ -304,7 +304,8 @@ export const levelData = [
                 },
             }
         },
-        obstacle: false
+        obstacle: false,
+        emojiRun: "stairs-run"
     },
 ]
 

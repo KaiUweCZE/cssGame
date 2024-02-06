@@ -3,13 +3,9 @@ import masterImg from '../styles/images/main-character.webp'
 import { EmojiContext } from "../contexts/FormContext";
 
 
-const MainCharacter = () => {
-    const {position, setPosition, specialClass} = useContext(EmojiContext)
+const MainEmoji = () => {
+    const { specialClass } = useContext(EmojiContext)
 
-    /*const emojiPosition = {
-        transform: `translateX(${position})`,
-        transition: '5s'
-    }*/
 
     return (
         <img src={masterImg} alt="" className={`emoji-character ${specialClass}`} /*style={emojiPosition}*//>
@@ -17,4 +13,4 @@ const MainCharacter = () => {
 }
 
 
-export default MainCharacter
+export default MainEmoji
