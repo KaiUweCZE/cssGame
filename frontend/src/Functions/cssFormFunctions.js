@@ -68,3 +68,27 @@ export const handleAddInput = (array, setArray, setValues, setStop) => {
       setValues([...values, ""]);
   }
 };
+
+export const contextValues = (name, context) => {
+  if(name === "bridge"){
+    return {
+    properties: context.propertiesBridge,
+    valuese: context.valuesBridge,
+    setProperties: context.setPropertiesBridge,
+    setValues: context.setValuesBridge,
+    handleAddInput: context.handleAddInput,
+    handleRemoveInput: context.handleRemoveInput,
+    stopAdd: context.stopAdd
+    }
+  } else{
+    return {
+    properties: context.propertiesContainer,
+    values: context.valuesContainer,
+    setProperties: context.setPropertiesContainer,
+    setValues: context.setValuesContainer,
+    handleAddInput: context.handleAddInput,
+    handleRemoveInput: context.handleRemoveInput,
+    stopAdd: context.stopAdd
+  };
+  }
+} 
