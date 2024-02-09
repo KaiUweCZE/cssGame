@@ -9,7 +9,7 @@ import closeIcon from '../styles/images/close.svg'
 import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
-import { useFormInputs } from "../Functions/cssFormFunctions";
+import { contextValues, useFormInputs } from "../Functions/cssFormFunctions";
 import { EmojiContext, BridgeContext, ResultContext, ContainerContext, LevelContext } from "../contexts/FormContext";
 import useLevelUp from "../Functions/Queries";
 import { UserContext } from "../contexts/UserContext";
@@ -37,26 +37,7 @@ const CssForm = (props) => {
     const [propertyIndex, setPropertyIndex] = useState(null)
     const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2} = useFormInputs([""], [""]);
     const context = props.name === "bridge" ? useContext(BridgeContext) : useContext(ContainerContext)
-    const { properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd } = props.name === "bridge" ? 
-        {
-            properties: context.propertiesBridge,
-            valuese: context.valuesBridg,
-            setProperties: context.setPropertiesBridge,
-            setValues: context.setValuesBridge,
-            handleAddInput: context.handleAddInput,
-            handleRemoveInput: context.handleRemoveInput,
-            stopAdd: context.stopAdd
-        } 
-        : 
-        {
-            properties: context.propertiesContainer,
-            values: context.valuesContainer,
-            setProperties: context.setPropertiesContainer,
-            setValues: context.setValuesContainer,
-            handleAddInput: context.handleAddInput,
-            handleRemoveInput: context.handleRemoveInput,
-            stopAdd: context.stopAdd
-        };
+    const { properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd } = contextValues(props.name, context)
     // custom hook to set level to database
     const {levelUp} = useLevelUp()
     const {user, setUser} = useContext(UserContext)
