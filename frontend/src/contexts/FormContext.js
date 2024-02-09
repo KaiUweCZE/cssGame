@@ -31,8 +31,12 @@ export const BridgeProvider = ({ children }) => {
             setValuesBridge(filteredValues);
             setStopAdd(false)
         }
-
     };
+
+    const closeForm = () => {
+        setPropertiesBridge([])
+        setValuesBridge([])
+    }
 
     const contextValue = {
         propertiesBridge,
@@ -42,6 +46,7 @@ export const BridgeProvider = ({ children }) => {
         stopAdd,
         handleAddInput,
         handleRemoveInput,
+        closeForm
     };
 
     return (
@@ -80,8 +85,13 @@ export const ContainerProvider = ({ children }) => {
             setValuesContainer(filteredValues);
             setStopAdd(false)
         }
-
     };
+
+    const closeForm = () => {
+        setPropertiesContainer([""])
+        setValuesContainer([""])
+        setStopAdd(false)
+    }
 
     const contextValue = {
         propertiesContainer,
@@ -91,6 +101,7 @@ export const ContainerProvider = ({ children }) => {
         stopAdd,
         handleAddInput,
         handleRemoveInput,
+        closeForm
     };
 
     return (

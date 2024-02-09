@@ -30,14 +30,17 @@ const CssForm = (props) => {
     const { isCorrect, setResultText, checkBridgePosition } = useContext(ResultContext)
     // check if the form has already been sent
     const [hasChecked, setHasChecked] = useState(false)
-    // manage to amount of inputs
+    const [index, setIndex] = useState(0)
     // focus state
     const [isFocused, setIsFocused] = useState(false)
     const [suggestValue, setSuggestValue] = useState("")
     const [propertyIndex, setPropertyIndex] = useState(null)
-    const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2} = useFormInputs([""], [""]);
+    // allows to see labels before applying style changes
+    const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddLabel, handleRemoveLabel} = useFormInputs([""], [""]);
+    // which context will be used?
     const context = props.name === "bridge" ? useContext(BridgeContext) : useContext(ContainerContext)
-    const { properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd } = contextValues(props.name, context)
+    // thnaks this function propertiesBridge or propertiesContainer will be only properties etc.
+    const { properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd, closeForm } = contextValues(props.name, context)
     // custom hook to set level to database
     const {levelUp} = useLevelUp()
     const {user, setUser} = useContext(UserContext)
@@ -46,10 +49,11 @@ const CssForm = (props) => {
     useEffect(() => {
         if(hasChecked){
             // a result message will be displayed for 2 secs
+            // some level needs right position and right style
             const styleResult = styleChecker(level.id, values)
             setResultText(isCorrect &&  styleResult ? "Congrats" : "Oops")
+            // emoji element gets class according to level and result
             handleEmojiClass(isCorrect && styleResult, level.emojiRun)
-            //setSpecialClass(isCorrect && styleResult ? "true" : "false")
             setTimeout(() => setResultText(""), 2000)
             if (isCorrect) {
                 levelUp(user.id, user.level < level.id ? level.id : user.level)
@@ -57,6 +61,7 @@ const CssForm = (props) => {
             }
             },[isCorrect, hasChecked])
 
+    // property would be ok if it is included in the list or if it is ""
     const checkTypo = (property) => {
         return list.includes(property) || property === "" 
     }
@@ -65,7 +70,7 @@ const CssForm = (props) => {
     const checkResult = () => {
         const propertiesValidator = cssProperties.every(checkTypo);
     if (!propertiesValidator) {
-        //console.error("Některé z vlastností nejsou korektní.");
+        // wrong property?
         setError(true)
         // text to error component
         setErrorMessage("Oh man, this is not a correct css property");
@@ -74,16 +79,23 @@ const CssForm = (props) => {
         setProperties(cssProperties)
         setValues(cssValues)
         setError(false)
+        /*
+        values and properties are set and now 
+        is a user bridge compared
+        with the correct bridge position
+        */
         setTimeout(checkBridgePosition, 0)
-        //console.log("Všechny vlastnosti jsou korektní:", cssProperties, cssValues);
-        //console.log("vlastnosti a hodnoty: ",properties, values);
-        //setTimeout(checkBridgePosition, 0);
+        /*
+        The check was carried out and useEffect is turn on
+        */
         setHasChecked(true)
     }
     }
 
-    const handleClick = () => {
-        props.func(!props.state)
+    // if form is closed values and properties are removed
+    const handleClose = () => {
+        closeForm()
+        props.func(!props.state) 
     }
 
     const handleSubmit = (e) => {
@@ -107,42 +119,46 @@ const CssForm = (props) => {
                             value={property}
                             onFocus={() => {
                                 setIsFocused(true);
-                                //setSuggestValue(property);
                                 setPropertyIndex(index);
                             }}
+                            // if user clicks somewhere isFocused will be false after 50ms
                             onBlur={() => setTimeout(() => {setIsFocused(false)}, 50)}
+                            // the text that the user typess will be displayed in form
                             onChange={(e) => {setPropertyAtIndex(index, e.target.value), setSuggestValue(e.target.value)}}
                         />
                         <input
                             type="text"
                             value={cssValues[index] || ""}
+                            // the text that the user typess will be displayed in form
                             onChange={(e) => setValueAtIndex(index, e.target.value)}
                         />
-                        {index > 0 ? <img className="icon" onClick={() => {handleRemoveInput(index), handleRemoveInput2(index)}} src={minusIcon} alt="" /> : ""}
+                        {index > 0 ? <img className="icon" onClick={() => {handleRemoveInput(index), handleRemoveLabel(index)}} src={minusIcon} alt="" /> : ""}
                     </div>
                 ))}
                 <div className="box-buttons">
                     {
                         stopAdd ? ""
                         :
-                        <img className="icon" src={plusIcon} alt="" onClick={() => {handleAddInput(), handleAddInput2()}}/>
+                        <img className="icon" src={plusIcon} alt="" onClick={() => {handleAddInput(), handleAddLabel()}}/>
                     }
                     <button className="play" onMouseLeave={() => setIcon(playIcon)} onMouseEnter={() => setIcon(playIconaAfter)}  type="submit"><img src={icon} /></button>
                 </div>
             </form>
             <img className="right-bracket" src={rightBracket} alt="" />
             { isFocused ? 
+            // if user clicks on a property input and enters some letter, a suggest list will be displayed
             <SuggestList value={suggestValue} func={setPropertyAtIndex} valueIndex={propertyIndex} />
             :
             ""
             }
             {
+                // wrong property?
                 error ? <ErrorMessage text={errotMessage} /> : ""
             }
            
-        {
-            props.name === "container" ? <img className="class-button" onClick={handleClick} src={closeIcon} alt="" /> : ""
-        }
+            {
+                props.name === "container" ? <img className="class-button" onClick={handleClose} src={closeIcon} alt="" /> : ""
+            }
         </div>
         </>
     )
