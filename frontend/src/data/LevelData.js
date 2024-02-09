@@ -9,14 +9,13 @@ export const levelData = [
         id: 1,
         containerStyles: {
             "display": "flex",
-            "position": "relative",
             "width": "100%",
             "height": "100%",
         },
         //specific styles for .bridge etc.
         bridgeStyles: {
             "display": "flex",
-            "position": "absolute",
+            "position": "relative",
             "top": "5rem",
         },
         partOfBridgeStyles: {},

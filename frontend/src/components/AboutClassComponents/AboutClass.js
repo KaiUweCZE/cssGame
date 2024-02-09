@@ -21,7 +21,7 @@ const AboutClass = (props) => {
             option ? <AboutClassMenu active={active} setActive={setActive} setAboutClass={setAboutClass}/> : ""
             }
             {
-            active ? <AboutClassInfo active={active} name={`.${aboutClass}`} information={props.style} /> : ""
+            active ? <AboutClassInfo active={active} name={`.${aboutClass}`} information={props?.style} /> : ""
             }
         </div>
         </>

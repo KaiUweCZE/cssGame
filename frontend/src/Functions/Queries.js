@@ -30,8 +30,9 @@ const useLevelUp = () => {
                 setUser(updatedUser)
                 localStorage.setItem('user', JSON.stringify(updatedUser));
             }
-        } catch (error) {
-            onsole.error('Error in levelUp mutation:', err);
+        } catch (err) {
+            console.error('Error in levelUp mutation:', err);
+            console.log("May be you are not logged");
         }
     }
 
