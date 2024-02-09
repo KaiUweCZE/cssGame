@@ -15,7 +15,7 @@ const Bridge = forwardRef((props,ref) => {
     const {active, aboutClass} = useContext(CheckContext)
     const {addToBridgeRef} = useContext(ResultContext)
 
-    const styleOfPart = level.partOfBridgeStyles.childrenStyle ? level.partOfBridgeStyles : ""
+    const styleOfPart = level.partOfBridgeStyles?.childrenStyle ? level.partOfBridgeStyles : ""
     const partsNumber = level  ? level.partOfBridge : 1;
     const bridgeStyle = {
         // specific style from levelData
