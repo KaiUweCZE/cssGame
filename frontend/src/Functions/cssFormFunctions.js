@@ -20,27 +20,35 @@ if (!propertiesValidator) {
 }
 }
 
-export const useFormInputs =(initialProps = [], initialValues = [], onAddCallback) => {
+export const useFormInputs =(initialProps = [], initialValues = []) => {
     const [cssProperties, setCssProperties] = useState(initialProps);
     const [cssValues, setCssValues] = useState(initialValues);
 
+    // this function sets properties to correct index in array
+    // it enables to display text in first column without styles change
     const setPropertyAtIndex = (index, value) => {
       setCssProperties(prev => {
         const newProperties = [...prev];
         newProperties[index] = value;
+        console.log("css properties: ", newProperties);
         return newProperties;
       });
     };
   
+    // this function sets values to correct index in array
+    // it enables to display text in second column without styles change
     const setValueAtIndex = (index, value) => {
       setCssValues(prev => {
         const newValues = [...prev];
         newValues[index] = value;
+        console.log("css properties index: ", newValues);
         return newValues;
       });
     };
   
-    const handleAddInput2 = () => {
+    // add empty element to array
+    const handleAddLabel = () => {
+      console.log(cssProperties);
       if (cssProperties.length >= 4) {
         console.log("Done!");
       } else {
@@ -50,24 +58,22 @@ export const useFormInputs =(initialProps = [], initialValues = [], onAddCallbac
       
     };
   
-    const handleRemoveInput2 = (index) => {
+    // remove specific element from array
+    const handleRemoveLabel = (index) => {
+      console.log(index);
       setCssProperties(prevProperties => prevProperties.filter((_, i) => i !== index));
       setCssValues(prevValues => prevValues.filter((_, i) => i !== index));
     };
+
+    const closeForm = () => {
+      cssProperties.length = 0
+      cssValues.length = 0
+      console.log("new status", cssProperties, cssValues);
+    }
   
-    return { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddInput2, handleRemoveInput2 };
-  };
-
-
-export const handleAddInput = (array, setArray, setValues, setStop) => {
-  if (array.length >= 4) {
-      setStop(true)
-      console.log("Done!");
-  } else if(!stopAdd){
-      setArray([...properties, ""]);
-      setValues([...values, ""]);
-  }
+    return { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddLabel, handleRemoveLabel, closeForm };
 };
+
 
 export const contextValues = (name, context) => {
   if(name === "bridge"){
@@ -78,7 +84,8 @@ export const contextValues = (name, context) => {
     setValues: context.setValuesBridge,
     handleAddInput: context.handleAddInput,
     handleRemoveInput: context.handleRemoveInput,
-    stopAdd: context.stopAdd
+    stopAdd: context.stopAdd,
+    closeForm: context.closeForm
     }
   } else{
     return {
@@ -88,7 +95,8 @@ export const contextValues = (name, context) => {
     setValues: context.setValuesContainer,
     handleAddInput: context.handleAddInput,
     handleRemoveInput: context.handleRemoveInput,
-    stopAdd: context.stopAdd
+    stopAdd: context.stopAdd,
+    closeForm: context.closeForm
   };
   }
 } 
