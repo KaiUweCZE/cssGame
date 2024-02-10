@@ -1,5 +1,5 @@
 import React from "react";
-import lockIcon from '../styles/images/icons/lock.svg'
+import lockIcon from '../styles/images/icons/lock.webp'
 
 const RoadmapLevel = (props) => {
 

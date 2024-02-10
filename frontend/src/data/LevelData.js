@@ -337,8 +337,6 @@ export const levelData = [
             },
             childrenStyle: {
             }
-
-
         },
         partOfBridge: 3,
         master: true,
@@ -365,6 +363,44 @@ export const levelData = [
         obstacle: false,
         emojiRun: false
     },
+    { //level 16
+        id: 16,
+        startPointStyle: {
+        },
+        endPointStyle: {
+        },
+        containerStyles: {
+            "display": "grid",
+            "grid-template-columns": "1fr 1fr 1fr",
+            "grid-template-rows": "1fr 1fr 1fr",
+            "width": "100%",
+            "height": "100%",
+        },
+        bridgeStyles: {
+            "display": "flex",
+            "grid-row": "2",
+            "grid-column": "span 2",
+            "height": "100%"
+        },
+        partOfBridgeStyles: {
+            mainStyle: {
+            },
+            childrenStyle: {
+            }
+
+
+        },
+        partOfBridge: 3,
+        master: true,
+        correctPosition: {
+            mainStyle: {
+            },
+            childrenStyle: {
+            }
+        },
+        obstacle: false,
+        emojiRun: false
+    }
 ]
 
 /*
