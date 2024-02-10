@@ -10,10 +10,11 @@ import { list } from "../data/listOfProperities";
 import ErrorMessage from "./ErrorMessage";
 import SuggestList from "./SuggestList";
 import { contextValues, useFormInputs } from "../Functions/cssFormFunctions";
-import { EmojiContext, BridgeContext, ResultContext, ContainerContext, LevelContext } from "../contexts/FormContext";
+import { EmojiContext, BridgeContext, ResultContext, ContainerContext, LevelContext, PartsContext } from "../contexts/FormContext";
 import useLevelUp from "../Functions/Queries";
 import { UserContext } from "../contexts/UserContext";
 import { styleChecker } from "../Functions/styleChecker";
+
 
 // key component for posting 
 const CssForm = (props) => {
@@ -38,7 +39,21 @@ const CssForm = (props) => {
     // allows to see labels before applying style changes
     const { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddLabel, handleRemoveLabel} = useFormInputs([""], [""]);
     // which context will be used?
-    const context = props.name === "bridge" ? useContext(BridgeContext) : useContext(ContainerContext)
+    let context 
+    switch (props.name) {
+        case "bridge":
+            context = useContext(BridgeContext)
+            break;
+        case "container":
+            context = useContext(ContainerContext)
+            break
+        case "parts":
+            context = useContext(PartsContext)
+        default:
+            console.log("unknown value");
+            break;
+    }
+
     // thnaks this function propertiesBridge or propertiesContainer will be only properties etc.
     const { properties, values, setProperties, setValues, handleAddInput, handleRemoveInput, stopAdd, closeForm } = contextValues(props.name, context)
     // custom hook to set level to database
@@ -157,7 +172,7 @@ const CssForm = (props) => {
             }
            
             {
-                props.name === "container" ? <img className="class-button" onClick={handleClose} src={closeIcon} alt="" /> : ""
+                props.name !== "bridge" ? <img className="class-button" onClick={handleClose} src={closeIcon} alt="" /> : ""
             }
         </div>
         </>

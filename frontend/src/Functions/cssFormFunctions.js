@@ -76,27 +76,40 @@ export const useFormInputs =(initialProps = [], initialValues = []) => {
 
 
 export const contextValues = (name, context) => {
-  if(name === "bridge"){
-    return {
-    properties: context.propertiesBridge,
-    valuese: context.valuesBridge,
-    setProperties: context.setPropertiesBridge,
-    setValues: context.setValuesBridge,
-    handleAddInput: context.handleAddInput,
-    handleRemoveInput: context.handleRemoveInput,
-    stopAdd: context.stopAdd,
-    closeForm: context.closeForm
+  switch (name) {
+    case "bridge":
+      return {
+        properties: context.propertiesBridge,
+        valuese: context.valuesBridge,
+        setProperties: context.setPropertiesBridge,
+        setValues: context.setValuesBridge,
+        handleAddInput: context.handleAddInput,
+        handleRemoveInput: context.handleRemoveInput,
+        stopAdd: context.stopAdd,
+        closeForm: context.closeForm
+        }
+    case "container":
+      return {
+        properties: context.propertiesContainer,
+        values: context.valuesContainer,
+        setProperties: context.setPropertiesContainer,
+        setValues: context.setValuesContainer,
+        handleAddInput: context.handleAddInput,
+        handleRemoveInput: context.handleRemoveInput,
+        stopAdd: context.stopAdd,
+        closeForm: context.closeForm
+      };
+    case "parts":
+      return {
+        handleAddInput: context.handleAddInput,
+        handleRemoveInput: context.handleRemoveInput,
+        stopAdd: context.stopAdd,
+        closeForm: context.closeForm
+      };
+    default: {
+      console.log("Undefinded values");
     }
-  } else{
-    return {
-    properties: context.propertiesContainer,
-    values: context.valuesContainer,
-    setProperties: context.setPropertiesContainer,
-    setValues: context.setValuesContainer,
-    handleAddInput: context.handleAddInput,
-    handleRemoveInput: context.handleRemoveInput,
-    stopAdd: context.stopAdd,
-    closeForm: context.closeForm
-  };
   }
+  
+   
 } 

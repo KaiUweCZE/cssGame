@@ -1,26 +1,40 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CssForm from "./CssForm";
 import PlayGround from "./PlayGround";
-import { BridgeProvider, CheckContextProvider, ContainerProvider, EmojiProvider, ResultProvider } from "../contexts/FormContext";
+import { BridgeProvider, CheckContextProvider, ContainerProvider, EmojiProvider, LevelContext, LevelProvider, PartsProvider, ResultProvider } from "../contexts/FormContext";
 import EmptyBox from "./EmptyBox";
 
+
 const Mission = () => {
-    const [nextClass, setNextClass] = useState()
+    const [containerClass, setContainerClass] = useState()
+    const [partsClass, setPartsClass] = useState()
+    const {level} = useContext(LevelContext)
+
+    console.log("manipulovat?",level.partsStyle);
     return(
         <CheckContextProvider>
         <ContainerProvider >
         <BridgeProvider>
         <EmojiProvider>
         <ResultProvider>
+        <PartsProvider>
         <div className="container-mission">
             <div className="box__classes">
                 <CssForm name="bridge"/>
                 {
-                    nextClass ? <CssForm name="container" state={nextClass} func={setNextClass} /> : <EmptyBox state={nextClass} func={setNextClass}/>
+                    containerClass ? <CssForm name="container" state={containerClass} func={setContainerClass} /> : <EmptyBox state={containerClass} func={setContainerClass}/>
+                }
+                {
+                    level?.partsStyle ? ( partsClass ?
+                    <CssForm name="parts" state={partsClass} func={setPartsClass} /> 
+                    : <EmptyBox state={partsClass} func={setPartsClass}/>
+                    )
+                   : <></>
                 }
             </div>
             <PlayGround/>
         </div>
+        </PartsProvider>
         </ResultProvider>
         </EmojiProvider>
         </BridgeProvider>

@@ -63,8 +63,15 @@
   margin: 0 auto;
   background-size: contain;
   background-repeat: no-repeat;
+  opacity: 0.1;
+  animation: blur 0.4s linear forwards;
 }
 
+@keyframes blur {
+  100% {
+    opacity: 1;
+  }
+}
 .roadmap__item {
   display: flex;
   position: relative;
@@ -86,9 +93,7 @@
   height: 3vw;
   opacity: 1;
   border-radius: 19% 81% 14% 86%/80% 10% 90% 20%;
-  background-color: #0A3A40;
   background-color: rgba(10, 58, 64, 0.6);
-  background-color: rgba(0, 0, 0, 0.4);
   filter: blur(0px);
   z-index: -1;
   transition: 0.5s;
@@ -96,9 +101,11 @@
 .roadmap__item:hover::after {
   opacity: 1;
   border-radius: 19% 81% 14% 86%/80% 10% 90% 20%;
-  animation: light 1.5s linear;
+  animation: light 1s linear forwards;
   background-color: rgba(10, 58, 64, 0.9);
-  background-color: rgba(0, 0, 0, 0.8);
+}
+.roadmap__item.active::after {
+  background-color: rgba(102, 14, 14, 0.65);
 }
 
 @keyframes light {
@@ -108,11 +115,11 @@
   }
   50% {
     border-radius: 56% 44% 70% 30%/22% 68% 32% 78%;
-    transform: rotate(180deg) scale(1.2);
+    transform: rotate(45deg) scale(1.2);
   }
   100% {
     border-radius: 19% 81% 14% 86%/80% 10% 90% 20%;
-    transform: rotate(360deg) scale(1);
+    transform: rotate(90deg) scale(1);
   }
 }
 .locked img {
