@@ -64,8 +64,55 @@ export const aboutLevelData = [
         facilis, dicta recusandae aperiam nisi nulla autem, 
         error sapiente quae asperiores dolor enim `,
         fullData:{
-            video:{},
-            text:{},
+            video:{
+                src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
+                text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
+                vido od Kevina Powella`
+            },
+            text:{
+                description: `
+                Marginy a paddingy patří k dalším základním vlastnostem,
+                které ovlivňují rozložení a prostorové vztahy mezi elementy na webové stránce.
+                Ačkoliv se na první pohled mohou zdát podobné, mají odlišné účely a 
+                jejich správné použití je klíčové pro vytváření dobře 
+                strukturovaných a vizuálně příjemných webových layoutů.
+                Hlavní rozdíl mezi marginy a paddingy spočívá v tom, 
+                že marginy ovlivňují prostor vně elementu, zatímco 
+                paddingy ovlivňují prostor uvnitř elementu.
+                `,
+                li: [
+                    {
+                        headline: "margin",
+                        p:`
+                        definuje prostor kolem elementu; prostor mezi okrajem 
+                        elementu a sousedními elementy. Marginy mohou být 
+                        aplikovány na všechny čtyři strany elementu 
+                        (horní, pravý, dolní, levý) a mohou mít různé hodnoty, 
+                        což umožňuje flexibilní ovládání rozestupů mezi elementy. 
+                        Marginy mohou být také záporné, což umožňuje překryv elementů.
+                        `,
+
+                    },
+                    {
+                        headline: "padding",
+                        p:`
+                        Na rozdíl od marginu, padding, neboli výplň, definuje 
+                        prostor mezi okrajem elementu a jeho obsahem. 
+                        Padding zvyšuje vnější rozměry elementu tím, že 
+                        přidává prostor uvnitř elementu. Stejně jako marginy, i 
+                        paddingy mohou být aplikovány na všechny čtyři strany
+                        Padding je důležitý pro vizuální komfort uživatelů, 
+                        protože zajišťuje, že text a další obsah nejsou 
+                        příliš blízko k 
+                        okrajům elementů, což usnadňuje čtení a interakci s obsahem.
+                        `,
+                        
+                    }
+                   
+                ],
+                aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
+                nicméně emoji se musí dostat přes řeku!`
+            },
             images:{},
             tips:{}
         }

@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import lockIcon from '../styles/images/icons/lock.webp'
 
 const RoadmapLevel = (props) => {
+    const [active, setActive] = useState(false)
 
+    const handleActiveClass = () => {
+        setActive(true)
+        setTimeout(() => {setActive(false)}, 1000)
+    }
     return(
         <>
         {
         props.locked ?
-        <figcaption className={`roadmap__item locked ${props.specialClass}`}>
+        <figcaption className={active ? `roadmap__item locked active ${props.specialClass}`: `roadmap__item locked ${props.specialClass}`} onClick={() => handleActiveClass()}>
             <img src={lockIcon} alt="" />
         </figcaption>
         :

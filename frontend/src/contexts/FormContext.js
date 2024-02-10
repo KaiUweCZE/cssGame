@@ -1,4 +1,5 @@
 import React, { createContext, useState, useRef, useEffect, useContext } from "react";
+import { contextValues } from "../Functions/cssFormFunctions";
 
 
 // to setting the result style of a given level
@@ -111,6 +112,25 @@ export const ContainerProvider = ({ children }) => {
     )
 }
 
+export const PartsContext = createContext({})
+
+export const PartsProvider = ({children}) => {
+    const [stopAdd, setStopAdd] = useState(false);
+
+    const closeForm = () => {
+        setStopAdd(false)
+    }
+
+    const contextValue = {
+        closeForm
+    }    
+        
+    return(
+        <PartsContext.Provider value={contextValue}>
+            {children}
+        </PartsContext.Provider>
+    )
+}
 
 // for emoji character manipulation
 export const EmojiContext = createContext({

@@ -64,6 +64,7 @@ $con: 2;
     z-index: 1;
 }
 
+
 .roadmap__background{
     display: flex;
     width: 90%;
@@ -74,7 +75,16 @@ $con: 2;
     background-size: contain;
     //background-position: center center;
     background-repeat: no-repeat;
+    opacity: 0.1;
+    animation: blur .4s linear forwards;
 }
+
+@keyframes blur {
+    100% {
+        opacity: 1;
+    }
+}
+
 .roadmap__item{
     display: flex;
     position: relative;
@@ -96,9 +106,8 @@ $con: 2;
         height: 3vw;
         opacity: 1;
         border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
-        background-color: $primary-color;
         background-color: rgba($primary-color, 0.6);
-        background-color: rgba(black, 0.4);
+        //background-color: rgba(black, 0.4);
         filter: blur(0px);
         z-index: -1;
         transition: .5s;
@@ -107,9 +116,12 @@ $con: 2;
         opacity: 1;
         border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
         //animation: jello-horizontal .8s linear;
-        animation: light 1.5s linear;
+        animation: light 1s linear forwards;
         background-color: rgba($primary-color, 0.9);
-        background-color: rgba(black, 0.8);
+        //background-color: rgba(black, 0.8);
+    }
+    &.active::after{
+        background-color: rgba($color: rgb(102, 14, 14), $alpha: .65);
     }
 }
 
@@ -120,11 +132,11 @@ $con: 2;
     }
     50%{
         border-radius: 56% 44% 70% 30% / 22% 68% 32% 78%;
-        transform: rotate(180deg) scale(1.2);
+        transform: rotate(45deg) scale(1.2);
     }
     100%{
         border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
-        transform: rotate(360deg) scale(1);
+        transform: rotate(90deg) scale(1);
     }
 }
 
@@ -138,6 +150,7 @@ $con: 2;
     &:hover img{
         transform: rotate(5deg) scale(1.1);
     }
+    
 }
 
 
