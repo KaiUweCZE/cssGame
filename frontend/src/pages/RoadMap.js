@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import {useNavigate} from 'react-router-dom'
 import '../styles/roadmapStyles.css'
-import lockIcon from '../styles/images/icons/lock.svg'
 import parallaxBg from '../styles/images/parallax-background/sky.webp'
 import cloud1 from '../styles/images/parallax-background/cloud1.webp'
 import cloud2 from '../styles/images/parallax-background/cloud2.webp'
