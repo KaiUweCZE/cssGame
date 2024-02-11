@@ -31,9 +31,7 @@ const Bridge = forwardRef((props,ref) => {
         ...style.parts,
     }
 
-    const newPart = {
-        ...style.new,
-    }
+    let newPartStyle = {};
 
     // declare the right value for each property
     propertiesContainer.forEach((property, index) => {
@@ -49,13 +47,11 @@ const Bridge = forwardRef((props,ref) => {
         bridgeStyle[property] = valuesBridge[index];
     });
 
-    //we declare right value for each properties
+    // we declare right value for each properties
+    // one form line = one part of bridge
     propertiesParts.forEach((property, index) => {
-        newPart[property] = valuesParts[index]
+        newPartStyle[index] = {[property]: valuesParts[index]};
     });
-    
-    console.log(partStyle.prev);
-
     
 
     return(
@@ -67,7 +63,7 @@ const Bridge = forwardRef((props,ref) => {
             :
             (
             level.master ?
-            <MasterBridgeElement elements={elements} add={addToBridgeRef} style={bridgeStyle} prev={partStyle} new={newPart} part={mainPartStyle} background={barkTexture}/>
+            <MasterBridgeElement elements={elements} add={addToBridgeRef} style={bridgeStyle} prev={partStyle} new={newPartStyle} part={mainPartStyle} background={barkTexture}/>
             :
             <ManyBridgeElement elements={elements} add={addToBridgeRef} background={barkTexture}/>
             )
