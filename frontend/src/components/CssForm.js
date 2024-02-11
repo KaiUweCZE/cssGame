@@ -49,6 +49,7 @@ const CssForm = (props) => {
             break
         case "parts":
             context = useContext(PartsContext)
+            break
         default:
             console.log("unknown value");
             break;

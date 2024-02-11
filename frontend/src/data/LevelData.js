@@ -333,7 +333,7 @@ export const levelData = [
         partOfBridgeStyles: {
             mainStyle: {
                 "width": "50%",
-                "max-width": "100%"
+                "max-width": "100%",
             },
             childrenStyle: {
             }
@@ -422,11 +422,19 @@ export const levelData = [
         },
         partOfBridgeStyles: {
             mainStyle: {
+                "position": "relative"
             },
             childrenStyle: {
+                0:{
+                    "top": "3rem",
+                },
+                1:{
+                    "top": "-1rem"
+                },
+                2:{
+                    "left": "2rem"
+                },
             }
-
-
         },
         partOfBridge: 3,
         master: true,

@@ -15,7 +15,6 @@ export const BridgeProvider = ({ children }) => {
             setPropertiesBridge([...propertiesBridge, ""]);
             setValuesBridge([...valuesBridge, ""]);
             setStopAdd(true)
-            console.log("Done!");
         } else if (!stopAdd) {
             setPropertiesBridge([...propertiesBridge, ""]);
             setValuesBridge([...valuesBridge, ""]);
@@ -24,7 +23,7 @@ export const BridgeProvider = ({ children }) => {
 
     const handleRemoveInput = index => {
         if (propertiesBridge.length === 1) {
-            console.log("další prvky nelze odebrat");
+            console.log("you cannot remove another element");
         } else {
             const filteredProperties = propertiesBridge.filter((_, i) => i !== index);
             setPropertiesBridge(filteredProperties);
@@ -69,7 +68,6 @@ export const ContainerProvider = ({ children }) => {
             setPropertiesContainer([...propertiesContainer, ""]);
             setValuesContainer([...valuesContainer, ""]);
             setStopAdd(true)
-            console.log("Done!");
         } else if (!stopAdd) {
             setPropertiesContainer([...propertiesContainer, ""]);
             setValuesContainer([...valuesContainer, ""]);
@@ -78,7 +76,7 @@ export const ContainerProvider = ({ children }) => {
 
     const handleRemoveInput = index => {
         if (propertiesContainer.length === 1) {
-            console.log("další prvky nelze odebrat");
+            console.log("you cannot remove another element");
         } else {
             const filteredProperties = propertiesContainer.filter((_, i) => i !== index);
             setPropertiesContainer(filteredProperties);
@@ -116,12 +114,43 @@ export const PartsContext = createContext({})
 
 export const PartsProvider = ({children}) => {
     const [stopAdd, setStopAdd] = useState(false);
+    const [propertiesParts, setPropertiesParts] = useState([{}])
+    const [valuesParts, setValuesParts] = useState([{}])
+
+    const handleAddInput = () => {
+        if (propertiesParts.length >= 3) {
+            setPropertiesParts([...propertiesParts, ""]);
+            setValuesParts([...valuesParts, ""]);
+            setStopAdd(true)
+        } else if (!stopAdd) {
+            setPropertiesParts([...propertiesParts, ""]);
+            setValuesParts([...valuesParts, ""]);
+        }
+    };
+
+    const handleRemoveInput = index => {
+        if (propertiesParts.length === 1) {
+            console.log("You can not remove another element");
+        } else {
+            const filteredProperties = propertiesParts.filter((_, i) => i !== index);
+            setPropertiesParts(filteredProperties);
+            const filteredValues = valuesParts.filter((_, i) => i !== index);
+            setValuesParts(filteredValues);
+            setStopAdd(false)
+        }
+    };
 
     const closeForm = () => {
         setStopAdd(false)
     }
 
     const contextValue = {
+        propertiesParts,
+        valuesParts,
+        setPropertiesParts,
+        setValuesParts,
+        handleAddInput,
+        handleRemoveInput,
         closeForm
     }    
         
@@ -203,15 +232,14 @@ export const ResultProvider = ({ children }) => {
         // Assuming bridgeRef and checkpointRef are arrays of equal length
         for (let i = 0; i < bridgeRef.current.length; i++) {
             const bridgeRect = bridgeRef.current[i].getBoundingClientRect();
-            console.log("first cyklus start", checkpointRef.current.length);
+            //console.log("first cyklus start", checkpointRef.current.length);
             for (let j = 0; j < checkpointRef.current.length; j++) {
                 const checkRect = checkpointRef.current[j].getBoundingClientRect();
-                console.log(checkRect.left, checkRect.right, checkRect.top);
                 const isLeftCorrect = Math.abs(bridgeRect.left - checkRect.left) < tolerance;
                 const isRightCorrect = Math.abs(bridgeRect.right - checkRect.right) < tolerance;
                 const isTopCorrect = Math.abs(bridgeRect.top - checkRect.top) < tolerance;
-                console.log("second cyklus");
-                console.log(`Bridge ${j}: Left ${isLeftCorrect ? 'OK' : 'NO'}, Right ${isRightCorrect ? 'OK' : 'NO'}, Top ${isTopCorrect ? 'OK' : 'NO'}`);
+                //console.log("second cyklus");
+                //console.log(`Bridge ${j}: Left ${isLeftCorrect ? 'OK' : 'NO'}, Right ${isRightCorrect ? 'OK' : 'NO'}, Top ${isTopCorrect ? 'OK' : 'NO'}`);
                 if (isLeftCorrect && isRightCorrect && isTopCorrect) {
                     correctPositions += 1;
                 } else {
@@ -272,8 +300,9 @@ export const LevelProvider = ({ children }) => {
             setLevel(levelObject)
             const containerStyle = levelObject.containerStyles
             const bridgeStyle = levelObject.bridgeStyles
-            const partStyle = levelObject.partOfBridgeStyles
-            setStyle({ container: containerStyle, bridge: bridgeStyle, partOfBridge: partStyle })
+            const partStyle = levelObject.partOfBridgeStyles.childrenStyle
+            const newStyle = levelObject.childrenStyle
+            setStyle({ container: containerStyle, bridge: bridgeStyle, parts: partStyle, new: newStyle })
         }
     }, [])
 
