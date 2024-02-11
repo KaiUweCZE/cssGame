@@ -50,6 +50,8 @@ export const useFormInputs =(initialProps = [], initialValues = []) => {
       } else {
         setCssProperties(properties => [...properties, ""]);
         setCssValues(values => [...values, ""]);
+        //console.log("properties", cssProperties);
+        //console.log("values", cssValues);
       }
       
     };

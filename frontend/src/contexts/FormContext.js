@@ -110,21 +110,26 @@ export const ContainerProvider = ({ children }) => {
     )
 }
 
+
+// for form parts alter PartsContext, each line is one part of the bridge
+// compered to other forms where more styles can be set
 export const PartsContext = createContext({})
 
 export const PartsProvider = ({children}) => {
     const [stopAdd, setStopAdd] = useState(false);
-    const [propertiesParts, setPropertiesParts] = useState([{}])
-    const [valuesParts, setValuesParts] = useState([{}])
+
+    const [propertiesParts, setPropertiesParts] = useState([])
+    const [valuesParts, setValuesParts] = useState([])
 
     const handleAddInput = () => {
         if (propertiesParts.length >= 3) {
-            setPropertiesParts([...propertiesParts, ""]);
-            setValuesParts([...valuesParts, ""]);
+            setPropertiesParts([...propertiesParts]);
+            setValuesParts([...valuesParts]);
             setStopAdd(true)
+            
         } else if (!stopAdd) {
-            setPropertiesParts([...propertiesParts, ""]);
-            setValuesParts([...valuesParts, ""]);
+            setPropertiesParts([...propertiesParts]);
+            setValuesParts([...valuesParts]);
         }
     };
 
@@ -300,9 +305,8 @@ export const LevelProvider = ({ children }) => {
             setLevel(levelObject)
             const containerStyle = levelObject.containerStyles
             const bridgeStyle = levelObject.bridgeStyles
-            const partStyle = levelObject.partOfBridgeStyles.childrenStyle
-            const newStyle = levelObject.childrenStyle
-            setStyle({ container: containerStyle, bridge: bridgeStyle, parts: partStyle, new: newStyle })
+            const partStyle = levelObject.partOfBridgeStyles?.childrenStyle
+            setStyle({ container: containerStyle, bridge: bridgeStyle, parts: partStyle})
         }
     }, [])
 
@@ -346,3 +350,53 @@ export const CheckContextProvider = ({ children }) => {
         </CheckContext.Provider>
     )
 }
+
+/*
+export const PartsProvider = ({children}) => {
+    const [stopAdd, setStopAdd] = useState(false);
+    const [propertiesParts, setPropertiesParts] = useState([{}])
+    const [valuesParts, setValuesParts] = useState([{}])
+
+    const handleAddInput = () => {
+        if (propertiesParts.length >= 3) {
+            setPropertiesParts([...propertiesParts, ""]);
+            setValuesParts([...valuesParts, ""]);
+            setStopAdd(true)
+        } else if (!stopAdd) {
+            setPropertiesParts([...propertiesParts, ""]);
+            setValuesParts([...valuesParts, ""]);
+        }
+    };
+
+    const handleRemoveInput = index => {
+        if (propertiesParts.length === 1) {
+            console.log("You can not remove another element");
+        } else {
+            const filteredProperties = propertiesParts.filter((_, i) => i !== index);
+            setPropertiesParts(filteredProperties);
+            const filteredValues = valuesParts.filter((_, i) => i !== index);
+            setValuesParts(filteredValues);
+            setStopAdd(false)
+        }
+    };
+
+    const closeForm = () => {
+        setStopAdd(false)
+    }
+
+    const contextValue = {
+        propertiesParts,
+        valuesParts,
+        setPropertiesParts,
+        setValuesParts,
+        handleAddInput,
+        handleRemoveInput,
+        closeForm
+    }    
+        
+    return(
+        <PartsContext.Provider value={contextValue}>
+            {children}
+        </PartsContext.Provider>
+    )
+}*/

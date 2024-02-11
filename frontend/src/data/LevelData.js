@@ -408,31 +408,31 @@ export const levelData = [
         endPointStyle: {
         },
         containerStyles: {
-            "display": "grid",
-            "grid-template-columns": "1fr 1fr 1fr",
-            "grid-template-rows": "1fr 1fr 1fr",
+            "display": "grid",     
             "width": "100%",
             "height": "100%",
         },
         bridgeStyles: {
-            "display": "flex",
-            "grid-row": "2",
-            "grid-column": "span 2",
-            "height": "100%"
+            "display": "grid",
+            "grid-template-columns": "1fr 1fr 1fr",
+            "grid-template-rows": "1fr 1fr 1fr",
+            "height": "100%",
+            "width": "100%"
         },
         partOfBridgeStyles: {
             mainStyle: {
-                "position": "relative"
+                "width": "100%",
+                "max-width": "100%"
             },
             childrenStyle: {
                 0:{
-                    "top": "3rem",
+                    "grid-area": "2 / 2",
                 },
                 1:{
-                    "top": "-1rem"
+                    "grid-area": "3 / 3"
                 },
                 2:{
-                    "left": "2rem"
+                    "grid-area": "3 / 2"
                 },
             }
         },
