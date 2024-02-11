@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext, useEffect } from "react";
 import barkTexture from "../../styles/images/bark1.webp"
-import { LevelContext, BridgeContext, CheckContext, ResultContext, ContainerContext } from "../../contexts/FormContext";
+import { LevelContext, BridgeContext, CheckContext, ResultContext, ContainerContext, PartsContext } from "../../contexts/FormContext";
 import AboutClass from "../AboutClassComponents/AboutClass";
 import Obstacle from "../Obstacle";
 import OneBridgeElement from "./OneBridgeElement";
@@ -12,10 +12,11 @@ const Bridge = forwardRef((props,ref) => {
     const{style, level} = useContext(LevelContext)
     const {propertiesBridge, valuesBridge} = useContext(BridgeContext)
     const {propertiesContainer, valuesContainer} = useContext(ContainerContext)
+    const {propertiesParts, valuesParts} = useContext(PartsContext)
     const {active, aboutClass} = useContext(CheckContext)
     const {addToBridgeRef} = useContext(ResultContext)
 
-    const styleOfPart = level.partOfBridgeStyles?.childrenStyle ? level.partOfBridgeStyles : ""
+    const mainPartStyle = level.partOfBridgeStyles?.childrenStyle ? level.partOfBridgeStyles : {}
     const partsNumber = level  ? level.partOfBridge : 1;
     const bridgeStyle = {
         // specific style from levelData
@@ -26,18 +27,33 @@ const Bridge = forwardRef((props,ref) => {
         ...style.container,
     }
 
+   const partStyle = {
+        ...style.parts
+    }
+
+    let newPartStyle = {};
+
+
+    // declare the right value for each property
     propertiesContainer.forEach((property, index) => {
         containerStyle[property] = valuesContainer[index];
     });
-
 
     // If we have multiple parts, we create an array and
     // store each part separately to check the position 
     const elements = Array.from({length: partsNumber})
 
+    // declare the right value for each property
     propertiesBridge.forEach((property, index) => {
         bridgeStyle[property] = valuesBridge[index];
     });
+
+    // we declare right value for each properties
+    // one form line = one part of bridge
+    propertiesParts.forEach((property, index) => {
+        newPartStyle[index] = {[property]: valuesParts[index]};
+    });
+    
 
     return(
         <>
@@ -48,7 +64,7 @@ const Bridge = forwardRef((props,ref) => {
             :
             (
             level.master ?
-            <MasterBridgeElement elements={elements} add={addToBridgeRef} style={bridgeStyle} partStyle={styleOfPart} background={barkTexture}/>
+            <MasterBridgeElement elements={elements} add={addToBridgeRef} style={bridgeStyle} prev={partStyle} new={newPartStyle} part={mainPartStyle} background={barkTexture}/>
             :
             <ManyBridgeElement elements={elements} add={addToBridgeRef} background={barkTexture}/>
             )

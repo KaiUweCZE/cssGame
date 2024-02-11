@@ -27,7 +27,6 @@ const SuggestList = (props) => {
 
     const confrimText = (property) => {
         setVisible(false)
-        console.log("this is property: ", property);
         props.func(props.valueIndex, property)
     }
 
