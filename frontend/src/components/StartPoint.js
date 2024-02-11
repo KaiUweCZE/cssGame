@@ -11,7 +11,6 @@ const StartPoint = () => {
         ...level?.startPointStyle
     }
 
-    console.log(level?.startPointStyle);
     const lawnStyle = {
         'backgroundImage': `url(${lawn})`
     }
