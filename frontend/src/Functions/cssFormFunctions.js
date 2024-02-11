@@ -13,8 +13,6 @@ if (!propertiesValidator) {
     setValues(cssValues)
     setError(false)
     setTimeout(checkBridgePosition, 0)
-    console.log("Všechny vlastnosti jsou korektní:", cssProperties, cssValues);
-    console.log("vlastnosti a hodnoty: ",properties, values);
     //setTimeout(checkBridgePosition, 0);
     setHasChecked(true)
 }
@@ -30,7 +28,6 @@ export const useFormInputs =(initialProps = [], initialValues = []) => {
       setCssProperties(prev => {
         const newProperties = [...prev];
         newProperties[index] = value;
-        console.log("css properties: ", newProperties);
         return newProperties;
       });
     };
@@ -41,7 +38,6 @@ export const useFormInputs =(initialProps = [], initialValues = []) => {
       setCssValues(prev => {
         const newValues = [...prev];
         newValues[index] = value;
-        console.log("css properties index: ", newValues);
         return newValues;
       });
     };
@@ -68,7 +64,6 @@ export const useFormInputs =(initialProps = [], initialValues = []) => {
     const closeForm = () => {
       cssProperties.length = 0
       cssValues.length = 0
-      console.log("new status", cssProperties, cssValues);
     }
   
     return { cssProperties, cssValues, setPropertyAtIndex, setValueAtIndex, handleAddLabel, handleRemoveLabel, closeForm };
@@ -101,6 +96,10 @@ export const contextValues = (name, context) => {
       };
     case "parts":
       return {
+        properties: context.propertiesParts,
+        values: context.valuesParts,
+        setProperties: context.setPropertiesParts,
+        setValues: context.setValuesParts,
         handleAddInput: context.handleAddInput,
         handleRemoveInput: context.handleRemoveInput,
         stopAdd: context.stopAdd,

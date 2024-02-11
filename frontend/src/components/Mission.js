@@ -10,7 +10,6 @@ const Mission = () => {
     const [partsClass, setPartsClass] = useState()
     const {level} = useContext(LevelContext)
 
-    console.log("manipulovat?",level.partsStyle);
     return(
         <CheckContextProvider>
         <ContainerProvider >
