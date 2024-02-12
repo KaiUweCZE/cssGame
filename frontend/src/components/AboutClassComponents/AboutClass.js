@@ -3,6 +3,7 @@ import glassImg from "../../styles/images/glass.webp"
 import { CheckContext } from "../../contexts/FormContext";
 import AboutClassInfo from "./AboutClassInfo";
 import AboutClassMenu from "./AboutClassMenu";
+import TemporaryLabel from "../TemporaryLabel";
 
 const AboutClass = (props) => {
     const [option, setOption] = useState(false)
@@ -24,6 +25,12 @@ const AboutClass = (props) => {
             active ? <AboutClassInfo active={active} name={`.${aboutClass}`} information={props?.style} /> : ""
             }
         </div>
+        {
+            props.level === 1 ?
+            <TemporaryLabel />
+            :
+            null
+        }
         </>
         
     )

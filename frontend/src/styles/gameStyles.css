@@ -539,10 +539,11 @@ img.obstacle {
 .glass {
   position: absolute;
   top: -145%;
-  right: -95%;
+  right: -88%;
   width: 3rem;
   cursor: pointer;
   transition: 0.5s;
+  z-index: 1;
 }
 .glass:hover {
   transform: scale(1.2);

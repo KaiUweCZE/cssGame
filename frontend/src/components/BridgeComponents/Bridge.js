@@ -71,7 +71,7 @@ const Bridge = forwardRef((props,ref) => {
             {level.obstacle ? <Obstacle /> : ""}
         </div>
         {/* this will be component (it shows information about class) */}
-        <AboutClass style={aboutClass === "bridge" ? style.bridge : style.container} />
+        <AboutClass style={aboutClass === "bridge" ? style.bridge : style.container} level={level.id} />
         </>
     )
 })
