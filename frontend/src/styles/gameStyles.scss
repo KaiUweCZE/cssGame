@@ -573,11 +573,11 @@ img.obstacle {
 .glass {
     position: absolute;
     top: -145%;
-    right: -95%;
+    right: -88%;
     width: 3rem;
     cursor: pointer;
     transition: .5s;
-
+    z-index: 1;
     &:hover {
         transform: scale(1.2);
     }
@@ -631,7 +631,6 @@ img.obstacle {
 .about-class__menu {
     display: flex;
     z-index: 1;
-
     li {
         display: flex;
         padding: .25rem;
