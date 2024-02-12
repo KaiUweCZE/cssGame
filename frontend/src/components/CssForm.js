@@ -64,9 +64,11 @@ const CssForm = (props) => {
 
     useEffect(() => {
         if(hasChecked){
-            // a result message will be displayed for 2 secs
             // some level needs right position and right style
-            const styleResult = styleChecker(level.id, values)
+            // if only position is enough, styleResult is set to true
+            const styleResult = level.styleResult ? styleChecker(level, values) : true
+            console.log("style result je: ", styleResult);
+            // a result message will be displayed for 2 secs
             setResultText(isCorrect &&  styleResult ? "Congrats" : "Oops")
             // emoji element gets class according to level and result
             handleEmojiClass(isCorrect && styleResult, level.emojiRun)
