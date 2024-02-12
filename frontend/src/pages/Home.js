@@ -10,22 +10,19 @@ const Home = () => {
                 <h2>Verze 0</h2>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Iste tenetur eligendi vitae inventore cupiditate excepturi odio laudantium ad, placeat consequatur ea, delectus et id, voluptatum animi fugit laborum nesciunt obcaecati!
+                    Iste tenetur eligendi vitae inventore cupiditate excepturi odio laudantium ad, placeat consequatur ea, delectus et id, 
+                    voluptatum animi fugit laborum nesciunt obcaecati!
                     Ab, eligendi ipsam. Quae, explicabo. Iste, repellat! 
                     Corrupti nemo quos blanditiis exercitationem quae tempora 
                     repellat hic sequi odit suscipit, a ipsum vero, consectetur quisquam ipsa nisi? Quisquam aut ut dolor.
-                    Centrem webu je css game, která má umožnit interaktivní stylování, za jehož pomoci uživatel bude překonávat překážky na cestě.
-                    V průběhu putování bude uživatel odměňován(tipy, videi, články, užitečné generátory, atd.),které
-                    by mu měly pomoci dostat se až na samí konec cesty, rozhodně v tom ale nebude sám,
-                    kdykoliv mu bude po ruce nápomocen průvodce....  
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam sunt, quia ex necessitatibus quisquam accusamus 
+                    sit molestiae autem fuga eligendi nesciunt et minima odio enim commodi, culpa obcaecati? Nihil ex, eos, non cumque, corporis alias praesentium 
+                    totam culpa vel qui in? Itaque quia magni culpa impedit, ea sunt, rem atque doloribus mollitia, quod explicabo.
                 </p>
             </section>
             <section>
                 <h2>Plány</h2>
                 <ul>
-                    <li>Zaměřit se na vyřešení obstacle elemenut</li>
-                    <li>přidat alespoň 5 různých levelů na flex a na grid</li>
-                    <li>Možnost zasáhnout do jednotlivých částí mostu?</li>
                 </ul>
             </section>
 
