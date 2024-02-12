@@ -568,18 +568,18 @@ img.obstacle {
     max-width: 33.334%;
 }
 
-
-
 .glass {
+    display: grid;
+    grid-template: 1fr / 1fr;
     position: absolute;
-    top: -145%;
+    top: -58vh;
     right: -88%;
     width: 3rem;
     cursor: pointer;
     transition: .5s;
     z-index: 1;
     &:hover {
-        transform: scale(1.2);
+        transform: scale(1.15);
     }
 }
 
@@ -588,7 +588,7 @@ img.obstacle {
     position: absolute;
     width: 12rem;
     right: -95%;
-    top: -50vh;
+    top: -52vh;
     flex-direction: column;
     background-color: rgba(0, 0, 0, .65);
     border-radius: .35rem;
