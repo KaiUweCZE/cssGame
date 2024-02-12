@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { Navigate, Outlet } from "react-router-dom";
+import AlertMessage from "./AlertMessage";
 
 
 const ProtectedLayout = () => {
@@ -15,7 +16,7 @@ const ProtectedLayout = () => {
             ?
             <Outlet/>
             :
-            ""
+            <AlertMessage />
         }</>
             
     )

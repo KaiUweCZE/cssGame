@@ -1,10 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import { aboutLevelData } from "../data/LevelInfo";
 import hashtagIcon from "../styles/images/icons/hashtag4.svg"
 
 const ClassInfo = () => {
     const {id} = useParams()
+
     const data = aboutLevelData.find(level => level.id === Number(id))
     let index = 0
     return(
