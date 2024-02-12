@@ -489,11 +489,12 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
-//css loader
+//css loader from web
 
 .loader {
-    width: 50px;
-    padding: 8px;
+    margin: 0 auto;
+    width: 3rem;
+    padding: .5rem;
     aspect-ratio: 1;
     border-radius: 50%;
     background: #25b09b;
@@ -548,30 +549,32 @@ $primary-text: rgba(60,60,60, 1);
     justify-content: center;
     align-items: center;
     width: fit-content;
-    padding: 3rem;
     margin: 0 auto;
     margin-top: 3rem;
+    padding: 3rem;
     border-radius: .5rem;
+    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba($main-color, 0.85);
+    box-shadow: 0 0 12px #505050;
     h2{
-        font-size: clamp(2rem, 3.5vw, 3.75rem);
-        color: $primary-color;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        color: $secondary-color;
     }
     button{
         display: flex;
-        color: $primary-color;
+        color: $secondary-color;
         position: relative;
-        font-size: clamp(2rem, 3.5vw, 3.75rem);
+        font-size: clamp(1.5rem, 3vw, 2rem);
         font-weight: bold;
         width: fit-content;
+        height: 100%;
         align-items: center;
-        //background-color: rgba($primary-color, 1);
+        //background-color: rgba(0, 0, 0, 0.6);
         padding: .5rem;
         text-transform: uppercase;
         transition: .5s;
-        border-radius: .35rem;
         &:hover{
             transform: scale(1.1);
-            background-color: rgba($primary-color, 0);
         }
     }
 }
