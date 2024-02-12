@@ -30,7 +30,7 @@ $primary-text: rgba(60,60,60, 1);
 .container-menu {
     display: flex;
     position: relative;
-    background-color: #0A3A40;
+    background-color: $main-color;
     box-shadow: 0 0 5px black;
     justify-content: center;
     height: 4rem;
@@ -100,7 +100,7 @@ $primary-text: rgba(60,60,60, 1);
             padding: .5rem;
             margin-right: .75rem;
             border-radius: 0 0 .5rem .5rem;
-            background-color: #0A3A40;
+            background-color: $main-color;
             flex-direction: column;
             transition: .5s;
             opacity: 0;
@@ -193,7 +193,7 @@ $primary-text: rgba(60,60,60, 1);
 // styles for about page
 .container-about {
     display: grid;
-    background-color: #0A3A40;
+    background-color: $main-color;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     width: 80%;
@@ -333,7 +333,7 @@ $primary-text: rgba(60,60,60, 1);
 .container-registration {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    background-color: rgba(#0A3A40, 0.85);
+    background-color: rgba($main-color, 0.85);
     height: 15rem;
     margin: 0 auto;
     padding: 2rem;
@@ -515,7 +515,7 @@ $primary-text: rgba(60,60,60, 1);
     grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     //width: fit-content;
     margin: 1rem;
-    background-color: #0A3A40;
+    background-color: $main-color;
 }
 
 .users-list__item {
@@ -539,5 +539,35 @@ $primary-text: rgba(60,60,60, 1);
         bottom: 0;
         right: 0;
         filter: brightness(8);
+    }
+}
+
+.message__alert{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 3rem;
+    margin: 0 auto;
+    margin-top: 3rem;
+    background-color: rgba($main-color, 0.85);
+    border-radius: .5rem;
+    h2{color: white;}
+    button{
+        display: flex;
+        color: white;
+        position: relative;
+        font-size: 1.25rem;
+        font-weight: bold;
+        width: fit-content;
+        align-items: center;
+        background-color: rgba($primary-color, 1);
+        padding: .5rem;
+        transition: .5s;
+        border-radius: .35rem;
+        &:hover{
+            background-color: rgba($primary-color, 0);
+        }
     }
 }

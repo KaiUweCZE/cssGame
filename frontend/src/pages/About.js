@@ -6,7 +6,7 @@ import { UserContext } from "../contexts/UserContext";
 //I need to try subgrid
 const About = () => {
     const navigate = useNavigate()
-    const {user} = useContext(UserContext)
+    const {user, login} = useContext(UserContext)
 
     const toClass = (i) => {
         navigate(`/level/${i}`)
