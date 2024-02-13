@@ -122,11 +122,10 @@ export const PartsProvider = ({children}) => {
     const [valuesParts, setValuesParts] = useState([])
 
     const handleAddInput = () => {
-        if (propertiesParts.length >= 3) {
+        if (propertiesParts.length >= 2) {
             setPropertiesParts([...propertiesParts]);
             setValuesParts([...valuesParts]);
             setStopAdd(true)
-            
         } else if (!stopAdd) {
             setPropertiesParts([...propertiesParts]);
             setValuesParts([...valuesParts]);

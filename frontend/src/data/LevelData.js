@@ -77,7 +77,7 @@ export const levelData = [
             "position": "relative",
             "width": "100%",
             "height": "100%",
-            "alignItems": "flex-end"
+            "align-items": "flex-end"
         },
         bridgeStyles: {
             "display": "flex",
@@ -94,11 +94,11 @@ export const levelData = [
             "position": "relative",
             "width": "100%",
             "height": "100%",
-            "padding-inline": "1rem"
+            "padding-inline": "1rem",
         },
         bridgeStyles: {
             "display": "flex",
-            "width": "100%",
+            "margin": "1rem"
         },
         partOfBridgeStyles: {},
         partOfBridge: 1,
@@ -112,7 +112,7 @@ export const levelData = [
             "position": "relative",
             "width": "100%",
             "height": "100%",
-            
+
         },
         bridgeStyles: {
             "display": "flex",
@@ -204,7 +204,7 @@ export const levelData = [
             "height": "fit-content",
         },
         partOfBridgeStyles: {
-            mainStyle:{},
+            mainStyle: {},
             childrenStyle: {}
         },
         partOfBridge: 3,
@@ -363,7 +363,7 @@ export const levelData = [
         obstacle: false,
         emojiRun: false
     },
-    { //level 16
+    {
         id: 16,
         startPointStyle: {
         },
@@ -401,14 +401,14 @@ export const levelData = [
         obstacle: false,
         emojiRun: false
     },
-    { //level 17
+    {
         id: 17,
         startPointStyle: {
         },
         endPointStyle: {
         },
         containerStyles: {
-            "display": "grid",     
+            "display": "grid",
             "width": "100%",
             "height": "100%",
         },
@@ -425,13 +425,13 @@ export const levelData = [
                 "max-width": "100%"
             },
             childrenStyle: {
-                0:{
+                0: {
                     "grid-area": "2 / 2",
                 },
-                1:{
+                1: {
                     "grid-area": "3 / 3"
                 },
-                2:{
+                2: {
                     "grid-area": "3 / 2"
                 },
             }
@@ -442,6 +442,157 @@ export const levelData = [
             mainStyle: {
             },
             childrenStyle: {
+            }
+        },
+        obstacle: false,
+        emojiRun: false,
+        partsStyle: true
+    },
+    {
+        id: 18,
+        startPointStyle: {
+        },
+        endPointStyle: {
+        },
+        containerStyles: {
+            "display": "grid",
+            "width": "100%",
+            "height": "100%",
+        },
+        bridgeStyles: {
+            "display": "flex",
+            "height": "100%",
+            "width": "100%",
+            "gap": "1rem"
+        },
+        partOfBridgeStyles: {
+            mainStyle: {
+                "width": "100%",
+                "max-width": "100%"
+            },
+            childrenStyle: {
+                0: {
+                    "flex": "1",
+                },
+                1: {
+                    "flex": "4"
+                },
+                2: {
+                    "flex": "1"
+                },
+            }
+        },
+        partOfBridge: 3,
+        master: true,
+        correctPosition: {
+            mainStyle: {
+            },
+            childrenStyle: {
+            }
+        },
+        obstacle: false,
+        emojiRun: false,
+        partsStyle: true
+    },
+    {
+        id: 19,
+        startPointStyle: {
+        },
+        endPointStyle: {
+            "position": "relative",
+            "top": "12rem",
+        },
+        containerStyles: {
+            "display": "grid",
+            "width": "100%",
+            "height": "100%",
+        },
+        bridgeStyles: {
+            "display": "grid",
+            "grid-template-columns": "1fr 1fr 1fr",
+            "grid-template-rows": "1fr 1fr 1fr",
+            "height": "12rem",
+        },
+        partOfBridgeStyles: {
+            mainStyle: {
+                "width": "100%",
+                "max-width": "100%",
+                
+            },
+            childrenStyle: {
+                0: {
+                },
+                1: {
+                    "grid-area": "3 / span 2",
+                },
+                2: {
+                    "grid-area": "3 / 3",
+                    "transform": "rotate(90deg)"
+                }
+            }
+        },
+        partOfBridge: 3,
+        master: true,
+        correctPosition: {
+            mainStyle: {
+            },
+            childrenStyle: {
+                0: {
+                    "marginTop": "0rem",
+                },
+                1: {
+                    "marginTop": "4rem",
+                },
+                2: {
+                    "marginTop": "8rem",
+                },
+            }
+        },
+        obstacle: false,
+        emojiRun: "stairs-run",
+        partsStyle: true
+    },
+    {
+        id: 20,
+        startPointStyle: {
+        },
+        endPointStyle: {
+            "position": "relative",
+            "top": "8.5rem"
+        },
+        containerStyles: {
+            "display": "grid",
+            "width": "100%",
+            "height": "100%",
+        },
+        bridgeStyles: {
+            "display": "flex",
+            "height": "100%",
+            "width": "100%"
+        },
+        partOfBridgeStyles: {
+            mainStyle: {
+                "width": "100%",
+                "max-width": "100%"
+            },
+            childrenStyle: {
+                0: {
+                },
+                1: {
+                    //"transform": "translateY(100%) rotate(45deg)"
+                },
+            }
+        },
+        partOfBridge: 2,
+        master: true,
+        correctPosition: {
+            mainStyle: {
+            },
+            childrenStyle: {
+                0:{},
+                1:{
+                    "transform": "translateY(100%) rotate(45deg)"
+                }
             }
         },
         obstacle: false,
