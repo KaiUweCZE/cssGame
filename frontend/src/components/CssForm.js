@@ -134,6 +134,7 @@ const CssForm = (props) => {
                     <div className="form__row" key={index}>
                         <input
                             type="text"
+                            placeholder={props.name === "parts" ? `${index+1}.element` : ""}
                             value={property}
                             onFocus={() => {
                                 setIsFocused(true);
