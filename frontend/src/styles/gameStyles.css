@@ -16,6 +16,10 @@
   text-decoration: none;
 }
 
+/* container-background is layout for Background components
+* it is parent component for each components around game page
+* uses animation for a smooth transition
+*/
 .container-background {
   display: flex;
   position: relative;
@@ -25,6 +29,10 @@
   animation: blur 0.5s ease-out forwards;
 }
 
+/*
+* main structure for important components cssForm, Playground
+*
+*/
 .container-mission {
   display: flex;
   flex-direction: column;
@@ -44,6 +52,10 @@
   }
 }
 
+/* second horizontal half of game layout which contains 
+ * start, crossover, end
+ * grid divided on 3 part
+*/
 .container-playground {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -54,6 +66,9 @@
   z-index: 1;
 }
 
+/* Container for css component
+- flex column
+*/
 .container-form {
   display: flex;
   flex-direction: column;
@@ -88,15 +103,15 @@
   cursor: pointer;
 }
 
-.form__row {
+.form-css__row {
   height: 1.5rem;
   display: flex;
   gap: 1rem;
 }
-.form__row img {
+.form-css__row img {
   cursor: pointer;
 }
-.form__row .icon {
+.form-css__row .icon {
   left: 90%;
 }
 
@@ -104,7 +119,7 @@
   position: absolute;
 }
 
-.element-class__bridge {
+.form-css {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   width: -moz-fit-content;
@@ -114,14 +129,14 @@
   row-gap: 1rem;
   padding-inline: 2rem;
 }
-.element-class__bridge input[type=text] {
+.form-css input[type=text] {
   font-weight: bold;
   max-width: 5rem;
   border: none;
   border-bottom: 2px dotted rgb(30, 30, 30);
   background-color: transparent;
 }
-.element-class__bridge input[type=text]:focus {
+.form-css input[type=text]:focus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.15);
 }

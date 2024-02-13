@@ -1,8 +1,19 @@
 
-// id, level, name, bridgeStyles(specific style for bridge),
-// partOfBridgeStyles(pecific style for parts of bridge)
+// id,
+// startPointStyle & endPointStyle can be used for change origin style of StartPoint, EndPoint components
+// containerStyles(specific style for .container-bridge),
+// bridgeStyles(specific style for .bridge)
+/* partOfBridgeStyles(specific style for parts of bridge)
+* mainStyle defines style for each atomic element
+* childrenStyle defines style for specific child of partOfBridgeStyles
+*/
 // partOfBridge(some level has seperated parts of bridge)
-// obsatcle(This is another element for )
+// master true/false will be use MasterBridgeElement component
+// correctPosition sets the desired position for checking
+// obsatcle(This is another element for which can be used in levels)
+// emojiRun sets specific class with keyframes for emoji animation
+// partsStyle true/false it allows additional forms for styling individual parts
+
 
 export const levelData = [
     {

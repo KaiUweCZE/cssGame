@@ -579,6 +579,21 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
+.error__box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 4rem;
+        margin-top: 2rem;
+    }
+    p{
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
+
 .temporary__box{
     display: none;
     grid-template-columns: 1fr 1fr;

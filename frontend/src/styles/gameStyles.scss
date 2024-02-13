@@ -2,7 +2,10 @@
 
 @include main-setting;
 
-// containers 
+/* container-background is layout for Background components
+* it is parent component for each components around game page
+* uses animation for a smooth transition
+*/
 .container-background {
     display: flex;
     position: relative;
@@ -12,7 +15,10 @@
     animation: blur .5s ease-out forwards;
 }
 
-
+/*
+* main structure for important components cssForm, Playground
+*
+*/
 .container-mission {
     display: flex;
     flex-direction: column;
@@ -32,6 +38,10 @@
 
 }
 
+/* second horizontal half of game layout which contains 
+ * start, crossover, end
+ * grid divided on 3 part
+*/
 .container-playground {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,6 +52,9 @@
     z-index: 1;
 }
 
+/* Container for css component
+- flex column
+*/
 .container-form {
     display: flex;
     flex-direction: column;
@@ -52,23 +65,25 @@
         align-items: center;
     }
 
+    // brackets img in container-form
     img {
         height: 1.5rem;
         width: 1.5rem;
     }
 
+    // button under form
     .class-button {
         position: absolute;
         left: 90%;
         cursor: pointer;
         transition: .5s;
-
         &:hover {
             transform: scale(1.2);
         }
     }
 }
 
+// box of buttons for cssForm component
 .box-buttons {
     display: flex;
     flex-direction: column;
@@ -79,7 +94,7 @@
     }
 }
 
-.form__row {
+.form-css__row {
     height: 1.5rem;
     display: flex;
     gap: 1rem;
@@ -98,7 +113,7 @@
 }
 
 // css setting form for bridge class
-.element-class__bridge {
+.form-css {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     width: fit-content;
@@ -193,7 +208,6 @@ button {
     display: flex;
     position: relative;
     width: 100%;
-    //border-radius: 0% 23% 44% 0% / 30% 23% 0% 10%;
     border-left: none;
     border-bottom: none;
     background-size: contain;
@@ -207,8 +221,6 @@ button {
     position: relative;
     align-items: flex-start;
     z-index: 1;
-
-    //overflow: hidden;
     .crossover__image {
         position: absolute;
         width: 100%;
@@ -222,7 +234,6 @@ button {
     display: flex;
     position: relative;
     width: 100%;
-    //border-radius: 25% 0% 44% 0% / 30% 23% 0% 10%;
     border-right: none;
     border-bottom: none;
     background-size: contain;
