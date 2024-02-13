@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "../contexts/UserContext";
 import Loader from "./Loader";
+import ErrorSign from "./Errors/ErrorSign";
 
 const LOGIN_USER =gql`
     mutation LoginUser($name: String!, $password: String!){
@@ -42,7 +43,7 @@ const SignInForm = () => {
         }
     }
 
-    if (error) return <p>error</p>
+    if (error) return <ErrorSign />
     if (loading) return <Loader />
 
     return(

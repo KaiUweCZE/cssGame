@@ -7,7 +7,7 @@ import plusIcon from '../styles/images/plus.svg'
 import minusIcon from '../styles/images/minus.svg'
 import closeIcon from '../styles/images/close.svg'
 import { list } from "../data/listOfProperities";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "./Errors/ErrorMessage";
 import SuggestList from "./SuggestList";
 import { contextValues, useFormInputs } from "../Functions/cssFormFunctions";
 import { EmojiContext, BridgeContext, ResultContext, ContainerContext, LevelContext, PartsContext } from "../contexts/FormContext";
@@ -129,9 +129,9 @@ const CssForm = (props) => {
                 <span className="element-class">.{props.name}</span>
                 <img className="left-bracket" src={leftBracket} alt="" />
             </div>
-            <form className="element-class__bridge" onSubmit={handleSubmit}>
+            <form className="form-css" onSubmit={handleSubmit}>
                 {cssProperties.map((property, index) => (
-                    <div className="form__row" key={index}>
+                    <div className="form-css__row" key={index}>
                         <input
                             type="text"
                             placeholder={props.name === "parts" ? `${index+1}.element` : ""}

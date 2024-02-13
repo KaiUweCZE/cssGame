@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import Loader from "./Loader";
+import ErrorSign from "./Errors/ErrorSign";
 
 const CREATE_USER = gql `
     mutation CreateUser($name: String!, $email: String!, $password: String!){
@@ -25,7 +26,7 @@ const SignUpForm = () => {
     }
 
     if (loading) return <Loader/>
-    if(error) return <p>error</p>
+    if(error) return <ErrorSign/>
     if (registred) return <h2>Registration was successful</h2>
 
     return(
