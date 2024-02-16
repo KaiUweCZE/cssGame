@@ -6,9 +6,8 @@ import { EmojiContext } from "../contexts/FormContext";
 const MainEmoji = () => {
     const { specialClass } = useContext(EmojiContext)
 
-
     return (
-        <img src={masterImg} alt="" className={`emoji-character ${specialClass}`} /*style={emojiPosition}*//>
+        <img src={masterImg} alt="" className={`emoji-character ${specialClass}`}/>
     )
 }
 

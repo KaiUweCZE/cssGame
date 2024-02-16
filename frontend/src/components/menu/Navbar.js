@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
-import homeIcon from "../styles/images/icons/home.webp";
-import loginIcon from "../styles/images/icons/login.webp";
-import gameIcon from "../styles/images/icons/gamepad.webp";
-import infoIcon from "../styles/images/icons/info.webp"
-import leaveIcon from "../styles/images/icons/leave.svg"
-import mapIcon from "../styles/images/icons/map.webp"
-import { UserContext } from "../contexts/UserContext";
-
+import homeIcon from "../../styles/images/icons/home.webp";
+import loginIcon from "../../styles/images/icons/login.webp";
+import gameIcon from "../../styles/images/icons/gamepad.webp";
+import infoIcon from "../../styles/images/icons/info.webp"
+import leaveIcon from "../../styles/images/icons/leave.svg"
+import mapIcon from "../../styles/images/icons/map.webp"
+import {UserContext} from '../../contexts/UserContext'
 
 
 const Navbar = () => {

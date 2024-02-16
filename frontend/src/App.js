@@ -12,6 +12,7 @@ import RoadMap from "./pages/RoadMap";
 import ProtectedLayout from "./components/ProtectedLayout";
 import { LevelProvider } from "./contexts/FormContext";
 import ClassInfo from "./pages/ClassInfo";
+import Welcome from "./pages/Welcome";
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
                         <Route path="/attempt" element={<Graph/>}/>
                         <Route path="/map" element={<RoadMap/>} />
                         <Route path="/level/:id" element={<ClassInfo />} />
+                        <Route path="/welcome" element={<Welcome />} />
                     </Route>
                 </Route>
             </Routes>

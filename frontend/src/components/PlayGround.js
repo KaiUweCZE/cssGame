@@ -4,6 +4,7 @@ import CrossRoad from "./CrossRoad";
 import EndPoint from "./EndPoint";
 import MainEmoji from "./MainEmoji";
 import ResultMessage from "./ResultMessage";
+import GuideEmoji from "./GuideEmoji";
 
 
 
