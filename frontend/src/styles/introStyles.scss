@@ -1,0 +1,99 @@
+@import './addons/variables', './addons/mixins';
+
+@include main-setting;
+
+.container-welcome{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: $background-secondary;
+    width: 100%;
+    max-width: 85rem;
+    margin: 0 auto;
+    height: calc(100dvh - 4rem);
+    opacity: 0;
+    animation: blur .5s linear forwards;
+    overflow-x: hidden;
+    @media (min-width: 85rem) {
+        box-shadow: inset 0 0 15px rgb(68, 68, 68);
+    }
+    .emoji-character{
+        grid-row: 3;
+        position: relative;
+        top: 70%;
+    }
+    .main{
+        transform: translateX(-25vw);
+        animation: 
+        coming 1.5s linear .75s forwards,
+        look-around 2s linear 2.25s forwards
+        ;
+    }
+    .guide{
+        opacity: 0;
+    }
+    .guide:has(.active){
+        opacity: 1;
+        transform: translateX(-25vw);
+        animation: coming 1.5s linear 2.5s forwards;
+    }
+}
+
+.container-welcome.first{
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    padding: 10%;
+    gap: 1rem;
+    p{
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    button{
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+}
+
+@keyframes coming {
+    100%{
+        transform: translateX(20vw) rotate(2turn);
+    }
+}
+
+@keyframes look-around{
+    0%{
+        transform: translateX(20vw) rotateY(0deg);
+    }
+    35%{
+        transform: translateX(20vw) rotateY(-50deg) rotateX(-10deg);
+    }
+    75% {
+        transform: translateX(20vw) rotateY(50deg) rotateX(-10deg);
+    }
+    100%{
+        transform: translateX(20vw) rotateY(0deg);
+    }
+}
+
+.box-welcome{
+    grid-row: 4;
+    grid-column: span 4;
+    width: 100%;
+    display: flex;
+    position: relative;
+    background-size: auto;
+    background-repeat: repeat;
+}
+
+.box-welcome__lawn{
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    position: relative;
+    top: -3rem;
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position:center;
+}
+

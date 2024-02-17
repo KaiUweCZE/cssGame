@@ -214,9 +214,7 @@ button img:hover {
   display: flex;
   position: relative;
   width: 100%;
-  border-left: none;
-  border-bottom: none;
-  background-size: contain;
+  background-size: auto;
   background-repeat: repeat;
 }
 
@@ -237,9 +235,7 @@ button img:hover {
   display: flex;
   position: relative;
   width: 100%;
-  border-right: none;
-  border-bottom: none;
-  background-size: contain;
+  background-size: auto;
   background-repeat: repeat;
 }
 
