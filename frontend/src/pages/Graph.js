@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation, useQuery, gql } from "@apollo/client";
-import trashIcon from '../styles/images/icons/trash.svg'
+import { trashIcon } from "../data/images";
 
 const GET_USERS = gql`
 query GetUsers{

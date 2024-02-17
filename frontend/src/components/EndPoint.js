@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
-import dirt from '../styles/images/edit/dirt.png'
-import lawn from '../styles/images/lawn.webp'
+import { enviromentImages } from '../data/images'
 import { LevelContext } from '../contexts/FormContext'
 
 
@@ -10,12 +9,12 @@ const EndPoint = () => {
 
     const specificStyle = {
         // main texture of component
-        'backgroundImage': `url(${dirt})`,
+        'backgroundImage': `url(${enviromentImages.dirt})`,
         ...level?.endPointStyle
     }
     const lawnStyle = {
         // texture on the top of the component
-        'backgroundImage': `url(${lawn})`
+        'backgroundImage': `url(${enviromentImages.lawn})`
     }
 
     return(

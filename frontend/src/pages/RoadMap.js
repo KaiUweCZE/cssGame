@@ -1,11 +1,7 @@
 import React, { useState, useContext } from "react";
 import {useNavigate} from 'react-router-dom'
 import '../styles/roadmapStyles.css'
-import parallaxBg from '../styles/images/parallax-background/sky.webp'
-import cloud1 from '../styles/images/parallax-background/cloud1.webp'
-import cloud2 from '../styles/images/parallax-background/cloud2.webp'
-import cloud3 from '../styles/images/parallax-background/cloud3.webp'
-import mapBG from '../styles/images/map.webp'
+import { mapBG } from "../data/images";
 import { UserContext } from "../contexts/UserContext";
 import RoadmapLevel from "../components/RoadmapLevel";
 import { LevelContext } from "../contexts/FormContext";

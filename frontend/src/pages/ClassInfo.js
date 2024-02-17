@@ -1,7 +1,7 @@
 import React from "react";
 import {useParams } from "react-router-dom";
 import { aboutLevelData } from "../data/LevelInfo";
-import hashtagIcon from "../styles/images/icons/hashtag4.svg"
+import { hashtagIcon } from "../data/images";
 
 const ClassInfo = () => {
     const {id} = useParams()

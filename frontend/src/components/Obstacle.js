@@ -1,5 +1,5 @@
 import React from "react";
-import stoneImg from "../styles/images/stone.webp"
+import { stoneImg } from "../data/images";
 
 const Obstacle = () => {
 

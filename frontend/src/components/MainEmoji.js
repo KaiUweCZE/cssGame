@@ -1,5 +1,5 @@
 import React, { useContext} from "react";
-import masterImg from '../styles/images/main-character.webp'
+import { masterImg } from "../data/images";
 import { EmojiContext } from "../contexts/FormContext";
 
 
