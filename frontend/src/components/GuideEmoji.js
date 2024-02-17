@@ -1,5 +1,5 @@
 import React from 'react'
-import guideImg from '../styles/images/guide-emoji.webp'
+import { guideImg } from '../data/images'
 
 const GuideEmoji = () => {
 

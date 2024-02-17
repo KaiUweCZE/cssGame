@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import lockIcon from '../styles/images/icons/lock.webp'
+import { lockIcon } from "../data/images";
 
 const RoadmapLevel = (props) => {
     const [active, setActive] = useState(false)

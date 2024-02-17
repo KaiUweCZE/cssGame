@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import glassImg from "../../styles/images/glass.webp"
+import { glassImg } from "../../data/images";
 import { CheckContext } from "../../contexts/FormContext";
 import AboutClassInfo from "./AboutClassInfo";
 import AboutClassMenu from "./AboutClassMenu";
