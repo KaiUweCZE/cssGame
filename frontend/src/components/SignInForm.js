@@ -3,6 +3,7 @@ import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "../contexts/UserContext";
 import Loader from "./Loader";
 import ErrorSign from "./Errors/ErrorSign";
+import { useNavigate } from "react-router-dom";
 
 const LOGIN_USER =gql`
     mutation LoginUser($name: String!, $password: String!){
@@ -22,6 +23,7 @@ const SignInForm = () => {
     const [password, setPassword] = useState('')
     const { setLogin, setUser } = useContext(UserContext)
     const [loginUser, {loading, error}] = useMutation(LOGIN_USER)
+    const navigate = useNavigate()
 
     const handleLogin = async (e) => {
         e.preventDefault()
@@ -37,6 +39,7 @@ const SignInForm = () => {
                 console.log('Login was successful, token is:', token);
                 console.log('User id is: ', user.id);
                 setUser(user)
+                user.level === 0 ? navigate('/welcome') : navigate('/map')
             }   
         } catch (error) {
             console.error(error);
