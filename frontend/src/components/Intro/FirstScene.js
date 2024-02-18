@@ -15,8 +15,7 @@ const FirstScene = (props) => {
             setI(prev => prev + 1)
         } else {
             props.setScene('second')
-        }
-        
+        } 
     }
     return(
         <div className="container-welcome first">

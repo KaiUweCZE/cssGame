@@ -17,26 +17,6 @@
     @media (min-width: 85rem) {
         box-shadow: inset 0 0 15px rgb(68, 68, 68);
     }
-    .emoji-character{
-        grid-row: 3;
-        position: relative;
-        top: 70%;
-    }
-    .main{
-        transform: translateX(-25vw);
-        animation: 
-        coming 1.5s linear .75s forwards,
-        look-around 2s linear 2.25s forwards
-        ;
-    }
-    .guide{
-        opacity: 0;
-    }
-    .guide:has(.active){
-        opacity: 1;
-        transform: translateX(-25vw);
-        animation: coming 1.5s linear 2.5s forwards;
-    }
 }
 
 .container-welcome.first{
@@ -55,24 +35,27 @@
     }
 }
 
-@keyframes coming {
-    100%{
-        transform: translateX(20vw) rotate(2turn);
-    }
-}
 
 @keyframes look-around{
     0%{
-        transform: translateX(20vw) rotateY(0deg);
+        left:0vw;
+        transform: rotateY(0deg);
+        opacity: 1;
     }
     35%{
-        transform: translateX(20vw) rotateY(-50deg) rotateX(-10deg);
+        left:0vw;
+        transform:rotateY(-50deg) rotateX(-5deg);
+        opacity: 1;
     }
     75% {
-        transform: translateX(20vw) rotateY(50deg) rotateX(-10deg);
+        left:0vw;
+        transform:rotateY(50deg) rotateX(-5deg);
+        opacity: 1;
     }
     100%{
-        transform: translateX(20vw) rotateY(0deg);
+        left:0vw;
+        transform: rotateY(0deg);
+        opacity: 1;
     }
 }
 
@@ -97,3 +80,95 @@
     background-position:center;
 }
 
+.box-emoji{
+    display: flex;
+    position: relative;
+    grid-row: 3;
+    &:has(.main){
+        left: 45vw;
+        transform: translateX(-10vw);
+    }
+    &:has(.guide){
+        left:-0vw;
+    }
+    img{
+        width: 4rem;
+        height: 4rem;
+    }
+    .emoji-character{
+        top: 70%;
+    }
+    .main{
+        opacity: 0;
+        bottom: 0;
+        animation: coming 1.5s linear .75s, forwards look-around 2s linear 2.25s;
+    }
+    .guide{
+        opacity: 0;
+    }
+    .guide.active{
+        opacity: 1;
+        animation: bounce-in-fwd 2s both;
+    }
+}
+
+.emoji__message{
+    display: flex;
+    width: 12.5rem;
+    height: fit-content;
+    padding: .5rem;
+    position: relative;
+    top: -2.5rem;
+    &::before{
+        content: '';
+        position: absolute;
+        width: 12.5rem;
+        height: 12.5rem;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-color: rgba(255,255,255,0.6);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 85%, 25% 100%, 35% 85%, 0 85%);
+        z-index: -1;
+        animation: blur 1s linear forwards;
+    }
+}
+
+.next {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: -7rem;
+    right: 5%;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+    filter: brightness(.75);
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+
+@keyframes coming {
+    0%{
+        left: -45vw;
+        opacity: 1;
+    }
+    100%{
+        left:0;
+        transform: rotate(2turn);
+        opacity: 1;
+    }
+}
+
+
+@keyframes bounce-in-fwd{
+    0%{-webkit-transform:scale(0);transform:scale(0);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in;opacity:0}
+    38%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;opacity:1}
+    55%{-webkit-transform:scale(.7);transform:scale(.7);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+    72%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+    81%{-webkit-transform:scale(.84);transform:scale(.84);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+    89%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+    95%{-webkit-transform:scale(.95);transform:scale(.95);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+    100%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+}
