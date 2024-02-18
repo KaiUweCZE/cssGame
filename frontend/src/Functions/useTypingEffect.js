@@ -17,7 +17,7 @@ export const useTypingEffect = (text, miliseconds) => {
             setPosition(0)
         }
        
-    }, [miliseconds, text.length, text])
+    }, [miliseconds, text.length])
 
     return text.substring(0, position)
 }
