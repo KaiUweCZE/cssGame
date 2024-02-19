@@ -2,6 +2,7 @@
 
 @include main-setting;
 
+// Intorduction container where the individual scenes take place
 .container-welcome{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -19,6 +20,7 @@
     }
 }
 
+// first introduction scene
 .container-welcome.first{
     display: flex;
     flex-direction: column;
@@ -35,7 +37,7 @@
     }
 }
 
-
+// animation for emoji(second scene) 
 @keyframes look-around{
     0%{
         left:0vw;
@@ -59,6 +61,8 @@
     }
 }
 
+// main design element for second scene, it has image:dirt background
+// and contains lawn design + next arrow
 .box-welcome{
     grid-row: 4;
     grid-column: span 4;
@@ -69,6 +73,7 @@
     background-repeat: repeat;
 }
 
+// lawn at the top of box-welcome
 .box-welcome__lawn{
     display: flex;
     width: 100%;
@@ -80,6 +85,7 @@
     background-position:center;
 }
 
+// there is emoji img with emoji-message component
 .box-emoji{
     display: flex;
     position: relative;
@@ -112,6 +118,7 @@
     }
 }
 
+// emoji message component in the form of a converstaion bubble 
 .emoji__message{
     display: flex;
     width: 12.5rem;
@@ -134,6 +141,7 @@
     }
 }
 
+// arrow image which provides for the continuation of the intro
 .next {
     width: 3rem;
     height: 3rem;
@@ -146,9 +154,11 @@
     filter: brightness(.75);
     &:hover{
         transform: scale(1.2);
+        filter: brightness(1);
     }
 }
 
+// animation for the arrival of the main-emoji
 @keyframes coming {
     0%{
         left: -45vw;
@@ -161,7 +171,7 @@
     }
 }
 
-
+// animation for the arrival of the guide-emoji
 @keyframes bounce-in-fwd{
     0%{-webkit-transform:scale(0);transform:scale(0);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in;opacity:0}
     38%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;opacity:1}

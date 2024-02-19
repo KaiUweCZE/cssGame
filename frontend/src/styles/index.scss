@@ -119,6 +119,7 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
+// styles for items in menu
 .menu__item {
     display: flex;
     flex-direction: column;
@@ -249,6 +250,7 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
+// an information about a level that can help to the next level
 .container-level{
     display: grid;
     grid-template-columns: 1fr;
@@ -320,6 +322,8 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
+// wrapper is used in registration page 
+// and defines main layout for the page
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -330,7 +334,8 @@ $primary-text: rgba(60,60,60, 1);
     //height: 100vh;
 }
 
-.container-registration {
+// main part of Registration page
+.container-login {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-color: rgba($main-color, 0.85);
@@ -348,7 +353,9 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
-.registration__info {
+// part of login-container wich contains some information
+// plus user can select between sign up/login there
+.login__info {
     display: flex;
     flex-direction: column;
 
@@ -388,7 +395,8 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
-.registration__form {
+// part of login-container which contains inputs for username, password, email
+.login-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -452,7 +460,8 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
-.form__background {
+// background animation for login form
+.login-form__background {
     max-width: 50rem;
     margin: 0 auto;
     background-color: #8EC5FC;
@@ -489,8 +498,7 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
-//css loader from web
-
+//css loader from web used in registration/login
 .loader {
     margin: 0 auto;
     width: 3rem;
@@ -543,6 +551,8 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
+
+// message in about section, it will be displayed if user does not logged in
 .message__alert{
     display: flex;
     flex-direction: column;
@@ -579,6 +589,7 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
+// massage for wrong login/register
 .error__box{
     display: flex;
     flex-direction: column;
@@ -594,6 +605,7 @@ $primary-text: rgba(60,60,60, 1);
     }
 }
 
+// label for better UI near the magnifier
 .temporary__box{
     display: none;
     grid-template-columns: 1fr 1fr;

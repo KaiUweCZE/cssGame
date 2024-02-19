@@ -66,6 +66,22 @@
   z-index: 1;
 }
 
+.container-bridge {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.container-bridge div {
+  width: 100%;
+  height: 4rem;
+  background-size: cover;
+}
+.container-bridge img {
+  width: 100%;
+  height: 4rem;
+  height: auto;
+}
+
 /* Container for css component
 - flex column
 */
@@ -249,30 +265,6 @@ button img:hover {
   border-radius: 5rem 5rem 0 0;
 }
 
-.emoji-character {
-  display: flex;
-  width: 4rem;
-  position: absolute;
-  top: -3.95rem;
-  transform-origin: center;
-}
-
-.container-bridge {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-.container-bridge div {
-  width: 100%;
-  height: 4rem;
-  background-size: cover;
-}
-.container-bridge img {
-  width: 100%;
-  height: 4rem;
-  height: auto;
-}
-
 .target-area {
   display: flex;
   position: absolute;
@@ -285,6 +277,14 @@ button img:hover {
 .target-area__part {
   height: 4rem;
   width: 100%;
+}
+
+.emoji-character {
+  display: flex;
+  width: 4rem;
+  position: absolute;
+  top: -3.95rem;
+  transform-origin: center;
 }
 
 .emoji-character.true {
@@ -464,31 +464,34 @@ button img:hover {
   filter: brightness(30%);
 }
 
+/* level menu
 .menu-level {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  position: absolute;
-  top: 5rem;
-  left: 90%;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 0.3rem;
-  padding-block: 0.5rem;
-  box-shadow: 0 0 3px black;
-}
-.menu-level li {
-  display: flex;
-  width: 100%;
-  padding-inline: 0.5rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: white;
-  transition: 0.3s;
-}
-.menu-level li:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-}
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    top: 5rem;
+    left: 90%;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: .3rem;
+    padding-block: .5rem;
+    box-shadow: 0 0 3px black;
 
+    li {
+        display: flex;
+        width: 100%;
+        padding-inline: .5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        transition: .3s;
+
+        &:hover {
+            background-color: rgba(white, 0.15);
+        }
+    }
+}
+*/
 .box__classes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -535,13 +538,6 @@ img.obstacle {
   width: 12rem;
 }
 
-/*
-.bridge.grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: auto auto auto; 
-    height: fit-content;
-}*/
 .bridge__item {
   height: 4rem;
   max-width: 33.334%;
