@@ -9,9 +9,9 @@ const Registration = () => {
 
     return(
         <div className="wrapper">
-            <div className="form__background">
-                <div className="container-registration">
-                    <article className="registration__info">
+            <div className="login-form__background">
+                <div className="container-login">
+                    <article className="login__info">
                         <div>
                             <button className={formType ? 'active' : ''} onMouseDown={() => setFormType(true)}>Sign Up</button>
                             <button className={formType ? '' : 'active'}  onMouseDown={() => setFormType(false)}>Login</button>

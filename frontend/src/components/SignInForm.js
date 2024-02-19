@@ -39,6 +39,7 @@ const SignInForm = () => {
                 console.log('Login was successful, token is:', token);
                 console.log('User id is: ', user.id);
                 setUser(user)
+                //const userString = JSON.parse(localStorage.getItem('user'))
                 user.level === 0 ? navigate('/welcome') : navigate('/map')
             }   
         } catch (error) {
@@ -50,7 +51,7 @@ const SignInForm = () => {
     if (loading) return <Loader />
 
     return(
-        <form className="registration__form" onSubmit={handleLogin}>
+        <form className="login-form" onSubmit={handleLogin}>
             <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <input type="submit" value="Login" />

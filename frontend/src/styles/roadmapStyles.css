@@ -45,15 +45,6 @@
     transform: translateY(-400px) scale(2.75);
   }
 }
-.roadmap {
-  display: grid;
-  grid-template-columns: repeat(64, 1fr);
-  grid-template-rows: repeat(36, 1fr);
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
 .roadmap__background {
   display: flex;
   width: 90%;
@@ -65,6 +56,15 @@
   background-repeat: no-repeat;
   opacity: 0.1;
   animation: blur 0.4s linear forwards;
+}
+
+.roadmap {
+  display: grid;
+  grid-template-columns: repeat(64, 1fr);
+  grid-template-rows: repeat(36, 1fr);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 @keyframes blur {
