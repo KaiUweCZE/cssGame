@@ -31,9 +31,10 @@ import cloud2 from '../styles/images/parallax-background/cloud2.webp'
 import cloud3 from '../styles/images/parallax-background/cloud3.webp'
 import mapBG from '../styles/images/map.webp'
 import nextIcon from '../styles/images/icons/next2.svg'
+import refreshIcon from '../styles/images/icons/refresh.webp'
 
 export const cssFormImages = {leftBracket, rightBracket, playIcon, playIconAfter, minusIcon, closeIcon, plusIcon}
 export const navbarImages = {loginIcon, homeIcon, infoIcon, mapIcon, gameIcon, leaveIcon }
-export {nextIcon, trashIcon, hashtagIcon, glassImg, barkTexture, errorIcon, plusIcon, guideImg, masterImg, mapBG, stoneImg, lockIcon}
+export {refreshIcon, nextIcon, trashIcon, hashtagIcon, glassImg, barkTexture, errorIcon, plusIcon, guideImg, masterImg, mapBG, stoneImg, lockIcon}
 export const enviromentImages = {dirt, lawn}
 export const labelImages = {circleIcon, curvedArrow, checkIcon}
