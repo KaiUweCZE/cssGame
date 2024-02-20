@@ -3,7 +3,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: rgb(30, 30, 30);
+  color: rgb(50, 50, 50);
 }
 * body {
   width: 100vw;
@@ -42,12 +42,19 @@
   gap: 1rem;
 }
 .container-welcome.first p {
+  color: rgb(50, 50, 50);
   font-size: 1.25rem;
   font-weight: bold;
 }
 .container-welcome.first button {
   font-size: 1.25rem;
   font-weight: bold;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: 0.5s;
+}
+.container-welcome.first button:hover {
+  filter: brightness(6);
 }
 
 @keyframes look-around {
@@ -211,4 +218,4 @@
     transform: scale(1);
     animation-timing-function: ease-out;
   }
-}/*# sourceMappingURL=IntroStyles.css.map */
+}/*# sourceMappingURL=introStyles.css.map */

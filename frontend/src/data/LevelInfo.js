@@ -124,8 +124,44 @@ export const aboutLevelData = [
         voluptates ut. Dignissimos non voluptatum eaque! Saepe sunt porro facere alias.
         Similique nobis, cupiditate dolor ab omnis`,
         fullData:{
-            video:{},
-            text:{},
+            video:{
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, accusantium?",
+                src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
+            },
+            text:{
+                description: `Porozumění rozdílům mezi různými jednotkami a jejich správné použití 
+                            může znamenat rozdíl mezi stránkou, která vypadá skvěle na jakémkoliv zařízení, 
+                            a stránkou, která ztrácí svou funkčnost při změně velikosti obrazovky. 
+                            Přístup k jednotkám CSS by měl být pragmatický a přizpůsobivý, 
+                            aby odpovídal potřebám projektu a cílového publika.`,
+                li:[
+                    {
+                        headline: "absolutní jednotky",
+                        p: `např. px, pt, cm Tyto jednotky jsou pevně dané a 
+                            nezávislé na jakémkoliv jiném faktoru, 
+                            jako je velikost obrazovky nebo rozlišení.`
+                    },
+                    {
+                        headline: "relativní jednotky",
+                        p:`např. em, rem Tyto jednotky jsou odvozeny od jiných hodnot, 
+                        jako je velikost písma rodičovského elementu (pro em) nebo 
+                        velikost písma kořenového elementu (pro rem). 
+                        Jsou skvělé pro responsivní design, protože se 
+                        přizpůsobují uživatelovým preferencím a rozlišení zařízení.`
+                    },
+                    {
+                        headline: "procentuální jednotky",
+                        p:`Procenta umožňují definovat velikost elementu 
+                        vzhledem k velikosti jeho rodičovského elementu.`
+                    },
+                    {
+                        headline: "viewport jednotky ",
+                        p:`např. vw, vh, vmin, vmax Tyto jednotky jsou relativní 
+                        k velikosti viewportu, což znamená, že umožňují elementům 
+                        přizpůsobit se různým velikostem a orientacím obrazovek.`
+                    }
+                ]
+            },
             images:{},
             tips:{}
         }
@@ -135,8 +171,24 @@ export const aboutLevelData = [
         introduction: `Mollitia ipsum numquam molestias!
         Perspiciatis sit cum debitis nostrum doloribus deleniti ipsam placeat ipsa labore minus.`,
         fullData:{
-            video:{},
-            text:{},
+            video:{
+                text: "",
+                src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
+            },
+            text:{
+                description: `Mollitia ipsum numquam molestias!
+                Perspiciatis sit cum debitis nostrum doloribus deleniti ipsam`,
+                li:[
+                    {
+                        headline: "ipsum",
+                        p: "soluta necessitatibus, totam culpa recusandae,"
+                    },
+                    {
+                        headline: "numquam",
+                        p:"repellendus velit et error eius nemo temporibus, tempore repudiandae"
+                    }
+                ]
+            },
             images:{},
             tips:{}
         }
@@ -146,8 +198,23 @@ export const aboutLevelData = [
         introduction: `soluta necessitatibus, totam culpa recusandae, quia esse dignissimos. 
         Neque tempora repellendus velit et error eius nemo temporibus, tempore repudiandae,`,
         fullData:{
-            video:{},
-            text:{},
+            video:{
+                text: "",
+                src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
+            },
+            text:{
+                description: "",
+                li:[
+                    {
+                        headline: "",
+                        p: ""
+                    },
+                    {
+                        headline: "",
+                        p:""
+                    }
+                ]
+            },
             images:{},
             tips:{}
         }
@@ -158,8 +225,23 @@ export const aboutLevelData = [
         elit. eaque nihil omnis possimus facere. 
         Quas ut accusantium nesciunt reprehenderit unde debitis,`,
         fullData:{
-            video:{},
-            text:{},
+            video:{
+                text: "",
+                src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
+            },
+            text:{
+                description: "",
+                li:[
+                    {
+                        headline: "",
+                        p: ""
+                    },
+                    {
+                        headline: "",
+                        p:""
+                    }
+                ]
+            },
             images:{},
             tips:{}
         }
@@ -169,8 +251,23 @@ export const aboutLevelData = [
         introduction: `A voluptatum magni dicta earum nam, quam, aliquam 
         minus placeat quod molestias modi possimus molestiae hic iste nostrum.`,
         fullData:{
-            video:{},
-            text:{},
+            video:{
+                text: "",
+                src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
+            },
+            text:{
+                description: "",
+                li:[
+                    {
+                        headline: "",
+                        p: ""
+                    },
+                    {
+                        headline: "",
+                        p:""
+                    }
+                ]
+            },
             images:{},
             tips:{}
         }

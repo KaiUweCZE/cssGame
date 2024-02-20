@@ -5,8 +5,9 @@ import { emojiData } from '../../data/EmojiData'
 const EmojiMessage = (props) => {
   const text = props.text === "intro" ? props.data.secondScene.textIntro : ""
   const actionStart = props.data.secondScene?.actionStep.text
-  console.log(text.first[0], props.step, props.text);
-  const resultText = props?.text && props?.step === actionStart ? useTypingEffect(text.first[0], 15) : useTypingEffect("", 15)
+  let i = 0;
+  const resultText = props?.text && props?.step === actionStart ? useTypingEffect(text.first[i], 15) : useTypingEffect("", 15)
+  i += 1
 
   return (
     <>

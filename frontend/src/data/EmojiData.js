@@ -4,7 +4,8 @@ export const emojiData = [
         name: "main",
         secondScene: {
             textIntro:{
-                first: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ut sequi corporis recusandae fugit enim?", "how are you?",],
+                first: ["Tohle je nemožné, jak se mám dostat zpět? Přes tu divokou řeku se nikdy nepřebrodím.",
+                "To vím moc dobře, přes ten most"],
                 second: ["", ""]
             } ,
             actionStep:{
@@ -16,7 +17,8 @@ export const emojiData = [
         name: "guide",
         secondScene: {
             textIntro:{
-                first: ["TITHKHLorem ipsum dolor sit amet consectetur adipisicing elit. Atque ut sequi corporis recusandae fugit enim?", "how are you?",],
+                first: ["Neboj se, zachovej chladnou hlavu. Myslíš, že jsi jediný, kdo se takto ztratil? Je tu cesta kterou se dostaneš zpět.",
+                "Pitomče! Tvou překážkou není most, ale svázané ruce, cesta, kterou ti nabízím ti umožní nejen se vrátit domů, ale překonat kteroukoliv obtíž."],
                 second: ["", ""]
             },
             actionStep: {

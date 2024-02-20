@@ -16,6 +16,10 @@ const Welcome = () => {
 
   useEffect(() => {
     if (scene === 'last') {
+      //const existingUser = localStorage.getItem('user')
+      //const userObj = JSON.parse(existingUser)
+      //userObj.intro = 'true'
+      //localStorage.setItem('user', JSON.stringify(userObj));
       navigate("/map")
     }
   },[scene])
