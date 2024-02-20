@@ -461,7 +461,9 @@ button {
 
 // Text that will be display after reply
 .message-result {
-    display: flex;
+    display: none;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     bottom: 60vh;
     font-size: 3rem;
@@ -470,17 +472,40 @@ button {
     align-self: center;
     z-index: 5;
     margin: 0 auto;
-    text-shadow: 0 0 3px black;
+    padding: 1rem;
+    padding-inline: 3rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    border-radius: .5rem;
+    opacity: 0;
+    animation: blur 1s forwards;
+    &:has(.win){
+        display: flex;
+        background-color: rgba(73, 167, 128, 0.5);
+    }
+    &:has(.lost){
+        display: flex;
+        background-color: rgba(255, 16, 16, 0.6);
+        z-index: 1;
+    }
+    img{
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        transition: .5s;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
 }
 
 // a design of the text according to replied
 .win {
-    color: #3DD9AD;
+    color: white;
 }
 
 // a desing for bad response
 .lost {
-    color: red;
+    color: white;
 }
 
 // marginal elements
