@@ -3,6 +3,7 @@ import CssForm from "./CssForm";
 import PlayGround from "./PlayGround";
 import { BridgeProvider, CheckContextProvider, ContainerProvider, EmojiProvider, LevelContext, LevelProvider, PartsProvider, ResultProvider } from "../contexts/FormContext";
 import EmptyBox from "./EmptyBox";
+import Clouds from "./Clouds";
 
 
 const Mission = () => {
@@ -18,6 +19,7 @@ const Mission = () => {
         <ResultProvider>
         <PartsProvider>
         <div className="container-mission">
+            <Clouds />
             <div className="box__classes">
                 <CssForm name="bridge"/>
                 {
