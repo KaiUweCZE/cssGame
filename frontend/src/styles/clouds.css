@@ -1,0 +1,37 @@
+
+
+.background-clouds{
+    background-color: transparent;
+    position: absolute;
+    top: 5vh;
+    width: 100%;
+    img{
+        position: relative;
+        width: 25rem;
+        opacity: 0.2;
+        top: 5rem;
+        transition: 15s;
+    }
+    animation: clouds-flow 120s ease-out infinite;
+    &.second{
+        animation: cloud2 120s ease-in infinite;
+    }
+}
+
+@keyframes clouds-flow {
+    0%{
+        transform: translateX(-90%);
+    }
+    100%{
+        transform: translateX(120%);
+    }
+}
+
+@keyframes cloud2 {
+    0%{
+        transform: translateX(-170%);
+    }
+    100%{
+        transform: translateX(120%);
+    }
+}
