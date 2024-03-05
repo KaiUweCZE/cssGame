@@ -4,6 +4,7 @@ import { LevelContext, ResultContext } from "../contexts/FormContext";
 import { refreshIcon, nextIcon } from "../data/images";
 import { levelData } from "../data/LevelData";
 import { useSetLevel } from "../Functions/useSetLevel";
+import next from '../styles/images/icons/right-arrow.webp'
 
 const ResultMessage = () => {
     const{resultText} = useContext(ResultContext)
@@ -18,9 +19,10 @@ const ResultMessage = () => {
             <h2 className={resultText === "" ? "" : (resultText === "Congrats" ? "win" : "lost")}>{resultText}</h2>
             {
                 resultText === "Oops" && resultText ?
-                <img src={refreshIcon} alt="" onClick={() => handleRefresh()}/>
+                <button onClick={() => handleRefresh()}><img className="retry" src={refreshIcon} alt=""/><span>retry</span></button>
                 :
-                <img src={nextIcon} alt="" onClick={() => nextLevel(level.id + 1)}/>
+                <button onClick={() => nextLevel(level.id + 1)}><span>next level</span><img className="next-level" src={next} alt=""/></button>
+                
             }
         </div>
         

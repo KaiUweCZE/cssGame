@@ -469,11 +469,11 @@ button {
     font-size: 3rem;
     font-weight: bold;
     justify-self: center;
-    align-self: center;
     z-index: 5;
     margin: 0 auto;
     padding: 1rem;
     padding-inline: 3rem;
+    gap: 1rem;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     border-radius: .5rem;
     opacity: 0;
@@ -487,16 +487,58 @@ button {
         background-color: rgba(255, 16, 16, 0.6);
         z-index: 1;
     }
+    button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        //background-color: #2C74B3;
+        width: fit-content;
+        height: 2.75rem;
+        position: relative;
+        padding-inline: .5rem;
+        transition: .25s;
+        &:hover .retry{
+            animation: rotation 1s linear forwards infinite;
+        }
+        &:hover .next-level{
+            transform: translateX(.5rem);
+        }
+        &:has(.next-level){
+            //flex-direction: row;
+        }
+    }
+    span{
+        color: white;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
     img{
-        width: 3rem;
-        height: 3rem;
+        position: absolute;
+        top: 0;
+        width: 1.5rem;
+        height: 1.5rem;
         cursor: pointer;
         transition: .5s;
         &:hover{
             transform: scale(1.2);
         }
     }
+    .next-level{
+        width: 2.5rem;
+        height: 2.5rem;
+        position: absolute;
+        top: -.5rem;
+        //transform: translateX(2.75rem);
+        filter: brightness(3);
+    }
 }
+
+@keyframes rotation {
+    0% { transform: rotate(0turn);}
+    100% { transform: rotate(1turn);}
+}
+
 
 // a design of the text according to replied
 .win {
