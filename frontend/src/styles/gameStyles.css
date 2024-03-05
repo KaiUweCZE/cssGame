@@ -442,11 +442,11 @@ button img:hover {
   font-size: 3rem;
   font-weight: bold;
   justify-self: center;
-  align-self: center;
   z-index: 5;
   margin: 0 auto;
   padding: 1rem;
   padding-inline: 3rem;
+  gap: 1rem;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
   opacity: 0;
@@ -461,16 +461,56 @@ button img:hover {
   background-color: rgba(255, 16, 16, 0.6);
   z-index: 1;
 }
+.message-result button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 2.75rem;
+  position: relative;
+  padding-inline: 0.5rem;
+  transition: 0.25s;
+}
+.message-result button:hover .retry {
+  animation: rotation 1s linear forwards infinite;
+}
+.message-result button:hover .next-level {
+  transform: translateX(0.5rem);
+}
+.message-result span {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
 .message-result img {
-  width: 3rem;
-  height: 3rem;
+  position: absolute;
+  top: 0;
+  width: 1.5rem;
+  height: 1.5rem;
   cursor: pointer;
   transition: 0.5s;
 }
 .message-result img:hover {
   transform: scale(1.2);
 }
+.message-result .next-level {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: -0.5rem;
+  filter: brightness(3);
+}
 
+@keyframes rotation {
+  0% {
+    transform: rotate(0turn);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
 .win {
   color: white;
 }
