@@ -50,6 +50,7 @@ const RoadMap = () => {
                 <RoadmapLevel onClick={() => nextLevel(18)} specialClass='eighteen' num={18} level={level} locked={ level < 17 ? true : false }/>
                 <RoadmapLevel onClick={() => nextLevel(19)} specialClass='nineteen' num={19} level={level} locked={ level < 18 ? true : false }/>
                 <RoadmapLevel onClick={() => nextLevel(20)} specialClass='twenty' num={20} level={level} locked={ level < 19 ? true : false }/>
+                <RoadmapLevel onClick={() => nextLevel(21)} specialClass='twenty-one' num={21} level={level} locked={ level < 20 ? true : false }/>
             </div>
         </div>
     )

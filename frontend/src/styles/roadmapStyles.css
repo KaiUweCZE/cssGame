@@ -243,6 +243,11 @@
   grid-row: 26/span 2;
 }
 
+.twenty-one {
+  grid-column: 50/span 2;
+  grid-row: 30/span 2;
+}
+
 .jello-horizontal {
   animation: jello-horizontal 0.9s both;
 }

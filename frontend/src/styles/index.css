@@ -599,18 +599,22 @@
   display: flex;
   color: white;
   position: relative;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.25rem, 1vw, 1.5rem);
   font-weight: bold;
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
   align-items: center;
+  border: 2px solid white;
+  border-radius: 0.35rem;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.7);
   padding: 0.5rem;
   text-transform: uppercase;
   transition: 0.5s;
 }
 .message__alert button:hover {
-  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 0px transparent;
 }
 
 .error__box {

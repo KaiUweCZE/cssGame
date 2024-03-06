@@ -1,8 +1,8 @@
 import React, { useContext} from "react";
-import { masterImg } from "../data/ImagesData";
-import { EmojiContext } from "../contexts/FormContext";
-import EmojiMessage from "./Intro/EmojiMessage";
-import { emojiData } from "../data/EmojiData";
+import { masterImg } from "../../data/ImagesData";
+import { EmojiContext } from "../../contexts/FormContext";
+import EmojiMessage from "./EmojiMessage";
+import { emojiData } from "../../data/EmojiData";
 
 
 const MainEmoji = (props) => {

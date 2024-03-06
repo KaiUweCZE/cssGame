@@ -273,6 +273,11 @@ $con: 2;
     grid-row: (13 * $con) /span 2;
 }
 
+.twenty-one{
+    grid-column: (25 * $con) / span 2;
+    grid-row: (15 * $con) / span 2;
+}
+
 .jello-horizontal{
     -webkit-animation:jello-horizontal .9s both;
     animation:jello-horizontal .9s both

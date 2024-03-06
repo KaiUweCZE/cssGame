@@ -286,6 +286,13 @@ button img:hover {
   top: -3.95rem;
   transform-origin: center;
 }
+.emoji-character.enemy {
+  right: 0;
+  transform: translateX(5rem);
+}
+.emoji-character.enemy.active {
+  transform: translateX(0);
+}
 
 .emoji-character.true {
   left: 90%;
