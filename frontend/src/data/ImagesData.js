@@ -7,6 +7,7 @@ import lockIcon from '../styles/images/icons/lock.webp'
 import stoneImg from "../styles/images/stone.webp"
 import masterImg from '../styles/images/main-character.webp'
 import guideImg from '../styles/images/guide-emoji2.webp'
+import enemyImg from '../styles/images/enemyEmoji.webp'
 import plusIcon from '../styles/images/plus.svg';
 import leftBracket from '../styles/images/left-bracket.svg'
 import rightBracket from '../styles/images/right-bracket.svg'
@@ -33,10 +34,12 @@ import mapBG from '../styles/images/map.webp'
 import nextIcon from '../styles/images/icons/next2.svg'
 import refreshIcon from '../styles/images/icons/refresh.webp'
 import adobeColor from '../styles/images/adobe-color.webp'
+import animista from '../styles/images/animista.webp'
+import cssgradient from '../styles/images/gradient.webp'
 
 export const cssFormImages = {leftBracket, rightBracket, playIcon, playIconAfter, minusIcon, closeIcon, plusIcon}
 export const navbarImages = {loginIcon, homeIcon, infoIcon, mapIcon, gameIcon, leaveIcon }
-export {refreshIcon, nextIcon, trashIcon, hashtagIcon, glassImg, barkTexture, errorIcon, plusIcon, guideImg, masterImg, mapBG, stoneImg, lockIcon}
+export {refreshIcon, nextIcon, trashIcon, hashtagIcon, glassImg, barkTexture, errorIcon, plusIcon, guideImg, masterImg, enemyImg,mapBG, stoneImg, lockIcon}
 export const enviromentImages = {dirt, lawn}
 export const labelImages = {circleIcon, curvedArrow, checkIcon}
-export const tipsImages= {adobeColor}
+export const tipsImages= {adobeColor, animista, cssgradient}

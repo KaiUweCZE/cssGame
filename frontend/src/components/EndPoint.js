@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { enviromentImages } from '../data/ImagesData'
 import { LevelContext } from '../contexts/FormContext'
+import EnemyEmoji from './Emojis/EnemyEmojis'
 
 
 // last part of playground component
@@ -20,6 +21,9 @@ const EndPoint = () => {
     return(
         <div className='end' style={specificStyle}>
             <div className='lawn' style={lawnStyle}></div>
+            {
+                level.enemy ? <EnemyEmoji /> : ""
+            }
         </div>
     )
 }

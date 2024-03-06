@@ -130,8 +130,13 @@ export const aboutLevelData = [
                 aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
                 nicméně emoji se musí dostat přes řeku!`
             },
+            tipsSection:{
+                p: [`Vaše počáteční setkání s CSS animacemi může působit jako výzva, ale osvojením základních pravidel si rychle otevřete dveře k oživení vašeho webu. Začít můžete třeba prohlédnutím inspirativních animací na stránce animista.net, kde najdete nejen předpřipravené CSS kódy, ale také možnost tyto animace dále přizpůsobit ve vašem editoru, aby ladily s vaší vizí.`],
+                img: tipsImages.animista,
+                src: "https://animista.net",
+                h2: "Animista",
+            },
             images:{},
-            tips:{}
         }
     },
     {
@@ -179,8 +184,13 @@ export const aboutLevelData = [
                     }
                 ]
             },
-            images:{},
-            tips:{}
+            tipsSection:{
+                p: [`Započít vaši cestu s CSS gradienty může být na první pohled komplikované, ale jakmile se seznámíte s jejich základními principy, vaše webové stránky se mohou proměnit a získat úplně nový rozměr estetiky. Kde začít? Stránka cssgradient.com je skvělým výchozím bodem, kde najdete inspiraci a praktické příklady gradientů, které můžete snadno implementovat a upravit v souladu s vaším designovým směrem.`],
+                img: tipsImages.cssgradient,
+                src: "https://cssgradient.io/",
+                h2: "CSS GRADIENT",
+            },
+            images:{}
         }
     },
     {
@@ -190,7 +200,7 @@ export const aboutLevelData = [
         fullData:{
             videoSection:{
                 text: "",
-                src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
+                src: "https://www.youtube.com/embed/n23zomcLCPg?si=eAuktA9vVDS6x6nq"
             },
             main:{
                 description: `Mollitia ipsum numquam molestias!

@@ -290,6 +290,13 @@ button {
     position: absolute;
     top: -3.95rem;
     transform-origin: center;
+    &.enemy{
+        right: 0;
+        transform: translateX(5rem);
+    }
+    &.enemy.active{
+        transform: translateX(0);
+    }
 }
 
 

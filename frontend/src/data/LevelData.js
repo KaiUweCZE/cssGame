@@ -609,11 +609,28 @@ export const levelData = [
         obstacle: false,
         emojiRun: false,
         partsStyle: true
-    }
+    },
+    {
+        id: 21,
+        containerStyles: {
+            "display": "flex",
+            "width": "100%",
+            "height": "100%",
+        },
+        //specific styles for .bridge etc.
+        bridgeStyles: {
+            "display": "flex",
+            "transform": "rotate(90deg)",
+        },
+        partOfBridgeStyles: {},
+        partOfBridge: 1,
+        obstacle: false,
+        enemy: true
+    },
 ]
 
 /*
- {
+    {
         id: 4,
         name: "Level 4",
         level: 4,

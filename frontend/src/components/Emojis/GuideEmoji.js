@@ -1,7 +1,7 @@
 import React from 'react'
-import { guideImg } from '../data/ImagesData'
-import EmojiMessage from './Intro/EmojiMessage'
-import { emojiData } from '../data/EmojiData'
+import { guideImg } from '../../data/ImagesData'
+import EmojiMessage from './EmojiMessage'
+import { emojiData } from '../../data/EmojiData'
 
 const GuideEmoji = (props) => {
   const data = emojiData.find(e => e.name === 'guide')
