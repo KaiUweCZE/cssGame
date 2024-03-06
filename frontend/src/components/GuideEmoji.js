@@ -1,5 +1,5 @@
 import React from 'react'
-import { guideImg } from '../data/images'
+import { guideImg } from '../data/ImagesData'
 import EmojiMessage from './Intro/EmojiMessage'
 import { emojiData } from '../data/EmojiData'
 

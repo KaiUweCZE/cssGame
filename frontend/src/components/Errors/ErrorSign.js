@@ -1,5 +1,5 @@
 import React from 'react'
-import { errorIcon } from '../../data/images'
+import { errorIcon } from '../../data/ImagesData'
 
 const ErrorSign = () => {
   return (

@@ -1,4 +1,4 @@
-
+import { tipsImages } from "./ImagesData"
 
 export const aboutLevelData = [
     {
@@ -7,12 +7,7 @@ export const aboutLevelData = [
             Ipsum dignissimos aliquid, excepturi dicta reiciendis ea aliquam magni harum! 
             Iste rerum adipisci libero repellendus ea ab assumenda itaque vitae repudiandae aperiam.`,
         fullData:{
-            video:{
-                src: "https://www.youtube.com/embed/fF_NVrd1s14?si=cTyvY6EZ1Zm1mWvH",
-                text: `Problematika position je trochu obšírnější a pro hlubší ponoření doporučuji shlédnout video od Kevina Powella,
-                skvělého lekotra, který dokáže srozumitelně zasvětit do CSS`
-            },
-            text:{
+            main:{
                 description: `
                 V CSS, position je zásadní vlastnost, 
                 která umožňuje přesné umístění HTML 
@@ -54,8 +49,30 @@ export const aboutLevelData = [
                 aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
                 nicméně emoji se musí dostat přes řeku!`
             },
-            images:{},
-            tips:{}
+            videoSection:{
+                src: "https://www.youtube.com/embed/fF_NVrd1s14?si=cTyvY6EZ1Zm1mWvH",
+                text: `Problematika position je trochu obšírnější a pro hlubší ponoření doporučuji shlédnout videoSection od Kevina Powella,
+                skvělého lekotra, který dokáže srozumitelně zasvětit do CSS`
+            },
+            tipsSection:{
+                p: [`V designu webových stránek hraje volba správných barev 
+                klíčovou roli. To, jak kombinujete barvy, může ovlivnit 
+                nejen celkový vzhled vašeho webu, 
+                ale i to, jak jsou vaše stránky vnímány návštěvníky.
+                Najít tu pravou kombinaci, která je nejen esteticky přitažlivá, 
+                ale také podporuje celkový záměr vaší stránky, může být výzvou. 
+                Překonat tento tvůrčí blok, vám může pomoci nástroj Adobe Color.`,
+                `Tato webová stránka navíc nabízí možnost experimentovat s vlastními 
+                kombinacemi barev pomocí snadno použitelného rozhraní.
+                Můžete vytvářet a sdílet vlastní palety, získávat zpětnou 
+                vazbu od komunity a dokonce analyzovat trendy v 
+                barevných schématech, které se v daném období nejvíce používají.`
+                ],
+                img: tipsImages.adobeColor,
+                h2: "Adobe Color",
+                src: "https://color.adobe.com/explore"
+            },
+            images:{}
         }
     },
     {
@@ -64,12 +81,12 @@ export const aboutLevelData = [
         facilis, dicta recusandae aperiam nisi nulla autem, 
         error sapiente quae asperiores dolor enim `,
         fullData:{
-            video:{
+            videoSection:{
                 src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
                 text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
                 vido od Kevina Powella`
             },
-            text:{
+            main:{
                 description: `
                 Marginy a paddingy patří k dalším základním vlastnostem,
                 které ovlivňují rozložení a prostorové vztahy mezi elementy na webové stránce.
@@ -124,11 +141,11 @@ export const aboutLevelData = [
         voluptates ut. Dignissimos non voluptatum eaque! Saepe sunt porro facere alias.
         Similique nobis, cupiditate dolor ab omnis`,
         fullData:{
-            video:{
+            videoSection:{
                 text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, accusantium?",
                 src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
             },
-            text:{
+            main:{
                 description: `Porozumění rozdílům mezi různými jednotkami a jejich správné použití 
                             může znamenat rozdíl mezi stránkou, která vypadá skvěle na jakémkoliv zařízení, 
                             a stránkou, která ztrácí svou funkčnost při změně velikosti obrazovky. 
@@ -171,11 +188,11 @@ export const aboutLevelData = [
         introduction: `Mollitia ipsum numquam molestias!
         Perspiciatis sit cum debitis nostrum doloribus deleniti ipsam placeat ipsa labore minus.`,
         fullData:{
-            video:{
+            videoSection:{
                 text: "",
                 src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
             },
-            text:{
+            main:{
                 description: `Mollitia ipsum numquam molestias!
                 Perspiciatis sit cum debitis nostrum doloribus deleniti ipsam`,
                 li:[
@@ -198,11 +215,11 @@ export const aboutLevelData = [
         introduction: `soluta necessitatibus, totam culpa recusandae, quia esse dignissimos. 
         Neque tempora repellendus velit et error eius nemo temporibus, tempore repudiandae,`,
         fullData:{
-            video:{
+            videoSection:{
                 text: "",
                 src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
             },
-            text:{
+            main:{
                 description: "",
                 li:[
                     {
@@ -225,11 +242,11 @@ export const aboutLevelData = [
         elit. eaque nihil omnis possimus facere. 
         Quas ut accusantium nesciunt reprehenderit unde debitis,`,
         fullData:{
-            video:{
+            videoSection:{
                 text: "",
                 src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
             },
-            text:{
+            main:{
                 description: "",
                 li:[
                     {
@@ -251,11 +268,11 @@ export const aboutLevelData = [
         introduction: `A voluptatum magni dicta earum nam, quam, aliquam 
         minus placeat quod molestias modi possimus molestiae hic iste nostrum.`,
         fullData:{
-            video:{
+            videoSection:{
                 text: "",
                 src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA"
             },
-            text:{
+            main:{
                 description: "",
                 li:[
                     {
@@ -277,8 +294,8 @@ export const aboutLevelData = [
         introduction: `Voluptatem alias assumenda nihil consequatur nisi.
         Ipsam ducimus enim nobis laborum quae deserunt? Voluptates eligendi reiciendis necessitatibus.`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+        main:{},
             images:{},
             tips:{}
         }
@@ -290,8 +307,8 @@ export const aboutLevelData = [
         Perferendis similique, excepturi natus eius aut fugit sequi 
         quisquam et in exercitationem dolor, sunt modi quam consectetur libero unde?`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -301,8 +318,8 @@ export const aboutLevelData = [
         introduction: `In consequatur sapiente impedit expedita officia omnis non 
         necessitatibus quisquam dolorum porro vitae eveniet reprehenderit, at ipsam? `,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -313,8 +330,8 @@ export const aboutLevelData = [
         faciaccusantium veniam rem molestiae non, 
         praesentium voluptatibus, reiciendis nesciunt odio voluptas id?`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -323,8 +340,8 @@ export const aboutLevelData = [
         id: 12,
         introduction: `Temporibus aspernatur corporis iusto ab quod asperiores. veniam quam illum vitae ea? Architecto, neque expedita?`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -334,8 +351,8 @@ export const aboutLevelData = [
         introduction: `Sint sit eius nobis, optio praesentium ea ullam iusto. 
         Natus sequi harum consequuntur molestias soluta`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -346,8 +363,8 @@ export const aboutLevelData = [
             magnam delectus veritatis quod autem odio, quibusdam aliquid dolore.
             Saepe illum corrupti voluptatum animi tempore odit ratione provident,`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -359,8 +376,8 @@ export const aboutLevelData = [
         optio repellendus quos? Possimus, nemo!
         Harum optio  blanditiis tempora officiis temporibus quod, labore vitae dolorum error aliqui`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -370,8 +387,8 @@ export const aboutLevelData = [
         introduction: `Lexercitationem dolore aperiam numquam culpa. 
         Eveniet doloribus, expedita sapiente repellat.`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -384,8 +401,8 @@ export const aboutLevelData = [
         Quam harum nihil sed est voluptate quis iusto libero, 
         quaerat quibusdam asperiores mollitia rem expedita! Culpa est, laboriosam `,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+        main:{},
             images:{},
             tips:{}
         }
@@ -403,8 +420,8 @@ export const aboutLevelData = [
         Similique nobis, cupiditate dolor ab omnis
         `,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -418,8 +435,8 @@ export const aboutLevelData = [
         dolore officiis labore voluptatum.
         fuga odio consequatur ipsa cupiditate saepe! Non`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }
@@ -430,8 +447,8 @@ export const aboutLevelData = [
             Ipsum dignissimos aliquid, excepturi dicta reiciendis ea aliquam magni harum! 
             Iste rerum adipisci libero repellendus ea ab assumenda itaque vitae repudiandae aperiam.`,
         fullData:{
-            video:{},
-            text:{},
+            videoSection:{},
+            main:{},
             images:{},
             tips:{}
         }

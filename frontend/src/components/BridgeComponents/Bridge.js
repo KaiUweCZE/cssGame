@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext } from "react";
-import { barkTexture } from "../../data/images";
+import { barkTexture } from "../../data/ImagesData";
 import { LevelContext, BridgeContext, CheckContext, ResultContext, ContainerContext, PartsContext } from "../../contexts/FormContext";
 import AboutClass from "../AboutClassComponents/AboutClass";
 import Obstacle from "../Obstacle";

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
-import { navbarImages } from "../../data/images";
+import { navbarImages } from "../../data/ImagesData";
 import {UserContext} from '../../contexts/UserContext'
 
 

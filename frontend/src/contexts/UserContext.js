@@ -28,10 +28,6 @@ export const UserContextProvider = ({children}) => {
     const [login, setLogin] = useState(false)
     const [token, setToken] = useState(null)
     const [user, setUser] = useState({})
-    /*const { data, loading: queryLoading, error: queryError } = useQuery(GET_USER, {
-        variables: { id: userId },
-        skip: !userId, // Dotaz se neprovede, pokud není userId nastavené
-    });*/
     
     useEffect(() => {
         const storedToken = localStorage.getItem('authToken')
@@ -42,7 +38,6 @@ export const UserContextProvider = ({children}) => {
             setLogin(true)
         }
     }, [])
-
 
     const logout = () => {
         localStorage.removeItem('authToken')

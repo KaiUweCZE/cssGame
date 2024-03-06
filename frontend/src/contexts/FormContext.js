@@ -2,7 +2,7 @@ import React, { createContext, useState, useRef, useEffect, useContext } from "r
 import { contextValues } from "../Functions/cssFormFunctions";
 
 
-// to setting the result style of a given level
+// to set styles for .bridge
 export const BridgeContext = createContext(null);
 
 export const BridgeProvider = ({ children }) => {
@@ -10,6 +10,7 @@ export const BridgeProvider = ({ children }) => {
     const [valuesBridge, setValuesBridge] = useState([""]);
     const [stopAdd, setStopAdd] = useState(false);
 
+    // add next inputs in form
     const handleAddInput = () => {
         if (propertiesBridge.length >= 3) {
             setPropertiesBridge([...propertiesBridge, ""]);
@@ -21,6 +22,7 @@ export const BridgeProvider = ({ children }) => {
         }
     };
 
+    // remove input from form
     const handleRemoveInput = index => {
         if (propertiesBridge.length === 1) {
             console.log("you cannot remove another element");
@@ -33,6 +35,7 @@ export const BridgeProvider = ({ children }) => {
         }
     };
 
+    // close additional form 
     const closeForm = () => {
         setPropertiesBridge([])
         setValuesBridge([])
@@ -56,6 +59,7 @@ export const BridgeProvider = ({ children }) => {
     );
 };
 
+// to set styles for .container
 export const ContainerContext = createContext(null);
 
 export const ContainerProvider = ({ children }) => {
@@ -63,6 +67,7 @@ export const ContainerProvider = ({ children }) => {
     const [valuesContainer, setValuesContainer] = useState([""]);
     const [stopAdd, setStopAdd] = useState(false);
 
+    // add next inputs in form
     const handleAddInput = () => {
         if (propertiesContainer.length >= 3) {
             setPropertiesContainer([...propertiesContainer, ""]);
@@ -74,6 +79,7 @@ export const ContainerProvider = ({ children }) => {
         }
     };
 
+    // remove input from form
     const handleRemoveInput = index => {
         if (propertiesContainer.length === 1) {
             console.log("you cannot remove another element");
@@ -86,6 +92,7 @@ export const ContainerProvider = ({ children }) => {
         }
     };
 
+    // close additional form 
     const closeForm = () => {
         setPropertiesContainer([""])
         setValuesContainer([""])
@@ -174,8 +181,12 @@ export const EmojiContext = createContext({
 export const EmojiProvider = ({ children }) => {
     const [specialClass, setSpecialClass] = useState("")
 
+    /* depending on the result, the class for the 
+    emoji component is set */
     const handleEmojiClass = (correct, levelSpecifics) => {
         
+        /* levelSpecifics is an addition for some levels that need
+        special animation */
         if(correct && levelSpecifics){
             setSpecialClass(levelSpecifics)
         } else if(correct){
@@ -236,21 +247,17 @@ export const ResultProvider = ({ children }) => {
         // Assuming bridgeRef and checkpointRef are arrays of equal length
         for (let i = 0; i < bridgeRef.current.length; i++) {
             const bridgeRect = bridgeRef.current[i].getBoundingClientRect();
-            //console.log("first cyklus start", checkpointRef.current.length);
             for (let j = 0; j < checkpointRef.current.length; j++) {
                 const checkRect = checkpointRef.current[j].getBoundingClientRect();
                 const isLeftCorrect = Math.abs(bridgeRect.left - checkRect.left) < tolerance;
                 const isRightCorrect = Math.abs(bridgeRect.right - checkRect.right) < tolerance;
                 const isTopCorrect = Math.abs(bridgeRect.top - checkRect.top) < tolerance;
-                //console.log("second cyklus");
-                //console.log(`Bridge ${j}: Left ${isLeftCorrect ? 'OK' : 'NO'}, Right ${isRightCorrect ? 'OK' : 'NO'}, Top ${isTopCorrect ? 'OK' : 'NO'}`);
                 if (isLeftCorrect && isRightCorrect && isTopCorrect) {
                     correctPositions += 1;
                 } else {
                     // If any position is not correct, no need to check further
                     setIsCorrect(false);
                 }
-                // Log the positions and whether they are correct
             }
         }
     
@@ -327,6 +334,9 @@ export const LevelProvider = ({ children }) => {
     )
 }
 
+/*
+Obtain data about .bridge & .container for AboutClassComponents
+*/
 export const CheckContext = createContext({
     active: false,
     setActive: () => { }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/introStyles.css'
-import {enviromentImages, guideImg, masterImg} from '../data/images'
+import {enviromentImages, guideImg, masterImg} from '../data/ImagesData'
 import GuideEmoji from '../components/GuideEmoji'
 import MainEmoji from '../components/MainEmoji'
 import FirstScene from '../components/Intro/FirstScene'

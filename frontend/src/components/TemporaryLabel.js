@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { labelImages } from '../data/images'
+import { labelImages } from '../data/ImagesData'
 
 const TemporaryLabel = () => {
   const [active, setActive] = useState(true)

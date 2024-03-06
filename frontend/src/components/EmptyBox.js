@@ -1,5 +1,5 @@
 import React from "react";
-import { plusIcon } from "../data/images";
+import { plusIcon } from "../data/ImagesData";
 
 const EmptyBox = (props) => {
 
