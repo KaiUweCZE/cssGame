@@ -246,19 +246,33 @@
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0.5rem;
 }
+.container-level section {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}
+.container-level article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .container-level hr {
   border: 0.1rem solid #297883;
   opacity: 0.15;
 }
 .container-level h2 {
-  font-size: 1.85rem;
   text-transform: uppercase;
 }
-.container-level h3, .container-level p, .container-level li {
+.container-level h2, .container-level h3, .container-level p, .container-level li {
   font-size: 1.5rem;
 }
 .container-level h2, .container-level h3, .container-level p, .container-level li {
   color: rgb(60, 60, 60);
+}
+.container-level p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 .container-level ul {
   display: flex;
@@ -280,13 +294,6 @@
   position: relative;
   top: 0.17rem;
 }
-.container-level .video__section {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 0.5rem;
-}
 .container-level .video__section iframe {
   width: 840px;
   height: 473px;
@@ -300,6 +307,62 @@
     width: 560px;
     height: 315px;
   }
+}
+.container-level .tip__section {
+  background-color: rgba(45, 221, 183, 0.2);
+}
+.container-level .article__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+}
+.container-level .article__card h2 {
+  position: absolute;
+  z-index: 1;
+  font-size: 3rem;
+  color: #fff;
+  transition: 0.5s;
+}
+.container-level .article__card img {
+  width: 90%;
+  max-width: 50rem;
+  height: 90%;
+  border-radius: 1rem;
+  filter: brightness(0.6);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+}
+.container-level .article__card:hover h2 {
+  opacity: 0;
+  transform: translateY(-20rem);
+}
+.container-level .article__card:hover img {
+  filter: brightness(1);
+  transform: scale(1.05);
+  box-shadow: 0px 0px 0px transparent;
+}
+.container-level .article__card p {
+  display: flex;
+  position: absolute;
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0;
+  padding: 1rem;
+  color: white;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.568);
+  transform: translateY(20rem);
+  transition: 0.5s;
+  z-index: 2;
+}
+.container-level .article__card:hover p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .wrapper {

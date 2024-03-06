@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import {enviromentImages, guideImg, masterImg} from '../../data/images'
+import {enviromentImages, nextIcon, guideImg, masterImg} from '../../data/ImagesData'
 import EmojiMessage from "./EmojiMessage";
 import MainEmoji from "../MainEmoji";
 import GuideEmoji from "../GuideEmoji";
-import { nextIcon } from "../../data/images";
 
 
 const SecondScene = (props) => {

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { aboutLevelData } from "../data/LevelInfo";
+import { aboutLevelData } from "../data/AboutLevelData";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 

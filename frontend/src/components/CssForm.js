@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { cssFormImages } from "../data/images";
+import { cssFormImages } from "../data/ImagesData";
 import { list } from "../data/listOfProperities";
 import ErrorMessage from "./Errors/ErrorMessage";
 import SuggestList from "./SuggestList";

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { LevelContext, ResultContext } from "../contexts/FormContext";
-import { refreshIcon, nextIcon } from "../data/images";
+import { refreshIcon, nextIcon } from "../data/ImagesData";
 import { levelData } from "../data/LevelData";
 import { useSetLevel } from "../Functions/useSetLevel";
 import next from '../styles/images/icons/right-arrow.webp'

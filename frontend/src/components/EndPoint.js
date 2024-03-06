@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { enviromentImages } from '../data/images'
+import { enviromentImages } from '../data/ImagesData'
 import { LevelContext } from '../contexts/FormContext'
 
 

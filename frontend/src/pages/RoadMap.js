@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
 import '../styles/roadmapStyles.css'
-import { mapBG } from "../data/images";
+import { mapBG } from "../data/ImagesData";
 import { UserContext } from "../contexts/UserContext";
 import RoadmapLevel from "../components/RoadmapLevel";
-import { LevelContext } from "../contexts/FormContext";
-import { levelData } from "../data/LevelData";
 import { useSetLevel } from "../Functions/useSetLevel";
 
 const RoadMap = () => {
