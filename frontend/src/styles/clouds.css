@@ -1,37 +1,64 @@
-
+:root{
+    --time: 30s;
+}
+    
 
 .background-clouds{
+    display: flex;
     background-color: transparent;
     position: absolute;
     top: 5vh;
     width: 100%;
+    gap: 5rem;
+    transition: 10s;
+    animation: clouds-flow var(--time) linear infinite;
     img{
         position: relative;
-        width: 25rem;
+        width: 22rem;
         opacity: 0.2;
         top: 5rem;
-        transition: 15s;
+        transition: 10s;
     }
-    animation: clouds-flow 120s ease-out infinite;
-    &.second{
-        animation: cloud2 120s ease-in infinite;
+}
+
+.background-clouds-second{
+    display: flex;
+    background-color: transparent;
+    position: absolute;
+    top: 5vh;
+    width: 100%;
+    gap: 5rem;
+    transition: 10s;
+    transform: translateX(-120%);
+    animation: clouds-flow var(--time) linear 15s infinite;
+    img{
+        position: relative;
+        width: 22rem;
+        opacity: 0.2;
+        top: 5rem;
+        transition: 10s;
+    }
+    @media (min-width: 90rem){
+        transform: translateX(-100%);
     }
 }
 
 @keyframes clouds-flow {
     0%{
-        transform: translateX(-90%);
+        transform: translateX(-130%);
     }
     100%{
-        transform: translateX(120%);
+        transform: translateX(100%);
     }
 }
 
-@keyframes cloud2 {
-    0%{
-        transform: translateX(-170%);
-    }
-    100%{
-        transform: translateX(120%);
+@media (min-width: 90rem) {
+    @keyframes clouds-flow {
+        0%{
+            transform: translateX(-100%);
+        }
+        100%{
+            transform: translateX(100%);
+        }
     }
 }
