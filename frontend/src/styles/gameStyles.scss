@@ -523,20 +523,26 @@ button {
         position: relative;
         padding-inline: .5rem;
         transition: .25s;
+        transform-origin: left;
         &:hover .retry{
             animation: rotation 1s linear forwards infinite;
         }
         &:hover .next-level{
-            transform: translateX(.5rem);
+            transition: 1s;
+            animation: arrival .15s linear forwards;
         }
-        &:has(.next-level){
-            //flex-direction: row;
+        &:not(:hover) .next-level{
+            animation: departure .15s linear forwards;
+        }
+        &:has(.next-level):hover span{
+            transform: translateX(-5%);
         }
     }
     span{
         color: white;
         font-size: 1.25rem;
         font-weight: bold;
+        transition: .25s;
     }
     img{
         position: absolute;
@@ -553,9 +559,32 @@ button {
         width: 2.5rem;
         height: 2.5rem;
         position: absolute;
-        top: -.5rem;
-        //transform: translateX(2.75rem);
-        filter: brightness(3);
+        top: .7rem;
+        transition: 1s;
+        left: 90%;
+        filter: brightness(2);
+    }
+}
+
+@keyframes arrival {
+    0%{
+        left: 80%;
+        opacity: 0;
+    }
+    100%{
+        left: 90%;
+        opacity: 1;
+    }
+}
+
+@keyframes departure{
+    0%{
+        left: 90%;
+        opacity: 1;
+    }
+    100%{
+        left: 110%;
+        opacity: 0;
     }
 }
 

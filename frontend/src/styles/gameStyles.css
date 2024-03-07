@@ -495,17 +495,26 @@ button img:hover {
   position: relative;
   padding-inline: 0.5rem;
   transition: 0.25s;
+  transform-origin: left;
 }
 .message-result button:hover .retry {
   animation: rotation 1s linear forwards infinite;
 }
 .message-result button:hover .next-level {
-  transform: translateX(0.5rem);
+  transition: 1s;
+  animation: arrival 0.15s linear forwards;
+}
+.message-result button:not(:hover) .next-level {
+  animation: departure 0.15s linear forwards;
+}
+.message-result button:has(.next-level):hover span {
+  transform: translateX(-5%);
 }
 .message-result span {
   color: white;
   font-size: 1.25rem;
   font-weight: bold;
+  transition: 0.25s;
 }
 .message-result img {
   position: absolute;
@@ -522,10 +531,32 @@ button img:hover {
   width: 2.5rem;
   height: 2.5rem;
   position: absolute;
-  top: -0.5rem;
-  filter: brightness(3);
+  top: 0.7rem;
+  transition: 1s;
+  left: 90%;
+  filter: brightness(2);
 }
 
+@keyframes arrival {
+  0% {
+    left: 80%;
+    opacity: 0;
+  }
+  100% {
+    left: 90%;
+    opacity: 1;
+  }
+}
+@keyframes departure {
+  0% {
+    left: 90%;
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
 @keyframes rotation {
   0% {
     transform: rotate(0turn);
