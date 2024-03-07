@@ -77,7 +77,7 @@ export const contextValues = (name, context) => {
     case "bridge":
       return {
         properties: context.propertiesBridge,
-        valuese: context.valuesBridge,
+        values: context.valuesBridge,
         setProperties: context.setPropertiesBridge,
         setValues: context.setValuesBridge,
         handleAddInput: context.handleAddInput,
