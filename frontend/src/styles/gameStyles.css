@@ -290,10 +290,26 @@ button img:hover {
   right: 0;
   transform: translateX(5rem);
 }
-.emoji-character.enemy.active {
-  transform: translateX(0);
+.emoji-character.enemy.twenty-one-true {
+  animation: twentyOneTrue 3s linear forwards;
+}
+.emoji-character.enemy.twenty-one-false {
+  animation: twentyOneFalse 2s linear forwards;
 }
 
+@keyframes twentyOneTrue {
+  50% {
+    transform: translateX(-10rem) rotate(-2turn);
+  }
+  100% {
+    transform: translateX(5rem) rotate(0turn);
+  }
+}
+@keyframes twentyOneFalse {
+  100% {
+    transform: translateX(-10rem) rotate(-2turn);
+  }
+}
 .emoji-character.true {
   left: 90%;
   animation: rotate 4s linear;

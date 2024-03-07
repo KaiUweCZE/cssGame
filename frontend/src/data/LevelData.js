@@ -163,7 +163,9 @@ export const levelData = [
         partOfBridge: 1,
         obstacle: true,
         styleResolver: true,
-        styleResult: "hidden"
+        //styleResultBridge: {"overflow":"hidden"},
+        styleResultContainer: {"overflow":"hidden"},
+        //styleResultBoth: {"overflow":"hidden"},
     },
     {
         id: 10,
@@ -620,11 +622,13 @@ export const levelData = [
         //specific styles for .bridge etc.
         bridgeStyles: {
             "display": "flex",
-            "transform": "rotate(90deg)",
         },
         partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false,
+        styleResolver: true,
+        styleResultBridge: {"opacity": "0"},
+        styleResultContainer: {"opacity": "0"},
         enemy: true
     },
 ]

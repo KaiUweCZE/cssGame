@@ -294,11 +294,29 @@ button {
         right: 0;
         transform: translateX(5rem);
     }
-    &.enemy.active{
-        transform: translateX(0);
+    &.enemy.twenty-one-true{
+        animation: twentyOneTrue 3s linear forwards;
+    }
+    &.enemy.twenty-one-false{
+        animation: twentyOneFalse 2s linear forwards;
     }
 }
 
+
+@keyframes twentyOneTrue{
+    50%{
+        transform: translateX(-10rem) rotate(-2turn);
+    }
+    100%{
+        transform: translateX(5rem) rotate(0turn);
+    }
+}
+
+@keyframes twentyOneFalse{
+    100%{
+        transform: translateX(-10rem) rotate(-2turn);
+    }
+}
 
 // animation for right answer 
 .emoji-character.true {

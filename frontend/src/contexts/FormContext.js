@@ -180,11 +180,11 @@ export const EmojiContext = createContext({
 
 export const EmojiProvider = ({ children }) => {
     const [specialClass, setSpecialClass] = useState("")
+    //const [enemyAnimation, setEnemyAnimation] = useState("")
 
     /* depending on the result, the class for the 
     emoji component is set */
     const handleEmojiClass = (correct, levelSpecifics) => {
-        
         /* levelSpecifics is an addition for some levels that need
         special animation */
         if(correct && levelSpecifics){
@@ -199,7 +199,9 @@ export const EmojiProvider = ({ children }) => {
     const contextValue = {
         specialClass,
         setSpecialClass,
-        handleEmojiClass
+        handleEmojiClass,
+        //enemyAnimation,
+        //setEnemyAnimation
     }
 
     return (
@@ -211,8 +213,8 @@ export const EmojiProvider = ({ children }) => {
 
 // Result evaluation
 export const ResultContext = createContext({
-    isCorrect: "",
-    setIsCorrect: () => { },
+    isCorrectPosition: "",
+    setIsCorrectPosition: () => { },
     resultText: "",
     setResultText: () => { },
     checkpointRef: [],
@@ -221,8 +223,9 @@ export const ResultContext = createContext({
 })
 
 export const ResultProvider = ({ children }) => {
-    const [isCorrect, setIsCorrect] = useState(false)
+    const [isCorrectPosition, setIsCorrectPosition] = useState(false)
     const [resultText, setResultText] = useState("")
+    const [checked, setChecked] = useState({check: false, result: false})
     const checkpointRef = useRef([])
     const bridgeRef = useRef([])
 
@@ -256,7 +259,7 @@ export const ResultProvider = ({ children }) => {
                     correctPositions += 1;
                 } else {
                     // If any position is not correct, no need to check further
-                    setIsCorrect(false);
+                    setIsCorrectPosition(false);
                 }
             }
         }
@@ -264,23 +267,26 @@ export const ResultProvider = ({ children }) => {
         // If all positions are correct
         if (correctPositions === bridgeRef.current.length) {
             console.log("All positions are correct!");
-            setIsCorrect(true);
+            setIsCorrectPosition(true);
         } else {
-            setIsCorrect(false);
+            setChecked(() => ({check: true, result: false}))
+            setIsCorrectPosition(false);
         }
     }
 
 
     const contextValue = {
-        isCorrect,
-        setIsCorrect,
+        isCorrectPosition,
+        setIsCorrectPosition,
         resultText,
         setResultText,
         checkpointRef,
         addToCheckpointRef,
         addToBridgeRef,
         bridgeRef,
-        checkBridgePosition
+        checkBridgePosition,
+        checked,
+        setChecked
     }
 
     return (

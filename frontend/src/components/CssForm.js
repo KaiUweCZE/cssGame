@@ -22,7 +22,7 @@ const CssForm = (props) => {
     const [icon, setIcon] = useState(cssFormImages.playIcon)
     // text of css value from form
     // values from Result Context
-    const { isCorrect, setResultText, checkBridgePosition } = useContext(ResultContext)
+    const { isCorrectPosition, checked, setChecked, setResultText, checkBridgePosition } = useContext(ResultContext)
     // check if the form has already been sent
     const [hasChecked, setHasChecked] = useState(false)
     const [index, setIndex] = useState(0)
@@ -60,18 +60,22 @@ const CssForm = (props) => {
         if(hasChecked){
             // some level needs right position and right style
             // if only position is enough, styleResult is set to true
-            const styleResult = level.styleResult ? styleChecker(level, values) : true
+            const styleResult = level.styleResolver ? styleChecker(level, props.name, properties, values) : true
             console.log("style result je: ", styleResult);
+            /* some components need to know if styles are correct, e.g.
+                EnemyEmoji animation depends on styleResult
+            */
+            setChecked(() => (isCorrectPosition && styleResult ? {check: true, result: true} : {check: true, result: false}))
             // a result message will be displayed for 2 secs
-            setResultText(isCorrect &&  styleResult ? "Congrats" : "Oops")
+            setResultText(isCorrectPosition &&  styleResult ? "Congrats" : "Oops")
             // emoji element gets class according to level and result
-            handleEmojiClass(isCorrect && styleResult, level.emojiRun)
+            handleEmojiClass(isCorrectPosition && styleResult, level.emojiRun)
             //setTimeout(() => setResultText(""), 2000)
-            if (isCorrect) {
+            if (isCorrectPosition) {
                 levelUp(user.id, user.level < level.id ? level.id : user.level)
             }
             }
-            },[isCorrect, hasChecked])
+            },[isCorrectPosition, hasChecked])
 
     // property would be ok if it is included in the list or if it is ""
     const checkTypo = (property) => {

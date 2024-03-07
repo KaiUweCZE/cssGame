@@ -32,5 +32,18 @@ export const emojiData = [
                 levelSecond: ["", ""]
             }
         }
+    },
+    {
+        name: "enemy",
+        level:[
+            {
+                id: 21,
+                animations: ["twenty-one-false", "twenty-one-true"]
+            },
+            {
+                id: 22,
+                animations: ["twenty-two-false", "twenty-two-true"]
+            }
+        ]
     }
 ]
