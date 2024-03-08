@@ -626,6 +626,7 @@ export const levelData = [
         partOfBridgeStyles: {},
         partOfBridge: 1,
         obstacle: false,
+        emojiRun: "twenty-one",
         styleResolver: true,
         styleResultBridge: {"opacity": "0"},
         styleResultContainer: {"opacity": "0"},

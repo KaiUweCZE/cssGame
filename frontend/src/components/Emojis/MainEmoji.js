@@ -1,14 +1,14 @@
-import React, { useContext} from "react";
+import React, { useContext, useEffect, useState} from "react";
 import { masterImg } from "../../data/ImagesData";
 import { EmojiContext } from "../../contexts/FormContext";
 import EmojiMessage from "./EmojiMessage";
-import { emojiData } from "../../data/EmojiData";
-
+import { useMessageCounter } from "../../Functions/MessageCounter";
 
 const MainEmoji = (props) => {
-    const data = emojiData.find(e => e.name === 'main')
+    const i = props.messageAction ? useMessageCounter(props.step, props.messageAction) : 0
     const { specialClass } = useContext(EmojiContext)
-    console.log(props.step);
+    const showMessage = props.messageAction ? props.messageAction.includes(props.step) : false;
+    const messageText = props.messageAction ? props.text[i-1] : 0;
 
     return (
         <>
@@ -16,11 +16,11 @@ const MainEmoji = (props) => {
             props.intro ? 
             <div className="box-emoji">
                 <img src={masterImg} alt="" className={props?.intro ? `emoji-character ${props.cssClass}` : `emoji-character ${specialClass}`}/>
-                <EmojiMessage data={data} step={props.step} text='intro' />
+                {showMessage && <EmojiMessage text={messageText} />}
             </div> :
             <>
-            <img src={masterImg} alt="" className={props?.intro ? `emoji-character ${props.cssClass}` : `emoji-character ${specialClass}`}/>
-            <EmojiMessage data={data} step={props.step} text='intro' />
+                <img src={masterImg} alt="" className={props?.intro ? `emoji-character ${props.cssClass}` : `emoji-character ${specialClass}`}/>
+                <EmojiMessage text={props.text} />
             </>
         }
         </>

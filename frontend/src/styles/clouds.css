@@ -1,5 +1,5 @@
 :root{
-    --time: 30s;
+    --time: 60s;
 }
     
 
@@ -29,8 +29,8 @@
     width: 100%;
     gap: 5rem;
     transition: 10s;
-    transform: translateX(-120%);
-    animation: clouds-flow var(--time) linear 15s infinite;
+    transform: translateX(-130%);
+    animation: clouds-flow var(--time) linear 30s infinite;
     img{
         position: relative;
         width: 22rem;
