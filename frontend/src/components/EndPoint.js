@@ -22,7 +22,7 @@ const EndPoint = () => {
         <div className='end' style={specificStyle}>
             <div className='lawn' style={lawnStyle}></div>
             {
-                level.enemy ? <EnemyEmoji level={level.id}/> : ""
+            level.enemy ? <EnemyEmoji level={level.id}/> : ""
             }
         </div>
     )

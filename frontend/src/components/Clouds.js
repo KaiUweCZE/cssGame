@@ -16,7 +16,7 @@ const Clouds = () => {
     })
 
     const clouds = [cloud1, cloud2, cloud3, cloud4, cloud5]
-    const time = 30000
+    const time = 60000
 
     useEffect(() => {
         const interval = setInterval(() => {

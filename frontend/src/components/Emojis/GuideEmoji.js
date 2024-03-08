@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { guideImg } from '../../data/ImagesData'
 import EmojiMessage from './EmojiMessage'
 import { emojiData } from '../../data/EmojiData'
+import { useMessageCounter } from '../../Functions/MessageCounter'
 
 const GuideEmoji = (props) => {
-  const data = emojiData.find(e => e.name === 'guide')
+  const data = emojiData.find(e => e.name === "guide")
   const stepsClass = data?.secondScene.actionStep.class
-  console.log(props.step);
+  const i = props.messageAction ? useMessageCounter(props.step, props.messageAction) : 0
+  const showMessage = props.messageAction ? props.messageAction.includes(props.step) : false;
+  const messageText = props.messageAction ? props.text[i-1] : 0;
+
   return (
     <>
     <div className="box-emoji">
       <img src={guideImg} alt="" className={props.step >= stepsClass ? `emoji-character guide active` : `emoji-character guide`}/>
-      <EmojiMessage data={data} step={props.step} text='intro'/>
+      {showMessage &&<EmojiMessage text={props.text[i-1]} />}
     </div>
     </>
   )

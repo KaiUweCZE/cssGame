@@ -321,7 +321,7 @@ button {
 // animation for right answer 
 .emoji-character.true {
     left: 90%;
-    animation: rotate 4s linear;
+    animation: rotate 6s linear;
 }
 
 // animation for bad answer
@@ -340,6 +340,10 @@ button {
     top: 8rem;
     z-index: 1;
     animation: fromStairs 6s linear;
+}
+
+.emoji-character.twenty-one {
+    animation: rotate 6s linear 2s forwards;
 }
 
 @keyframes rotate {
@@ -397,6 +401,18 @@ button {
         top: 8rem;
     }
 }
+
+/*@keyframes main-twenty-one{
+    0% {
+        transform: rotate(0deg);
+        left: 0;
+    }
+
+    100% {
+        transform: rotate(1080deg);
+        left: 90%;
+    }
+}*/
 
 @keyframes error-run {
     50% {
