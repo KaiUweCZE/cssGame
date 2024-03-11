@@ -52,7 +52,7 @@ const LevelInfo = () => {
                     }
                     <div className="article__card" onClick={() => {window.location.href = data.fullData?.tipsSection.src}}>
                         <h2>{data.fullData.tipsSection?.h2}</h2>
-                        <img src={data.fullData.tipsSection?.img} alt="" />
+                        <img src={data.fullData.tipsSection?.img} className={data.fullData.tipsSection?.specialClass ? `${data.fullData.tipsSection.specialClass}` : ""} alt="" />
                         <p>
                             Přejít na web
                         </p>

@@ -1,5 +1,5 @@
 :root{
-    --time: 60s;
+    --time: 50s;
 }
     
 
@@ -14,10 +14,11 @@
     animation: clouds-flow var(--time) linear infinite;
     img{
         position: relative;
-        width: 22rem;
+        width: 30vw;
+        max-width: 23rem;
         opacity: 0.2;
         top: 5rem;
-        transition: 10s;
+        transition: 20s;
     }
 }
 
@@ -29,26 +30,30 @@
     width: 100%;
     gap: 5rem;
     transition: 10s;
-    transform: translateX(-130%);
-    animation: clouds-flow var(--time) linear 30s infinite;
+    transform: translateX(-160vw);
+    animation: clouds-flow var(--time) linear 25s infinite;
     img{
         position: relative;
-        width: 22rem;
+        width: 30vw;
+        max-width: 23rem;
         opacity: 0.2;
         top: 5rem;
-        transition: 10s;
+        transition: 20s;
     }
     @media (min-width: 90rem){
-        transform: translateX(-100%);
+        transform: translateX(-120%);
+        img{
+            width: 40vw;
+        }
     }
 }
 
 @keyframes clouds-flow {
     0%{
-        transform: translateX(-130%);
+        transform: translateX(-160vw);
     }
     100%{
-        transform: translateX(100%);
+        transform: translateX(100vw);
     }
 }
 
