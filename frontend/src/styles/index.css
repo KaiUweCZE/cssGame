@@ -364,6 +364,9 @@
   opacity: 1;
   transform: translateY(0);
 }
+.container-level .article__card .fancy-border {
+  border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+}
 
 .wrapper {
   display: flex;

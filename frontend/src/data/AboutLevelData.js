@@ -199,7 +199,7 @@ export const aboutLevelData = [
         Perspiciatis sit cum debitis nostrum doloribus deleniti ipsam placeat ipsa labore minus.`,
         fullData:{
             videoSection:{
-                text: "",
+                text: "cum debitis nostrum dol",
                 src: "https://www.youtube.com/embed/n23zomcLCPg?si=eAuktA9vVDS6x6nq"
             },
             main:{
@@ -216,8 +216,17 @@ export const aboutLevelData = [
                     }
                 ]
             },
-            images:{},
-            tips:{}
+            tipsSection:{
+                p: [`Fancy Boreder radius je jeden z dalších zajímavých projektů, který vám umožní zábavně měnit a nastavovat hodnotu border-raidus v CSS.
+                Díky intuitivnímu rozhraní můžete snadno měnit 
+                zakřivení hran objektů, a tak 
+                dodat vašim projektům osobitý charakter a styl.`],
+                img: tipsImages.cssgradient,
+                src: "https://9elements.github.io/fancy-border-radius/",
+                h2: "Fancy border radius",
+                specialClass: "fancy-border"
+            },
+            images:{}
         }
     },
     {
