@@ -1,15 +1,18 @@
-import React from 'react'
-import {ApolloClient, InMemoryCache, HttpLink, ApolloProvider} from '@apollo/client'
+import React from "react";
+import {
+  ApolloClient,
+  InMemoryCache,
+  HttpLink,
+  ApolloProvider,
+} from "@apollo/client";
 
 const client = new ApolloClient({
-    link: new HttpLink({ uri: 'http://localhost:9000/graphql'}),
-    cache: new InMemoryCache(),
-})
+  link: new HttpLink({
+    uri: "https://express-example-rouge.vercel.app/graphql",
+  }),
+  cache: new InMemoryCache(),
+});
 
 export const ApolloClientProvider = ({ children }) => {
-    return(
-    <ApolloProvider client={client}>
-        {children}
-    </ApolloProvider>
-    )
-}
+  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+};
