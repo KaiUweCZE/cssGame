@@ -1,0 +1,106 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: rgb(50, 50, 50);
+}
+* body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+* ul {
+  list-style: none;
+}
+* a {
+  text-decoration: none;
+}
+
+.Building {
+  height: 100dvh;
+  background-color: #79bed9;
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.BuildingArea {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40vh;
+  z-index: 1;
+}
+.BuildingArea .end {
+  grid-column: 3;
+}
+.BuildingArea .box-wave {
+  grid-column: 2;
+  width: 50%;
+}
+.BuildingArea .container-bridge {
+  grid-column: 2;
+  width: 50%;
+  position: absolute;
+}
+
+.BuildingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 33%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  max-height: 20rem;
+  overflow-y: scroll;
+}
+.BuildingForm input {
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.6);
+}
+.BuildingForm input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.BuildingForm input[type=text] {
+  width: 50%;
+  padding: 0.15rem;
+}
+.BuildingForm input[type=submit] {
+  border: none;
+  cursor: pointer;
+}
+.BuildingForm label {
+  font-weight: bold;
+}
+
+textarea {
+  font-family: "Open Sans", sans-serif;
+  min-height: 2rem;
+  max-width: 15rem;
+  padding: 0.5rem;
+}
+
+.GroupOfInputs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.FormSection div {
+  display: flex;
+  align-items: center;
+}
+.FormSection img {
+  width: 1.25rem;
+  cursor: pointer;
+}
+
+.FormTextarea {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=buildingStyles.css.map */
