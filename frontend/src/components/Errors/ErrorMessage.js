@@ -1,13 +1,12 @@
 import React from "react";
 
 // this component will be displayed after reply
-const ErrorMessage = ({text}) =>{
+const ErrorMessage = ({ text }) => {
+  return (
+    <div className="ErrorMessage">
+      <p>{text}</p>
+    </div>
+  );
+};
 
-    return(
-        <div className="error-message">
-            <p>{text}</p>
-        </div>
-    )
-}
-
-export default ErrorMessage
+export default ErrorMessage;
