@@ -7,10 +7,8 @@ export const BuildingProvider = ({ children }) => {
   const [properiesContainer, setPropertiesContainer] = useState([""]);
   const [valuesBridge, setValuesBridge] = useState([""]);
   const [valuesContainer, setValuesContainer] = useState([""]);
-  const style = {};
 
   const contextValues = {
-    style,
     propertiesBridge,
     properiesContainer,
     valuesBridge,
