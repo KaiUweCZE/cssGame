@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import River from "../River";
 import StartPoint from "../StartPoint";
 import EndPoint from "../EndPoint";
@@ -7,11 +7,22 @@ import { barkTexture } from "../../data/ImagesData";
 import { BuildingFormContext } from "../../contexts/BuildingContexts";
 
 const BuildingArea = () => {
-  const { style } = useContext(BuildingFormContext);
+  const { valuesBridge, propertiesBridge } = useContext(BuildingFormContext);
+  const [bridgeStyle, setBridgeStyle] = useState({});
+
+  useEffect(() => {
+    const newStyle = propertiesBridge.reduce((acc, property, index) => {
+      acc[property] = valuesBridge[index];
+      return acc;
+    }, {});
+    setBridgeStyle(newStyle);
+  }, [propertiesBridge, valuesBridge]);
+  console.log(bridgeStyle);
+
   return (
     <div className="BuildingArea">
       <div className="container-bridge">
-        <OneBridgeElement background={barkTexture} style={style} />
+        <OneBridgeElement background={barkTexture} style={bridgeStyle} />
       </div>
       <StartPoint />
       <River />
