@@ -4,13 +4,13 @@ export const BuildingFormContext = createContext({});
 
 export const BuildingProvider = ({ children }) => {
   const [propertiesBridge, setPropertiesBridge] = useState([""]);
-  const [properiesContainer, setPropertiesContainer] = useState([""]);
+  const [propertiesContainer, setPropertiesContainer] = useState([""]);
   const [valuesBridge, setValuesBridge] = useState([""]);
   const [valuesContainer, setValuesContainer] = useState([""]);
 
   const contextValues = {
     propertiesBridge,
-    properiesContainer,
+    propertiesContainer,
     valuesBridge,
     valuesContainer,
     setValuesBridge,

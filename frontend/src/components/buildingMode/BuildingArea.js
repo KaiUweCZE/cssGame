@@ -7,21 +7,37 @@ import { barkTexture } from "../../data/ImagesData";
 import { BuildingFormContext } from "../../contexts/BuildingContexts";
 
 const BuildingArea = () => {
-  const { valuesBridge, propertiesBridge } = useContext(BuildingFormContext);
+  const {
+    valuesBridge,
+    propertiesBridge,
+    valuesContainer,
+    propertiesContainer,
+  } = useContext(BuildingFormContext);
   const [bridgeStyle, setBridgeStyle] = useState({});
+  const [containerStyle, setContainerStyle] = useState({});
 
   useEffect(() => {
-    const newStyle = propertiesBridge.reduce((acc, property, index) => {
+    const newBridgeStyle = propertiesBridge.reduce((acc, property, index) => {
       acc[property] = valuesBridge[index];
       return acc;
     }, {});
-    setBridgeStyle(newStyle);
+    setBridgeStyle(newBridgeStyle);
   }, [propertiesBridge, valuesBridge]);
-  console.log(bridgeStyle);
+
+  useEffect(() => {
+    const newContainerStyle = propertiesContainer.reduce(
+      (acc, property, index) => {
+        acc[property] = valuesContainer[index];
+        return acc;
+      },
+      {}
+    );
+    setContainerStyle(newContainerStyle);
+  }, [propertiesContainer, valuesContainer]);
 
   return (
     <div className="BuildingArea">
-      <div className="container-bridge">
+      <div className="container-bridge" style={containerStyle}>
         <OneBridgeElement background={barkTexture} style={bridgeStyle} />
       </div>
       <StartPoint />
