@@ -1,39 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
 import { minusIcon, plusIcon } from "../../data/ImagesData";
 import { BuildingFormContext } from "../../contexts/BuildingContexts";
+import { checkProperties } from "../../Functions/buildingFunctions";
+import WarningLabel from "./WarningLabel";
 
 const FormSectionInputs = (props) => {
-  const context = useContext(BuildingFormContext);
   const [number, setNumber] = useState(1);
-
+  const [isValid, setIsValid] = useState(true);
   const {
-    propertiesBridge,
-    valuesBridge,
-    setPropertiesBridge,
-    setValuesBridge,
     propertiesContainer,
-    valuesContainer,
-    setPropertiesContainer,
-    setValuesContainer,
+    propertiesBridge,
     handleAdd,
     handleRemove,
     handlePropertyChange,
     handleValueChange,
-  } = context;
+  } = useContext(BuildingFormContext);
+  const properties =
+    props.label === "bridge" ? propertiesBridge : propertiesContainer;
 
-  const [properties, setProperties] =
-    props.label === "bridge"
-      ? [propertiesBridge, setPropertiesBridge]
-      : [propertiesContainer, setPropertiesContainer];
-  const [values, setValues] =
-    props.label === "bridge"
-      ? [valuesBridge, setValuesBridge]
-      : [valuesContainer, setValuesContainer];
-
-  const printForm = (e) => {
-    e.preventDefault();
-    console.log(properties, values);
-  };
+  useEffect(() => {
+    setIsValid(checkProperties(properties));
+  }, [properties]);
 
   return (
     <div className="FormSection">
@@ -70,7 +57,7 @@ const FormSectionInputs = (props) => {
           />
         </div>
       ))}
-      <button onClick={(e) => printForm(e)}>console.log</button>
+      {isValid ? "" : <WarningLabel />}
     </div>
   );
 };
