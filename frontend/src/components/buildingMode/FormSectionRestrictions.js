@@ -4,7 +4,7 @@ import { RestrictionContext } from "../../contexts/BuildingContexts";
 
 const FormSectionRestrictions = (props) => {
   const [number, setNumber] = useState(1);
-  const { logList, handleRemove, handleAdd, handleListChange } =
+  const { handleRemove, handleAdd, handleListChange } =
     useContext(RestrictionContext);
   return (
     <div className="FormRestrictions">
@@ -34,7 +34,6 @@ const FormSectionRestrictions = (props) => {
           />
         );
       })}
-      <p onClick={() => logList(props.name)}>log</p>
     </div>
   );
 };
