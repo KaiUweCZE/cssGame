@@ -3,8 +3,8 @@ import { minusIcon, plusIcon } from "../../data/ImagesData";
 import { BuildingFormContext } from "../../contexts/BuildingContexts";
 
 const FormSectionInputs = (props) => {
-  const [number, setNumber] = useState(1);
   const context = useContext(BuildingFormContext);
+  const [number, setNumber] = useState(1);
 
   const {
     propertiesBridge,
@@ -15,6 +15,10 @@ const FormSectionInputs = (props) => {
     valuesContainer,
     setPropertiesContainer,
     setValuesContainer,
+    handleAdd,
+    handleRemove,
+    handlePropertyChange,
+    handleValueChange,
   } = context;
 
   const [properties, setProperties] =
@@ -26,36 +30,6 @@ const FormSectionInputs = (props) => {
       ? [valuesBridge, setValuesBridge]
       : [valuesContainer, setValuesContainer];
 
-  const handleAdd = () => {
-    if (number < 4) {
-      setNumber((prev) => prev + 1);
-      setProperties([...properties, ""]);
-      setValues([...values, ""]);
-    }
-  };
-
-  const handleRemove = () => {
-    if (number > 0) {
-      setNumber((prev) => prev - 1);
-      const newProperties = properties.slice(0, -1);
-      setProperties(newProperties);
-      const newValues = values.slice(0, -1);
-      setValues(newValues);
-    }
-  };
-
-  const handlePropertyChange = (index, value) => {
-    const newProperties = properties.map((item, i) =>
-      i === index ? value : item
-    );
-    setProperties(newProperties);
-  };
-
-  const handleValueChange = (index, value) => {
-    const newValues = values.map((item, i) => (i === index ? value : item));
-    setValues(newValues);
-  };
-
   const printForm = (e) => {
     e.preventDefault();
     console.log(properties, values);
@@ -65,8 +39,16 @@ const FormSectionInputs = (props) => {
     <div className="FormSection">
       <div>
         <label htmlFor="">{props.label}:</label>
-        <img src={plusIcon} alt="" onClick={() => handleAdd()} />
-        <img src={minusIcon} alt="" onClick={() => handleRemove()} />
+        <img
+          src={plusIcon}
+          alt=""
+          onClick={() => handleAdd(props.label, number, setNumber)}
+        />
+        <img
+          src={minusIcon}
+          alt=""
+          onClick={() => handleRemove(props.label, number, setNumber)}
+        />
       </div>
       {Array.from({ length: number }, (_, index) => (
         <div key={index} className="GroupOfInputs">
@@ -74,13 +56,17 @@ const FormSectionInputs = (props) => {
             type="text"
             name={`name_${index}`}
             id={`id_${index}_1`}
-            onChange={(e) => handlePropertyChange(index, e.target.value)}
+            onChange={(e) =>
+              handlePropertyChange(index, e.target.value, props.label)
+            }
           />
           <input
             type="text"
             name={`value_${index}`}
             id={`id_${index}_2`}
-            onChange={(e) => handleValueChange(index, e.target.value)}
+            onChange={(e) =>
+              handleValueChange(index, e.target.value, props.label)
+            }
           />
         </div>
       ))}
