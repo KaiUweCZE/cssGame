@@ -1,21 +1,40 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { plusIcon, minusIcon } from "../../data/ImagesData";
+import { RestrictionContext } from "../../contexts/BuildingContexts";
 
 const FormSectionRestrictions = (props) => {
   const [number, setNumber] = useState(1);
-
-  const handleAdd = () => {};
-  const handleRemove = () => {};
+  const { logList, handleRemove, handleAdd, handleListChange } =
+    useContext(RestrictionContext);
   return (
     <div className="FormRestrictions">
       <div>
         <label htmlFor="">{props.name}:</label>
-        <img src={plusIcon} alt="" onClick={() => handleAdd()} />
-        <img src={minusIcon} alt="" onClick={() => handleRemove()} />
+        <img
+          src={plusIcon}
+          alt=""
+          onClick={() => handleAdd(props.name, number, setNumber)}
+        />
+        <img
+          src={minusIcon}
+          alt=""
+          onClick={() => handleRemove(props.name, number, setNumber)}
+        />
       </div>
       {Array.from({ length: number }, (_, index) => {
-        return <input type="text" name={`name_${index}`} id={`id_${index}`} />;
+        return (
+          <input
+            key={index}
+            type="text"
+            name={`name_${index}`}
+            id={`id_${index}`}
+            onChange={(e) =>
+              handleListChange(index, e.target.value, props.name)
+            }
+          />
+        );
       })}
+      <p onClick={() => logList(props.name)}>log</p>
     </div>
   );
 };
