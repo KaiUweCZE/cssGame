@@ -2,6 +2,7 @@ import React from "react";
 import FormSectionInputs from "./FormSectionInputs";
 import BuildingFormSubmit from "./BuildingFormSubmit";
 import FormSectionText from "./FormSectionText";
+import FormSectionRestrictions from "./FormSectionRestrictions";
 
 const BuildingForm = () => {
   return (
@@ -12,14 +13,8 @@ const BuildingForm = () => {
       </div>
       <FormSectionInputs label="bridge" />
       <FormSectionInputs label="container" />
-      <div className="FormTextarea">
-        <label htmlFor="">allowed:</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-      </div>
-      <div className="FormTextarea">
-        <label htmlFor="">denied:</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-      </div>
+      <FormSectionRestrictions name="allowed" />
+      <FormSectionRestrictions name="denied" />
       <BuildingFormSubmit />
     </form>
   );
