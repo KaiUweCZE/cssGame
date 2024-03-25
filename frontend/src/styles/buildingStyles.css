@@ -52,9 +52,19 @@
   gap: 1rem;
   max-width: 50%;
   padding: 2rem;
-  background-color: #c9e5f0;
+  background-color: #f1f1f1;
   max-height: 20rem;
   overflow-y: scroll;
+  overflow-y: scroll;
+}
+.BuildingForm::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.BuildingForm::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 190, 217, 0.5);
+}
+.BuildingForm::-webkit-scrollbar-thumb:hover {
+  background-color: #79bed9;
 }
 .BuildingForm input {
   font-weight: bold;
@@ -98,28 +108,39 @@
 
 .FormSection div {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .FormSection img {
-  width: 1.25rem;
+  width: 0.75rem;
   cursor: pointer;
   transition: 0.3s;
 }
+.FormSection img.deactivated {
+  opacity: 0.3;
+}
 .FormSection img:hover {
   transform: scale(1.1);
-  filter: brightness(0.2);
+}
+
+.FormButtonsGroup {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .FormRestrictions {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
-.FormRestrictions div {
+.FormRestrictions .LabelSection {
   display: flex;
   align-items: center;
+  width: 50%;
+  justify-content: space-between;
 }
 .FormRestrictions img {
-  width: 1.25rem;
+  width: 0.75rem;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -131,4 +152,14 @@
 .BuildingWarningLabel {
   color: rgb(248, 0, 0);
   font-weight: bold;
+}
+
+.GroupOfRestrictions {
+  display: flex;
+  width: 100%;
+}
+
+.FormSectionSelect {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=buildingStyles.css.map */

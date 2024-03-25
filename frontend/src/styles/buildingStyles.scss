@@ -38,9 +38,10 @@
   gap: 1rem;
   max-width: 50%;
   padding: 2rem;
-  background-color: #c9e5f0;
+  background-color: #f1f1f1;
   max-height: 20rem;
   overflow-y: scroll;
+  @include scroll-primary;
   input {
     font-weight: bold;
     background-color: transparent;
@@ -84,28 +85,39 @@
 .FormSection {
   div {
     display: flex;
+    justify-content: space-between;
     align-items: center;
   }
   img {
-    width: 1.25rem;
+    width: 0.75rem;
     cursor: pointer;
     transition: 0.3s;
+    &.deactivated {
+      opacity: 0.3;
+    }
     &:hover {
       transform: scale(1.1);
-      filter: brightness(0.2);
     }
   }
+}
+
+.FormButtonsGroup {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .FormRestrictions {
   display: flex;
   flex-direction: column;
-  div {
+  width: 100%;
+  .LabelSection {
     display: flex;
     align-items: center;
+    width: 50%;
+    justify-content: space-between;
   }
   img {
-    width: 1.25rem;
+    width: 0.75rem;
     cursor: pointer;
     transition: 0.3s;
     &:hover {
@@ -118,4 +130,14 @@
 .BuildingWarningLabel {
   color: rgb(248, 0, 0);
   font-weight: bold;
+}
+
+.GroupOfRestrictions {
+  display: flex;
+  width: 100%;
+}
+
+.FormSectionSelect {
+  display: flex;
+  flex-direction: column;
 }

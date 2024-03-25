@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { plusIcon, minusIcon } from "../../data/ImagesData";
+import { plusIcon2, minusIcon2 } from "../../data/ImagesData";
 import { RestrictionContext } from "../../contexts/BuildingContexts";
 
 const FormSectionRestrictions = (props) => {
@@ -8,18 +8,20 @@ const FormSectionRestrictions = (props) => {
     useContext(RestrictionContext);
   return (
     <div className="FormRestrictions">
-      <div>
+      <div className="LabelSection">
         <label htmlFor="">{props.name}:</label>
-        <img
-          src={plusIcon}
-          alt=""
-          onClick={() => handleAdd(props.name, number, setNumber)}
-        />
-        <img
-          src={minusIcon}
-          alt=""
-          onClick={() => handleRemove(props.name, number, setNumber)}
-        />
+        <div className="FormButtonsGroup">
+          <img
+            src={plusIcon2}
+            alt=""
+            onClick={() => handleAdd(props.name, number, setNumber)}
+          />
+          <img
+            src={minusIcon2}
+            alt=""
+            onClick={() => handleRemove(props.name, number, setNumber)}
+          />
+        </div>
       </div>
       {Array.from({ length: number }, (_, index) => {
         return (

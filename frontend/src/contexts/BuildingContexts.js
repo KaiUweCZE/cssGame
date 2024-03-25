@@ -7,6 +7,7 @@ export const BuildingProvider = ({ children }) => {
   const [propertiesContainer, setPropertiesContainer] = useState([""]);
   const [valuesBridge, setValuesBridge] = useState([""]);
   const [valuesContainer, setValuesContainer] = useState([""]);
+  const [maximumNumber, setMaximumNumber] = useState(false);
 
   const handleAdd = (type, number, setNumber) => {
     const setProperties =
@@ -17,6 +18,8 @@ export const BuildingProvider = ({ children }) => {
       setNumber((prev) => prev + 1);
       setProperties((prev) => [...prev, ""]);
       setValues((prev) => [...prev, ""]);
+    } else {
+      setMaximumNumber(true);
     }
     console.log(number, type);
   };
@@ -35,6 +38,7 @@ export const BuildingProvider = ({ children }) => {
       setProperties(newProperties);
       const newValues = values.slice(0, -1);
       setValues(newValues);
+      setMaximumNumber(false);
     }
   };
 
@@ -69,6 +73,7 @@ export const BuildingProvider = ({ children }) => {
     handleRemove,
     handlePropertyChange,
     handleValueChange,
+    maximumNumber,
   };
 
   return (

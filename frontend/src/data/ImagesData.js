@@ -37,6 +37,8 @@ import adobeColor from "../styles/images/adobe-color.webp";
 import animista from "../styles/images/animista.webp";
 import cssgradient from "../styles/images/gradient.webp";
 import toolsIcon from "../styles/images/icons/tools.webp";
+import plusIcon2 from "../styles/images/icons/plus.png";
+import minusIcon2 from "../styles/images/icons/minus.png";
 
 export const cssFormImages = {
   leftBracket,
@@ -72,6 +74,8 @@ export {
   mapBG,
   stoneImg,
   lockIcon,
+  plusIcon2,
+  minusIcon2,
 };
 export const enviromentImages = { dirt, lawn };
 export const labelImages = { circleIcon, curvedArrow, checkIcon };

@@ -1,7 +1,7 @@
 import React from "react";
 
-const WarningLabel = () => {
-  return <span className="BuildingWarningLabel">Wrong properties</span>;
+const WarningLabel = ({ text }) => {
+  return <span className="BuildingWarningLabel">{text}</span>;
 };
 
 export default WarningLabel;
