@@ -20,9 +20,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  background-color: #79BED9;
+  background-color: #79bed9;
   width: 100%;
-  max-width: 85rem;
+  max-width: 80rem;
   margin: 0 auto;
   height: calc(100dvh - 4rem);
   opacity: 0;
@@ -31,7 +31,7 @@
 }
 @media (min-width: 85rem) {
   .container-welcome {
-    box-shadow: inset 0 0 15px rgb(68, 68, 68);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
   }
 }
 
