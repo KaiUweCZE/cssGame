@@ -1,0 +1,165 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: rgb(50, 50, 50);
+}
+* body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+* ul {
+  list-style: none;
+}
+* a {
+  text-decoration: none;
+}
+
+.Building {
+  height: 100dvh;
+  background-color: #79bed9;
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.BuildingArea {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40vh;
+  z-index: 1;
+}
+.BuildingArea .end {
+  grid-column: 3;
+}
+.BuildingArea .box-wave {
+  grid-column: 2;
+  width: 50%;
+}
+.BuildingArea .container-bridge {
+  grid-column: 2;
+  width: 50%;
+  position: absolute;
+}
+
+.BuildingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 50%;
+  padding: 2rem;
+  background-color: #f1f1f1;
+  max-height: 20rem;
+  overflow-y: scroll;
+  overflow-y: scroll;
+}
+.BuildingForm::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.BuildingForm::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 190, 217, 0.5);
+}
+.BuildingForm::-webkit-scrollbar-thumb:hover {
+  background-color: #79bed9;
+}
+.BuildingForm input {
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.6);
+}
+.BuildingForm input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.BuildingForm input[type=text] {
+  width: 50%;
+  padding: 0.15rem;
+}
+.BuildingForm input[type=submit] {
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(80, 92, 96);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.35rem;
+  padding-inline: 1.5rem;
+  margin: 0 auto;
+  transition: 0.35s;
+}
+.BuildingForm input[type=submit]:hover {
+  background-color: black;
+}
+.BuildingForm label {
+  font-weight: bold;
+}
+
+.GroupOfInputs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.FormSection div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.FormSection img {
+  width: 0.75rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.FormSection img.deactivated {
+  opacity: 0.3;
+}
+.FormSection img:hover {
+  transform: scale(1.1);
+}
+
+.FormButtonsGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.FormRestrictions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.FormRestrictions .LabelSection {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-between;
+}
+.FormRestrictions img {
+  width: 0.75rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.FormRestrictions img:hover {
+  transform: scale(1.1);
+  filter: brightness(0.2);
+}
+
+.BuildingWarningLabel {
+  color: rgb(248, 0, 0);
+  font-weight: bold;
+}
+
+.GroupOfRestrictions {
+  display: flex;
+  width: 100%;
+}
+
+.FormSectionSelect {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=buildingStyles.css.map */
