@@ -10,7 +10,8 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
-
+  max-width: $max-width;
+  margin: 0 auto;
   h2 {
     font-size: 2rem;
   }
@@ -18,7 +19,6 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
   section {
     display: flex;
     flex-direction: column;
-    width: 50%;
   }
 
   p {
@@ -191,16 +191,19 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
 
 // styles for about page
 .container-about {
+  grid-column: 2;
   display: grid;
   background-color: $main-color;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  width: 80%;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-block: 3rem;
   padding: 1rem;
   box-shadow: 0 0 8px black;
-
+  max-width: $max-width;
+  max-height: 84dvh;
+  overflow-y: scroll;
+  @include scroll-primary;
   // styles for medium screen 65rem
   @include medium-screen {
     grid-template-columns: repeat(2, 1fr);
@@ -733,5 +736,27 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
     grid-area: 3 / span 2;
     right: 2.5rem;
     width: 12rem;
+  }
+}
+
+.wrapper-home {
+  display: grid;
+  grid-template-columns: 1fr 80rem 1fr;
+  gap: 1rem;
+  align-items: flex-start;
+  @media (width < 100rem) {
+    display: flex;
+  }
+}
+
+.container-home {
+  grid-column: 2;
+  grid-row: 1;
+  max-height: 100vh;
+  overflow-y: scroll;
+  @include scroll-primary;
+  @media (width < 100rem) {
+    width: 80vw;
+    grid-column: 1;
   }
 }
