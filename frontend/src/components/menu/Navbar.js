@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import { navbarImages } from "../../data/ImagesData";
 import { UserContext } from "../../contexts/UserContext";
+import hatIcon from "../../styles/images/icons/hat.svg"
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
@@ -33,9 +34,9 @@ const Navbar = () => {
             <img src={navbarImages.homeIcon} alt="" />
             <span>Home</span>
           </NavLink>
-          <NavLink className="menu__item" to="/about">
-            <img src={navbarImages.infoIcon} alt="" />
-            <span>About</span>
+          <NavLink className="menu__item" to="/academy">
+            <img src={hatIcon} alt="" />
+            <span>Academy</span>
           </NavLink>
           <NavLink className="menu__item" to="/game">
             <img src={navbarImages.gameIcon} alt="" />
