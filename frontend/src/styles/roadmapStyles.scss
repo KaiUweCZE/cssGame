@@ -1,286 +1,227 @@
+@import "./addons/variables", "./addons/mixins";
 
-// === part of code that is unlikely to be used ======
-$parallaxSpeedOne: -20;
-$parallaxSpeedTwo: -10;
-$parallaxSpeedThree: -8;
-
-$primary-color: #0A3A40;
+@include main-setting;
 
 $con: 2;
-.parallax{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6,1fr);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 200vh;
-    position: sticky;
-    z-index: -1;
-    img{
-        max-width: 100%;
-    }
-    .one{
-        grid-column: 1/2;
-        grid-row: 4;
-        animation: parallaxOne linear;
-        animation-timeline: scroll();
-    }
-    .two{
-        grid-column: 2/3;
-        grid-row: 2;
-        animation: parallaxTwo linear;
-        animation-timeline: scroll();
-    }
-    .three{
-        grid-column: 3/6;
-        grid-row: 3;
-        animation: parallaxThree linear;
-        animation-timeline: scroll();
-    } 
-}
-
-@keyframes parallaxOne {
-    to {
-        transform: translateY($parallaxSpeedOne * 50px) scale(2.2);
-    }
-}
-
-@keyframes parallaxTwo {
-    to {
-        transform: translateY($parallaxSpeedTwo * 50px) scale(1.5);
-    }
-}
-
-@keyframes parallaxThree {
-    to {
-        transform: translateY($parallaxSpeedThree * 50px) scale(2.75);
-    }
-}
-// ======== END OF UNUSED PART =======
 
 // background of roadmap
-.roadmap__background{
-    display: flex;
-    width: 90%;
-    max-width: 1600px;
-    max-height: 900px;
-    aspect-ratio: 16/9;
-    margin: 0 auto;
-    background-size: contain;
-    //background-position: center center;
-    background-repeat: no-repeat;
-    opacity: 0.1;
-    animation: blur .4s linear forwards;
+.roadmap__background {
+  display: flex;
+  width: 90%;
+  max-width: 1600px;
+  max-height: 900px;
+  aspect-ratio: 16/9;
+  margin: 0 auto;
+  background-size: contain;
+  //background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  animation: blur 0.4s linear forwards;
 }
 
 // grid that contains roadmap__items
-.roadmap{
-    display: grid;
-    grid-template-columns: repeat(64, 1fr);
-    grid-template-rows: repeat(36, 1fr);
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+.roadmap {
+  display: grid;
+  grid-template-columns: repeat(64, 1fr);
+  grid-template-rows: repeat(36, 1fr);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
-
 @keyframes blur {
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 // roadmap__item, it is used to select level on the map
-.roadmap__item{
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    //background-color: $primary-color;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    span{
-        font-size: clamp(.65rem, 1.65vw, 1.5rem);
-        font-weight: bold;
-        color: white;
-    }
-    &::after{
-        content: '';
-        position: absolute;
-        width: 3vw;
-        height: 3vw;
-        opacity: 1;
-        border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
-        background-color: rgba($primary-color, 0.6);
-        //background-color: rgba(black, 0.4);
-        filter: blur(0px);
-        z-index: -1;
-        transition: .5s;
-    }
-    &:hover::after{
-        opacity: 1;
-        border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
-        //animation: jello-horizontal .8s linear;
-        animation: light 1s linear forwards;
-        background-color: rgba($primary-color, 0.9);
-        //background-color: rgba(black, 0.8);
-    }
-    &.active::after{
-        background-color: rgba($color: rgb(247, 29, 29), $alpha: 0.6);
-    }
+.roadmap__item {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  span {
+    font-size: clamp(0.65rem, 1.65vw, 1.5rem);
+    font-weight: bold;
+    color: $secondary-color;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 3vw;
+    height: 3vw;
+    opacity: 1;
+    border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
+    background-color: rgba($main-color, 0.6);
+    filter: blur(0px);
+    z-index: -1;
+    transition: 0.5s;
+  }
+  &:hover::after {
+    opacity: 1;
+    border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
+    //animation: jello-horizontal .8s linear;
+    animation: light 1s linear forwards;
+    background-color: rgba($main-color, 0.9);
+  }
+  &.active::after {
+    background-color: rgba($error-color, 0.6);
+  }
 }
 
 @keyframes light {
-    0% {
-        border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
-        transform: rotate(0deg) scale(1);
-    }
-    50%{
-        border-radius: 56% 44% 70% 30% / 22% 68% 32% 78%;
-        transform: rotate(45deg) scale(1.2);
-    }
-    100%{
-        border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
-        transform: rotate(90deg) scale(1);
-    }
+  0% {
+    border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    border-radius: 56% 44% 70% 30% / 22% 68% 32% 78%;
+    transform: rotate(45deg) scale(1.2);
+  }
+  100% {
+    border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
+    transform: rotate(90deg) scale(1);
+  }
 }
 
 // locked is additional class for roadmap__item,
 // it is used when user's level is too low
-.locked{
-    img{
-        width: 2vw;
-        height: 2vw;
-        transform: rotate(5deg);
-        transition: .5s;
-    }
-    &:hover img{
-        transform: rotate(5deg) scale(1.1);
-    }
-    
+.locked {
+  img {
+    width: 2vw;
+    height: 2vw;
+    transform: rotate(5deg);
+    transition: 0.5s;
+  }
+  &:hover img {
+    transform: rotate(5deg) scale(1.1);
+  }
 }
 
 // below are postions of each level on the map
-.one{
-    grid-column: (9 * $con) /span 2;
-    grid-row: (3 * $con) /span 2;
+.one {
+  grid-column: (9 * $con) / span 2;
+  grid-row: (3 * $con) / span 2;
 }
 
-.two{
-    grid-column: (7 * $con) /span 2;
-    grid-row: (5 * $con) /span 2;
+.two {
+  grid-column: (7 * $con) / span 2;
+  grid-row: (5 * $con) / span 2;
 }
 
-.three{
-    grid-column: ( 5 * $con) /span 2;
-    grid-row: (7 * $con) /span 2;
-    left: -.6vw;
+.three {
+  grid-column: (5 * $con) / span 2;
+  grid-row: (7 * $con) / span 2;
+  left: -0.6vw;
 }
 
-.four{
-    grid-column: ( 6 * $con) /span 2;
-    grid-row: (9 * $con) /span 2;
+.four {
+  grid-column: (6 * $con) / span 2;
+  grid-row: (9 * $con) / span 2;
 }
 
-.five{
-    grid-column: (8 * $con) /span 2;
-    grid-row: (10 * $con) /span 2;
+.five {
+  grid-column: (8 * $con) / span 2;
+  grid-row: (10 * $con) / span 2;
 }
 
-.six{
-    grid-column: (10 * $con) /span 2;
-    grid-row: (11 * $con) /span 2;
-    top: -1vw;
+.six {
+  grid-column: (10 * $con) / span 2;
+  grid-row: (11 * $con) / span 2;
+  top: -1vw;
 }
 
-.seven{
-    grid-column: (12 * $con) /span 2;
-    grid-row: (10 * $con) /span 2;
-    top: 1vw;
+.seven {
+  grid-column: (12 * $con) / span 2;
+  grid-row: (10 * $con) / span 2;
+  top: 1vw;
 }
 
-.eight{
-    grid-column: (14 * $con) /span 2;
-    grid-row: (10 * $con) /span 2;
-    top: -.25vw;
+.eight {
+  grid-column: (14 * $con) / span 2;
+  grid-row: (10 * $con) / span 2;
+  top: -0.25vw;
 }
 
-.nine{
-    grid-column: (16 * $con) /span 2;
-    grid-row: (9 * $con) /span 2;
-    left: -.3vw;
+.nine {
+  grid-column: (16 * $con) / span 2;
+  grid-row: (9 * $con) / span 2;
+  left: -0.3vw;
 }
 
-.ten{
-    grid-column: (17 * $con) /span 2;
-    grid-row: (8 * $con) /span 2;
-    top: -.5vw;
+.ten {
+  grid-column: (17 * $con) / span 2;
+  grid-row: (8 * $con) / span 2;
+  top: -0.5vw;
 }
 
-.eleven{
-    grid-column: (18 * $con) /span 2;
-    grid-row: (6 * $con) /span 2;
-    left: .5vw;
+.eleven {
+  grid-column: (18 * $con) / span 2;
+  grid-row: (6 * $con) / span 2;
+  left: 0.5vw;
 }
 
-.twelve{
-    grid-column: (19 * $con) /span 2;
-    grid-row: (4 * $con) /span 2;
-    left: -1.2vw;
+.twelve {
+  grid-column: (19 * $con) / span 2;
+  grid-row: (4 * $con) / span 2;
+  left: -1.2vw;
 }
 
-.thirteen{
-    grid-column: (18 * $con) /span 2;
-    grid-row: (2 * $con) /span 2;
-    left: 1vw;
+.thirteen {
+  grid-column: (18 * $con) / span 2;
+  grid-row: (2 * $con) / span 2;
+  left: 1vw;
 }
 
-.fourteen{
-    grid-column: (21 * $con) /span 2;
-    grid-row:(1 * $con) /span 2;
+.fourteen {
+  grid-column: (21 * $con) / span 2;
+  grid-row: (1 * $con) / span 2;
 }
 
-.fifteen{
-    grid-column: (23 * $con) /span 2;
-    grid-row: (3 * $con) /span 2;
+.fifteen {
+  grid-column: (23 * $con) / span 2;
+  grid-row: (3 * $con) / span 2;
 }
 
-.sixteen{
-    grid-column: (23 * $con) /span 2;
-    grid-row: (5 * $con) /span 2;
-    left: 1.5vw;
+.sixteen {
+  grid-column: (23 * $con) / span 2;
+  grid-row: (5 * $con) / span 2;
+  left: 1.5vw;
 }
 
-.seventeen{
-    grid-column: (24 * $con) /span 2;
-    grid-row: (7 * $con) /span 2;
+.seventeen {
+  grid-column: (24 * $con) / span 2;
+  grid-row: (7 * $con) / span 2;
 }
 
-.eighteen{
-    grid-column: (24 * $con) /span 2;
-    grid-row: (9 * $con) /span 2;
-    left: -.5vw;
+.eighteen {
+  grid-column: (24 * $con) / span 2;
+  grid-row: (9 * $con) / span 2;
+  left: -0.5vw;
 }
 
-.nineteen{
-    grid-column: (25.5 * $con) /span 2;
-    grid-row: (11 * $con) /span 2;
+.nineteen {
+  grid-column: (25.5 * $con) / span 2;
+  grid-row: (11 * $con) / span 2;
 }
 
-.twenty{
-    grid-column: (26 * $con) /span 2;
-    grid-row: (13 * $con) /span 2;
+.twenty {
+  grid-column: (26 * $con) / span 2;
+  grid-row: (13 * $con) / span 2;
 }
 
-.twenty-one{
-    grid-column: (25 * $con) / span 2;
-    grid-row: (15 * $con) / span 2;
+.twenty-one {
+  grid-column: (25 * $con) / span 2;
+  grid-row: (15 * $con) / span 2;
 }
 
-.jello-horizontal{
-    -webkit-animation:jello-horizontal .9s both;
-    animation:jello-horizontal .9s both
+.jello-horizontal {
+  -webkit-animation: jello-horizontal 0.9s both;
+  animation: jello-horizontal 0.9s both;
 }
 
 /* ----------------------------------------------
@@ -289,13 +230,33 @@ $con: 2;
  * See http://animista.net/license for more info. 
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
-@keyframes jello-horizontal{
-    0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}
-    30%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}
-    40%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}
-    50%{-webkit-transform:scale3d(1.15,.85,1);transform:scale3d(1.15,.85,1)}
-    65%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}
-    75%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}
-    100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
 }
-

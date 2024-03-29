@@ -1,33 +1,31 @@
 //variables
 $primary-color: rgb(50, 50, 50);
 $secondary-color: white;
-$accent-color: #50A0BF;  
-$warning-color: #b02e37;
-$warning-alt-color: #ff3131;
+$error-color: #c95661;
+$addons-color: rgba(0, 0, 0, 0.6);
 
 // background themes
-$background-primary: #50A0BF;
-$background-secondary: #79BED9;
-$background-accent: #F2B680;
-$background-light: #F2C6AC;
-$background-alert: #F2A2A2;
-
+$background-primary: #50a0bf;
+$background-secondary: #79bed9;
 //
-$main-color: #0A3A40;
+$main-color: #0a3a40;
 
 // fonts settings
-$primary-font: 'Open Sans', sans-serif;
+$primary-font: "Open Sans", sans-serif;
 
 //margins and paddings
-$default-margin: .5rem;
-$default-padding: .5rem;
+$default-margin: 0.5rem;
+$default-padding: 0.5rem;
 
 //responzive breakpoints
 $breakpoint-sm: 40rem; // ? 36rem ??
 $breakpoint-md: 60rem; // 48rem ??
 $breakpoint-lg: 992px; // 62rem?
-$breakpoint-xl: 75rem; // or more? 
+$breakpoint-xl: 75rem; // or more?
 
 // shadows and border
-$default-radius: .5rem;
-$default-shadow: 0 0 8px rgba(0,0,0, 1);
+$default-radius: 0.5rem;
+$default-shadow: 0 0 8px rgba(0, 0, 0, 1);
+
+//length
+$max-width: 80rem;
