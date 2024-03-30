@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import { navbarImages } from "../../data/ImagesData";
 import { UserContext } from "../../contexts/UserContext";
-import hatIcon from "../../styles/images/icons/hat.svg"
+import hatIcon from "../../styles/images/icons/hat.svg";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
@@ -20,6 +20,10 @@ const Navbar = () => {
               <NavLink className="menu__item" to="/map">
                 <img src={navbarImages.mapIcon} alt="" />
                 <span>Map</span>
+              </NavLink>
+              <NavLink className="menu__item" to="/database">
+                <img src={navbarImages.databaseIcon} alt="" />
+                <span>Database</span>
               </NavLink>
               <NavLink className="menu__item" to="/building">
                 <img src={navbarImages.toolsIcon} alt="" />
