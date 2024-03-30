@@ -1,0 +1,126 @@
+.Database {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  background-color: #0a3a40;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.419);
+  overflow-y: scroll;
+  overflow-y: scroll;
+}
+.Database::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.Database::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 190, 217, 0.5);
+}
+.Database::-webkit-scrollbar-thumb:hover {
+  background-color: #79bed9;
+}
+.Database p {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.Database img {
+  filter: brightness(8);
+}
+.Database .wrapper-item {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s;
+  overflow: hidden;
+}
+.Database .wrapper-item p {
+  min-height: 0;
+  transition: 0.5s;
+  border-radius: 0.35rem;
+  background-color: rgba(76, 165, 165, 0.4);
+}
+.Database .wrapper-item.open {
+  grid-template-rows: 1fr;
+}
+.Database .wrapper-item.open p {
+  padding: 0.5rem;
+}
+.Database .DatabaseListHeadline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.Database .DatabaseListHeadline .toggles {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-self: flex-end;
+}
+.Database .DatabaseListHeadline .toggles button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 1.5rem;
+  background-color: rgba(76, 165, 165, 0.4);
+  border-radius: 0.35rem;
+  color: white;
+  font-weight: bold;
+  transition: 0.4s;
+}
+.Database .DatabaseListHeadline .toggles button:hover {
+  background-color: rgb(76, 165, 165);
+}
+@media (width < 100rem) {
+  .Database {
+    width: 80%;
+  }
+}
+
+.DatabaseList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.DatabaseList li {
+  width: 100%;
+  transition: 0.35s;
+  cursor: pointer;
+}
+.DatabaseList .toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+}
+.DatabaseList .toggle::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.25rem;
+  background-color: white;
+  transition: 0.35s 0.35s;
+  border-radius: 0.25rem;
+}
+.DatabaseList .toggle::before {
+  content: "";
+  position: absolute;
+  width: 0.25rem;
+  height: 100%;
+  background-color: white;
+  transition: 0.35s;
+  border-radius: 0.25rem;
+}
+.DatabaseList .toggle.open::after {
+  width: 0;
+  transition: 0.35s;
+}
+.DatabaseList .toggle.open::before {
+  transform: rotate(90deg);
+  transition: 0.35s 0.35s;
+}/*# sourceMappingURL=databaseStyles.css.map */

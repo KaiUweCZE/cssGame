@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useMutation, gql } from "@apollo/client";
 import {
   BuildingFormContext,
   RestrictionContext,
 } from "../../contexts/BuildingContexts";
+import { UserContext } from "../../contexts/UserContext";
 
 const CREATE_LEVEL = gql`
   mutation CreateLevel(
@@ -16,6 +17,7 @@ const CREATE_LEVEL = gql`
     $allowedList: [String]
     $deniedList: [String]
     $numberOfInputs: Int
+    $description: String
   ) {
     createLevel(
       name: $name
@@ -27,6 +29,7 @@ const CREATE_LEVEL = gql`
       allowedList: $allowedList
       deniedList: $deniedList
       numberOfInputs: $numberOfInputs
+      description: $description
     ) {
       id
     }
@@ -34,7 +37,10 @@ const CREATE_LEVEL = gql`
 `;
 const BuildingFormSubmit = () => {
   const [createLevel, { data, loading, error }] = useMutation(CREATE_LEVEL);
+  const { user } = useContext(UserContext);
   const {
+    description,
+    levelName,
     propertiesContainer,
     valuesContainer,
     propertiesBridge,
@@ -42,13 +48,16 @@ const BuildingFormSubmit = () => {
   } = useContext(BuildingFormContext);
   const { allowedList, deniedList } = useContext(RestrictionContext);
 
+  useEffect(() => {
+    console.log(user.name, description);
+  }, [user, description]);
   // createUser({ variables: {name: username, email: email, password: password}})
   const handleCreateLevel = (e) => {
     e.preventDefault();
     createLevel({
       variables: {
-        name: "LevelFromAmin",
-        author: "admin",
+        name: levelName,
+        author: user.name,
         bridgeProperties: propertiesBridge,
         bridgeValues: valuesBridge,
         containerProperties: propertiesContainer,
@@ -56,12 +65,13 @@ const BuildingFormSubmit = () => {
         allowedList: allowedList,
         deniedList: deniedList,
         numberOfInputs: 3,
+        description: description,
       },
     })
       .then(() => console.log("Level is set"))
       .catch((err) => {
         console.error(err);
-        console.log(propertiesContainer);
+        console.log(levelName, propertiesContainer, description);
       });
   };
   return <input type="submit" value="set" onClick={handleCreateLevel} />;

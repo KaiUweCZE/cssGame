@@ -8,6 +8,8 @@ export const BuildingProvider = ({ children }) => {
   const [valuesBridge, setValuesBridge] = useState([""]);
   const [valuesContainer, setValuesContainer] = useState([""]);
   const [maximumNumber, setMaximumNumber] = useState(false);
+  const [levelName, setLevelName] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleAdd = (type, number, setNumber) => {
     const setProperties =
@@ -74,6 +76,10 @@ export const BuildingProvider = ({ children }) => {
     handlePropertyChange,
     handleValueChange,
     maximumNumber,
+    levelName,
+    setLevelName,
+    description,
+    setDescription,
   };
 
   return (

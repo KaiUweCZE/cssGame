@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FormSectionInputs from "./FormSectionInputs";
 import BuildingFormSubmit from "./BuildingFormSubmit";
 import FormSectionText from "./FormSectionText";
 import FormSectionRestrictions from "./FormSectionRestrictions";
+import { BuildingFormContext } from "../../contexts/BuildingContexts";
 
 const BuildingForm = () => {
   const [select, setSelect] = useState("");
+  const [selectTextarea, setSelectTextarea] = useState(false);
+  const { setLevelName, setDescription } = useContext(BuildingFormContext);
 
   const handleSelect = (e) => {
     setSelect(e.target.value);
@@ -23,11 +26,26 @@ const BuildingForm = () => {
     }
   };
 
+  const renderTextarea = () => {
+    switch (selectTextarea) {
+      case value:
+        break;
+
+      default:
+        break;
+    }
+  };
+
   return (
     <form className="BuildingForm" action="">
       <div className="FormSection">
         <label htmlFor="">name of level:</label>
-        <input type="text" name="" id="" />
+        <input
+          type="text"
+          name=""
+          id=""
+          onChange={(e) => setLevelName(e.target.value)}
+        />
       </div>
       <FormSectionInputs label="bridge" />
       <FormSectionInputs label="container" />
@@ -42,6 +60,26 @@ const BuildingForm = () => {
         </select>
       </div>
       {renderSelect()}
+      <div className="FormSectionCheckbox">
+        <label>set description?</label>
+        <input
+          type="checkbox"
+          name=""
+          id=""
+          onClick={() => setSelectTextarea(!selectTextarea)}
+        />
+      </div>
+      {selectTextarea ? (
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          onChange={(e) => setDescription(e.target.value)}
+        ></textarea>
+      ) : (
+        ""
+      )}
       <BuildingFormSubmit />
     </form>
   );

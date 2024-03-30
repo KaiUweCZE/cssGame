@@ -3,7 +3,9 @@
 @include main-setting;
 
 .Building {
-  height: 100dvh;
+  grid-column: 2;
+  width: 100%;
+  height: calc(100dvh - 4rem);
   background-color: $background-secondary;
   position: relative;
   max-width: $max-width;
@@ -140,4 +142,21 @@
 .FormSectionSelect {
   display: flex;
   flex-direction: column;
+}
+
+.FormSectionCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  input[type="checkbox"] {
+    cursor: pointer;
+  }
+}
+
+textarea {
+  min-height: 10rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  transition: 1s;
 }
