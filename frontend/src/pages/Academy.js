@@ -6,7 +6,8 @@ import AsideBox from "../components/AsideBox";
 import academyImg from "../styles/images/academy2.webp";
 import book1Img from "../styles/images/book1.webp";
 import book2Img from "../styles/images/book2.webp";
-import SecretText from "../components/AboutClassComponents/SecretText";
+import SecretText from "../components/SecretText";
+import paperBg from "../styles/images/paper.webp";
 
 //I need to try subgrid
 const Academy = () => {
@@ -21,7 +22,11 @@ const Academy = () => {
   return (
     <div className="wrapper-academy">
       <div className="container-about">
-        {isOpen ? <SecretText text={isOpen} func={setIsOpen} /> : ""}
+        {isOpen ? (
+          <SecretText text={isOpen} func={setIsOpen} background={paperBg} />
+        ) : (
+          ""
+        )}
         {aboutLevelData.map((level, index) => {
           return (
             <>

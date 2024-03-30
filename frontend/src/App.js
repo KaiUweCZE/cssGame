@@ -14,6 +14,7 @@ import { LevelProvider } from "./contexts/FormContext";
 import LevelInfo from "./pages/LevelInfo";
 import Welcome from "./pages/Welcome";
 import Building from "./pages/Building";
+import Database from "./pages/Database";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path="/game" element={<Game />} />
                 <Route path="/login" element={<Registration />} />
                 <Route element={<ProtectedLayout />}>
+                  <Route path="/database" element={<Database />} />
                   <Route path="/building" element={<Building />} />
                   <Route path="/map" element={<RoadMap />} />
                   <Route path="/level/:id" element={<LevelInfo />} />

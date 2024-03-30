@@ -1,12 +1,14 @@
 import React from "react";
-import { texts } from "../../data/secretData";
-import paperBg from "../../styles/images/paper.webp";
+import { texts } from "../data/secretData";
 
-const SecretText = ({ text, func }) => {
+const SecretText = ({ text, func, background = "" }) => {
   const data = texts.find((e) => e.id === text);
   console.log(data);
   return (
-    <div className="secretText" style={{ backgroundImage: `url(${paperBg})` }}>
+    <div
+      className="secretText"
+      style={{ backgroundImage: `url(${background})` }}
+    >
       {data?.content.map((paragraph, index) => {
         return <p key={index}>{paragraph}</p>;
       })}
