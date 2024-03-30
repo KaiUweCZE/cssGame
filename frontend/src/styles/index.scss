@@ -205,6 +205,9 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
   overflow-y: scroll;
   @include scroll-primary;
   // styles for medium screen 65rem
+  @media (width < 100rem) {
+    width: 80%;
+  }
   @include medium-screen {
     grid-template-columns: repeat(2, 1fr);
   }

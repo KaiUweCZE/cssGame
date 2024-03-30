@@ -38,6 +38,9 @@ const LevelSchema = new mongoose.Schema({
     type: Number,
     default: 4,
   },
+  description: {
+    type: String,
+  },
 });
 
 export const Level = mongoose.model("Level", LevelSchema);

@@ -45,6 +45,7 @@ const LevelType = new GraphQLObjectType({
     allowedList: { type: new GraphQLList(GraphQLString) },
     deniedList: { type: new GraphQLList(GraphQLString) },
     numberOfInputs: { type: GraphQLInt },
+    description: { type: GraphQLString },
   }),
 });
 
@@ -62,6 +63,12 @@ const RootQueryType = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve: (parent, args) => {
         return User.findById(args.id);
+      },
+    },
+    levels: {
+      type: new GraphQLList(LevelType),
+      resolve: (root, args) => {
+        return Level.find();
       },
     },
   },
@@ -146,6 +153,7 @@ const mutation = new GraphQLObjectType({
         allowedList: { type: new GraphQLList(GraphQLString) },
         deniedList: { type: new GraphQLList(GraphQLString) },
         numberOfInputs: { type: GraphQLInt },
+        description: { type: GraphQLString },
       },
       resolve: async (parent, args) => {
         const level = new Level({
@@ -158,6 +166,7 @@ const mutation = new GraphQLObjectType({
           allowedList: args.allowedList,
           deniedList: args.deniedList,
           numberOfInputs: args.numberOfInputs,
+          description: args.description,
         });
         return level.save();
       },
