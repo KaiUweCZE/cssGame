@@ -20,7 +20,7 @@ const Building = () => {
         <UserContextProvider>
           <div className="wrapper-building">
             <div className="Building">
-              {open ? <SecretText text="nothing" func={setOpen} /> : ""}
+              {open ? <SecretText text="buildingInfo" func={setOpen} /> : ""}
               <BuildingForm />
               <BuildingArea />
             </div>

@@ -1,15 +1,16 @@
 import React from "react";
 import Mission from "./Mission";
-import "../styles/gameStyles.css"
-
+import "../styles/gameStyles.css";
+import AsideBox from "./AsideBox";
+import heroBackground from "../styles/images/waterfalls.webp";
 
 const Background = () => {
+  return (
+    <div className="container-background">
+      <Mission />
+      <AsideBox background={heroBackground}></AsideBox>
+    </div>
+  );
+};
 
-    return(
-        <div className="container-background">
-            <Mission />
-        </div>
-    )
-}
-
-export default Background
+export default Background;

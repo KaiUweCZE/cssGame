@@ -8,7 +8,7 @@ import {
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: "http://localhost:9000/graphql",
+    uri: "http://localhost:9001/graphql",
   }),
   cache: new InMemoryCache(),
 });

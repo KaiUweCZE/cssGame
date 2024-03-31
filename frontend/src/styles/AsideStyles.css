@@ -1,9 +1,28 @@
+.container-background:has(.AsideBox) {
+  max-height: calc(100vh - 4rem);
+  gap: 1rem;
+}
+.container-background:has(.AsideBox) .AsideBox {
+  max-height: calc(100vh - 4rem);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(36, 1fr);
+  aspect-ratio: 1/3;
+  position: relative;
+}
+@media (width < 100rem) {
+  .container-background:has(.AsideBox) .AsideBox {
+    display: none;
+  }
+}
+
 .wrapper-academy {
   display: grid;
   grid-template-columns: 1fr 80rem 1fr;
   gap: 1rem;
   align-items: flex-start;
   max-height: calc(100vh - 4rem);
+  position: relative;
 }
 @media (width < 100rem) {
   .wrapper-academy {
@@ -23,6 +42,7 @@
   gap: 1rem;
   align-items: flex-start;
   max-height: calc(100vh - 4rem);
+  position: relative;
 }
 @media (width < 100rem) {
   .wrapper-building {
@@ -47,12 +67,47 @@
   }
 }
 
+.Building:has(.secretText) {
+  background-color: transparent;
+}
+.Building:has(.secretText) .BuildingForm {
+  opacity: 0;
+}
+.Building:has(.secretText) .BuildingArea {
+  opacity: 0;
+}
+.Building:has(.secretText) .secretText {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 95%;
+  position: absolute;
+  z-index: 2;
+  margin-block: 2rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.445);
+  padding-inline: 3rem;
+  border-radius: 0.5rem;
+}
+.Building:has(.secretText) .secretText h1,
+.Building:has(.secretText) .secretText h2,
+.Building:has(.secretText) .secretText h3,
+.Building:has(.secretText) .secretText p {
+  font-family: "Open Sans", monospace;
+}
+.Building:has(.secretText) .secretText h2 {
+  font-size: 1.75rem;
+}
+.Building:has(.secretText) .secretText p {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
 .wrapper-database {
   display: grid;
   grid-template-columns: 1fr 80rem 1fr;
   gap: 1rem;
   align-items: flex-start;
   max-height: calc(100vh - 4rem);
+  position: relative;
   height: calc(100dvh - 4rem);
 }
 @media (width < 100rem) {
@@ -162,7 +217,7 @@
   border-radius: 0.15rem;
   height: 80vh;
   width: 78rem;
-  max-width: calc(80% - 2rem);
+  max-width: calc(80vw - 2rem);
   z-index: 1;
   filter: brightness(0.95);
   overflow-y: scroll;
@@ -191,6 +246,16 @@
   top: 0%;
   left: 55%;
   width: 35%;
+}
+
+.SecretTextBuilding ul {
+  display: flex;
+  flex-direction: column;
+}
+.SecretTextBuilding ul li {
+  list-style: disc;
+  list-style-position: inside;
+  font-size: 1.25rem;
 }
 
 p.ButtonEnd {

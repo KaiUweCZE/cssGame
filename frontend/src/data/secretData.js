@@ -3,6 +3,7 @@ import image1 from "../styles/images/cave1.webp";
 export const texts = [
   {
     id: "1",
+    type: "academy",
     content: [
       `<h1>Zápis z deníku rok 1997.</h1>`,
       `<table class="Lhota">`,
@@ -27,6 +28,7 @@ export const texts = [
   },
   {
     id: "2",
+    type: "academy",
     content: [
       `<h1>Zápis z deníku přelom roku 1997 a 1998.</h1>`,
       `<table class="Lhota">`,
@@ -49,5 +51,22 @@ export const texts = [
       "</tr>",
       "</table>",
     ],
+  },
+  {
+    id: "buildingInfo",
+    type: "building",
+    intro: {
+      h2: "Popis",
+      text: "Building mode slouží k vytváření vlastních levelů, které pak budou moci být plněny napříč uživateli, ti daný level posléze budou moci hodnotit, komentovat... v popředí budou ty nejvíce hrané/hodnocené, daný level musí být splnitelný a do databáze nebude poslán dříve, než jej tvůrce vyřeší podle pravidel, která stanový",
+    },
+    tips: {
+      h2: "Tipy",
+      li: [
+        "promítané styly se vám hned budou vizualizovat",
+        "za pomoci allowed listu / nebo denied listu nastavíte jaké css properties bude moci uživatel ovlivňovat, respektive nebude moci.",
+        "Zkuste aby daný level byl pokud možno originální, jednak je možné, že pokud bude velmi podobný, tak neprojde přes filtr",
+        "v případě, že level neprojde přes filtr, tak nevěste hlavu, zkontrolujte, jestli je podobnost s daným levelem, na který vás filter upozorní, opodstatněná. Pokud ne zkuste zanechat report a level bude vyhodnocen individuálně.",
+      ],
+    },
   },
 ];
