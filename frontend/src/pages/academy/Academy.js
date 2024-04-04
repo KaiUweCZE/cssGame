@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import { aboutLevelData } from "../data/AboutLevelData";
+import { aboutLevelData } from "@data/AboutLevelData";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../contexts/UserContext";
-import AsideBox from "../components/AsideBox";
-import academyImg from "../styles/images/academy2.webp";
-import book1Img from "../styles/images/book1.webp";
-import book2Img from "../styles/images/book2.webp";
-import SecretText from "../components/SecretText";
-import paperBg from "../styles/images/paper.webp";
+import { UserContext } from "@contexts/UserContext";
+import AsideBox from "@components/AsideBox";
+import academyImg from "@images/academy2.webp";
+import book1Img from "@images/book1.webp";
+import book2Img from "@images/book2.webp";
+import SecretText from "@components/SecretText";
+import paperBg from "@images/paper.webp";
 
 //I need to try subgrid
 const Academy = () => {

@@ -3,7 +3,7 @@ import FormSectionInputs from "./FormSectionInputs";
 import BuildingFormSubmit from "./BuildingFormSubmit";
 import FormSectionText from "./FormSectionText";
 import FormSectionRestrictions from "./FormSectionRestrictions";
-import { BuildingFormContext } from "../../contexts/BuildingContexts";
+import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 
 const BuildingForm = () => {
   const [select, setSelect] = useState("");

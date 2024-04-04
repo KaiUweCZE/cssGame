@@ -1,13 +1,11 @@
 import React, { forwardRef, useContext, useEffect } from "react";
 import { barkTexture } from "../../data/ImagesData";
-import {
-  LevelContext,
-  BridgeContext,
-  CheckContext,
-  ResultContext,
-  ContainerContext,
-  PartsContext,
-} from "../../contexts/FormContext";
+import { LevelContext } from "@contexts/form-contexts/levelContext";
+import { BridgeContext } from "@contexts/form-contexts/bridgeContext";
+import { CheckContext } from "@contexts/form-contexts/checkContext";
+import { ResultContext } from "@contexts/form-contexts/resultContext";
+import { ContainerContext } from "@contexts/form-contexts/containerContext";
+import { PartsContext } from "@contexts/form-contexts/partsContext";
 import AboutClass from "../AboutClassComponents/AboutClass";
 import Obstacle from "../Obstacle";
 import OneBridgeElement from "./OneBridgeElement";

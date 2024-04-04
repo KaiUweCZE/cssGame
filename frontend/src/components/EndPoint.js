@@ -1,31 +1,28 @@
-import React, { useContext } from 'react'
-import { enviromentImages } from '../data/ImagesData'
-import { LevelContext } from '../contexts/FormContext'
-import EnemyEmoji from './Emojis/EnemyEmojis'
-
+import React, { useContext } from "react";
+import { enviromentImages } from "@data/ImagesData";
+import { LevelContext } from "@contexts/form-contexts/levelContext";
+import EnemyEmoji from "./Emojis/EnemyEmojis";
 
 // last part of playground component
 const EndPoint = () => {
-    const{level} = useContext(LevelContext)
+  const { level } = useContext(LevelContext);
 
-    const specificStyle = {
-        // main texture of component
-        'backgroundImage': `url(${enviromentImages.dirt})`,
-        ...level?.endPointStyle
-    }
-    const lawnStyle = {
-        // texture on the top of the component
-        'backgroundImage': `url(${enviromentImages.lawn})`
-    }
+  const specificStyle = {
+    // main texture of component
+    backgroundImage: `url(${enviromentImages.dirt})`,
+    ...level?.endPointStyle,
+  };
+  const lawnStyle = {
+    // texture on the top of the component
+    backgroundImage: `url(${enviromentImages.lawn})`,
+  };
 
-    return(
-        <div className='end' style={specificStyle}>
-            <div className='lawn' style={lawnStyle}></div>
-            {
-            level.enemy ? <EnemyEmoji level={level.id}/> : ""
-            }
-        </div>
-    )
-}
+  return (
+    <div className="end" style={specificStyle}>
+      <div className="lawn" style={lawnStyle}></div>
+      {level.enemy ? <EnemyEmoji level={level.id} /> : ""}
+    </div>
+  );
+};
 
-export default EndPoint
+export default EndPoint;

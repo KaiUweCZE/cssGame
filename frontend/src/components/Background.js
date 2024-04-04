@@ -1,8 +1,8 @@
 import React from "react";
 import Mission from "./Mission";
-import "../styles/gameStyles.css";
+import "@styles/gameStyles.css";
 import AsideBox from "./AsideBox";
-import heroBackground from "../styles/images/waterfalls.webp";
+import heroBackground from "@images/waterfalls.webp";
 
 const Background = () => {
   return (

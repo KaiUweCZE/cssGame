@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { plusIcon2, minusIcon2 } from "../../data/ImagesData";
-import { RestrictionContext } from "../../contexts/BuildingContexts";
+import { RestrictionContext } from "@contexts/building-contexts/restrictionContext";
 
 const FormSectionRestrictions = (props) => {
   const [number, setNumber] = useState(1);

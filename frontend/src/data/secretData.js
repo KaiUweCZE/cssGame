@@ -1,4 +1,4 @@
-import image1 from "../styles/images/cave1.webp";
+import image1 from "@images/cave1.webp";
 
 export const texts = [
   {
