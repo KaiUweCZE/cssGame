@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import { RestrictionContext } from "@contexts/building-contexts/restrictionContext";
-import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../../../contexts/UserContext";
 
 const CREATE_LEVEL = gql`
   mutation CreateLevel(

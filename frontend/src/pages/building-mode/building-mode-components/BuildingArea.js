@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import River from "../River";
-import StartPoint from "../StartPoint";
-import EndPoint from "../EndPoint";
-import OneBridgeElement from "../BridgeComponents/OneBridgeElement";
-import { barkTexture } from "../../data/ImagesData";
+import River from "@components/River";
+import StartPoint from "@components/StartPoint";
+import EndPoint from "@components/EndPoint";
+import OneBridgeElement from "@components/bridge-components/OneBridgeElement";
+import { barkTexture } from "@data/ImagesData";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 
 const BuildingArea = () => {

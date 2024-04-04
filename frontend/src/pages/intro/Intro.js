@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "@styles/introStyles.css";
+import "@styles/intro-styles.css";
 import { enviromentImages, guideImg, masterImg } from "../../data/ImagesData";
-import GuideEmoji from "@components/Emojis/GuideEmoji";
-import MainEmoji from "@components/Emojis/MainEmoji";
-import FirstScene from "@components/Intro/FirstScene";
-import SecondScene from "../../components/Intro/SecondScene";
-import ThirdScene from "../../components/Intro/ThirdScene";
+import GuideEmoji from "@components/emojis/GuideEmoji";
+import MainEmoji from "@components/emojis/MainEmoji";
+import FirstScene from "@pages/intro/intro-components/FirstScene";
+import SecondScene from "./intro-components/SecondScene";
+import ThirdScene from "./intro-components/ThirdScene";
 import { useNavigate } from "react-router-dom";
 
 // this page will serve as an intro to the game

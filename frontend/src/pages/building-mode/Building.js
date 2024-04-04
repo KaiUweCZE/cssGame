@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "@styles/buildingStyles.css";
-import BuildingArea from "@components/buildingMode/BuildingArea";
-import BuildingForm from "@components/buildingMode/BuildingForm";
+import "@styles/building-styles.css";
+import BuildingArea from "@pages/building-mode/building-mode-components/BuildingArea";
+import BuildingForm from "@pages/building-mode/building-mode-components/BuildingForm";
 import { RestrictionProvider } from "@contexts/building-contexts/restrictionContext";
 import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
 import AsideBox from "../../components/AsideBox";

@@ -1,28 +1,13 @@
 import React, { useState, useContext } from "react";
-import "@styles/roadmapStyles.css";
+import "@styles/roadmap-styles.css";
 import { mapBG } from "../../data/ImagesData";
 import { UserContext } from "../../contexts/UserContext";
-import RoadmapLevel from "../../components/RoadmapLevel";
+import RoadmapLevel from "./road-map-components/RoadmapLevel";
 import { useSetLevel } from "@utils/useSetLevel";
 
 const RoadMap = () => {
   const { user } = useContext(UserContext);
   const level = user.level;
-
-  /*const {setStyle, setLevel} = useContext(LevelContext)
-    const [result, setResult] = useState("")
-
-
-    const nextLevel = (level) =>{
-        const currentLevel = levelData.find(e => e.id === level)
-        setResult(currentLevel.id)
-        console.log(currentLevel);
-        setLevel(currentLevel)
-        console.log("current level", currentLevel);
-        setStyle({container: currentLevel.containerStyles, bridge: currentLevel.bridgeStyles, partOfBridge: currentLevel.partOfBridgeStyles})
-        //setStyle({bridge: bridgeStyle, partOfBridge: partStyle})
-        window.location.href = '/game'
-    }*/
 
   const { nextLevel } = useSetLevel();
 

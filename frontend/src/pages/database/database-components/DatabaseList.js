@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { plusIcon } from "../../data/ImagesData";
+import { plusIcon } from "../../../data/ImagesData";
 
 const DatabaseList = ({ items }) => {
   const [open, setOpen] = useState({ active: false, id: null });
