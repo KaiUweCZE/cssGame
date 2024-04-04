@@ -6,7 +6,7 @@ import { CheckContext } from "@contexts/form-contexts/checkContext";
 import { ResultContext } from "@contexts/form-contexts/resultContext";
 import { ContainerContext } from "@contexts/form-contexts/containerContext";
 import { PartsContext } from "@contexts/form-contexts/partsContext";
-import AboutClass from "../AboutClassComponents/AboutClass";
+import AboutClass from "../../pages/game/game-components/about-class-components/AboutClass";
 import Obstacle from "../Obstacle";
 import OneBridgeElement from "./OneBridgeElement";
 import ManyBridgeElement from "./ManyBridgeElement";

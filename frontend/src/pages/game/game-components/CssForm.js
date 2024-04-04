@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { cssFormImages } from "../data/ImagesData";
-import { list } from "../data/listOfProperities";
-import ErrorMessage from "./Errors/ErrorMessage";
-import SuggestList from "./SuggestList";
+import { cssFormImages } from "../../../data/ImagesData";
+import { list } from "../../../data/listOfProperities";
+import ErrorMessage from "../../../components/errors/ErrorMessage";
+import SuggestList from "../../../components/SuggestList";
 import { contextValues, useFormInputs } from "@utils/cssFormFunctions";
 import { EmojiContext } from "@contexts/emojiContext";
 import { BridgeContext } from "@contexts/form-contexts/bridgeContext";
@@ -10,7 +10,7 @@ import { ResultContext } from "@contexts/form-contexts/resultContext";
 import { ContainerContext } from "@contexts/form-contexts/containerContext";
 import { LevelContext } from "@contexts/form-contexts/levelContext";
 import { PartsContext } from "@contexts/form-contexts/partsContext";
-import useLevelUp from "@utils/Queries";
+import useLevelUp from "@utils/queries/useLevelUp";
 import { UserContext } from "@contexts/UserContext";
 import { styleChecker } from "@utils/styleChecker";
 

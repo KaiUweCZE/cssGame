@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SignInForm from "../../components/SignInForm";
-import SignUpForm from "../../components/SignUpForm";
+import SignInForm from "./registration-components/SignInForm";
+import SignUpForm from "./registration-components/SignUpForm";
 
 const Registration = () => {
   const [formType, setFormType] = useState(false);

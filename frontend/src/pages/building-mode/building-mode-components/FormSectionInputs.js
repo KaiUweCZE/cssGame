@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { minusIcon2, plusIcon2 } from "../../data/ImagesData";
+import { minusIcon2, plusIcon2 } from "../../../data/ImagesData";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import { checkProperties } from "@utils/buildingFunctions";
 import WarningLabel from "./WarningLabel";

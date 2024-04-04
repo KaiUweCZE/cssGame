@@ -8,7 +8,7 @@ import { EmojiProvider } from "@contexts/emojiContext";
 import { LevelContext } from "@contexts/form-contexts/levelContext";
 import { PartsProvider } from "@contexts/form-contexts/partsContext";
 import { ResultProvider } from "@contexts/form-contexts/resultContext";
-import EmptyBox from "./EmptyBox";
+import EmptyBox from "../../../components/EmptyBox";
 import Clouds from "./Clouds";
 
 const Mission = () => {

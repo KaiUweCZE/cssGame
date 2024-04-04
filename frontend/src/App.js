@@ -12,7 +12,7 @@ import RoadMap from "@pages/road-map/RoadMap";
 import ProtectedLayout from "./components/ProtectedLayout";
 import { LevelProvider } from "@contexts/form-contexts/levelContext";
 import LevelInfo from "@pages/academy/LevelInfo";
-import Welcome from "@pages/welcome/Welcome";
+import Welcome from "@pages/intro/Intro";
 import Building from "@pages/building-mode/Building";
 import Database from "@pages/database/Database";
 
