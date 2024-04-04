@@ -659,7 +659,7 @@ img.obstacle {
   display: grid;
   grid-template: 1fr/1fr;
   position: absolute;
-  top: -58vh;
+  top: -125%;
   right: -88%;
   width: 3rem;
   cursor: pointer;
@@ -675,7 +675,7 @@ img.obstacle {
   position: absolute;
   width: 12rem;
   right: -95%;
-  top: -52vh;
+  top: -110%;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0.35rem;

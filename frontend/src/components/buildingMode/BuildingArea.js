@@ -4,7 +4,7 @@ import StartPoint from "../StartPoint";
 import EndPoint from "../EndPoint";
 import OneBridgeElement from "../BridgeComponents/OneBridgeElement";
 import { barkTexture } from "../../data/ImagesData";
-import { BuildingFormContext } from "../../contexts/BuildingContexts";
+import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 
 const BuildingArea = () => {
   const {

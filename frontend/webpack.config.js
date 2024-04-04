@@ -28,6 +28,21 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: [".js"],
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      "@assets": path.resolve(__dirname, "src", "assets"),
+      "@components": path.resolve(__dirname, "src", "components"),
+      "@contexts": path.resolve(__dirname, "src", "contexts"),
+      "@data": path.resolve(__dirname, "src", "data"),
+      //"@features": path.resolve(__dirname, "src", "features"),
+      "@images": path.resolve(__dirname, "src", "assets", "images"),
+      "@pages": path.resolve(__dirname, "src", "pages"),
+      "@styles": path.resolve(__dirname, "src", "assets", "styles"),
+      "@utils": path.resolve(__dirname, "src", "utils"),
+    },
+  },
   devServer: {
     historyApiFallback: true,
   },

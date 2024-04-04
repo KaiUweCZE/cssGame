@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/AsideStyles.css";
+import "@styles/AsideStyles.css";
 
 const AsideBox = ({ background, cssClass = "", children }) => {
   return (

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { gql, useQuery } from "@apollo/client";
-import "../styles/databaseStyles.css";
-import AsideBox from "../components/AsideBox";
-import officeBackground from "../styles/images/office.webp";
-import DatabaseList from "../components/databaseComponents/DatabaseList";
+import "@styles/databaseStyles.css";
+import AsideBox from "../../components/AsideBox";
+import officeBackground from "@images/office.webp";
+import DatabaseList from "../../components/databaseComponents/DatabaseList";
 
 const GET_LEVELS = gql`
   query GetLevels {

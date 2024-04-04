@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import "../styles/buildingStyles.css";
-import BuildingArea from "../components/buildingMode/BuildingArea";
-import BuildingForm from "../components/buildingMode/BuildingForm";
-import {
-  BuildingProvider,
-  RestrictionProvider,
-} from "../contexts/BuildingContexts";
-import AsideBox from "../components/AsideBox";
-import buildingBackground from "../styles/images/workshop3.webp";
-import drawerImg from "../styles/images/drawer.webp";
-import { UserContextProvider } from "../contexts/UserContext";
-import SecretText from "../components/SecretText";
+import "@styles/buildingStyles.css";
+import BuildingArea from "@components/buildingMode/BuildingArea";
+import BuildingForm from "@components/buildingMode/BuildingForm";
+import { RestrictionProvider } from "@contexts/building-contexts/restrictionContext";
+import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
+import AsideBox from "../../components/AsideBox";
+import buildingBackground from "@images/workshop3.webp";
+import drawerImg from "@images/drawer.webp";
+import { UserContextProvider } from "@contexts/UserContext";
+import SecretText from "@components/SecretText";
 
 const Building = () => {
   const [open, setOpen] = useState(false);

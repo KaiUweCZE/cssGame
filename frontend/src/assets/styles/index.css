@@ -666,7 +666,7 @@
   grid-template-rows: 1fr 1fr 1fr;
   position: absolute;
   right: -95%;
-  top: -60vh;
+  top: -130%;
   width: 15rem;
   height: 10rem;
   z-index: 0;

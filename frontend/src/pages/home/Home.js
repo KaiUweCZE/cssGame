@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { UserContext } from "../contexts/UserContext";
-import AsideBox from "../components/AsideBox";
+import { UserContext } from "../../contexts/UserContext";
+import AsideBox from "../../components/AsideBox";
 
 const Home = () => {
   const { user } = useContext(UserContext);
