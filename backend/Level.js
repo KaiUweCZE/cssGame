@@ -40,6 +40,7 @@ const LevelSchema = new mongoose.Schema({
   },
   description: {
     type: String,
+    maxlength: [500, "String can not have length more than 500 chars"],
   },
 });
 

@@ -13,5 +13,5 @@
       "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "../src/intro-components", "../src/IntroOld.js"]
 }

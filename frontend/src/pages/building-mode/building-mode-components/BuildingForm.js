@@ -71,10 +71,12 @@ const BuildingForm = () => {
       </div>
       {selectTextarea ? (
         <textarea
-          name=""
-          id=""
+          name="description"
+          id="descripton"
           cols="30"
           rows="10"
+          maxLength="500"
+          placeholder="max length of the text is 500 chars"
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
       ) : (

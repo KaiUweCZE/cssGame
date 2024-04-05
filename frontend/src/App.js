@@ -4,7 +4,6 @@ import SharedLayout from "./components/SharedLayout";
 import Home from "@pages/home/Home";
 import Game from "@pages/game/Game";
 import Academy from "@pages/academy/Academy";
-import Graph from "@pages/Graph";
 import Registration from "@pages/registration/Registration";
 import { ApolloClientProvider } from "./client";
 import { UserContextProvider } from "./contexts/UserContext";
@@ -12,9 +11,9 @@ import RoadMap from "@pages/road-map/RoadMap";
 import ProtectedLayout from "./components/ProtectedLayout";
 import { LevelProvider } from "@contexts/form-contexts/levelContext";
 import LevelInfo from "@pages/academy/LevelInfo";
-import Welcome from "@pages/intro/Intro";
 import Building from "@pages/building-mode/Building";
 import Database from "@pages/database/Database";
+import Intro from "@pages/intro/Intro";
 
 const App = () => {
   return (
@@ -33,7 +32,7 @@ const App = () => {
                   <Route path="/building" element={<Building />} />
                   <Route path="/map" element={<RoadMap />} />
                   <Route path="/level/:id" element={<LevelInfo />} />
-                  <Route path="/welcome" element={<Welcome />} />
+                  <Route path="/welcome" element={<Intro />} />
                 </Route>
               </Route>
             </Routes>
