@@ -285,6 +285,14 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
     flex-direction: column;
     gap: 0.5rem;
   }
+  @include small-screen {
+    main,
+    section {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 1rem;
+    }
+  }
   hr {
     border: 0.1rem solid #297883;
     opacity: 0.15;
@@ -339,6 +347,10 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
         width: 560px;
         height: 315px;
       }
+      @include small-screen {
+        width: 80%;
+        height: auto;
+      }
     }
   }
   .tip__section {
@@ -391,6 +403,12 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
       transform: translateY(20rem);
       transition: 0.5s;
       z-index: 2;
+    }
+    @include small-screen {
+      p,
+      h2 {
+        font-size: 1.5rem;
+      }
     }
     &:hover p {
       opacity: 1;

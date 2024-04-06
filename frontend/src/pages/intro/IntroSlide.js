@@ -13,7 +13,7 @@ const IntroSlide = (props) => {
   };
   return (
     <section
-      className="intro-background"
+      className={`intro-background ${props.classPortrait}`}
       style={{ backgroundImage: `url(${props.background})` }}
     >
       <article className={props.position !== "" ? props.position : ""}>

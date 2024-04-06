@@ -1,3 +1,6 @@
+@import "../../assets/styles/addons/mixins",
+  "../../assets/styles/addons/variables";
+
 .intro {
   display: flex;
   position: relative;
@@ -8,6 +11,9 @@
   aspect-ratio: 16/9;
   margin: 0 auto;
   overflow: hidden;
+  &:has(.portrait) {
+    aspect-ratio: 2/3;
+  }
 }
 
 .intro-background {
@@ -15,7 +21,6 @@
   background-color: green;
   position: relative;
   width: 90%;
-  aspect-ratio: 16/9;
   margin: 0 auto;
   background-size: cover;
   background-position: center;
@@ -27,9 +32,27 @@
     left: 8%;
     background-color: rgba(white, 0.7);
     width: 65%;
+    max-height: 75%;
     padding: 1rem;
     border-radius: 0.5rem 0.5rem 3rem 0.5rem;
     font-size: 1.2rem;
+    overflow-y: scroll;
+    @include scroll-primary;
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  &.portrait {
+    background-position: top;
+  }
+  @include medium-screen {
+    article {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -64,4 +87,11 @@ article.second-position {
 
 article.third-position {
   top: 55%;
+}
+
+.portrait:has(.third-position) {
+  background-position: bottom;
+  article.third-position {
+    top: 15%;
+  }
 }

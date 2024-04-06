@@ -7,6 +7,7 @@
   align-items: flex-start;
   max-height: calc(100vh - 4rem);
   position: relative;
+  overflow: hidden;
 }
 
 @mixin clasicAside {
@@ -15,6 +16,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(36, 1fr);
+  //height: calc(100vh - 4rem);
   max-height: 51vw;
   width: 17vw;
   background-position: center;
@@ -28,6 +30,7 @@
 
 .container-background:has(.AsideBox) {
   max-height: calc(100vh - 4rem);
+  overflow: hidden;
   gap: 1rem;
   .AsideBox {
     @include clasicAside;

@@ -9,13 +9,15 @@
   margin: 0 auto;
   overflow: hidden;
 }
+.intro:has(.portrait) {
+  aspect-ratio: 2/3;
+}
 
 .intro-background {
   display: flex;
   background-color: green;
   position: relative;
   width: 90%;
-  aspect-ratio: 16/9;
   margin: 0 auto;
   background-size: cover;
   background-position: center;
@@ -28,9 +30,35 @@
   left: 8%;
   background-color: rgba(255, 255, 255, 0.7);
   width: 65%;
+  max-height: 75%;
   padding: 1rem;
   border-radius: 0.5rem 0.5rem 3rem 0.5rem;
   font-size: 1.2rem;
+  overflow-y: scroll;
+  overflow-y: scroll;
+}
+.intro-background article::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.intro-background article::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 190, 217, 0.5);
+}
+.intro-background article::-webkit-scrollbar-thumb:hover {
+  background-color: #79bed9;
+}
+.intro-background article::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.intro-background article::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
+.intro-background.portrait {
+  background-position: top;
+}
+@media (max-width: 65rem) {
+  .intro-background article {
+    font-size: 1rem;
+  }
 }
 
 .button-next {
@@ -61,4 +89,11 @@ article.second-position {
 
 article.third-position {
   top: 55%;
-}/*# sourceMappingURL=new-styles.css.map */
+}
+
+.portrait:has(.third-position) {
+  background-position: bottom;
+}
+.portrait:has(.third-position) article.third-position {
+  top: 15%;
+}/*# sourceMappingURL=intro-styles.css.map */

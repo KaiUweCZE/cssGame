@@ -1,78 +1,89 @@
-
 @mixin main-setting {
-    * {
-        font-family: 'Open Sans', sans-serif;
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        color: $primary-color;
-        body{
-            width: 100vw;
-            overflow-x: hidden;
-        }
-        ul{
-            list-style: none;
-        }
-        a{
-            text-decoration: none;
-        }
+  * {
+    font-family: "Open Sans", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: $primary-color;
+    body {
+      width: 100vw;
+      overflow-x: hidden;
     }
+    ul {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
-@mixin medium-screen{
-    @media (max-width: 65rem){
-        @content;
-    }
+@mixin large-screen {
+  @media (width < 80rem) {
+    @content;
+  }
 }
 
-@mixin small-screen{
-    @media (max-width: 40rem) {
-        @content;
-    }
+@mixin different-aspect-ratio {
+  @media (min-aspect-ratio: 3/1) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (max-width: 65rem) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media (max-width: 40rem) {
+    @content;
+  }
 }
 
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin box-frame {
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
 }
 
 @mixin button-style($bg-color: $primary-color, $text-color: $secondary-color) {
-    padding: .5rem 1rem;
-    background-color: $bg-color;
-    color: $text-color;
-    border: none;
-    border-radius: $border-radius;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 0.5rem 1rem;
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
-    &:hover {
-        background-color: darken($bg-color, 10%);
-    }
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
 }
 
-@mixin scroll-primary{
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        width: .5rem;
-    }
-    &::-webkit-scrollbar-thumb{
-        background-color: rgba($background-secondary, 0.5);
+@mixin scroll-primary {
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($background-secondary, 0.5);
 
-        &:hover{
-            background-color: rgba($background-secondary, 1);
-        }
+    &:hover {
+      background-color: rgba($background-secondary, 1);
     }
+  }
 }
 
 @mixin flexbox($direction: column, $align: center, $justify: center) {
-    display: flex;
-    flex-direction: $direction;
-    align-items: $align;
-    justify-content: $justify;
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
 }

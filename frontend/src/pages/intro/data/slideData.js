@@ -1,6 +1,9 @@
-import firstImg from "@images/firstScene.webp";
+import firstImg from "@images/firstScene2.webp";
+import firstMobileImg from "@images/firstScene-mobile.webp";
 import secondImg from "@images/secondScene.webp";
-import thirdImg from "@images/thirdScene3.webp";
+import secondMobileImg from "@images/secondScene-mobile.webp";
+import thirdImg from "@images/thirdScene2.webp";
+import thirdMobileImg from "@images/thirdScene-mobile.webp";
 export const slideData = [
   {
     id: 1,
@@ -10,6 +13,7 @@ export const slideData = [
     Připrav se na dobrodružství, které otestují tvé schopnosti a možná, jen možná, ti otevřou dveře do kouzelného světa CSS, kde se skrývá moc přetvářet web podle tvého přání.
     Postupně, krok za krokem, můžeš Emojiho zachránit. Cesta světem css je trnitá, plná překážek. Jsi připraven dostat Emojiho domů?`,
     image: firstImg,
+    mobileImage: firstMobileImg,
   },
   {
     id: 2,
@@ -17,12 +21,14 @@ export const slideData = [
     paragraph: `Tohle je nemožné, jak se mám dostat zpět? Přes tu divokou řeku se nikdy nepřebrodím.",
     `,
     image: firstImg,
+    mobileImage: firstMobileImg,
   },
   {
     id: 3,
     headline: "Win-cha",
     paragraph: `Další dobrodružství? Kdo si žádá mou pomoc? Je čas dopsat tisíce bitev!`,
     image: secondImg,
+    mobileImage: secondMobileImg,
     position: "second-position",
   },
   {
@@ -30,6 +36,7 @@ export const slideData = [
     headline: "Jdi po své cestě!",
     paragraph: `iusto laboriosam rem sapiente! Vitae nesciunt incidunt repudiandae delectus quis aliquam omnis nobis, esse ut, adipisci, recusandae non maiores totam voluptatum sint harum.`,
     image: thirdImg,
+    mobileImage: thirdMobileImg,
     position: "third-position",
   },
 ];

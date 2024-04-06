@@ -1,5 +1,6 @@
 .container-background:has(.AsideBox) {
   max-height: calc(100vh - 4rem);
+  overflow: hidden;
   gap: 1rem;
 }
 .container-background:has(.AsideBox) .AsideBox {
@@ -28,6 +29,7 @@
   align-items: flex-start;
   max-height: calc(100vh - 4rem);
   position: relative;
+  overflow: hidden;
 }
 @media (width < 100rem) {
   .wrapper-academy {
@@ -48,6 +50,7 @@
   align-items: flex-start;
   max-height: calc(100vh - 4rem);
   position: relative;
+  overflow: hidden;
 }
 @media (width < 100rem) {
   .wrapper-building {
@@ -114,6 +117,7 @@
   align-items: flex-start;
   max-height: calc(100vh - 4rem);
   position: relative;
+  overflow: hidden;
   height: calc(100dvh - 4rem);
 }
 @media (width < 100rem) {
