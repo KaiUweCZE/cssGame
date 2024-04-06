@@ -33,11 +33,13 @@ const Mission = () => {
                         state={containerClass}
                         func={setContainerClass}
                       />
-                    ) : (
+                    ) : !level.banForm ? (
                       <EmptyBox
                         state={containerClass}
                         func={setContainerClass}
                       />
+                    ) : (
+                      ""
                     )}
                     {level?.partsStyle ? (
                       partsClass ? (

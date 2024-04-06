@@ -758,6 +758,16 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
     right: 2.5rem;
     width: 12rem;
   }
+  @include large-screen {
+    position: fixed;
+    top: 4rem;
+    right: 3rem;
+  }
+  @include different-aspect-ratio {
+    position: absolute;
+    top: -43vh;
+    right: -95%;
+  }
 }
 
 .wrapper-home {

@@ -730,6 +730,20 @@
   right: 2.5rem;
   width: 12rem;
 }
+@media (width < 80rem) {
+  .temporary__box {
+    position: fixed;
+    top: 4rem;
+    right: 3rem;
+  }
+}
+@media (min-aspect-ratio: 3/1) {
+  .temporary__box {
+    position: absolute;
+    top: -43vh;
+    right: -95%;
+  }
+}
 
 .wrapper-home {
   display: grid;
