@@ -16,11 +16,13 @@
 1. number of css properties => it defines how many styles a user can use for a change
 2. allowed css properties => list of properties wich can be used
 3. not allowed css properties => list of properties wich can not be used
+4. banForm
 */
 export const levelData = [
   {
     id: 1,
     numberOfProperties: 1,
+    banForm: true,
     containerStyles: {
       display: "flex",
       width: "100%",
