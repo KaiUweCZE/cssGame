@@ -1,6 +1,6 @@
 import React from "react";
 import StartPoint from "../../../components/StartPoint";
-import CrossRoad from "../../../components/CrossRoad";
+import CrossRoad from "./CrossRoad";
 import EndPoint from "../../../components/EndPoint";
 import MainEmoji from "../../../components/emojis/MainEmoji";
 import ResultMessage from "../../../components/ResultMessage";
@@ -12,7 +12,7 @@ const PlayGround = () => {
     <div className="container-playground">
       <StartPoint />
       <CrossRoad />
-      <EndPoint />
+      <EndPoint mode="game" />
       <MainEmoji />
       <ResultMessage />
     </div>

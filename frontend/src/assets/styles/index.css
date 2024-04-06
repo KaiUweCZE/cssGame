@@ -279,6 +279,14 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+@media (max-width: 40rem) {
+  .container-level main,
+  .container-level section {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+}
 .container-level hr {
   border: 0.1rem solid #297883;
   opacity: 0.15;
@@ -335,6 +343,12 @@
     height: 315px;
   }
 }
+@media (max-width: 40rem) {
+  .container-level .video__section iframe {
+    width: 80%;
+    height: auto;
+  }
+}
 .container-level .tip__section {
   background-color: rgba(45, 221, 183, 0.2);
 }
@@ -386,6 +400,12 @@
   transform: translateY(20rem);
   transition: 0.5s;
   z-index: 2;
+}
+@media (max-width: 40rem) {
+  .container-level .article__card p,
+  .container-level .article__card h2 {
+    font-size: 1.5rem;
+  }
 }
 .container-level .article__card:hover p {
   opacity: 1;

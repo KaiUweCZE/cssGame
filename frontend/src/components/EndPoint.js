@@ -4,7 +4,7 @@ import { LevelContext } from "@contexts/form-contexts/levelContext";
 import EnemyEmoji from "./emojis/EnemyEmojis";
 
 // last part of playground component
-const EndPoint = () => {
+const EndPoint = ({ mode = "" }) => {
   const { level } = useContext(LevelContext);
 
   const specificStyle = {
@@ -20,7 +20,7 @@ const EndPoint = () => {
   return (
     <div className="end" style={specificStyle}>
       <div className="lawn" style={lawnStyle}></div>
-      {level.enemy ? <EnemyEmoji level={level.id} /> : ""}
+      {level.enemy && mode === "game" ? <EnemyEmoji level={level.id} /> : ""}
     </div>
   );
 };
