@@ -37,6 +37,7 @@ const BuildingFormSubmit = () => {
   const [createLevel, { data, loading, error }] = useMutation(CREATE_LEVEL);
   const { user } = useContext(UserContext);
   const {
+    maximumNumber,
     description,
     levelName,
     propertiesContainer,
@@ -62,7 +63,7 @@ const BuildingFormSubmit = () => {
         containerValues: valuesContainer,
         allowedList: allowedList,
         deniedList: deniedList,
-        numberOfInputs: 3,
+        numberOfInputs: maximumNumber,
         description: description,
       },
     })

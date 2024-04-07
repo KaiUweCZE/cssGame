@@ -160,3 +160,41 @@ textarea {
   padding: 0.5rem;
   transition: 1s;
 }
+
+.radio-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.radio-box {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 0.5rem;
+
+  label {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.25rem;
+    cursor: pointer;
+    &:first-child {
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+    &:last-child {
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+  }
+  label.active {
+    background-color: lighten($color: black, $amount: 70);
+  }
+  input[type="radio"] {
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+}

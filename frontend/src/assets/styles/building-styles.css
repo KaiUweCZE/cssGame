@@ -181,4 +181,44 @@ textarea {
   font-size: 1rem;
   padding: 0.5rem;
   transition: 1s;
+}
+
+.radio-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.radio-box {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 0.5rem;
+}
+.radio-box label {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+.radio-box label:first-child {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.radio-box label:last-child {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.radio-box label.active {
+  background-color: #b3b3b3;
+}
+.radio-box input[type=radio] {
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }/*# sourceMappingURL=building-styles.css.map */
