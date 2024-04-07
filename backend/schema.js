@@ -71,6 +71,13 @@ const RootQueryType = new GraphQLObjectType({
         return Level.find();
       },
     },
+    level: {
+      type: LevelType,
+      args: { id: { type: GraphQLID } },
+      resolve: (parent, args) => {
+        return Level.findById(args.id);
+      },
+    },
   },
 });
 
