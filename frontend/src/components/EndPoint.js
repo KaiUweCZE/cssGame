@@ -18,7 +18,14 @@ const EndPoint = ({ mode = "" }) => {
   };
 
   return (
-    <div className="end" style={specificStyle}>
+    <div
+      className="end"
+      style={
+        mode !== "custom"
+          ? specificStyle
+          : { backgroundImage: `url(${enviromentImages.dirt})` }
+      }
+    >
       <div className="lawn" style={lawnStyle}></div>
       {level.enemy && mode === "game" ? <EnemyEmoji level={level.id} /> : ""}
     </div>
