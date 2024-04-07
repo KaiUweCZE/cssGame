@@ -14,6 +14,8 @@ import LevelInfo from "@pages/academy/LevelInfo";
 import Building from "@pages/building-mode/Building";
 import Database from "@pages/database/Database";
 import Intro from "@pages/intro/Intro";
+import SubDatabase from "@pages/database/DatabaseLevel";
+import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
 
 const App = () => {
   return (
@@ -32,6 +34,7 @@ const App = () => {
                   <Route path="/building" element={<Building />} />
                   <Route path="/map" element={<RoadMap />} />
                   <Route path="/level/:id" element={<LevelInfo />} />
+                  <Route path="/database/:id" element={<SubDatabase />} />
                   <Route path="/welcome" element={<Intro />} />
                 </Route>
               </Route>

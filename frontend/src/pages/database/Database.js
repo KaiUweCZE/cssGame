@@ -4,10 +4,12 @@ import "@styles/database-styles.css";
 import AsideBox from "../../components/AsideBox";
 import officeBackground from "@images/office.webp";
 import DatabaseList from "./database-components/DatabaseList";
+import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
 
 const GET_LEVELS = gql`
   query GetLevels {
     levels {
+      id
       name
       author
       bridgeProperties
@@ -26,12 +28,14 @@ const Database = () => {
     }
   }, [data]);
   return (
-    <div className="wrapper-database">
-      <div className="Database">
-        <DatabaseList items={data ? data.levels : [""]} />
+    <BuildingProvider>
+      <div className="wrapper-database">
+        <div className="Database">
+          <DatabaseList items={data ? data.levels : [""]} />
+        </div>
+        <AsideBox background={officeBackground}></AsideBox>
       </div>
-      <AsideBox background={officeBackground}></AsideBox>
-    </div>
+    </BuildingProvider>
   );
 };
 
