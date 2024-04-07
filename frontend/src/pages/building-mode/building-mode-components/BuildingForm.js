@@ -1,40 +1,15 @@
 import React, { useContext, useState } from "react";
 import FormSectionInputs from "./FormSectionInputs";
 import BuildingFormSubmit from "./BuildingFormSubmit";
-import FormSectionText from "./FormSectionText";
-import FormSectionRestrictions from "./FormSectionRestrictions";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
+import BuildingTextarea from "./BuildingTextarea";
+import BuildingSelectList from "./BuildingSelectList";
+import BuildingRadio from "./BuildingRadio";
 
 const BuildingForm = () => {
   const [select, setSelect] = useState("");
-  const [selectTextarea, setSelectTextarea] = useState(false);
-  const { setLevelName, setDescription } = useContext(BuildingFormContext);
-
-  const handleSelect = (e) => {
-    setSelect(e.target.value);
-    console.log(select);
-  };
-
-  const renderSelect = () => {
-    switch (select) {
-      case "1":
-        return <FormSectionRestrictions name="allowed" />;
-      case "2":
-        return <FormSectionRestrictions name="denied" />;
-      default:
-        return null;
-    }
-  };
-
-  const renderTextarea = () => {
-    switch (selectTextarea) {
-      case value:
-        break;
-
-      default:
-        break;
-    }
-  };
+  const { setLevelName, setDescription, setMaximumNumber } =
+    useContext(BuildingFormContext);
 
   return (
     <form className="BuildingForm" action="">
@@ -49,39 +24,9 @@ const BuildingForm = () => {
       </div>
       <FormSectionInputs label="bridge" />
       <FormSectionInputs label="container" />
-      <div className="FormSectionSelect">
-        <label htmlFor="">
-          You can set a list of allowed/denied properties:
-        </label>
-        <select name="options" id="options" onChange={handleSelect}>
-          <option value="0">You can select here</option>
-          <option value="1">allowed list</option>
-          <option value="2">denied list</option>
-        </select>
-      </div>
-      {renderSelect()}
-      <div className="FormSectionCheckbox">
-        <label>set description?</label>
-        <input
-          type="checkbox"
-          name=""
-          id=""
-          onClick={() => setSelectTextarea(!selectTextarea)}
-        />
-      </div>
-      {selectTextarea ? (
-        <textarea
-          name="description"
-          id="descripton"
-          cols="30"
-          rows="10"
-          maxLength="500"
-          placeholder="max length of the text is 500 chars"
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
-      ) : (
-        ""
-      )}
+      <BuildingRadio maximumNumber={setMaximumNumber} />
+      <BuildingSelectList />
+      <BuildingTextarea description={setDescription} />
       <BuildingFormSubmit />
     </form>
   );

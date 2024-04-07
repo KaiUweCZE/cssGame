@@ -78,6 +78,10 @@ export {
   lockIcon,
   plusIcon2,
   minusIcon2,
+  leftBracket,
+  playIcon,
+  playIconAfter,
+  rightBracket,
 };
 export const enviromentImages = { dirt, lawn };
 export const labelImages = { circleIcon, curvedArrow, checkIcon };
