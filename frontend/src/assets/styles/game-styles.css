@@ -280,12 +280,13 @@ button img:hover {
   flex-direction: row;
   height: 100%;
   width: 100%;
-  background-color: transparent;
 }
 
 .target-area__part {
   height: 4rem;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: 2px dashed grey;
 }
 
 .emoji-character {
@@ -680,7 +681,7 @@ img.obstacle {
   .glass {
     position: fixed;
     top: 5rem;
-    right: 5rem;
+    right: 5vw;
   }
 }
 @media (min-aspect-ratio: 3/1) {
@@ -705,7 +706,7 @@ img.obstacle {
   .about-class {
     position: fixed;
     top: 8.5rem;
-    right: 2rem;
+    right: 2vw;
   }
 }
 @media (min-aspect-ratio: 3/1) {

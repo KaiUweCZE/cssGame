@@ -11,11 +11,12 @@ const IntroSlide = (props) => {
       props.func((prev) => prev + 1);
     }
   };
+
+  console.log("Slide ");
+
   return (
-    <section
-      className={`intro-background ${props.classPortrait}`}
-      style={{ backgroundImage: `url(${props.background})` }}
-    >
+    <section className={`intro-background ${props.classPortrait}`}>
+      <img src={props.background} alt="" />
       <article className={props.position !== "" ? props.position : ""}>
         <h2>{props.headline}</h2>
         <p>{resultText}</p>

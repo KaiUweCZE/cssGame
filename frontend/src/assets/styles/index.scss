@@ -288,7 +288,7 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
   @include small-screen {
     main,
     section {
-      width: 80%;
+      width: 94%;
       margin: 0 auto;
       margin-top: 1rem;
     }
@@ -761,12 +761,15 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
   @include large-screen {
     position: fixed;
     top: 4rem;
-    right: 3rem;
+    right: 2rem;
   }
   @include different-aspect-ratio {
     position: absolute;
     top: -43vh;
     right: -95%;
+  }
+  @include medium-screen {
+    right: 1vw;
   }
 }
 

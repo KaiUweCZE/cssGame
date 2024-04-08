@@ -82,6 +82,7 @@ export {
   playIcon,
   playIconAfter,
   rightBracket,
+  closeIcon,
 };
 export const enviromentImages = { dirt, lawn };
 export const labelImages = { circleIcon, curvedArrow, checkIcon };

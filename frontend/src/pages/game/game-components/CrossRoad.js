@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Bridge from "../../../components/bridge-components/Bridge";
-import CheckPoint from "./CheckPoint";
+import CheckPoint from "../../../components/bridge-components/CheckPoint";
 import River from "../../../components/River";
 import Obstacle from "../../../components/Obstacle";
 import { ResultContext } from "@contexts/form-contexts/resultContext";
