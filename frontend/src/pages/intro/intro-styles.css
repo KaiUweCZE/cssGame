@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   width: 90vw;
-  max-width: 120rem;
+  max-width: 100rem;
   height: 100%;
   max-height: calc(100dvh - 4rem);
   aspect-ratio: 16/9;
@@ -15,12 +15,9 @@
 
 .intro-background {
   display: flex;
-  background-color: green;
   position: relative;
   width: 90%;
   margin: 0 auto;
-  background-size: cover;
-  background-position: center;
 }
 .intro-background article {
   display: flex;
@@ -52,12 +49,30 @@
 .intro-background article::-webkit-scrollbar-thumb:hover {
   background-color: transparent;
 }
+.intro-background img {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
 .intro-background.portrait {
-  background-position: top;
+  justify-content: center;
+}
+.intro-background.portrait img {
+  width: auto;
+  aspect-ratio: 2/3;
 }
 @media (max-width: 65rem) {
   .intro-background article {
     font-size: 1rem;
+  }
+  .intro-background.portrait article {
+    left: 12%;
+  }
+  .intro-background.portrait article.second-position {
+    top: 40%;
+    left: 45%;
   }
 }
 

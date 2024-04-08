@@ -15,7 +15,7 @@ import { UserContext } from "@contexts/UserContext";
 import { styleChecker } from "@utils/styleChecker";
 import CssFormHeadline from "./CssFormHeadline";
 import CssFormInputs from "./CssFormInputs";
-import RightBracket from "./RightBracket";
+import CloseForm from "./CloseForm";
 
 // key component for posting
 const CssForm = (props) => {
@@ -26,20 +26,10 @@ const CssForm = (props) => {
   // error message for typo error
   const [errotMessage, setErrorMessage] = useState("");
   // values from Result Context
-  const {
-    isCorrectPosition,
-    checked,
-    setChecked,
-    setResultText,
-    checkBridgePosition,
-  } = useContext(ResultContext);
+  const { isCorrectPosition, setChecked, setResultText, checkBridgePosition } =
+    useContext(ResultContext);
   // check if the form has already been sent
   const [hasChecked, setHasChecked] = useState(false);
-  const [index, setIndex] = useState(0);
-  // focus state
-  const [isFocused, setIsFocused] = useState(false);
-  const [suggestValue, setSuggestValue] = useState("");
-  const [propertyIndex, setPropertyIndex] = useState(null);
   // allows to see labels before applying style changes
   const {
     cssProperties,
@@ -79,7 +69,7 @@ const CssForm = (props) => {
   } = contextValues(props.name, context);
   // custom hook to set level to database
   const { levelUp } = useLevelUp();
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { level } = useContext(LevelContext);
 
   useEffect(() => {
@@ -162,40 +152,17 @@ const CssForm = (props) => {
           addLabel={handleAddLabel}
           removeLabel={handleRemoveLabel}
           properties={cssProperties}
-          propertyIndex={setPropertyAtIndex}
+          setPropertyAtIndex={setPropertyAtIndex}
           values={cssValues}
-          valueIndex={setValueAtIndex}
-          setPropertyIndex={setPropertyIndex}
-          setSuggestValue={setSuggestValue}
-          setIsFocused={setIsFocused}
+          setValueAtIndex={setValueAtIndex}
           stop={stopAdd}
         />
-        <RightBracket />
-        {isFocused ? (
-          // if user clicks on a property input and enters some letter, a suggest list will be displayed
-          <SuggestList
-            value={suggestValue}
-            func={setPropertyAtIndex}
-            valueIndex={propertyIndex}
-          />
-        ) : (
-          ""
-        )}
         {
           // wrong property?
           error ? <ErrorMessage text={errotMessage} /> : ""
         }
 
-        {props.name !== "bridge" ? (
-          <img
-            className="class-button"
-            onClick={handleClose}
-            src={cssFormImages.closeIcon}
-            alt=""
-          />
-        ) : (
-          ""
-        )}
+        {props.name !== "bridge" ? <CloseForm func={handleClose} /> : ""}
       </div>
     </>
   );

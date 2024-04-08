@@ -5,7 +5,7 @@
   display: flex;
   position: relative;
   width: 90vw;
-  max-width: 120rem;
+  max-width: 100rem;
   height: 100%;
   max-height: calc(100dvh - 4rem);
   aspect-ratio: 16/9;
@@ -18,12 +18,9 @@
 
 .intro-background {
   display: flex;
-  background-color: green;
   position: relative;
   width: 90%;
   margin: 0 auto;
-  background-size: cover;
-  background-position: center;
   article {
     display: flex;
     flex-direction: column;
@@ -46,12 +43,32 @@
       }
     }
   }
+  img {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
   &.portrait {
-    background-position: top;
+    justify-content: center;
+    img {
+      width: auto;
+      aspect-ratio: 2/3;
+    }
   }
   @include medium-screen {
     article {
       font-size: 1rem;
+    }
+    &.portrait {
+      article {
+        left: 12%;
+      }
+      article.second-position {
+        top: 40%;
+        left: 45%;
+      }
     }
   }
 }

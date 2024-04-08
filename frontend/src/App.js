@@ -15,31 +15,33 @@ import Building from "@pages/building-mode/Building";
 import Database from "@pages/database/Database";
 import Intro from "@pages/intro/Intro";
 import SubDatabase from "@pages/database/DatabaseLevel";
-import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
+import CustomStylesProvider from "@contexts/building-contexts/CustomStylesProvider";
 
 const App = () => {
   return (
     <ApolloClientProvider>
       <LevelProvider>
         <UserContextProvider>
-          <BR>
-            <Routes>
-              <Route path="/" element={<SharedLayout />}>
-                <Route index element={<Home />} />
-                <Route path="/academy" element={<Academy />} />
-                <Route path="/game" element={<Game />} />
-                <Route path="/login" element={<Registration />} />
-                <Route element={<ProtectedLayout />}>
-                  <Route path="/database" element={<Database />} />
-                  <Route path="/building" element={<Building />} />
-                  <Route path="/map" element={<RoadMap />} />
-                  <Route path="/level/:id" element={<LevelInfo />} />
-                  <Route path="/database/:id" element={<SubDatabase />} />
-                  <Route path="/welcome" element={<Intro />} />
+          <CustomStylesProvider>
+            <BR>
+              <Routes>
+                <Route path="/" element={<SharedLayout />}>
+                  <Route index element={<Home />} />
+                  <Route path="/academy" element={<Academy />} />
+                  <Route path="/game" element={<Game />} />
+                  <Route path="/login" element={<Registration />} />
+                  <Route element={<ProtectedLayout />}>
+                    <Route path="/database" element={<Database />} />
+                    <Route path="/building" element={<Building />} />
+                    <Route path="/map" element={<RoadMap />} />
+                    <Route path="/level/:id" element={<LevelInfo />} />
+                    <Route path="/database/:id" element={<SubDatabase />} />
+                    <Route path="/welcome" element={<Intro />} />
+                  </Route>
                 </Route>
-              </Route>
-            </Routes>
-          </BR>
+              </Routes>
+            </BR>
+          </CustomStylesProvider>
         </UserContextProvider>
       </LevelProvider>
     </ApolloClientProvider>
