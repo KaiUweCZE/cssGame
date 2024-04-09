@@ -3,7 +3,7 @@ import { glassImg } from "@data/ImagesData";
 import { CheckContext } from "@contexts/form-contexts/checkContext";
 import AboutClassInfo from "./AboutClassInfo";
 import AboutClassMenu from "./AboutClassMenu";
-import TemporaryLabel from "../TemporaryLabel";
+import TemporaryLabel from "../../pages/game/game-components/TemporaryLabel";
 
 const AboutClass = (props) => {
   const [option, setOption] = useState(false);
@@ -18,12 +18,20 @@ const AboutClass = (props) => {
   return (
     <>
       <img
-        className="glass"
+        className={
+          props?.specificClass ? `glass ${props.specificClass}` : "glass"
+        }
         src={glassImg}
         alt=""
         onClick={() => handleMenu()}
       />
-      <div className="about-class">
+      <div
+        className={
+          props?.specificClass
+            ? `about-class ${props.specificClass}`
+            : "about-class"
+        }
+      >
         {option ? (
           <AboutClassMenu
             active={active}
@@ -43,7 +51,7 @@ const AboutClass = (props) => {
           ""
         )}
       </div>
-      {props.level === 1 ? <TemporaryLabel /> : null}
+      {props?.level === 1 ? <TemporaryLabel /> : null}
     </>
   );
 };

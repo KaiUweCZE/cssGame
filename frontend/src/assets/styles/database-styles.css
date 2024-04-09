@@ -123,4 +123,30 @@
 .DatabaseList .toggle.open::before {
   transform: rotate(90deg);
   transition: 0.35s 0.35s;
+}
+
+.glass.database {
+  display: grid;
+  grid-template: 1fr/1fr;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 3rem;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 1;
+}
+.glass.database:hover {
+  transform: scale(1.15);
+}
+
+.about-class.database {
+  display: flex;
+  position: absolute;
+  width: 12rem;
+  right: 2%;
+  top: 8%;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 0.35rem;
 }/*# sourceMappingURL=database-styles.css.map */

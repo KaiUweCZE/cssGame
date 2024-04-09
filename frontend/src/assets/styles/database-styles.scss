@@ -115,3 +115,28 @@
     }
   }
 }
+
+.glass.database {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 3rem;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 1;
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+.about-class.database {
+  display: flex;
+  position: absolute;
+  width: 12rem;
+  right: 2%;
+  top: 8%;
+  flex-direction: column;
+  background-color: $addons-color;
+  border-radius: 0.35rem;
+}

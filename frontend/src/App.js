@@ -16,6 +16,7 @@ import Database from "@pages/database/Database";
 import Intro from "@pages/intro/Intro";
 import SubDatabase from "@pages/database/DatabaseLevel";
 import CustomStylesProvider from "@contexts/building-contexts/CustomStylesProvider";
+import { CheckContextProvider } from "@contexts/form-contexts/checkContext";
 
 const App = () => {
   return (
@@ -23,24 +24,26 @@ const App = () => {
       <LevelProvider>
         <UserContextProvider>
           <CustomStylesProvider>
-            <BR>
-              <Routes>
-                <Route path="/" element={<SharedLayout />}>
-                  <Route index element={<Home />} />
-                  <Route path="/academy" element={<Academy />} />
-                  <Route path="/game" element={<Game />} />
-                  <Route path="/login" element={<Registration />} />
-                  <Route element={<ProtectedLayout />}>
-                    <Route path="/database" element={<Database />} />
-                    <Route path="/building" element={<Building />} />
-                    <Route path="/map" element={<RoadMap />} />
-                    <Route path="/level/:id" element={<LevelInfo />} />
-                    <Route path="/database/:id" element={<SubDatabase />} />
-                    <Route path="/welcome" element={<Intro />} />
+            <CheckContextProvider>
+              <BR>
+                <Routes>
+                  <Route path="/" element={<SharedLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="/academy" element={<Academy />} />
+                    <Route path="/game" element={<Game />} />
+                    <Route path="/login" element={<Registration />} />
+                    <Route element={<ProtectedLayout />}>
+                      <Route path="/database" element={<Database />} />
+                      <Route path="/building" element={<Building />} />
+                      <Route path="/map" element={<RoadMap />} />
+                      <Route path="/level/:id" element={<LevelInfo />} />
+                      <Route path="/database/:id" element={<SubDatabase />} />
+                      <Route path="/welcome" element={<Intro />} />
+                    </Route>
                   </Route>
-                </Route>
-              </Routes>
-            </BR>
+                </Routes>
+              </BR>
+            </CheckContextProvider>
           </CustomStylesProvider>
         </UserContextProvider>
       </LevelProvider>
