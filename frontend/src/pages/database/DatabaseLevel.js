@@ -1,17 +1,18 @@
 import CustomBridge from "@components/CustomBridge";
 import CustomFormContainer from "@pages/database/CustomFormContainer";
 import EmptyBox from "@components/EmptyBox";
-import CssFormHeadline from "@components/css-form/CssFormHeadline";
-import CssFormInputs from "@components/css-form/CssFormInputs";
 import { customContainerContext } from "@contexts/building-contexts/customContainerContext";
-import { useFormInputs } from "@utils/cssFormFunctions";
-import { handleAddInput, handleRemoveInput } from "@utils/formInputsHandlers";
 import useSetStyle from "@utils/hooks/useSetStyle";
 import { useGetLevel } from "@utils/queries/useGetLevel";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import CustomFormBridge from "./CustomFormBridge";
 import { customBridgeContext } from "@contexts/building-contexts/customBridgeContext";
+import AboutClass from "@components/about-class-components/AboutClass";
+import {
+  CheckContext,
+  CheckContextProvider,
+} from "@contexts/form-contexts/checkContext";
 
 const DatabaseLevel = () => {
   const { id } = useParams();
@@ -20,6 +21,8 @@ const DatabaseLevel = () => {
   const [containerClass, setContainerClass] = useState();
   const { bridgeStyle } = useContext(customBridgeContext);
   const { containerStyle } = useContext(customContainerContext);
+  const { aboutClass } = useContext(CheckContext);
+
   const originContainerStyle = useSetStyle(
     level?.containerProperties,
     level?.containerValues
@@ -30,8 +33,26 @@ const DatabaseLevel = () => {
     level?.bridgeValues
   );
 
+  const newBridgeStyle = {
+    ...originBridgeStyle,
+    ...bridgeStyle,
+  };
+
+  const newContainerStyle = {
+    ...originContainerStyle,
+    ...containerStyle,
+  };
+
+  console.log("about class: ", aboutClass);
+
   return (
     <div className="container-mission">
+      <AboutClass
+        specificClass="database"
+        style={
+          aboutClass === "bridge" ? originBridgeStyle : originContainerStyle
+        }
+      />
       <div className="box__classes">
         <CustomFormBridge name="bridge" />
 
@@ -44,9 +65,9 @@ const DatabaseLevel = () => {
       <div className="BuildingArea">
         <CustomBridge
           containerStyle={
-            containerStyle !== "" ? containerStyle : originContainerStyle
+            containerStyle !== "" ? newContainerStyle : originContainerStyle
           }
-          bridgeStyle={bridgeStyle !== "" ? bridgeStyle : originBridgeStyle}
+          bridgeStyle={bridgeStyle !== "" ? newBridgeStyle : originBridgeStyle}
         />
       </div>
     </div>

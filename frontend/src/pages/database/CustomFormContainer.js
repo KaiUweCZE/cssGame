@@ -5,8 +5,9 @@ import { useFormInputs } from "@utils/cssFormFunctions";
 import { customContainerContext } from "@contexts/building-contexts/customContainerContext";
 
 const CustomFormContainer = (props) => {
-  const { addInput, removeInput, containerStyle, setContainerStyle } =
-    useContext(customContainerContext);
+  const { addInput, removeInput, setContainerStyle } = useContext(
+    customContainerContext
+  );
 
   const {
     cssProperties,
