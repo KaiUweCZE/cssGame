@@ -1,4 +1,5 @@
 import image1 from "@images/cave1.webp";
+import image2 from "@images/cave2.webp";
 
 export const texts = [
   {
@@ -33,24 +34,28 @@ export const texts = [
       `<h1>Zápis z deníku přelom roku 1997 a 1998.</h1>`,
       `<table class="Lhota">`,
       "<tr>",
-      "<th>Náves</th> <th>Zahrádkářská oblast</th>",
+      `<th>Náves</th> <th class="zničena">Zahrádkářská Oblast</th>`,
       "</tr>",
       "<tr>",
       "<td>Starostův dům</td> <td>Škola</td>",
       "</tr>",
       "<tr>",
       "<td>",
+      '<div class="strom zlomen"></div>',
+      '<div class="sedmikráska zlomen"></div>',
       '<div class="vesničan">',
       '<div class="krev" style="background-color: red !important;">',
       "</div>",
       "</div>",
       "</td>",
       "<td>",
-      '<div class="monstrum" style="width: 1000px; height=800px;"> Grhh! </div>',
+      '<div class="monstrum" style="width: 1000px; height=800px;"></div>',
       "</td>",
       "</tr>",
       "</table>",
     ],
+    img: image2,
+    imgClass: "firstPain",
   },
   {
     id: "buildingInfo",

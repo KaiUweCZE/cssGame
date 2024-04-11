@@ -7,11 +7,11 @@ export const ContainerProvider = ({ children }) => {
   const [propertiesContainer, setPropertiesContainer] = useState([""]);
   const [valuesContainer, setValuesContainer] = useState([""]);
   const [stopAdd, setStopAdd] = useState(false);
-  const [containerProperties, setContainerProperties] = useState(3);
+  const [containerLength, setContainerLength] = useState(4);
 
   // add next inputs in form
   const handleAddInput = () => {
-    if (propertiesContainer.length >= containerProperties) {
+    if (propertiesContainer.length >= containerLength - 1) {
       setPropertiesContainer([...propertiesContainer, ""]);
       setValuesContainer([...valuesContainer, ""]);
       setStopAdd(true);
@@ -48,7 +48,8 @@ export const ContainerProvider = ({ children }) => {
     valuesContainer,
     setPropertiesContainer,
     setValuesContainer,
-    setContainerProperties,
+    containerLength,
+    setContainerLength,
     stopAdd,
     handleAddInput,
     handleRemoveInput,

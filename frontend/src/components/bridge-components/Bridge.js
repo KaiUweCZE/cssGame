@@ -15,9 +15,9 @@ import MasterBridgeElement from "./MasterBridgeElement";
 // game component that users will set up
 const Bridge = forwardRef((props, ref) => {
   const { style, level } = useContext(LevelContext);
-  const { propertiesBridge, valuesBridge, setBridgeProperties } =
+  const { propertiesBridge, valuesBridge, setBridgeLength } =
     useContext(BridgeContext);
-  const { propertiesContainer, valuesContainer, setContainerProperties } =
+  const { propertiesContainer, valuesContainer, setContainerLength } =
     useContext(ContainerContext);
   const { propertiesParts, valuesParts } = useContext(PartsContext);
   const { active, aboutClass } = useContext(CheckContext);
@@ -25,8 +25,8 @@ const Bridge = forwardRef((props, ref) => {
 
   useEffect(() => {
     if (level?.numberOfProperties) {
-      setBridgeProperties(level.numberOfProperties);
-      setContainerProperties(level.numberOfProperties);
+      setBridgeLength(level.numberOfProperties);
+      setContainerLength(level.numberOfProperties);
     }
   }, []);
 

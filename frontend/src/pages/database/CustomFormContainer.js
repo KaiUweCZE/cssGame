@@ -3,11 +3,11 @@ import CssFormInputs from "../../components/css-form/CssFormInputs";
 import CssFormHeadline from "../../components/css-form/CssFormHeadline";
 import { useFormInputs } from "@utils/cssFormFunctions";
 import { customContainerContext } from "@contexts/building-contexts/customContainerContext";
+import { checkAllowedList } from "@utils/checkArray";
 
 const CustomFormContainer = (props) => {
-  const { addInput, removeInput, setContainerStyle } = useContext(
-    customContainerContext
-  );
+  const { addInput, removeInput, maxLengthContainer, setContainerStyle } =
+    useContext(customContainerContext);
 
   const {
     cssProperties,
@@ -16,7 +16,7 @@ const CustomFormContainer = (props) => {
     setValueAtIndex,
     handleAddLabel,
     handleRemoveLabel,
-  } = useFormInputs([""], [""]);
+  } = useFormInputs([""], [""], maxLengthContainer);
 
   const handleSubmit = (e) => {
     e.preventDefault();

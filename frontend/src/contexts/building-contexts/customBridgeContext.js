@@ -8,11 +8,11 @@ export const CustomBridgeProvider = ({ children }) => {
   const [valuesBridge, setValuesBridge] = useState([""]);
   const [stopBridge, setStopBridge] = useState(false);
   const [bridgeStyle, setBridgeStyle] = useState("");
-  const maxLength = 3;
+  const [maxLengthBridge, setMaxLengthBridge] = useState(1);
 
   const addInput = () =>
     handleAddInput(
-      maxLength,
+      maxLengthBridge,
       propertiesBridge,
       valuesBridge,
       setPropertiesBridge,
@@ -31,7 +31,8 @@ export const CustomBridgeProvider = ({ children }) => {
     );
 
   const contextValue = {
-    maxLength,
+    maxLengthBridge,
+    setMaxLengthBridge,
     propertiesBridge,
     setPropertiesBridge,
     valuesBridge,

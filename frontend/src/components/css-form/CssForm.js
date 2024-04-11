@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { cssFormImages } from "../../data/ImagesData";
 import { list } from "../../data/listOfProperities";
 import ErrorMessage from "../errors/ErrorMessage";
-import SuggestList from "../SuggestList";
 import { contextValues, useFormInputs } from "@utils/cssFormFunctions";
 import { EmojiContext } from "@contexts/emojiContext";
 import { BridgeContext } from "@contexts/form-contexts/bridgeContext";
@@ -30,15 +28,7 @@ const CssForm = (props) => {
     useContext(ResultContext);
   // check if the form has already been sent
   const [hasChecked, setHasChecked] = useState(false);
-  // allows to see labels before applying style changes
-  const {
-    cssProperties,
-    cssValues,
-    setPropertyAtIndex,
-    setValueAtIndex,
-    handleAddLabel,
-    handleRemoveLabel,
-  } = useFormInputs([""], [""]);
+
   // which context will be used?
   let context;
   switch (props.name) {
@@ -66,11 +56,22 @@ const CssForm = (props) => {
     handleRemoveInput,
     stopAdd,
     closeForm,
+    maxLength,
   } = contextValues(props.name, context);
   // custom hook to set level to database
   const { levelUp } = useLevelUp();
   const { user } = useContext(UserContext);
   const { level } = useContext(LevelContext);
+
+  // allows to see labels before applying style changes
+  const {
+    cssProperties,
+    cssValues,
+    setPropertyAtIndex,
+    setValueAtIndex,
+    handleAddLabel,
+    handleRemoveLabel,
+  } = useFormInputs([""], [""], maxLength);
 
   useEffect(() => {
     if (hasChecked) {

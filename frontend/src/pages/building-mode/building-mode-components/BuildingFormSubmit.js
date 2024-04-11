@@ -73,7 +73,12 @@ const BuildingFormSubmit = () => {
         console.log(levelName, propertiesContainer, description);
       });
   };
-  return <input type="submit" value="set" onClick={handleCreateLevel} />;
+  return (
+    <>
+      <input type="submit" value="set" onClick={handleCreateLevel} />
+      {error ? <p>Vyskytla se chyba</p> : ""}
+    </>
+  );
 };
 
 export default BuildingFormSubmit;
