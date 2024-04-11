@@ -1,22 +1,23 @@
-import React, { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
-import AsideBox from "../../components/AsideBox";
+import React from "react";
+import HomeSection from "./home-components/HomeSection";
+import "./home-style.css";
+import { homeData } from "./data";
+import HomeBox from "./home-components/HomeBox";
+import useScrollPosition from "@utils/hooks/useScrollPosition";
+import AnimationBox from "./home-components/AnimationBox";
 
 const Home = () => {
-  const { user } = useContext(UserContext);
-
+  const data = homeData;
+  const { scrollY } = useScrollPosition();
   return (
-    <div className="wrapper-home">
-      <main className="container-home">
-        <section>
-          <h2>O projektu</h2>
-          <p>
-            Css game je projekt, který je zaměřený na zpřístupnění základů css
-            pro uživatele za pomoci interaktivity.
-          </p>
-        </section>
-      </main>
-    </div>
+    <main className="container-home">
+      <HomeSection data={data[0]} load={true} />
+      <HomeBox />
+      <HomeSection data={data[1]} load={scrollY > 100 ? true : false} />
+      <AnimationBox />
+      <p>{scrollY}</p>
+      <div className="px800"></div>
+    </main>
   );
 };
 
