@@ -21,9 +21,14 @@ const DatabaseLevel = () => {
   const { containerStyle, setMaxLengthContainer } = useContext(
     customContainerContext
   );
-  const { list, allowedList, setAllowedList, setDeniedList } =
+  const { setChange, result, setResult, setAllowedList, setDeniedList } =
     useContext(customCommonContext);
   const { aboutClass } = useContext(CheckContext);
+
+  useEffect(() => {
+    setChange(0);
+    setResult(false);
+  }, [id]);
 
   const originContainerStyle = useSetStyle(
     level?.containerProperties,
@@ -73,6 +78,11 @@ const DatabaseLevel = () => {
           <EmptyBox state={containerClass} func={setContainerClass} />
         )}
       </div>
+      {result ? (
+        <div className="congrats">
+          <p>Congrats</p>
+        </div>
+      ) : null}
       <div className="BuildingArea">
         <CustomBridge
           containerStyle={

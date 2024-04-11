@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import { RestrictionContext } from "@contexts/building-contexts/restrictionContext";
 import { UserContext } from "../../../contexts/UserContext";
+import ErrorBuilding from "./ErrorBuilding";
 
 const CREATE_LEVEL = gql`
   mutation CreateLevel(
@@ -34,6 +35,10 @@ const CREATE_LEVEL = gql`
   }
 `;
 const BuildingFormSubmit = () => {
+  const [errorMessage, setErrorMessage] = useState({
+    invalid: false,
+    type: "",
+  });
   const [createLevel, { data, loading, error }] = useMutation(CREATE_LEVEL);
   const { user } = useContext(UserContext);
   const {
@@ -53,6 +58,24 @@ const BuildingFormSubmit = () => {
   // createUser({ variables: {name: username, email: email, password: password}})
   const handleCreateLevel = (e) => {
     e.preventDefault();
+
+    if (!levelName) {
+      console.log("jméno levelu je povinné");
+      setErrorMessage({ invalid: true, type: "no-name" });
+      return;
+    }
+
+    const hasBridgeData =
+      propertiesBridge.length > 0 && valuesBridge.length > 0;
+    const hasContainerData =
+      propertiesContainer.length > 0 && valuesContainer.length > 0;
+
+    if (!hasBridgeData && !hasContainerData) {
+      console.log("něco vyplň");
+      setErrorMessage({ invalid: true, type: "no-styles" });
+      return;
+    }
+
     createLevel({
       variables: {
         name: levelName,
@@ -67,16 +90,19 @@ const BuildingFormSubmit = () => {
         description: description,
       },
     })
-      .then(() => console.log("Level is set"))
+      .then(() => {
+        console.log("Level is set");
+      })
       .catch((err) => {
         console.error(err);
+        setErrorMessage({ invalid: true, type: "not-unique-name" });
         console.log(levelName, propertiesContainer, description);
       });
   };
   return (
     <>
       <input type="submit" value="set" onClick={handleCreateLevel} />
-      {error ? <p>Vyskytla se chyba</p> : ""}
+      {errorMessage.invalid ? <ErrorBuilding type={errorMessage.type} /> : ""}
     </>
   );
 };

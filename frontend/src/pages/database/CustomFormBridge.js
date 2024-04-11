@@ -11,7 +11,8 @@ const CustomFormBridge = (props) => {
   const [error, setError] = useState({ allowed: false, denied: false });
   const { addInput, removeInput, maxLengthBridge, setBridgeStyle } =
     useContext(customBridgeContext);
-  const { list, allowedList, deniedList } = useContext(customCommonContext);
+  const { change, setChange, list, allowedList, deniedList } =
+    useContext(customCommonContext);
   const {
     cssProperties,
     cssValues,
@@ -30,33 +31,26 @@ const CustomFormBridge = (props) => {
     if (!list.allowed && !list.denied) {
       setError({ allowed: false, denied: false });
       setBridgeStyle(newStyles);
-      console.log("aloowwwe");
+      setChange((prev) => prev + 1);
     }
     if (list.allowed) {
       if (checkAllowedList(cssProperties, allowedList)) {
         setError({ allowed: false, denied: false });
         setBridgeStyle(newStyles);
+        setChange((prev) => prev + 1);
       } else {
         setError({ allowed: true, denied: false });
-        console.log("aloowwwe");
       }
     }
     if (list.denied) {
       if (!checkAllowedList(cssProperties, deniedList)) {
         setError({ allowed: false, denied: false });
         setBridgeStyle(newStyles);
+        setChange((prev) => prev + 1);
       } else {
         setError({ allowed: false, denied: true });
       }
     }
-    console.log(
-      "properties, values, list, last error",
-      cssProperties,
-      cssValues,
-      allowedList,
-      list,
-      error
-    );
   };
 
   return (
@@ -79,6 +73,7 @@ const CustomFormBridge = (props) => {
           <ErrorList
             type={error.allowed ? "allowed list" : "denied list"}
             list={error.allowed ? allowedList : deniedList}
+            remove={() => setError({ allowed: false, denied: false })}
           />
         </>
       ) : (
