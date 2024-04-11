@@ -1,0 +1,235 @@
+.container-home {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+  place-items: center;
+  max-width: 80rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  overflow: hidden;
+}
+.container-home h2 {
+  font-size: 2rem;
+}
+.container-home p {
+  font-size: 1.25rem;
+}
+
+.home-section {
+  max-width: 60rem;
+}
+.home-section article {
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /*&.active {
+    p {
+      filter: blur(8px);
+      animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+  }*/
+}
+.home-section article h2 {
+  font-size: 2.5rem;
+}
+.home-section article p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.home-gallery {
+  display: grid;
+  grid-template-areas: "first second" "third third";
+  width: 100%;
+}
+.home-gallery img {
+  width: 100%;
+}
+.home-gallery img:first-child {
+  grid-area: first;
+}
+.home-gallery img:nth-child(2) {
+  grid-area: second;
+}
+.home-gallery img:nth-child(3) {
+  width: 50%;
+  grid-area: third;
+}
+
+.home-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 0.5rem;
+  width: 60%;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #0a3a40;
+  border-radius: 0.5rem;
+  border: 2px solid #11626c;
+  padding: 1rem;
+  margin-block: 2rem;
+  transition: 1s;
+  transform-origin: center;
+  overflow: hidden;
+}
+.home-box p {
+  font-size: 1rem;
+  font-family: monospace;
+  color: white;
+}
+.home-box:has(.left-item:hover) {
+  transform: rotateZ(-3deg);
+}
+.home-box:has(.left-item:hover) .circle {
+  transition: 3s ease-in-out;
+  transform: translateX(-25rem) rotate(-720deg);
+}
+.home-box:has(.right-item:hover) {
+  transform: rotateZ(3deg);
+}
+.home-box:has(.right-item:hover) .circle {
+  transition: 3s ease-in;
+  transform: translateX(25rem) rotate(720deg);
+}
+
+.left-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4rem;
+  z-index: 1;
+}
+
+.right-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 4rem;
+  z-index: 1;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: white;
+  background: linear-gradient(0deg, rgb(34, 193, 195) 0%, #00c988 100%);
+  border-radius: 50%;
+  bottom: 0;
+  left: 50%;
+  transition: 3s ease-in-out;
+  transform-origin: center;
+}
+
+.animation-box {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 60rem;
+  aspect-ratio: 16/9;
+  margin-bottom: 10rem;
+  overflow: hidden;
+  border: 3px solid rgba(0, 0, 0, 0.6);
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+.animation-box .emoji {
+  width: 10%;
+  position: absolute;
+  bottom: 8rem;
+  transform: translateX(-5rem) rotate(0);
+  transition: 2.5s ease-in-out;
+}
+.animation-box .emoji.come-in {
+  transform: translateX(5rem) rotate(1turn);
+  transition: 2.5s ease-in-out;
+}
+.animation-box .background {
+  display: flex;
+  position: absolute;
+  bottom: -8rem;
+  margin: 0 auto;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.animation-box .trunk {
+  display: flex;
+  position: absolute;
+  bottom: 5rem;
+  left: 19rem;
+  width: 37%;
+  transform: rotate(-90deg);
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 2s;
+}
+.animation-box .trunk.active {
+  transition: 2s 3.5s;
+  transform: rotate(0deg);
+}
+.animation-box article {
+  position: absolute;
+  z-index: 1;
+  left: 12rem;
+  top: 4rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: 1s 2s;
+}
+.animation-box article.showed {
+  opacity: 1;
+  transition: 1s 2.5s;
+}
+.animation-box article.hide {
+  opacity: 0;
+  transition: 0.1s;
+}
+
+.px800 {
+  height: 800px;
+}
+
+.wrapper-home {
+  display: grid;
+  grid-template-columns: 1fr 80rem 1fr;
+  gap: 1rem;
+  align-items: flex-start;
+}
+@media (width < 100rem) {
+  .wrapper-home {
+    display: flex;
+  }
+}
+
+@keyframes text-focus-in {
+  0% {
+    filter: blur(8px);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+/*
+.container-home {
+  grid-column: 2;
+  grid-row: 1;
+  max-height: 100vh;
+  overflow-y: scroll;
+  @include scroll-primary;
+  @media (width < 100rem) {
+    width: 80vw;
+    grid-column: 1;
+  }
+}*//*# sourceMappingURL=home-style.css.map */

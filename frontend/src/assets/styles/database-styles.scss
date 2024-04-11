@@ -140,3 +140,30 @@
   background-color: $addons-color;
   border-radius: 0.35rem;
 }
+
+.error-list {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.65);
+  max-height: 10rem;
+  overflow-y: scroll;
+  gap: 0.5rem;
+  padding-block: 1rem;
+  border-radius: 0.35rem;
+  @include scroll-primary;
+  .error-headline {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  li {
+    list-style: disc;
+    list-style-position: inside;
+    color: white;
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+}

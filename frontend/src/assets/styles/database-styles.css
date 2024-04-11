@@ -149,4 +149,40 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0.35rem;
+}
+
+.error-list {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.65);
+  max-height: 10rem;
+  overflow-y: scroll;
+  gap: 0.5rem;
+  padding-block: 1rem;
+  border-radius: 0.35rem;
+  overflow-y: scroll;
+}
+.error-list::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.error-list::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 190, 217, 0.5);
+}
+.error-list::-webkit-scrollbar-thumb:hover {
+  background-color: #79bed9;
+}
+.error-list .error-headline {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.error-list li {
+  list-style: disc;
+  list-style-position: inside;
+  color: white;
+  margin-left: 1rem;
+  font-weight: bold;
 }/*# sourceMappingURL=database-styles.css.map */
