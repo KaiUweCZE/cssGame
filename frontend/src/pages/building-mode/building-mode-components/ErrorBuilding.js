@@ -4,15 +4,15 @@ const ErrorBuilding = (props) => {
   const renderMessage = () => {
     switch (props.type) {
       case "no-name":
-        return <p>Je potřeba nastavit jméno levelu</p>;
+        return <p>Name of the level is required</p>;
       case "no-styles":
         return (
           <p>
-            Musí být vyplněny properties a values alespoň u jednoho elementu
+            Properties and values must be filled in for at least one element
           </p>
         );
       case "not-unique-name":
-        return <p>Toto jméno levelu již existuje</p>;
+        return <p>This level name exists</p>;
       default:
         break;
     }

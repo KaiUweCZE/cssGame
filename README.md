@@ -37,7 +37,7 @@ git clone https://github.com/KaiUweCZE/cssGame.git
 2.**Install and run the backend**
 
 ```bash
-cd/backend
+cd backend/
 npm install
 npm start
 ```
@@ -45,7 +45,7 @@ npm start
 3.**Instal and run the frontend**
 
 ```bash
-/cd frontend
+cd frontend/
 npm install
 npm start
 ```

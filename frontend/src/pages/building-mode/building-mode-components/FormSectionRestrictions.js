@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import { plusIcon2, minusIcon2 } from "../../../data/ImagesData";
+import plusIcon from "@images/icons/plus-white.webp";
+import minusIcon from "@images/icons/minus-white.webp";
 import { RestrictionContext } from "@contexts/building-contexts/restrictionContext";
 
 const FormSectionRestrictions = (props) => {
@@ -12,12 +13,12 @@ const FormSectionRestrictions = (props) => {
         <label htmlFor="">{props.name}:</label>
         <div className="FormButtonsGroup">
           <img
-            src={plusIcon2}
+            src={plusIcon}
             alt=""
             onClick={() => handleAdd(props.name, number, setNumber)}
           />
           <img
-            src={minusIcon2}
+            src={minusIcon}
             alt=""
             onClick={() => handleRemove(props.name, number, setNumber)}
           />
