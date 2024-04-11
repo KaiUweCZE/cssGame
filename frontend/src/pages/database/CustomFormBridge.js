@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
-import CssFormInputs from "../../components/css-form/CssFormInputs";
-import CssFormHeadline from "../../components/css-form/CssFormHeadline";
+import React, { useContext, useState } from "react";
+import CssFormInputs from "@components/css-form/CssFormInputs";
+import CssFormHeadline from "@components/css-form/CssFormHeadline";
 import { useFormInputs } from "@utils/cssFormFunctions";
 import { customBridgeContext } from "@contexts/building-contexts/customBridgeContext";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
+import { checkAllowedList } from "@utils/checkArray";
+import ErrorList from "./database-components/ErrorList";
 
 const CustomFormBridge = (props) => {
-  const { addInput, removeInput, bridgeStyle, setBridgeStyle } =
+  const [error, setError] = useState({ allowed: false, denied: false });
+  const { addInput, removeInput, maxLengthBridge, setBridgeStyle } =
     useContext(customBridgeContext);
-
+  const { list, allowedList, deniedList } = useContext(customCommonContext);
   const {
     cssProperties,
     cssValues,
@@ -15,7 +19,7 @@ const CustomFormBridge = (props) => {
     setValueAtIndex,
     handleAddLabel,
     handleRemoveLabel,
-  } = useFormInputs([""], [""]);
+  } = useFormInputs([""], [""], maxLengthBridge);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,8 +27,36 @@ const CustomFormBridge = (props) => {
       acc[property] = cssValues[index];
       return acc;
     }, {});
-    setBridgeStyle(newStyles);
-    console.log(cssProperties, cssValues);
+    if (!list.allowed && !list.denied) {
+      setError({ allowed: false, denied: false });
+      setBridgeStyle(newStyles);
+      console.log("aloowwwe");
+    }
+    if (list.allowed) {
+      if (checkAllowedList(cssProperties, allowedList)) {
+        setError({ allowed: false, denied: false });
+        setBridgeStyle(newStyles);
+      } else {
+        setError({ allowed: true, denied: false });
+        console.log("aloowwwe");
+      }
+    }
+    if (list.denied) {
+      if (!checkAllowedList(cssProperties, deniedList)) {
+        setError({ allowed: false, denied: false });
+        setBridgeStyle(newStyles);
+      } else {
+        setError({ allowed: false, denied: true });
+      }
+    }
+    console.log(
+      "properties, values, list, last error",
+      cssProperties,
+      cssValues,
+      allowedList,
+      list,
+      error
+    );
   };
 
   return (
@@ -42,6 +74,16 @@ const CustomFormBridge = (props) => {
         setValueAtIndex={setValueAtIndex}
         stop={props.stopAdd}
       />
+      {error.denied || error.allowed ? (
+        <>
+          <ErrorList
+            type={error.allowed ? "allowed list" : "denied list"}
+            list={error.allowed ? allowedList : deniedList}
+          />
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

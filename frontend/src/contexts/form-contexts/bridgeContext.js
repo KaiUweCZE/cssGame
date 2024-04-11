@@ -1,4 +1,4 @@
-import React, { createContext, useState, useRef, useEffect } from "react";
+import React, { createContext, useState } from "react";
 
 export const BridgeContext = createContext(null);
 
@@ -6,11 +6,11 @@ export const BridgeProvider = ({ children }) => {
   const [propertiesBridge, setPropertiesBridge] = useState([""]);
   const [valuesBridge, setValuesBridge] = useState([""]);
   const [stopAdd, setStopAdd] = useState(false);
-  const [bridgeProperties, setBridgeProperties] = useState(3);
+  const [bridgeLength, setBridgeLength] = useState(4);
 
   // add next inputs in form
   const handleAddInput = () => {
-    if (propertiesBridge.length >= bridgeProperties) {
+    if (propertiesBridge.length >= bridgeLength - 1) {
       setPropertiesBridge([...propertiesBridge, ""]);
       setValuesBridge([...valuesBridge, ""]);
       setStopAdd(true);
@@ -44,7 +44,8 @@ export const BridgeProvider = ({ children }) => {
     valuesBridge,
     setPropertiesBridge,
     setValuesBridge,
-    setBridgeProperties,
+    bridgeLength,
+    setBridgeLength,
     stopAdd,
     handleAddInput,
     handleRemoveInput,

@@ -4,23 +4,25 @@ import EmptyBox from "@components/EmptyBox";
 import { customContainerContext } from "@contexts/building-contexts/customContainerContext";
 import useSetStyle from "@utils/hooks/useSetStyle";
 import { useGetLevel } from "@utils/queries/useGetLevel";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CustomFormBridge from "./CustomFormBridge";
 import { customBridgeContext } from "@contexts/building-contexts/customBridgeContext";
 import AboutClass from "@components/about-class-components/AboutClass";
-import {
-  CheckContext,
-  CheckContextProvider,
-} from "@contexts/form-contexts/checkContext";
+import { CheckContext } from "@contexts/form-contexts/checkContext";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 
 const DatabaseLevel = () => {
   const { id } = useParams();
   const { data } = useGetLevel(id);
   const level = data?.level;
   const [containerClass, setContainerClass] = useState();
-  const { bridgeStyle } = useContext(customBridgeContext);
-  const { containerStyle } = useContext(customContainerContext);
+  const { bridgeStyle, setMaxLengthBridge } = useContext(customBridgeContext);
+  const { containerStyle, setMaxLengthContainer } = useContext(
+    customContainerContext
+  );
+  const { list, allowedList, setAllowedList, setDeniedList } =
+    useContext(customCommonContext);
   const { aboutClass } = useContext(CheckContext);
 
   const originContainerStyle = useSetStyle(
@@ -43,7 +45,16 @@ const DatabaseLevel = () => {
     ...containerStyle,
   };
 
-  console.log("about class: ", aboutClass);
+  useEffect(() => {
+    setMaxLengthBridge(level?.numberOfInputs);
+    setMaxLengthContainer(level?.numberOfInputs);
+    if (level?.allowedList.length > 0) {
+      setAllowedList(level?.allowedList);
+    }
+    if (level?.deniedList.length > 0) {
+      setDeniedList(level?.deniedList);
+    }
+  }, [level]);
 
   return (
     <div className="container-mission">

@@ -8,11 +8,13 @@ export const CustomContainerProvider = ({ children }) => {
   const [valuesContainer, setValuesContainer] = useState([""]);
   const [stopContainer, setStopContainer] = useState(false);
   const [containerStyle, setContainerStyle] = useState("");
-  const maxLength = 3;
+  const [maxLengthContainer, setMaxLengthContainer] = useState(1);
+  const [allowedList, setAllowedList] = useState([""]);
+  const [deniedList, setDeniedList] = useState([""]);
 
   const addInput = () =>
     handleAddInput(
-      maxLength,
+      maxLengthContainer,
       propertiesContainer,
       valuesContainer,
       setPropertiesContainer,
@@ -31,7 +33,8 @@ export const CustomContainerProvider = ({ children }) => {
     );
 
   const contextValue = {
-    maxLength,
+    maxLengthContainer,
+    setMaxLengthContainer,
     propertiesContainer,
     setPropertiesContainer,
     valuesContainer,
