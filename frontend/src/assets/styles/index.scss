@@ -640,13 +640,15 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
   margin-top: 3rem;
   padding: 3rem;
   border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.85);
-  background-color: rgba($main-color, 0.85);
+  background-color: rgba(40, 40, 40, 0.65);
+  background-color: rgba($main-color, 0.65);
+  background-color: $main-color;
   //background-color: rgba(219, 3, 3, 0.808);
   box-shadow: 0 0 12px $addons-color;
   h2 {
     font-size: clamp(2rem, 3.5vw, 3rem);
     color: $secondary-color;
+    //color: #404040;
   }
   button {
     display: flex;
@@ -657,15 +659,15 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
     width: fit-content;
     height: 100%;
     align-items: center;
-    border: 2px solid $secondary-color;
-    border-radius: 0.35rem;
-    box-shadow: 0px 2px 8px $addons-color;
-    padding: 0.5rem;
-    text-transform: uppercase;
+    border-radius: 0.15rem;
+    padding-inline: 0.75rem;
     transition: 0.5s;
+    background-color: rgb(180, 206, 205);
+    background-color: $main-color;
+    border: 1px solid white;
     &:hover {
-      background-color: rgba(0, 0, 0, 0.2);
-      box-shadow: 0px 0px 0px transparent;
+      color: $primary-text;
+      background-color: white;
     }
   }
 }
