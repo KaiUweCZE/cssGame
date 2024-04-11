@@ -14,9 +14,9 @@ const Home = () => {
       <HomeSection data={data[0]} load={true} />
       <HomeBox />
       <HomeSection data={data[1]} load={scrollY > 100 ? true : false} />
-      <AnimationBox />
+      {/*<AnimationBox />
       <p>{scrollY}</p>
-      <div className="px800"></div>
+      <div className="px800"></div>*/}
     </main>
   );
 };

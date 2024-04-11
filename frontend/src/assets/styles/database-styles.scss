@@ -144,6 +144,7 @@
 .error-list {
   display: flex;
   flex-direction: column;
+  position: relative;
   background-color: rgba(0, 0, 0, 0.65);
   max-height: 10rem;
   overflow-y: scroll;
@@ -165,5 +166,31 @@
     color: white;
     margin-left: 1rem;
     font-weight: bold;
+  }
+  img {
+    position: absolute;
+    filter: brightness(10);
+    top: 0.5rem;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
+.congrats {
+  display: grid;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  top: 30%;
+  p {
+    display: grid;
+    background-color: rgba(15, 179, 78, 0.5);
+    font-weight: bold;
+    font-size: 2rem;
+    place-items: center;
+    height: 6rem;
+    padding-inline: 2rem;
+    color: white;
+    border-radius: 0.35rem;
   }
 }

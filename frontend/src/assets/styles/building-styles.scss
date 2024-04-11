@@ -198,3 +198,15 @@ textarea {
     cursor: pointer;
   }
 }
+
+.error-building {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(100, 100, 100);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  p {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+}

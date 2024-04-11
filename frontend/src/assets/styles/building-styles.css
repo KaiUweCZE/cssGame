@@ -221,4 +221,16 @@ textarea {
   position: absolute;
   opacity: 0;
   cursor: pointer;
+}
+
+.error-building {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(100, 100, 100);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.error-building p {
+  font-weight: bold;
+  color: rgb(255, 255, 255);
 }/*# sourceMappingURL=building-styles.css.map */
