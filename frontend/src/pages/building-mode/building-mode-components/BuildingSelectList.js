@@ -24,7 +24,9 @@ const BuildingSelectList = () => {
           You can set a list of allowed/denied properties:
         </label>
         <select name="options" id="options" onChange={handleSelect}>
-          <option value="0">You can select here</option>
+          <option className="hoverer" value="0">
+            You can select here
+          </option>
           <option value="1">allowed list</option>
           <option value="2">denied list</option>
         </select>

@@ -40,21 +40,27 @@
   gap: 1rem;
   max-width: 50%;
   padding: 2rem;
-  background-color: #f1f1f1;
+  background-color: rgba(black, 0.65);
   max-height: 20rem;
   overflow-y: scroll;
+  border-radius: 0 0 0.8rem 0;
   @include scroll-primary;
   input {
     font-weight: bold;
     background-color: transparent;
     border: none;
-    border-bottom: 2px dashed $addons-color;
+    border-bottom: 2px dashed white;
+    padding: 0.5rem;
+    color: white;
+    font-size: 1rem;
     &:focus {
       outline: none;
-      background-color: rgba($secondary-color, 0.85);
+      background-color: rgba(white, 0.1);
+      border-radius: 0.15rem 0.15rem 0 0;
     }
   }
   input[type="text"] {
+    color: white;
     width: 50%;
     padding: 0.15rem;
   }
@@ -63,18 +69,37 @@
     font-size: 1rem;
     cursor: pointer;
     color: white;
-    background-color: rgb(80, 92, 96);
+    background-color: rgba(255, 255, 255, 0.2);
     width: fit-content;
     padding: 0.35rem;
     padding-inline: 1.5rem;
     margin: 0 auto;
     transition: 0.35s;
+    border-radius: 0.15rem;
     &:hover {
-      background-color: black;
+      background-color: rgb(40, 40, 40);
     }
   }
   label {
+    color: white;
     font-weight: bold;
+  }
+  select {
+    background-color: rgba(white, 0.2);
+    font-weight: bold;
+    outline: none;
+    border: none;
+    transition: 1s;
+    cursor: pointer;
+    color: white;
+  }
+  option {
+    cursor: pointer;
+    background-color: rgba($main-color, 0.8);
+    white-space: normal;
+    transition: 1s;
+    font-weight: bold;
+    color: white;
   }
 }
 
@@ -99,6 +124,7 @@
     }
     &:hover {
       transform: scale(1.1);
+      filter: brightness(0.2);
     }
   }
 }
@@ -130,7 +156,7 @@
 }
 
 .BuildingWarningLabel {
-  color: rgb(248, 0, 0);
+  color: rgb(255, 154, 154);
   font-weight: bold;
 }
 
@@ -155,10 +181,20 @@
 
 textarea {
   min-height: 10rem;
+  max-width: 100%;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   padding: 0.5rem;
   transition: 1s;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(white, 0.2);
+  outline: none;
+  border: none;
+  border-radius: 0.35rem;
+  &::placeholder {
+    color: white;
+  }
 }
 
 .radio-container {
@@ -182,14 +218,14 @@ textarea {
     padding: 0.25rem;
     cursor: pointer;
     &:first-child {
-      border-radius: 0.5rem 0 0 0.5rem;
+      border-radius: 0.15rem 0 0 0.15rem;
     }
     &:last-child {
-      border-radius: 0 0.5rem 0.5rem 0;
+      border-radius: 0 0.15rem 0.15rem 0;
     }
   }
   label.active {
-    background-color: lighten($color: black, $amount: 70);
+    background-color: rgba(black, 0.3);
   }
   input[type="radio"] {
     height: 100%;
@@ -202,7 +238,7 @@ textarea {
 .error-building {
   display: flex;
   justify-content: center;
-  background-color: rgb(100, 100, 100);
+  background-color: rgb(40, 40, 40);
   border-radius: 0.5rem;
   padding: 0.5rem;
   p {

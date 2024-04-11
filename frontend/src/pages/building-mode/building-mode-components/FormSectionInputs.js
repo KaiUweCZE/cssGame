@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { minusIcon2, plusIcon2 } from "../../../data/ImagesData";
+import plusIcon from "@images/icons/plus-white.webp";
+import minusIcon from "@images/icons/minus-white.webp";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import { checkProperties } from "@utils/buildingFunctions";
 import WarningLabel from "./WarningLabel";
@@ -30,12 +31,12 @@ const FormSectionInputs = (props) => {
         <div className="FormButtonsGroup">
           <img
             className={number === 4 ? "deactivated" : ""}
-            src={plusIcon2}
+            src={plusIcon}
             alt=""
             onClick={() => handleAdd(props.label, number, setNumber)}
           />
           <img
-            src={minusIcon2}
+            src={minusIcon}
             alt=""
             onClick={() => handleRemove(props.label, number, setNumber)}
           />
