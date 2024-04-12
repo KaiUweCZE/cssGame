@@ -62,15 +62,25 @@ export const texts = [
     type: "building",
     intro: {
       h2: "Popis",
-      text: "Building mode slouží k vytváření vlastních levelů, které pak budou moci být plněny napříč uživateli, ti daný level posléze budou moci hodnotit, komentovat... v popředí budou ty nejvíce hrané/hodnocené, daný level musí být splnitelný a do databáze nebude poslán dříve, než jej tvůrce vyřeší podle pravidel, která stanový",
+      texts: [
+        "Building mode  umožňuje uživatelům vytvářet vlastní úrovně hry, které jsou následně dostupné pro hraní a hodnocení ostatními uživateli.",
+        "Tyto úrovně mohou být komentovány a hodnoceny, a ty nejpopulárnější se objevují na předních pozicích.",
+        "Je nezbytné, aby každá úroveň byla splnitelná. Úroveň nebude přidána do databáze, dokud její tvůrce nedokáže její splnitelnost v souladu s pravidly, která si nastaví.",
+      ],
     },
     tips: {
       h2: "Tipy",
       li: [
-        "promítané styly se vám hned budou vizualizovat",
-        "za pomoci allowed listu / nebo denied listu nastavíte jaké css properties bude moci uživatel ovlivňovat, respektive nebude moci.",
-        "Zkuste aby daný level byl pokud možno originální, jednak je možné, že pokud bude velmi podobný, tak neprojde přes filtr",
-        "v případě, že level neprojde přes filtr, tak nevěste hlavu, zkontrolujte, jestli je podobnost s daným levelem, na který vás filter upozorní, opodstatněná. Pokud ne zkuste zanechat report a level bude vyhodnocen individuálně.",
+        "Jakmile začnete s projektováním úrovně, aplikované styly se okamžitě vizualizují, což umožňuje snadnější představu o výsledném vzhledu.",
+        "Pomocí seznamu povolených (allowed list) nebo zakázaných (denied list) CSS vlastností můžete omezit, které styly může uživatel upravovat. Příklad použití: Pokud chcete zakázat použití translateX, je nutné vzít v úvahu, že uživatelé mohou stejný efekt dosáhnout pomocí transform: translate(...). Proto je důležité zvážit, zda jsou omezení dostatečně specifikovaná a zahrnují všechny možné způsoby implementace daného stylu, aby se předešlo obcházení stanovených pravidel.",
+        "Snažte se vytvářet originální úrovně. Pokud je úroveň příliš podobná již existující, může být zamítnuta filtrovacím mechanismem.",
+        "Pokud vaše úroveň neprojde filtrem kvůli podobnosti s jinou úrovní, nezoufejte. Prověřte, zda je podobnost oprávněná. V případě, že není, podávejte zprávu, a vaše úroveň bude posouzena individuálně.",
+      ],
+      boldPart: [
+        "Vizualizace stylů:",
+        "Správa CSS vlastností:",
+        "Originalita úrovní:",
+        "Řešení problémů s filtrem:",
       ],
     },
   },
