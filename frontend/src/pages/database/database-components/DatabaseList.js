@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { plusIcon } from "../../../data/ImagesData";
+import DatabaseButtons from "./DatabaseButtons";
 
 const DatabaseList = ({ items }) => {
   const [open, setOpen] = useState({ active: false, id: null });
@@ -20,6 +21,7 @@ const DatabaseList = ({ items }) => {
                   <p>
                     {index + 1}. name: {item.name} author: {item.author}
                   </p>
+                  <DatabaseButtons />
                   <div className="toggles">
                     <button onClick={() => handleNavigate(item.id)}>
                       play
