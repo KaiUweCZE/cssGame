@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import "@styles/roadmap-styles.css";
+import "./roadmap-styles.css";
 import { mapBG } from "../../data/ImagesData";
 import { UserContext } from "../../contexts/UserContext";
 import RoadmapLevel from "./road-map-components/RoadmapLevel";

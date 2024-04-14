@@ -1,46 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useMutation, gql } from "@apollo/client";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import { RestrictionContext } from "@contexts/building-contexts/restrictionContext";
 import { UserContext } from "../../../contexts/UserContext";
 import ErrorBuilding from "./ErrorBuilding";
+import { useCreateLevel } from "@utils/queries/useCreateLevel";
 
-const CREATE_LEVEL = gql`
-  mutation CreateLevel(
-    $name: String!
-    $author: String!
-    $bridgeProperties: [String]
-    $bridgeValues: [String]
-    $containerProperties: [String]
-    $containerValues: [String]
-    $allowedList: [String]
-    $deniedList: [String]
-    $numberOfInputs: Int
-    $description: String
-  ) {
-    createLevel(
-      name: $name
-      author: $author
-      bridgeProperties: $bridgeProperties
-      bridgeValues: $bridgeValues
-      containerProperties: $containerProperties
-      containerValues: $containerValues
-      allowedList: $allowedList
-      deniedList: $deniedList
-      numberOfInputs: $numberOfInputs
-      description: $description
-    ) {
-      id
-    }
-  }
-`;
+// submit input for handling the creation of a new level
 const BuildingFormSubmit = () => {
+  // state to manage error messages for form validation
   const [errorMessage, setErrorMessage] = useState({
     invalid: false,
     type: "",
   });
-  const [createLevel, { data, loading, error }] = useMutation(CREATE_LEVEL);
+
+  // custom hook to call GraphQL mutation for creating a level
+  const { createLevel, data, loading, error } = useCreateLevel();
+
+  // Information about user
   const { user } = useContext(UserContext);
+
+  // retrieve form data from inputs via BuildingFormContext
   const {
     maximumNumber,
     description,
@@ -50,54 +29,65 @@ const BuildingFormSubmit = () => {
     propertiesBridge,
     valuesBridge,
   } = useContext(BuildingFormContext);
+
+  // retrieve data from select element if allowedList/deniedList has been selected
   const { allowedList, deniedList } = useContext(RestrictionContext);
+
+  // effects for debugging purposes
+  useEffect(() => {
+    if (data) {
+      console.log("Level created successfully", data);
+    }
+    if (error) {
+      console.error("Error creating level:", error);
+      setErrorMessage({ invalid: true, type: "server-error" }); // Example of handling server error
+    }
+  }, [data, error]);
 
   useEffect(() => {
     console.log(user.name, description);
   }, [user, description]);
-  // createUser({ variables: {name: username, email: email, password: password}})
+
+  // form submission handler
   const handleCreateLevel = (e) => {
     e.preventDefault();
 
+    // validate level name input
     if (!levelName) {
-      console.log("jméno levelu je povinné");
+      console.log("Level name is required");
       setErrorMessage({ invalid: true, type: "no-name" });
       return;
     }
 
+    // check if at least one style element has been filled in inputs
     const hasBridgeData =
       propertiesBridge.length > 0 && valuesBridge.length > 0;
     const hasContainerData =
       propertiesContainer.length > 0 && valuesContainer.length > 0;
 
     if (!hasBridgeData && !hasContainerData) {
-      console.log("něco vyplň");
+      console.log("You have to style at least one of element");
       setErrorMessage({ invalid: true, type: "no-styles" });
       return;
     }
 
-    createLevel({
-      variables: {
+    // execute the mutation with the form data
+    try {
+      createLevel({
         name: levelName,
         author: user.name,
         bridgeProperties: propertiesBridge,
         bridgeValues: valuesBridge,
         containerProperties: propertiesContainer,
         containerValues: valuesContainer,
-        allowedList: allowedList,
-        deniedList: deniedList,
+        allowedList,
+        deniedList,
         numberOfInputs: maximumNumber,
-        description: description,
-      },
-    })
-      .then(() => {
-        console.log("Level is set");
-      })
-      .catch((err) => {
-        console.error(err);
-        setErrorMessage({ invalid: true, type: "not-unique-name" });
-        console.log(levelName, propertiesContainer, description);
+        description,
       });
+    } catch (error) {
+      console.log("Error while creating the level:", err.message);
+    }
   };
   return (
     <>
