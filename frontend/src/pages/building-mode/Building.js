@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "@styles/building-styles.css";
+import "./building-styles.css";
 import BuildingArea from "@pages/building-mode/building-mode-components/BuildingArea";
 import BuildingForm from "@pages/building-mode/building-mode-components/BuildingForm";
 import { RestrictionProvider } from "@contexts/building-contexts/restrictionContext";

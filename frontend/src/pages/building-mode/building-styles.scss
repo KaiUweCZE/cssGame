@@ -1,4 +1,5 @@
-@import "./addons/variables", "./addons/mixins";
+@import "../../assets/styles/addons/variables",
+  "../../assets/styles/addons/mixins";
 
 @include main-setting;
 

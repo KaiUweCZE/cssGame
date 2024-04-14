@@ -130,8 +130,8 @@
   transition: 1s;
 }
 .database-buttons img {
-  width: 1.8rem;
-  height: 100%;
+  width: 85%;
+  height: 85%;
   transition: 1s;
   opacity: 0.85;
   filter: brightness(1);

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { gql, useQuery } from "@apollo/client";
-import "@styles/database-styles.css";
+import "./database-styles.css";
 import AsideBox from "../../components/AsideBox";
 import officeBackground from "@images/office.webp";
 import DatabaseList from "./database-components/DatabaseList";
