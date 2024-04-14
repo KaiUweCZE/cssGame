@@ -50,6 +50,8 @@ const LevelType = new GraphQLObjectType({
     likes: { type: new GraphQLList(GraphQLString) },
     likeCount: { type: GraphQLInt },
     finish: { type: GraphQLInt },
+    usersPlayed: { type: new GraphQLList(GraphQLString) },
+    usersCount: { type: GraphQLInt },
   }),
 });
 
@@ -173,6 +175,8 @@ const mutation = new GraphQLObjectType({
         likes: { type: new GraphQLList(GraphQLString) },
         likeCount: { type: GraphQLInt },
         finish: { type: GraphQLInt },
+        usersPlayed: { type: new GraphQLList(GraphQLString) },
+        usersCount: { type: GraphQLInt },
       },
       resolve: async (parent, args) => {
         const level = new Level({
@@ -188,6 +192,9 @@ const mutation = new GraphQLObjectType({
           description: args.description,
           likes: args.likes,
           likeCount: args.likeCount,
+          finish: { type: GraphQLInt },
+          usersPlayed: { type: new GraphQLList(GraphQLString) },
+          usersCount: { type: GraphQLInt },
         });
         return level.save();
       },
@@ -224,27 +231,25 @@ const mutation = new GraphQLObjectType({
         );
       },
     },
-    /*finishLevel: {
+    levelPlayed: {
       type: LevelType,
       args: {
-        levelId: {type: new GraphQLNonNull(GraphQLID)},
-        userId: {type: new GraphQLNonNull(GraphQLID)}
+        levelId: { type: new GraphQLNonNull(GraphQLID) },
+        userId: { type: new GraphQLNonNull(GraphQLID) },
       },
-      resolve: async (parent, {levelId, userId}, context) => {
-        const user = await User.findById(userId);
-        if (user && !user.completedLevels.includes(levelId)){
-
-          return Level.findByIdAndUpdate(
-            levelId,
-          { $inc: {finish: 1}},
-          {new: true}
-          )
-        } else {
-          throw new Error("Level is already completed by this user")
+      resolve: async (parent, args) => {
+        const level = await Level.findById(args.levelId);
+        if (!level) {
+          throw new Error("level not found");
         }
-        
-      }
-    },*/
+        if (!level.usersPlayed.includes(args.userId)) {
+          level.usersPlayed.push(args.userId);
+          level.usersCount += 1;
+          await level.save();
+        }
+        return level;
+      },
+    },
     completeLevel: {
       type: UserType,
       args: {

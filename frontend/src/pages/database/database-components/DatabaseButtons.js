@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import confettiIcon from "@images/icons/confetti.svg";
 import confettiColored from "@images/icons/confettiDone.webp";
 import userIcon from "@images/icons/user.svg";
+import userPlayedIcon from "@images/icons/user-played.webp";
 import dumbbellIcon from "@images/icons/dumbbell.svg";
 import heartIcon from "@images/icons/heart.svg";
 import likedIcon from "@images/icons/heart-liked.webp";
@@ -9,7 +10,14 @@ import { UserContext } from "@contexts/UserContext";
 import { useLikeLevel } from "@utils/queries/useLikeLevel";
 import { useUnlikeLevel } from "@utils/queries/useUnlikeLevel";
 
-const DatabaseButtons = ({ levelId, likesList, likeCount, finishes }) => {
+const DatabaseButtons = ({
+  levelId,
+  likesList,
+  likeCount,
+  finishes,
+  usersPlayed,
+  usersCount,
+}) => {
   const { user } = useContext(UserContext);
   const { likeLevel, error, data } = useLikeLevel();
 
@@ -27,8 +35,12 @@ const DatabaseButtons = ({ levelId, likesList, likeCount, finishes }) => {
       <div className="wrapper-button">
         <div className="button-tooltip">
           <div className="button">
-            <span>15</span>
-            <img src={userIcon} alt="" />
+            <span>{usersCount}</span>
+            {usersPlayed?.includes(user.id) ? (
+              <img src={userPlayedIcon} alt="" />
+            ) : (
+              <img src={userIcon} alt="" />
+            )}
           </div>
           <div className="tooltip">users played</div>
         </div>
