@@ -5,8 +5,14 @@ import { UserContext } from "../../contexts/UserContext";
 const COMPLETE_LEVEL = gql`
   mutation CompleteLevel($id: ID!, $levelId: ID!) {
     completeLevel(id: $id, levelId: $levelId) {
-      id
-      completedLevels
+      user {
+        id
+        completedLevels
+      }
+      level {
+        id
+        finish
+      }
     }
   }
 `;

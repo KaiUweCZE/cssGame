@@ -55,6 +55,14 @@ const LevelType = new GraphQLObjectType({
   }),
 });
 
+const UserAndLevelType = new GraphQLObjectType({
+  name: "UserAndLevelType",
+  fields: {
+    user: { type: UserType },
+    level: { type: LevelType },
+  },
+});
+
 const RootQueryType = new GraphQLObjectType({
   name: "Query",
   fields: {
@@ -251,7 +259,7 @@ const mutation = new GraphQLObjectType({
       },
     },
     completeLevel: {
-      type: UserType,
+      type: UserAndLevelType,
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
         levelId: { type: new GraphQLNonNull(GraphQLID) },
@@ -261,20 +269,21 @@ const mutation = new GraphQLObjectType({
         if (!user) {
           throw new Error("User not found");
         }
+        let level;
         if (!user.completedLevels.includes(args.levelId)) {
           user.completedLevels.push(args.levelId);
           await user.save();
 
-          const level = await Level.findByIdAndUpdate(
+          level = await Level.findByIdAndUpdate(
             args.levelId,
             { $inc: { finish: 1 } },
             { new: true }
           );
           console.log("Finish increase by 1");
-          return user;
         } else {
           throw new Error("Level is already completed by this user");
         }
+        return { user, level };
       },
     },
   },

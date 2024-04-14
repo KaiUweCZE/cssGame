@@ -30,6 +30,7 @@ const DatabaseButtons = ({
   useEffect(() => {
     console.log("data: ", data);
   }, [likeLevel]);
+
   return (
     <div className="database-buttons">
       <div className="wrapper-button">

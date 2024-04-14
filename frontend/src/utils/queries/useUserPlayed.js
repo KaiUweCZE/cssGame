@@ -3,6 +3,7 @@ import { gql, useMutation } from "@apollo/client";
 const PLAYED_LEVEL = gql`
   mutation LevelPlayed($levelId: ID!, $userId: ID!) {
     levelPlayed(levelId: $levelId, userId: $userId) {
+      id
       usersPlayed
       usersCount
     }
