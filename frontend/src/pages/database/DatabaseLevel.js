@@ -11,6 +11,8 @@ import { customBridgeContext } from "@contexts/building-contexts/customBridgeCon
 import AboutClass from "@components/about-class-components/AboutClass";
 import { CheckContext } from "@contexts/form-contexts/checkContext";
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
+import { useUserPlayed } from "@utils/queries/useUserPlayed";
+import { UserContext } from "@contexts/UserContext";
 
 const DatabaseLevel = () => {
   const { id } = useParams();
@@ -21,6 +23,7 @@ const DatabaseLevel = () => {
   const { containerStyle, setMaxLengthContainer } = useContext(
     customContainerContext
   );
+  const { user } = useContext(UserContext);
   const {
     setChange,
     result,
@@ -30,8 +33,10 @@ const DatabaseLevel = () => {
     setLevelId,
   } = useContext(customCommonContext);
   const { aboutClass } = useContext(CheckContext);
+  const { playedLevel, error } = useUserPlayed(id, user.id);
 
   useEffect(() => {
+    playedLevel(id, user?.id);
     setChange(0);
     setResult(false);
     setLevelId(id);

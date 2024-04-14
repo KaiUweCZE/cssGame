@@ -19,6 +19,8 @@ const GET_LEVELS = gql`
       likes
       likeCount
       finish
+      usersPlayed
+      usersCount
     }
   }
 `;

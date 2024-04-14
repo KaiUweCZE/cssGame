@@ -54,6 +54,14 @@ const LevelSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  usersPlayed: {
+    type: [String],
+    default: [],
+  },
+  usersCount: {
+    type: Number,
+    default: 0,
+  },
 });
 
 export const Level = mongoose.model("Level", LevelSchema);
