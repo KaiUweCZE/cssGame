@@ -141,75 +141,6 @@
   transform-origin: center;
 }
 
-.animation-box {
-  display: flex;
-  position: relative;
-  width: 100%;
-  max-width: 60rem;
-  aspect-ratio: 16/9;
-  //background-color: lighten($color: $main-color, $amount: 20);
-  margin-bottom: 10rem;
-  overflow: hidden;
-  border: 3px solid rgba(0, 0, 0, 0.6);
-  border-radius: 1rem;
-  margin-top: 2rem;
-  .emoji {
-    width: 10%;
-    position: absolute;
-    bottom: 8rem;
-    transform: translateX(-5rem) rotate(0);
-    transition: 2.5s ease-in-out;
-  }
-  .emoji.come-in {
-    transform: translateX(5rem) rotate(1turn);
-    transition: 2.5s ease-in-out;
-  }
-  .background {
-    display: flex;
-    position: absolute;
-    bottom: -8rem;
-    margin: 0 auto;
-    width: 100%;
-    object-fit: cover;
-  }
-  .trunk {
-    display: flex;
-    position: absolute;
-    bottom: 5rem;
-    left: 19rem;
-    width: 37%;
-    transform: rotate(-90deg);
-    object-fit: cover;
-    transition: 2s;
-    &.active {
-      transition: 2s 3.5s;
-      transform: rotate(0deg);
-    }
-  }
-  article {
-    position: absolute;
-    z-index: 1;
-    left: 12rem;
-    top: 4rem;
-    background-color: rgba(white, 0.8);
-    padding: 1rem;
-    border-radius: 1rem;
-    transition: 1s 2s;
-    &.showed {
-      opacity: 1;
-      transition: 1s 2.5s;
-    }
-    &.hide {
-      opacity: 0;
-      transition: 0.1s;
-    }
-  }
-}
-
-.px800 {
-  height: 800px;
-}
-
 .wrapper-home {
   display: grid;
   grid-template-columns: 1fr 80rem 1fr;
@@ -232,15 +163,57 @@
     opacity: 1;
   }
 }
-/*
-.container-home {
-  grid-column: 2;
-  grid-row: 1;
-  max-height: 100vh;
-  overflow-y: scroll;
-  @include scroll-primary;
-  @media (width < 100rem) {
-    width: 80vw;
-    grid-column: 1;
+
+.animation {
+  display: flex;
+  width: 70%;
+  height: 100%;
+  //max-width: 60%;
+  aspect-ratio: 16/9;
+  position: relative;
+  //aspect-ratio: 16/9;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  .catchphrase {
+    display: flex;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    background-color: rgba(white, 0.7);
+    border-radius: 1rem;
+    transition: 0.1s;
+    opacity: 0;
+    &.active {
+      transition: 1s 2s;
+      opacity: 1;
+    }
   }
-}*/
+  .emoji {
+    position: absolute;
+    width: 10%;
+    bottom: 40%;
+    transform: translateX(-5rem) rotate(0);
+    transition: 2.5s ease-in-out;
+  }
+  .emoji.come-in {
+    transform: translateX(5rem) rotate(1turn);
+    transition: 2.5s ease-in-out;
+  }
+  .trunk {
+    position: absolute;
+    width: 44%;
+    top: 60%;
+    left: 27.5%;
+    z-index: 1;
+    transform: rotate(-90deg);
+    transition: 0.1s;
+    &.active {
+      transition: 2s 3.5s;
+      transform: rotate(0deg);
+    }
+  }
+}
