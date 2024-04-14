@@ -752,3 +752,139 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
     right: 1vw;
   }
 }
+
+.bug-message {
+  display: grid;
+  place-items: center;
+  background-color: rgba($main-color, 1);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1rem 0 0 0;
+  transition: 1s;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+  h2,
+  p {
+    color: white;
+  }
+  &.active {
+    //border-radius: 0.5rem;
+    width: 40rem;
+    height: 27.5rem;
+    max-width: 100%;
+    aspect-ratio: 3/2;
+  }
+  .bug-image {
+    position: absolute;
+    height: 1.5rem;
+    cursor: pointer;
+    transition: 1s;
+    translate: 0 0;
+    &.active {
+      transition: 1s;
+      translate: -19rem -12.5rem;
+      //animation: bug-walk 5s linear 1s forwards;
+    }
+    &:hover {
+      rotate: -45deg;
+    }
+    &.active:hover {
+      rotate: 135deg;
+    }
+  }
+}
+
+.bug-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+  height: 80%;
+  width: 90%;
+  opacity: 0;
+  animation: go-in 1s linear 0.25s forwards;
+  input[type="submit"] {
+    border: none;
+    background-color: white;
+    width: fit-content;
+    padding-inline: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0.35rem;
+    transition: 0.4s;
+    &:hover {
+      background-color: #303030;
+      color: white;
+    }
+  }
+  textarea {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 18rem;
+    min-height: 18rem;
+    max-height: 18rem;
+  }
+}
+
+@keyframes go-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bug-walk {
+  0% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  20% {
+    translate: 0 -10rem;
+    rotate: 0deg;
+  }
+  30% {
+    translate: 0 -10rem;
+    rotate: -90deg;
+  }
+  60% {
+    translate: -19rem -10rem;
+    rotate: -90deg;
+  }
+  65% {
+    translate: -19rem -10rem;
+    rotate: 0deg;
+  }
+  99% {
+    translate: -19rem -12rem;
+    rotate: 0deg;
+  }
+  100% {
+    translate: -19rem -12rem;
+    transition: 2s;
+  }
+}
+
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
