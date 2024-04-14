@@ -8,6 +8,7 @@ export const CustomCommonProvider = ({ children }) => {
   const [list, setList] = useState({ allowed: false, denied: false });
   const [change, setChange] = useState(0);
   const [result, setResult] = useState(false);
+  const [levelId, setLevelId] = useState("");
 
   useEffect(() => {
     if (allowedList[0] !== "") {
@@ -32,6 +33,8 @@ export const CustomCommonProvider = ({ children }) => {
     setChange,
     result,
     setResult,
+    levelId,
+    setLevelId,
   };
 
   return (

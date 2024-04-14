@@ -16,6 +16,9 @@ const GET_LEVELS = gql`
       bridgeProperties
       containerProperties
       description
+      likes
+      likeCount
+      finish
     }
   }
 `;

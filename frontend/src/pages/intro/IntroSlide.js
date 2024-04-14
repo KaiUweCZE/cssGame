@@ -12,8 +12,6 @@ const IntroSlide = (props) => {
     }
   };
 
-  console.log("Slide ");
-
   return (
     <section className={`intro-background ${props.classPortrait}`}>
       <img src={props.background} alt="" />
