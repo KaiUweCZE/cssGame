@@ -21,13 +21,20 @@ const DatabaseLevel = () => {
   const { containerStyle, setMaxLengthContainer } = useContext(
     customContainerContext
   );
-  const { setChange, result, setResult, setAllowedList, setDeniedList } =
-    useContext(customCommonContext);
+  const {
+    setChange,
+    result,
+    setResult,
+    setAllowedList,
+    setDeniedList,
+    setLevelId,
+  } = useContext(customCommonContext);
   const { aboutClass } = useContext(CheckContext);
 
   useEffect(() => {
     setChange(0);
     setResult(false);
+    setLevelId(id);
   }, [id]);
 
   const originContainerStyle = useSetStyle(
