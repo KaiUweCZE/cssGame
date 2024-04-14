@@ -42,6 +42,26 @@ const LevelSchema = new mongoose.Schema({
     type: String,
     maxlength: [500, "String can not have length more than 500 chars"],
   },
+  likes: {
+    type: [String],
+    default: [],
+  },
+  likeCount: {
+    type: Number,
+    default: 0,
+  },
+  finish: {
+    type: Number,
+    default: 0,
+  },
+  usersPlayed: {
+    type: [String],
+    default: [],
+  },
+  usersCount: {
+    type: Number,
+    default: 0,
+  },
 });
 
 export const Level = mongoose.model("Level", LevelSchema);

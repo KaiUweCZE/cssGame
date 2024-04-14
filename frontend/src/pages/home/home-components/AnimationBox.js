@@ -1,26 +1,30 @@
 import React from "react";
-import emojiImg from "@images/main-character.webp";
-import background from "@images/cliff2.webp";
 import useScrollPosition from "@utils/hooks/useScrollPosition";
+import background from "@images/edit/animation-background.webp";
+import emojiImg from "@images/main-character.webp";
 import trunkImg from "@images/plank.webp";
 
 const AnimationBox = () => {
   const { scrollY } = useScrollPosition();
   return (
-    <div className="animation-box">
-      <img className="background" src={background} alt="" />
-      <article className={scrollY > 1000 && scrollY < 1800 ? "showed" : "hide"}>
-        {".bridge {"} <br /> transform: rotate(90deg); <br /> {"}"}
-      </article>
+    <div
+      className="animation"
+      style={{ backgroundImage: `url(${background})` }}
+    >
+      <div className={scrollY > 600 ? "catchphrase active" : "catchphrase"}>
+        <p>
+          {".bridge {"} <br /> transform: rotate(90deg); <br /> {"}"}
+        </p>
+      </div>
       <img
-        className={scrollY > 1000 && scrollY < 1800 ? "trunk active" : "trunk"}
-        src={trunkImg}
-        alt=""
+        className={scrollY > 600 ? "emoji come-in" : "emoji"}
+        src={emojiImg}
+        alt="emoji character"
       />
       <img
-        src={emojiImg}
-        className={scrollY > 1000 && scrollY < 1800 ? "emoji come-in" : "emoji"}
-        alt=""
+        className={scrollY > 600 ? "trunk active" : "trunk"}
+        src={trunkImg}
+        alt="a trunk as a bridge"
       />
     </div>
   );

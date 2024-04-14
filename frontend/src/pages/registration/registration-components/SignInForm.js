@@ -13,6 +13,7 @@ const LOGIN_USER = gql`
         id
         name
         level
+        completedLevels
       }
     }
   }

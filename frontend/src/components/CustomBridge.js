@@ -6,13 +6,17 @@ import River from "./River";
 import EndPoint from "./EndPoint";
 import CheckPoint from "./bridge-components/CheckPoint";
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
+import useCompletedLevel from "@utils/queries/useCompletedLevel";
+import { UserContext } from "@contexts/UserContext";
 
 const CustomBridge = (props) => {
   const checkRef = useRef(null);
   const bridgeRef = useRef(null);
-  const { change, setResult } = useContext(customCommonContext);
-
+  const { change, setResult, levelId } = useContext(customCommonContext);
+  const { user } = useContext(UserContext);
+  const { completeLevel, error, loading } = useCompletedLevel();
   useEffect(() => {
+    console.log(user);
     if (change > 0) {
       if (checkRef.current && bridgeRef.current) {
         console.log("Checkpoint: ", checkRef.current.getBoundingClientRect());
@@ -31,6 +35,7 @@ const CustomBridge = (props) => {
         if (isLeftCorrect && isRightCorrect && isTopCorrect) {
           console.log("Yes");
           setResult(true);
+          completeLevel(user.id, levelId);
         } else {
           console.log("no");
           setResult(false);

@@ -11,7 +11,6 @@ const Intro = () => {
   const data = slideData.find((e) => e.id === slideId);
   const windowSize = useWindowSize();
 
-  console.log(windowSize);
   return (
     <main className="intro">
       {data ? (

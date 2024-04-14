@@ -5,6 +5,9 @@ import { homeData } from "./data";
 import HomeBox from "./home-components/HomeBox";
 import useScrollPosition from "@utils/hooks/useScrollPosition";
 import AnimationBox from "./home-components/AnimationBox";
+import background from "@images/edit/animation-background.webp";
+import emojiImg from "@images/main-character.webp";
+import trunkImg from "@images/plank.webp";
 
 const Home = () => {
   const data = homeData;
@@ -14,9 +17,9 @@ const Home = () => {
       <HomeSection data={data[0]} load={true} />
       <HomeBox />
       <HomeSection data={data[1]} load={scrollY > 100 ? true : false} />
-      {/*<AnimationBox />
+      <p>HRUBÝ NÁSTŘEL DOPLŇKOVÉ ANIMACE</p>
+      <AnimationBox />
       <p>{scrollY}</p>
-      <div className="px800"></div>*/}
     </main>
   );
 };
