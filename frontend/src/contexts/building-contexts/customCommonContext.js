@@ -9,6 +9,7 @@ export const CustomCommonProvider = ({ children }) => {
   const [change, setChange] = useState(0);
   const [result, setResult] = useState(false);
   const [levelId, setLevelId] = useState("");
+  const [styled, setStyled] = useState(false);
 
   useEffect(() => {
     if (allowedList[0] !== "") {
@@ -35,6 +36,8 @@ export const CustomCommonProvider = ({ children }) => {
     setResult,
     levelId,
     setLevelId,
+    styled,
+    setStyled,
   };
 
   return (

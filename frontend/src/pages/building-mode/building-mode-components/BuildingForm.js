@@ -5,6 +5,7 @@ import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import BuildingTextarea from "./BuildingTextarea";
 import BuildingSelectList from "./BuildingSelectList";
 import BuildingRadio from "./BuildingRadio";
+import BuildingSet from "./BuildingSet";
 
 const BuildingForm = () => {
   const [select, setSelect] = useState("");
@@ -28,6 +29,7 @@ const BuildingForm = () => {
       <BuildingSelectList />
       <BuildingTextarea description={setDescription} />
       <BuildingFormSubmit />
+      <BuildingSet />
     </form>
   );
 };
