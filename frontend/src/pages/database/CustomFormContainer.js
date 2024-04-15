@@ -56,7 +56,11 @@ const CustomFormContainer = (props) => {
   };
 
   return (
-    <div className="container-form">
+    <div
+      className={
+        props?.position ? `container-form ${props.position}` : "container-form"
+      }
+    >
       <CssFormHeadline name={props.name} />
       <CssFormInputs
         submit={handleSubmit}

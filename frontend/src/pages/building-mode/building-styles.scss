@@ -247,3 +247,44 @@ textarea {
     color: rgb(255, 255, 255);
   }
 }
+
+.wrapper-custom-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  top: 0;
+  left: 55%;
+  width: fit-content;
+  height: fit-content;
+  gap: 1rem;
+  @include medium-screen {
+    grid-template-columns: 1fr;
+  }
+}
+
+.foorm {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  flex-direction: column;
+  div {
+    display: flex;
+    gap: 1rem;
+  }
+  input[type="text"] {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px dashed black;
+  }
+  input[type="submit"] {
+    border: none;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: fit-content;
+    padding-inline: 1rem;
+    cursor: pointer;
+  }
+}

@@ -11,7 +11,7 @@ const CustomFormBridge = (props) => {
   const [error, setError] = useState({ allowed: false, denied: false });
   const { addInput, removeInput, maxLengthBridge, setBridgeStyle } =
     useContext(customBridgeContext);
-  const { change, setChange, list, allowedList, deniedList } =
+  const { setChange, list, allowedList, deniedList } =
     useContext(customCommonContext);
   const {
     cssProperties,
@@ -54,7 +54,11 @@ const CustomFormBridge = (props) => {
   };
 
   return (
-    <div className="container-form">
+    <div
+      className={
+        props?.position ? `container-form ${props.position}` : "container-form"
+      }
+    >
       <CssFormHeadline name={props.name} />
       <CssFormInputs
         submit={handleSubmit}

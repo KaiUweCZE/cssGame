@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./building-styles.css";
 import BuildingArea from "@pages/building-mode/building-mode-components/BuildingArea";
 import BuildingForm from "@pages/building-mode/building-mode-components/BuildingForm";
@@ -9,9 +9,13 @@ import buildingBackground from "@images/workshop3.webp";
 import drawerImg from "@images/drawer.webp";
 import { UserContextProvider } from "@contexts/UserContext";
 import SecretText from "@components/SecretText";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
+import ResolveLevel from "./building-mode-components/ResolveLevel";
 
 const Building = () => {
   const [open, setOpen] = useState(false);
+  const { styled } = useContext(customCommonContext);
+
   return (
     <BuildingProvider>
       <RestrictionProvider>
@@ -20,6 +24,7 @@ const Building = () => {
             <div className="Building">
               {open ? <SecretText text="buildingInfo" func={setOpen} /> : ""}
               <BuildingForm />
+              {styled ? <ResolveLevel /> : <></>}
               <BuildingArea />
             </div>
             <AsideBox background={buildingBackground} cssClass="workshop">
