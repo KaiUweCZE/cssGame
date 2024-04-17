@@ -7,10 +7,9 @@ import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
 import AsideBox from "../../components/AsideBox";
 import buildingBackground from "@images/workshop3.webp";
 import drawerImg from "@images/drawer.webp";
-import { UserContextProvider } from "@contexts/UserContext";
 import SecretText from "@components/SecretText";
-import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 import ResolveLevel from "./building-mode-components/ResolveLevel";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 
 const Building = () => {
   const [open, setOpen] = useState(false);
@@ -19,23 +18,21 @@ const Building = () => {
   return (
     <BuildingProvider>
       <RestrictionProvider>
-        <UserContextProvider>
-          <div className="wrapper-building">
-            <div className="Building">
-              {open ? <SecretText text="buildingInfo" func={setOpen} /> : ""}
-              <BuildingForm />
-              {styled ? <ResolveLevel /> : <></>}
-              <BuildingArea />
-            </div>
-            <AsideBox background={buildingBackground} cssClass="workshop">
-              <div
-                className="drawer drawerOne"
-                style={{ backgroundImage: `url(${drawerImg})` }}
-                onClick={() => setOpen(!open)}
-              ></div>
-            </AsideBox>
+        <div className="wrapper-building">
+          <div className="Building">
+            {open ? <SecretText text="buildingInfo" func={setOpen} /> : ""}
+            <BuildingForm />
+            {styled ? <ResolveLevel /> : <></>}
+            <BuildingArea />
           </div>
-        </UserContextProvider>
+          <AsideBox background={buildingBackground} cssClass="workshop">
+            <div
+              className="drawer drawerOne"
+              style={{ backgroundImage: `url(${drawerImg})` }}
+              onClick={() => setOpen(!open)}
+            ></div>
+          </AsideBox>
+        </div>
       </RestrictionProvider>
     </BuildingProvider>
   );

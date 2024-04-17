@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { enviromentImages } from "@data/ImagesData";
 import { LevelContext } from "@contexts/form-contexts/levelContext";
-import EnemyEmoji from "./emojis/EnemyEmojis";
+import EnemyEmoji from "./Emojis/EnemyEmojis";
 
 // last part of playground component
 const EndPoint = ({ mode = "" }) => {

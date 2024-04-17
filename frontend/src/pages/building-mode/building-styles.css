@@ -48,7 +48,7 @@
   position: absolute;
 }
 
-.BuildingForm {
+.building-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -60,16 +60,16 @@
   border-radius: 0 0 0.8rem 0;
   overflow-y: scroll;
 }
-.BuildingForm::-webkit-scrollbar {
+.building-form::-webkit-scrollbar {
   width: 0.5rem;
 }
-.BuildingForm::-webkit-scrollbar-thumb {
+.building-form::-webkit-scrollbar-thumb {
   background-color: rgba(121, 190, 217, 0.5);
 }
-.BuildingForm::-webkit-scrollbar-thumb:hover {
+.building-form::-webkit-scrollbar-thumb:hover {
   background-color: #79bed9;
 }
-.BuildingForm input {
+.building-form input {
   font-weight: bold;
   background-color: transparent;
   border: none;
@@ -78,17 +78,39 @@
   color: white;
   font-size: 1rem;
 }
-.BuildingForm input:focus {
+.building-form input:focus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 0.15rem 0.15rem 0 0;
 }
-.BuildingForm input[type=text] {
+.building-form input[type=text] {
   color: white;
   width: 50%;
   padding: 0.15rem;
 }
-.BuildingForm input[type=submit] {
+.building-form .button-resolver {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  gap: 0.15rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.15rem;
+  transition: 0.35s;
+}
+.building-form .button-resolver img {
+  padding: 0.15rem;
+}
+.building-form .button-resolver input[type=submit] {
+  background-color: transparent;
+}
+.building-form .button-resolver input[type=submit]:hover {
+  background-color: transparent;
+}
+.building-form .button-resolver:hover {
+  background-color: rgb(40, 40, 40);
+}
+.building-form input[type=submit] {
   border: none;
   font-size: 1rem;
   cursor: pointer;
@@ -96,20 +118,20 @@
   background-color: rgba(255, 255, 255, 0.2);
   width: -moz-fit-content;
   width: fit-content;
+  margin: 0 auto;
   padding: 0.35rem;
   padding-inline: 1.5rem;
-  margin: 0 auto;
   transition: 0.35s;
   border-radius: 0.15rem;
 }
-.BuildingForm input[type=submit]:hover {
+.building-form input[type=submit]:hover {
   background-color: rgb(40, 40, 40);
 }
-.BuildingForm label {
+.building-form label {
   color: white;
   font-weight: bold;
 }
-.BuildingForm select {
+.building-form select {
   background-color: rgba(255, 255, 255, 0.2);
   font-weight: bold;
   outline: none;
@@ -118,13 +140,17 @@
   cursor: pointer;
   color: white;
 }
-.BuildingForm option {
+.building-form option {
   cursor: pointer;
   background-color: rgba(10, 58, 64, 0.8);
   white-space: normal;
   transition: 1s;
   font-weight: bold;
   color: white;
+}
+.building-form img {
+  width: 2rem;
+  margin: 0 auto;
 }
 
 .GroupOfInputs {
@@ -178,7 +204,7 @@
 }
 
 .BuildingWarningLabel {
-  color: rgb(255, 154, 154);
+  color: rgb(255, 50, 50);
   font-weight: bold;
 }
 
@@ -274,42 +300,68 @@ textarea::placeholder {
   color: rgb(255, 255, 255);
 }
 
-.wrapper-custom-form {
+.wrapper-resolver-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: absolute;
   top: 0;
   left: 55%;
+  background-color: rgba(255, 255, 255, 0.1);
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  max-height: 50%;
+  padding: 1rem;
   gap: 1rem;
+  overflow-y: scroll;
+  overflow-y: scroll;
+}
+.wrapper-resolver-form::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.wrapper-resolver-form::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 190, 217, 0.5);
+}
+.wrapper-resolver-form::-webkit-scrollbar-thumb:hover {
+  background-color: #79bed9;
 }
 @media (max-width: 65rem) {
-  .wrapper-custom-form {
+  .wrapper-resolver-form {
     grid-template-columns: 1fr;
   }
 }
 
-.foorm {
-  margin-top: 3rem;
+.building-resolver-form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-auto-rows: max-content;
+  gap: 0.5rem;
   flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
 }
-.foorm div {
+.building-resolver-form .resolver-inputs {
   display: flex;
   gap: 1rem;
 }
-.foorm input[type=text] {
+.building-resolver-form .resolver-box {
+  display: flex;
+  align-items: center;
+}
+.building-resolver-form .resolver-box img {
+  filter: brightness(0);
+}
+.building-resolver-form input[type=text] {
+  width: 100%;
+  max-width: 6rem;
   background-color: transparent;
   outline: none;
   border: none;
-  border-bottom: 2px dashed black;
+  font-weight: bold;
+  border-bottom: 2px dotted black;
 }
-.foorm input[type=submit] {
+.building-resolver-form input[type=submit] {
   border: none;
   font-weight: bold;
   color: white;
@@ -318,4 +370,7 @@ textarea::placeholder {
   width: fit-content;
   padding-inline: 1rem;
   cursor: pointer;
+}
+.building-resolver-form img {
+  width: 1.5rem;
 }/*# sourceMappingURL=building-styles.css.map */

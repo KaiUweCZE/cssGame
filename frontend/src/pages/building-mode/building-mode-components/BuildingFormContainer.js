@@ -4,19 +4,20 @@ import { leftBracket, rightBracket } from "@data/ImagesData";
 import useFormHandlers from "@utils/hooks/useFormHandlers";
 import WarningLabel from "./WarningLabel";
 
-const BuildingFormBridge = (props) => {
+const BuildingFormContainer = (props) => {
   const {
-    originPropertiesBridge,
-    originValuesBridge,
-    setPropertiesBridge,
-    setValuesBridge,
+    originContainerProperties,
+    originContainerValues,
+    setPropertiesContainer,
+    setValuesContainer,
+    maximumNumber,
   } = useContext(BuildingFormContext);
 
   const { inputs, handleInputChange, handleSubmit, error } = useFormHandlers(
-    originPropertiesBridge,
-    originValuesBridge,
-    setPropertiesBridge,
-    setValuesBridge
+    originContainerProperties,
+    originContainerValues,
+    setPropertiesContainer,
+    setValuesContainer
   );
 
   return (
@@ -54,4 +55,4 @@ const BuildingFormBridge = (props) => {
   );
 };
 
-export default BuildingFormBridge;
+export default BuildingFormContainer;

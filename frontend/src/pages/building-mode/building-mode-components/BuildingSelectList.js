@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FormSectionRestrictions from "./FormSectionRestrictions";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 
 const BuildingSelectList = () => {
   const [select, setSelect] = useState("");
+  const { setResult } = useContext(customCommonContext);
   const handleSelect = (e) => {
+    setResult(false);
     setSelect(e.target.value);
     console.log(select);
   };

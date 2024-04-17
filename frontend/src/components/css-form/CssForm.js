@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { list } from "../../data/listOfProperities";
-import ErrorMessage from "../errors/ErrorMessage";
+import ErrorMessage from "@components/Errors/ErrorMessage";
 import { contextValues, useFormInputs } from "@utils/cssFormFunctions";
 import { EmojiContext } from "@contexts/emojiContext";
 import { BridgeContext } from "@contexts/form-contexts/bridgeContext";

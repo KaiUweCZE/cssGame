@@ -15,13 +15,9 @@ const CustomBridge = (props) => {
   const { change, setResult, levelId } = useContext(customCommonContext);
   const { user } = useContext(UserContext);
   const { completeLevel, error, loading } = useCompletedLevel();
+
   useEffect(() => {
-    console.log(user);
     if (change > 0) {
-      if (checkRef.current && bridgeRef.current) {
-        console.log("Checkpoint: ", checkRef.current.getBoundingClientRect());
-        console.log("Bridge: ", bridgeRef.current.getBoundingClientRect());
-      }
       const checkPosition = () => {
         const tolerance = 2;
         const bridgeRect = bridgeRef.current.getBoundingClientRect();
@@ -33,11 +29,9 @@ const CustomBridge = (props) => {
         const isTopCorrect =
           Math.abs(bridgeRect.top - checkRect.top) < tolerance;
         if (isLeftCorrect && isRightCorrect && isTopCorrect) {
-          console.log("Yes");
           setResult(true);
           completeLevel(user.id, levelId);
         } else {
-          console.log("no");
           setResult(false);
         }
       };

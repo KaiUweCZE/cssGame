@@ -13,6 +13,12 @@ const ErrorBuilding = (props) => {
         );
       case "not-unique-name":
         return <p>This level name exists</p>;
+
+      case "result-false":
+        return <p>You must prove that the level is solvable</p>;
+
+      case "invalid":
+        return <p>Invalid css properties</p>;
       default:
         break;
     }

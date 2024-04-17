@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import Loader from "../../../components/Loader";
-import ErrorSign from "../../../components/errors/ErrorSign";
+import ErrorSign from "@components/Errors/ErrorSign";
 
 const CREATE_USER = gql`
   mutation CreateUser($name: String!, $email: String!, $password: String!) {

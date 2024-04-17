@@ -20,7 +20,7 @@ const useInputs = () => {
     );
   }, [maximumNumber]);
 
-  return inputs;
+  return { inputs, setInputs };
 };
 
 export default useInputs;
