@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "../../../contexts/UserContext";
 import Loader from "../../../components/Loader";
-import ErrorSign from "../../../components/errors/ErrorSign";
+import ErrorSign from "@components/Errors/ErrorSign";
 import { useNavigate } from "react-router-dom";
 
 const LOGIN_USER = gql`

@@ -136,6 +136,11 @@
   opacity: 0.85;
   filter: brightness(1);
 }
+@media (max-width: 40rem) {
+  .database-buttons {
+    display: none;
+  }
+}
 
 .button-tooltip {
   position: relative;
@@ -280,11 +285,17 @@
   font-weight: bold;
 }
 .error-list img {
+  width: 1rem;
+  height: 1rem;
   position: absolute;
   filter: brightness(10);
   top: 0.5rem;
-  right: 0;
+  right: 0.25rem;
   cursor: pointer;
+  transition: 0.35s;
+}
+.error-list img:hover {
+  filter: invert(41%) sepia(94%) saturate(3788%) hue-rotate(340deg) brightness(100%) contrast(107%);
 }
 
 .congrats {

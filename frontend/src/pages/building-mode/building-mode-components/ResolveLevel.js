@@ -1,12 +1,12 @@
-import CustomFormBridge from "@pages/database/CustomFormBridge";
-import CustomFormContainer from "@pages/database/CustomFormContainer";
 import React from "react";
 import BuildingFormBridge from "./BuildingFormBridge";
+import BuildingFormContainer from "./BuildingFormContainer";
 
 const ResolveLevel = () => {
   return (
-    <div className="wrapper-custom-form">
+    <div className="wrapper-resolver-form">
       <BuildingFormBridge name="bridge" position="building-bridge-form" />
+      <BuildingFormContainer name="container" />
     </div>
   );
 };

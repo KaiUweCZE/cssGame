@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
+import React, { useContext, useState } from "react";
 
 const BuildingRadio = (props) => {
   const [select, setSelect] = useState(4);
-
+  const { setResult } = useContext(customCommonContext);
   const handleSelect = (e) => {
+    setResult(false);
     const selectedValue = Number(e);
     setSelect(() => selectedValue);
     props.maximumNumber(selectedValue);

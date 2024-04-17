@@ -800,6 +800,11 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
     &.active:hover {
       rotate: 135deg;
     }
+    @include small-screen {
+      &.active {
+        translate: -47vw -12.5rem;
+      }
+    }
   }
 }
 

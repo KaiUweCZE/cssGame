@@ -780,6 +780,11 @@
 .bug-message .bug-image.active:hover {
   rotate: 135deg;
 }
+@media (max-width: 40rem) {
+  .bug-message .bug-image.active {
+    translate: -47vw -12.5rem;
+  }
+}
 
 .bug-form {
   display: flex;

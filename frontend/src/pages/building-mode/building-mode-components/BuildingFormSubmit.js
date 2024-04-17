@@ -4,6 +4,8 @@ import { RestrictionContext } from "@contexts/building-contexts/restrictionConte
 import { UserContext } from "../../../contexts/UserContext";
 import ErrorBuilding from "./ErrorBuilding";
 import { useCreateLevel } from "@utils/queries/useCreateLevel";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
+import { list } from "@data/listOfProperities";
 
 // submit input for handling the creation of a new level
 const BuildingFormSubmit = () => {
@@ -24,11 +26,14 @@ const BuildingFormSubmit = () => {
     maximumNumber,
     description,
     levelName,
-    propertiesContainer,
-    valuesContainer,
-    propertiesBridge,
-    valuesBridge,
+    originPropertiesContainer,
+    originValuesContainer,
+    originPropertiesBridge,
+    originValuesBridge,
+    solvable,
   } = useContext(BuildingFormContext);
+
+  const { result } = useContext(customCommonContext);
 
   // retrieve data from select element if allowedList/deniedList has been selected
   const { allowedList, deniedList } = useContext(RestrictionContext);
@@ -61,9 +66,19 @@ const BuildingFormSubmit = () => {
 
     // check if at least one style element has been filled in inputs
     const hasBridgeData =
-      propertiesBridge.length > 0 && valuesBridge.length > 0;
+      (originPropertiesBridge.length > 1 && originValuesBridge.length > 1) ||
+      (originPropertiesBridge[0] !== "" && originValuesBridge[0] !== "");
     const hasContainerData =
-      propertiesContainer.length > 0 && valuesContainer.length > 0;
+      (originPropertiesContainer.length > 1 &&
+        originValuesContainer.length > 1) ||
+      (originPropertiesContainer[0] !== "" && originValuesContainer[0] !== "");
+
+    const correctBridge = originPropertiesBridge.every(
+      (e) => list.includes(e) || e === ""
+    );
+    const correctContainer = originPropertiesContainer.every(
+      (e) => list.includes(e) || e === ""
+    );
 
     if (!hasBridgeData && !hasContainerData) {
       console.log("You have to style at least one of element");
@@ -71,27 +86,45 @@ const BuildingFormSubmit = () => {
       return;
     }
 
+    if (!correctBridge || !correctContainer) {
+      console.log("Invalid css properties", correctBridge, correctContainer);
+      setErrorMessage({ invalid: true, type: "invalid" });
+      return;
+    }
+
+    if (!result) {
+      console.log("You must prove that the level is solvable");
+      setErrorMessage({ invalid: true, type: "result-false" });
+      return;
+    }
+
     // execute the mutation with the form data
-    try {
-      createLevel({
-        name: levelName,
-        author: user.name,
-        bridgeProperties: propertiesBridge,
-        bridgeValues: valuesBridge,
-        containerProperties: propertiesContainer,
-        containerValues: valuesContainer,
-        allowedList,
-        deniedList,
-        numberOfInputs: maximumNumber,
-        description,
-      });
-    } catch (error) {
-      console.log("Error while creating the level:", err.message);
+    if (result && (hasBridgeData || hasContainerData) && levelName) {
+      try {
+        createLevel({
+          name: levelName,
+          author: user.name,
+          bridgeProperties: originPropertiesBridge,
+          bridgeValues: originValuesBridge,
+          containerProperties: originPropertiesContainer,
+          containerValues: originValuesContainer,
+          allowedList,
+          deniedList,
+          numberOfInputs: maximumNumber,
+          description,
+        });
+        setErrorMessage({
+          invalid: false,
+          type: "",
+        });
+      } catch (error) {
+        console.log("Error while creating the level:", err.message);
+      }
     }
   };
   return (
     <>
-      <input type="submit" value="set" onClick={handleCreateLevel} />
+      <input type="submit" value="send" onClick={handleCreateLevel} />
       {errorMessage.invalid ? <ErrorBuilding type={errorMessage.type} /> : ""}
     </>
   );

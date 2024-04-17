@@ -35,7 +35,7 @@
   }
 }
 
-.BuildingForm {
+.building-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -65,6 +65,27 @@
     width: 50%;
     padding: 0.15rem;
   }
+  .button-resolver {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    gap: 0.15rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.15rem;
+    transition: 0.35s;
+    img {
+      padding: 0.15rem;
+    }
+    input[type="submit"] {
+      background-color: transparent;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+    &:hover {
+      background-color: rgb(40, 40, 40);
+    }
+  }
   input[type="submit"] {
     border: none;
     font-size: 1rem;
@@ -72,9 +93,9 @@
     color: white;
     background-color: rgba(255, 255, 255, 0.2);
     width: fit-content;
+    margin: 0 auto;
     padding: 0.35rem;
     padding-inline: 1.5rem;
-    margin: 0 auto;
     transition: 0.35s;
     border-radius: 0.15rem;
     &:hover {
@@ -101,6 +122,10 @@
     transition: 1s;
     font-weight: bold;
     color: white;
+  }
+  img {
+    width: 2rem;
+    margin: 0 auto;
   }
 }
 
@@ -157,7 +182,7 @@
 }
 
 .BuildingWarningLabel {
-  color: rgb(255, 154, 154);
+  color: rgb(255, 50, 50);
   font-weight: bold;
 }
 
@@ -248,35 +273,51 @@ textarea {
   }
 }
 
-.wrapper-custom-form {
+.wrapper-resolver-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: absolute;
   top: 0;
   left: 55%;
+  background-color: rgba(white, 0.1);
   width: fit-content;
   height: fit-content;
+  max-height: 50%;
+  padding: 1rem;
   gap: 1rem;
+  overflow-y: scroll;
+  @include scroll-primary;
   @include medium-screen {
     grid-template-columns: 1fr;
   }
 }
 
-.foorm {
-  margin-top: 3rem;
+.building-resolver-form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-auto-rows: max-content;
+  gap: 0.5rem;
   flex-direction: column;
-  div {
+  width: fit-content;
+  .resolver-inputs {
     display: flex;
     gap: 1rem;
   }
+  .resolver-box {
+    display: flex;
+    align-items: center;
+    img {
+      filter: brightness(0);
+    }
+  }
   input[type="text"] {
+    width: 100%;
+    max-width: 6rem;
     background-color: transparent;
     outline: none;
     border: none;
-    border-bottom: 2px dashed black;
+    font-weight: bold;
+    border-bottom: 2px dotted black;
   }
   input[type="submit"] {
     border: none;
@@ -286,5 +327,8 @@ textarea {
     width: fit-content;
     padding-inline: 1rem;
     cursor: pointer;
+  }
+  img {
+    width: 1.5rem;
   }
 }

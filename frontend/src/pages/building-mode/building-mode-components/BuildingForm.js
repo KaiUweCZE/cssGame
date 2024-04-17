@@ -1,19 +1,33 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FormSectionInputs from "./FormSectionInputs";
 import BuildingFormSubmit from "./BuildingFormSubmit";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import BuildingTextarea from "./BuildingTextarea";
 import BuildingSelectList from "./BuildingSelectList";
 import BuildingRadio from "./BuildingRadio";
-import BuildingSet from "./BuildingSet";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
+import ResolverButton from "./ResolverButton";
 
 const BuildingForm = () => {
-  const [select, setSelect] = useState("");
   const { setLevelName, setDescription, setMaximumNumber } =
     useContext(BuildingFormContext);
 
+  const { setResult, change, setChange } = useContext(customCommonContext);
+
+  // setChange to 0 and force to setResult(false)
+  // because of it is common context for database and building page
+  useEffect(() => {
+    setChange(0);
+  }, []);
+
+  useEffect(() => {
+    if (change === 0) {
+      setResult(false);
+    }
+  }, [change]);
+
   return (
-    <form className="BuildingForm" action="">
+    <form className="building-form" action="">
       <div className="FormSection">
         <label htmlFor="">name of level:</label>
         <input
@@ -28,8 +42,8 @@ const BuildingForm = () => {
       <BuildingRadio maximumNumber={setMaximumNumber} />
       <BuildingSelectList />
       <BuildingTextarea description={setDescription} />
+      <ResolverButton />
       <BuildingFormSubmit />
-      <BuildingSet />
     </form>
   );
 };
