@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import { leftBracket, rightBracket } from "@data/ImagesData";
 import useFormHandlers from "@utils/hooks/useFormHandlers";
-import WarningLabel from "./WarningLabel";
+import WarningLabel from "@components/Errors/WarningLabel";
 
 const BuildingFormContainer = (props) => {
   const {

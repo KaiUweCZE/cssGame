@@ -32,6 +32,8 @@ export const homeData = [
       `Mimo jiné vám také každá nová úroveň otevře relevantní materiály, 
       které dokáží přinést teoretický základ stravitelně.`,
       `Ke každé jedné kapitole je přiložen i bonusový tip na užitečné stránky, nebo generátory, které vám zpříjemní práci se styly.`,
+      `Uživatelé mohou nejen vytvářet své vlastní levely, ale také zkoušet levely vytvořené ostatními uživateli, což podporuje sdílení znalostí.`,
+      `V postranních panelech hry najdete důležité informace o příběhu, nápovědu pro aktuální úroveň, nebo informace o aktuální stránce, což umožňuje lepší orientaci a zážitek z hry.`,
     ],
     images: [screen1, screen2, screen3],
   },

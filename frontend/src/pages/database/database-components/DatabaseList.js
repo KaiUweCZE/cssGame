@@ -18,7 +18,7 @@ const DatabaseList = ({ items }) => {
               <li key={index}>
                 <div className="DatabaseListHeadline">
                   <p>
-                    {index + 1}. name: {item.name} author: {item.author}
+                    {index + 1}. name: {item.name}
                   </p>
                   <DatabaseButtons
                     levelId={item.id}

@@ -299,6 +299,12 @@
   width: 35%;
 }
 
+.SecretTextBuilding {
+  /*img {
+    width: 10rem;
+    height: 10rem;
+  }*/
+}
 .SecretTextBuilding ul {
   display: flex;
   flex-direction: column;

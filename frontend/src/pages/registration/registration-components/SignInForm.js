@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "../../../contexts/UserContext";
 import Loader from "../../../components/Loader";
-import ErrorSign from "@components/Errors/ErrorSign";
 import { useNavigate } from "react-router-dom";
+import WarningLabel from "@components/Errors/WarningLabel";
 
 const LOGIN_USER = gql`
   mutation LoginUser($name: String!, $password: String!) {
@@ -50,7 +50,7 @@ const SignInForm = () => {
     }
   };
 
-  if (error) return <ErrorSign />;
+  //if (error) return <p>this username or password is not valid</p>;
   if (loading) return <Loader />;
 
   return (
@@ -68,6 +68,9 @@ const SignInForm = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <input type="submit" value="Login" />
+      {error ? (
+        <WarningLabel text="this username or password is not valid" />
+      ) : null}
     </form>
   );
 };

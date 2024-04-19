@@ -6,9 +6,14 @@ import ErrorBuilding from "./ErrorBuilding";
 import { useCreateLevel } from "@utils/queries/useCreateLevel";
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 import { list } from "@data/listOfProperities";
+import { useGetLevels } from "@utils/queries/useGetLevels";
+import { arraysEqual } from "@utils/arraysEqual";
 
 // submit input for handling the creation of a new level
 const BuildingFormSubmit = () => {
+  const { levels } = useGetLevels();
+  const [duplicateName, setDuplicateName] = useState("");
+  const [levelNames, setLevelNames] = useState([""]);
   // state to manage error messages for form validation
   const [errorMessage, setErrorMessage] = useState({
     invalid: false,
@@ -30,7 +35,6 @@ const BuildingFormSubmit = () => {
     originValuesContainer,
     originPropertiesBridge,
     originValuesBridge,
-    solvable,
   } = useContext(BuildingFormContext);
 
   const { result } = useContext(customCommonContext);
@@ -50,8 +54,11 @@ const BuildingFormSubmit = () => {
   }, [data, error]);
 
   useEffect(() => {
-    console.log(user.name, description);
-  }, [user, description]);
+    if (levels) {
+      setLevelNames(levels.map((level) => level.name));
+      console.log("levels: ", levelNames);
+    }
+  }, [levels]);
 
   // form submission handler
   const handleCreateLevel = (e) => {
@@ -61,6 +68,13 @@ const BuildingFormSubmit = () => {
     if (!levelName) {
       console.log("Level name is required");
       setErrorMessage({ invalid: true, type: "no-name" });
+      return;
+    }
+
+    // validate if level name is unique
+    if (levelNames.includes(levelName)) {
+      console.log("This level name exists");
+      setErrorMessage({ invalid: true, type: "duplicite-name" });
       return;
     }
 
@@ -80,18 +94,48 @@ const BuildingFormSubmit = () => {
       (e) => list.includes(e) || e === ""
     );
 
+    const duplicate = levels.find((level) => {
+      const isBridgeDuplicate = arraysEqual(
+        originPropertiesBridge,
+        level.bridgeProperties
+      );
+      const isContainerDuplicate = arraysEqual(
+        originPropertiesContainer,
+        level.containerProperties
+      );
+      const isAllowedDuplicate = arraysEqual(allowedList, level.allowedList);
+      const isDeniedDuplicate = arraysEqual(deniedList, level.deniedList);
+
+      return (
+        isBridgeDuplicate &&
+        isContainerDuplicate &&
+        isAllowedDuplicate &&
+        isDeniedDuplicate
+      );
+    });
+
+    if (duplicate) {
+      console.log("An identical level configuration exists");
+      setDuplicateName(duplicate.name);
+      setErrorMessage({ invalid: true, type: "duplicate-properties" });
+      return;
+    }
+
+    // validate if there are any styles
     if (!hasBridgeData && !hasContainerData) {
       console.log("You have to style at least one of element");
       setErrorMessage({ invalid: true, type: "no-styles" });
       return;
     }
 
+    // validate if css properties are valide
     if (!correctBridge || !correctContainer) {
       console.log("Invalid css properties", correctBridge, correctContainer);
       setErrorMessage({ invalid: true, type: "invalid" });
       return;
     }
 
+    // validate if the author solved the level
     if (!result) {
       console.log("You must prove that the level is solvable");
       setErrorMessage({ invalid: true, type: "result-false" });
@@ -125,7 +169,11 @@ const BuildingFormSubmit = () => {
   return (
     <>
       <input type="submit" value="send" onClick={handleCreateLevel} />
-      {errorMessage.invalid ? <ErrorBuilding type={errorMessage.type} /> : ""}
+      {errorMessage.invalid ? (
+        <ErrorBuilding type={errorMessage.type} duplicate={duplicateName} />
+      ) : (
+        ""
+      )}
     </>
   );
 };

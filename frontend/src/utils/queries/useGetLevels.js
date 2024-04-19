@@ -8,6 +8,8 @@ const GET_LEVELS = gql`
       author
       bridgeProperties
       containerProperties
+      allowedList
+      deniedList
       description
       likes
       likeCount
@@ -18,8 +20,8 @@ const GET_LEVELS = gql`
   }
 `;
 
-const useGetLevels = () => {
+export const useGetLevels = () => {
   const { data, error, loading } = useQuery(GET_LEVELS);
 
-  return { data, error, loading };
+  return { levels: data?.levels, error, loading };
 };
