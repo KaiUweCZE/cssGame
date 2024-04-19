@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import Loader from "../../../components/Loader";
-import ErrorSign from "@components/Errors/ErrorSign";
+import WarningLabel from "@components/Errors/WarningLabel";
 
 const CREATE_USER = gql`
   mutation CreateUser($name: String!, $email: String!, $password: String!) {
@@ -28,7 +28,6 @@ const SignUpForm = () => {
   };
 
   if (loading) return <Loader />;
-  if (error) return <ErrorSign />;
   if (registred) return <h2>Registration was successful</h2>;
 
   return (
@@ -52,6 +51,7 @@ const SignUpForm = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <input type="submit" value="Sign Up" />
+      {error ? <WarningLabel text="Error occurs" /> : null}
     </form>
   );
 };

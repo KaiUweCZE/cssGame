@@ -24,10 +24,17 @@ const Registration = () => {
                 Login
               </button>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              aspernatur eligendi in exercitationem quam, suscipit illo.
-            </p>
+            {formType ? (
+              <p>
+                Pro registraci můžete zvolit jakýkoliv počet písmen + email
+                input je prozatím ilustrativní, takže bude stačit text s @
+              </p>
+            ) : (
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+                aspernatur eligendi in exercitationem quam, suscipit illo.
+              </p>
+            )}
           </article>
           {formType ? <SignUpForm /> : <SignInForm />}
         </div>

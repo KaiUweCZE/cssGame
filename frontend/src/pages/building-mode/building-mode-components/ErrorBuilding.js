@@ -19,6 +19,15 @@ const ErrorBuilding = (props) => {
 
       case "invalid":
         return <p>Invalid css properties</p>;
+
+      case "duplicite-name":
+        return <p>This level name exists</p>;
+
+      case "duplicate-properties":
+        return (
+          <p>Your setup is very similar with this level: {props.duplicate}</p>
+        );
+
       default:
         break;
     }

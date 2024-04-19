@@ -2,11 +2,14 @@ import React, { useContext, useState } from "react";
 import plusIcon from "@images/icons/plus-white.webp";
 import minusIcon from "@images/icons/minus-white.webp";
 import { RestrictionContext } from "@contexts/building-contexts/restrictionContext";
+import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 
 const FormSectionRestrictions = (props) => {
   const [number, setNumber] = useState(1);
   const { handleRemove, handleAdd, handleListChange } =
     useContext(RestrictionContext);
+
+  const { setResult } = useContext(customCommonContext);
   return (
     <div className="FormRestrictions">
       <div className="LabelSection">
@@ -15,7 +18,10 @@ const FormSectionRestrictions = (props) => {
           <img
             src={plusIcon}
             alt=""
-            onClick={() => handleAdd(props.name, number, setNumber)}
+            onClick={() => {
+              handleAdd(props.name, number, setNumber);
+              setResult(false);
+            }}
           />
           <img
             src={minusIcon}
@@ -31,9 +37,10 @@ const FormSectionRestrictions = (props) => {
             type="text"
             name={`name_${index}`}
             id={`id_${index}`}
-            onChange={(e) =>
-              handleListChange(index, e.target.value, props.name)
-            }
+            onChange={(e) => {
+              handleListChange(index, e.target.value, props.name);
+              setResult(false);
+            }}
           />
         );
       })}

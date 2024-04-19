@@ -1,5 +1,6 @@
 import image1 from "@images/cave1.webp";
 import image2 from "@images/cave2.webp";
+import buildingScreen from "@images/screens/secret-building.webp";
 
 export const texts = [
   {
@@ -82,6 +83,7 @@ export const texts = [
         "Originalita úrovní:",
         "Řešení problémů s filtrem:",
       ],
+      img: buildingScreen,
     },
   },
 ];
