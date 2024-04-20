@@ -19,7 +19,7 @@
 .intro-background {
   display: flex;
   position: relative;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   article {
     display: flex;
@@ -46,7 +46,6 @@
   img {
     display: flex;
     position: absolute;
-    height: 100%;
     width: 100%;
     aspect-ratio: 16/9;
   }
@@ -54,6 +53,7 @@
     justify-content: center;
     img {
       width: auto;
+      height: 100%;
       aspect-ratio: 2/3;
     }
   }

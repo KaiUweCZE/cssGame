@@ -791,3 +791,17 @@ img.obstacle {
     }
   }
 }
+
+.info-box {
+  position: absolute;
+  grid-row: 8;
+  grid-column: span 12;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 100%;
+  height: fit-content;
+  padding: 0.5rem;
+  p {
+    color: white;
+  }
+}

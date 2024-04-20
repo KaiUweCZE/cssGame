@@ -6,16 +6,15 @@ import WarningLabel from "@components/Errors/WarningLabel";
 
 const BuildingFormContainer = (props) => {
   const {
-    originContainerProperties,
-    originContainerValues,
+    originPropertiesContainer,
+    originValuesContainer,
     setPropertiesContainer,
     setValuesContainer,
-    maximumNumber,
   } = useContext(BuildingFormContext);
 
   const { inputs, handleInputChange, handleSubmit, error } = useFormHandlers(
-    originContainerProperties,
-    originContainerValues,
+    originPropertiesContainer,
+    originValuesContainer,
     setPropertiesContainer,
     setValuesContainer
   );

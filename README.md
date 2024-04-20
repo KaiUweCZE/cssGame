@@ -6,7 +6,7 @@ _CSS Play_ aims to make css accessible through interactivity, the user can compl
 
 ## Project principle
 
-You can visit the deployed version of the project [here](https://play-css.netlify.app) (17.4.2024).
+You can visit the deployed version of the project [here](https://play-css.netlify.app) (20.4.2024).
 
 ## Features
 

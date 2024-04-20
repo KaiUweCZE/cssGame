@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DatabaseButtons from "./DatabaseButtons";
 
 const DatabaseList = ({ items }) => {
+  const [filter, setFilter] = useState("oldest");
   const [open, setOpen] = useState({ active: false, id: null });
   const navigate = useNavigate();
 
@@ -10,13 +11,49 @@ const DatabaseList = ({ items }) => {
     navigate(`/database/${id}`);
   };
 
+  const filterItems = (items) => {
+    switch (filter) {
+      case "mostPlayed":
+        return [...items].sort((a, b) => b.usersCount - a.usersCount);
+      case "mostPopular":
+        return [...items].sort((a, b) => b.likeCount - a.likeCount);
+      case "oldest":
+        return [...items];
+      case "latest":
+        return [...items].reverse();
+      default:
+        return items;
+    }
+  };
+
+  useEffect(() => {
+    console.log("items are? ", items);
+  }, [items]);
+
   return (
-    <ul className="DatabaseList">
+    <ul className="database-list">
+      <ul className="database-list-filter">
+        <li className="filter-item" onClick={() => setFilter("mostPlayed")}>
+          most played
+        </li>
+        <li className="filter-item" onClick={() => setFilter("mostPopular")}>
+          most popular
+        </li>
+        <li className="filter-item" onClick={() => setFilter("mostPopular")}>
+          hardest
+        </li>
+        <li className="filter-item" onClick={() => setFilter("oldest")}>
+          oldest
+        </li>
+        <li className="filter-item" onClick={() => setFilter("latest")}>
+          latest
+        </li>
+      </ul>
       {items
-        ? items.map((item, index) => {
+        ? filterItems(items).map((item, index) => {
             return (
               <li key={index}>
-                <div className="DatabaseListHeadline">
+                <div className="database-list-headline">
                   <p>
                     {index + 1}. name: {item.name}
                   </p>
