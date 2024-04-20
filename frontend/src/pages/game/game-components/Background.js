@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Mission from "./Mission";
 import "@styles/game-styles.css";
-import AsideBox from "../../../components/AsideBox";
-import heroBackground from "@images/game-aside2.webp";
-import emojiImg from "@images/emoji-item.webp";
+import AsideBox from "@components/AsideBox";
+import heroBackground from "@images/game-aside.webp";
+import InfoBox from "./InfoBox";
 
 const Background = () => {
+  const [active, setActive] = useState(false);
   return (
     <div className="container-background">
       <Mission />
       <AsideBox background={heroBackground}>
         <div
           className="emoji-master emojiOne"
-          style={{ backgroundImage: `url(${emojiImg})` }}
-        ></div>
+          onClick={() => setActive(!active)}
+        >
+          <span>help</span>
+        </div>
+        {active ? <InfoBox /> : null}
       </AsideBox>
     </div>
   );

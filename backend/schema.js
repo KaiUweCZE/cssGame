@@ -9,9 +9,10 @@ import {
   GraphQLInt,
 } from "graphql";
 import { User } from "./User.js";
+import { Level } from "./Level.js";
+import { Message } from "./Message.js";
 import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
-import { Level } from "./Level.js";
 
 const UserType = new GraphQLObjectType({
   name: "User",
@@ -52,6 +53,29 @@ const LevelType = new GraphQLObjectType({
     finish: { type: GraphQLInt },
     usersPlayed: { type: new GraphQLList(GraphQLString) },
     usersCount: { type: GraphQLInt },
+  }),
+});
+
+const MessageType = new GraphQLObjectType({
+  name: "MessageType",
+  fields: () => ({
+    id: {
+      type: GraphQLID,
+      resolve: (message) => message.id.toString(),
+    },
+    author: {
+      type: UserType,
+      resolve: async (message) => {
+        const user = await User.findById(message.author);
+        return user
+          ? {
+              ...user.toObject(),
+              id: user._id.toString(),
+            }
+          : null;
+      },
+    },
+    text: { type: GraphQLString },
   }),
 });
 
@@ -284,6 +308,25 @@ const mutation = new GraphQLObjectType({
           throw new Error("Level is already completed by this user");
         }
         return { user, level };
+      },
+    },
+    createMessage: {
+      type: MessageType,
+      args: {
+        userId: { type: new GraphQLNonNull(GraphQLID) },
+        text: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, args) => {
+        const user = await User.findById(args.userId);
+        if (!user) {
+          throw new Error("User not found");
+        }
+        const message = new Message({
+          author: user._id.toString(),
+          text: args.text,
+        });
+        await message.save();
+        return message;
       },
     },
   },

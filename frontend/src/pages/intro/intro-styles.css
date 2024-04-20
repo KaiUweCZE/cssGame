@@ -16,7 +16,7 @@
 .intro-background {
   display: flex;
   position: relative;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 .intro-background article {
@@ -52,7 +52,6 @@
 .intro-background img {
   display: flex;
   position: absolute;
-  height: 100%;
   width: 100%;
   aspect-ratio: 16/9;
 }
@@ -61,6 +60,7 @@
 }
 .intro-background.portrait img {
   width: auto;
+  height: 100%;
   aspect-ratio: 2/3;
 }
 @media (max-width: 65rem) {

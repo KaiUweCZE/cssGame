@@ -37,6 +37,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 2,
@@ -53,6 +54,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 3,
@@ -69,6 +71,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 4,
@@ -85,6 +88,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 5,
@@ -102,6 +106,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 6,
@@ -119,6 +124,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 7,
@@ -135,6 +141,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 3,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 8,
@@ -153,6 +160,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 9,
@@ -170,6 +178,7 @@ export const levelData = [
     //styleResultBridge: {"overflow":"hidden"},
     styleResultContainer: { overflow: "hidden" },
     //styleResultBoth: {"overflow":"hidden"},
+    help: "Překážka je umístěna v containeru, zkus se zaměřit na to, aby to, co přečnívá bylo skryto.",
   },
   {
     id: 10,
@@ -186,6 +195,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 11,
@@ -202,6 +212,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 3,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 12,
@@ -226,6 +237,7 @@ export const levelData = [
     partOfBridge: 3,
     master: true,
     obstacle: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 13,
@@ -277,6 +289,7 @@ export const levelData = [
     },
     obstacle: false,
     emojiRun: "stairs-run",
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
 
   {
@@ -317,6 +330,7 @@ export const levelData = [
     },
     obstacle: false,
     emojiRun: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 15,
@@ -364,6 +378,7 @@ export const levelData = [
     },
     obstacle: false,
     emojiRun: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 16,
@@ -394,6 +409,7 @@ export const levelData = [
     },
     obstacle: false,
     emojiRun: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 17,
@@ -437,6 +453,7 @@ export const levelData = [
     obstacle: false,
     emojiRun: false,
     partsStyle: true,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 18,
@@ -479,6 +496,7 @@ export const levelData = [
     obstacle: false,
     emojiRun: false,
     partsStyle: true,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 19,
@@ -533,6 +551,7 @@ export const levelData = [
     obstacle: false,
     emojiRun: "stairs-run",
     partsStyle: true,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 20,
@@ -577,6 +596,7 @@ export const levelData = [
     obstacle: false,
     emojiRun: false,
     partsStyle: true,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
     id: 21,
@@ -597,6 +617,7 @@ export const levelData = [
     styleResultBridge: { opacity: "0" },
     styleResultContainer: { opacity: "0" },
     enemy: true,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
 ];
 

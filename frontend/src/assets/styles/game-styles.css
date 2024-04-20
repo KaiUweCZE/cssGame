@@ -775,4 +775,19 @@ img.obstacle {
 }
 .about-class__menu li.active {
   background-color: rgba(255, 255, 255, 0.15);
+}
+
+.info-box {
+  position: absolute;
+  grid-row: 8;
+  grid-column: span 12;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+}
+.info-box p {
+  color: white;
 }/*# sourceMappingURL=game-styles.css.map */

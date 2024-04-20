@@ -16,6 +16,13 @@ const useFormHandlers = (properties, values, setProperties, setValues) => {
     setOriginValues(values);
   }, [properties, values]);
 
+  useEffect(() => {
+    console.log("Properties:", properties);
+    console.log("Values:", values);
+    setOriginProperties(properties);
+    setOriginValues(values);
+  }, [properties, values]);
+
   // Updates input values based on user interactions
   const handleInputChange = useCallback((index, type, value) => {
     setInputs((currentInputs) =>
