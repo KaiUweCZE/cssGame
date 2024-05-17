@@ -35,6 +35,11 @@
     @content;
   }
 }
+@mixin small-medium-screen {
+  @media (width < 55rem) {
+    @content;
+  }
+}
 
 @mixin small-screen {
   @media (max-width: 40rem) {

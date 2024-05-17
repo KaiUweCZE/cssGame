@@ -16,7 +16,7 @@
   @include scroll-primary;
   p {
     color: white;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 1.25rem, 2.25vw);
     font-weight: bold;
   }
   img {
@@ -70,6 +70,8 @@
           background-color: rgb(76, 165, 165);
         }
       }
+    }
+    @mixin medium-screen {
     }
   }
   @media (width < 100rem) {
@@ -219,6 +221,7 @@
 .database-list-filter {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
   max-height: 3rem;
   position: relative;
   background-color: rgb(76, 165, 165, 0.4);
@@ -230,11 +233,17 @@
     width: 90rem;
     z-index: -1;
   }
+  @include small-medium-screen {
+    max-height: 5rem;
+    grid-template-columns: repeat(3, 1fr);
+    //grid-template-rows: 1fr 1fr;
+  }
 }
 
 .filter-item {
   display: flex;
   justify-content: center;
+  font-size: clamp(0.8rem, 1rem, 2vw);
   font-weight: bold;
   color: white;
   transition: 0.35s;

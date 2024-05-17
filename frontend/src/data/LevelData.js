@@ -37,7 +37,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Posuň ten most nahoru!",
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Vnější odsazení je třeba změnit!",
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Chtělo by to delší most!",
   },
   {
     id: 4,
@@ -88,7 +88,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Vnitřní odsazení ti brání jít dál!",
   },
   {
     id: 5,
@@ -106,7 +106,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Dej pozor, prostor, v němž je umístěn most, zarovnává své prvky na konec.",
   },
   {
     id: 6,
@@ -124,7 +124,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Zaměř svou pozornost na odsazení vnitřní a vnější!",
   },
   {
     id: 7,
@@ -141,7 +141,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 3,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Prvky prostoru, v němž je umístěn most, jsou řazeny do sloupce... To by chtělo změnit.",
   },
   {
     id: 8,
@@ -160,7 +160,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Most je o kus víc nahoru a o kus více do leva, než by býti měl!",
   },
   {
     id: 9,
@@ -178,7 +178,7 @@ export const levelData = [
     //styleResultBridge: {"overflow":"hidden"},
     styleResultContainer: { overflow: "hidden" },
     //styleResultBoth: {"overflow":"hidden"},
-    help: "Překážka je umístěna v containeru, zkus se zaměřit na to, aby to, co přečnívá bylo skryto.",
+    help: "Překážka je umístěna v prostoru ve kterém je umístěn i most, zkus se zaměřit na to, aby to, co přečnívá bylo skryto.",
   },
   {
     id: 10,
@@ -195,7 +195,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Někdo zabránil, aby byl most vykreslen...",
   },
   {
     id: 11,
@@ -212,7 +212,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 3,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Mezery mezi každou částí mostu je potřeba minimalizovat!",
   },
   {
     id: 12,
@@ -237,7 +237,7 @@ export const levelData = [
     partOfBridge: 3,
     master: true,
     obstacle: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Když změní se směr z řady na sloupec, elementy naleznou nový řád, justify převezme roli align a align je nazván justify.",
   },
   {
     id: 13,
@@ -289,7 +289,7 @@ export const levelData = [
     },
     obstacle: false,
     emojiRun: "stairs-run",
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Směr flexibilního displeje můžeš převrátit!",
   },
 
   {
@@ -330,7 +330,7 @@ export const levelData = [
     },
     obstacle: false,
     emojiRun: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+    help: "Mřížka o třech řádcích a jednom sloupci... Chtělo by to více sloupců!",
   },
   {
     id: 15,
