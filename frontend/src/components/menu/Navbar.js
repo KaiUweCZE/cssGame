@@ -29,33 +29,31 @@ const Navbar = () => {
                 <img src={navbarImages.toolsIcon} alt="" />
                 <span>Building</span>
               </NavLink>
+              <NavLink className="menu__item" to="/academy">
+                <img src={hatIcon} alt="" />
+                <span>Academy</span>
+              </NavLink>
+              <NavLink className="menu__item" to="/game">
+                <img src={navbarImages.gameIcon} alt="" />
+                <span>Game</span>
+              </NavLink>
+              <NavLink className="menu__item logout" onClick={logout}>
+                <img src={navbarImages.leaveIcon} alt="" />
+                <span>Logout</span>
+              </NavLink>
             </>
           ) : (
-            ""
-          )}
+            <>
+              <NavLink className="menu__item" to="/">
+                <img src={navbarImages.homeIcon} alt="" />
+                <span>Home</span>
+              </NavLink>
 
-          <NavLink className="menu__item" to="/">
-            <img src={navbarImages.homeIcon} alt="" />
-            <span>Home</span>
-          </NavLink>
-          <NavLink className="menu__item" to="/academy">
-            <img src={hatIcon} alt="" />
-            <span>Academy</span>
-          </NavLink>
-          <NavLink className="menu__item" to="/game">
-            <img src={navbarImages.gameIcon} alt="" />
-            <span>Game</span>
-          </NavLink>
-          {login ? (
-            <NavLink className="menu__item logout" onClick={logout}>
-              <img src={navbarImages.leaveIcon} alt="" />
-              <span>Logout</span>
-            </NavLink>
-          ) : (
-            <NavLink className="menu__item" to="/login">
-              <img src={navbarImages.loginIcon} alt="" />
-              <span>Sign In</span>
-            </NavLink>
+              <NavLink className="menu__item" to="/login">
+                <img src={navbarImages.loginIcon} alt="" />
+                <span>Sign In</span>
+              </NavLink>
+            </>
           )}
         </ul>
       </nav>

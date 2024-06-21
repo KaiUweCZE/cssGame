@@ -373,4 +373,11 @@ textarea::placeholder {
 }
 .building-resolver-form img {
   width: 1.5rem;
+}
+
+.correct-level {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
 }/*# sourceMappingURL=building-styles.css.map */
