@@ -12,6 +12,7 @@ import { arraysEqual } from "@utils/arraysEqual";
 // submit input for handling the creation of a new level
 const BuildingFormSubmit = () => {
   const { levels } = useGetLevels();
+  const [disable, setDisable] = useState(false);
   const [duplicateName, setDuplicateName] = useState("");
   const [levelNames, setLevelNames] = useState([""]);
   // state to manage error messages for form validation
@@ -161,6 +162,7 @@ const BuildingFormSubmit = () => {
           invalid: false,
           type: "done",
         });
+        setDisable(true);
       } catch (error) {
         console.log("Error while creating the level:", err.message);
       }
@@ -168,7 +170,11 @@ const BuildingFormSubmit = () => {
   };
   return (
     <>
-      <input type="submit" value="send" onClick={handleCreateLevel} />
+      {disable ? (
+        <input type="submit" value="send" />
+      ) : (
+        <input type="submit" value="send" onClick={handleCreateLevel} />
+      )}
       {errorMessage.invalid ? (
         <ErrorBuilding type={errorMessage.type} duplicate={duplicateName} />
       ) : errorMessage.type === "done" ? (

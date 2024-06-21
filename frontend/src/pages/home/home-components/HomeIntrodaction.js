@@ -11,12 +11,16 @@ const HomeIntrodaction = () => {
   const handleNext = () => {
     if (index < 3) {
       setIndex(() => index + 1);
+    } else {
+      setIndex(() => 0);
     }
   };
 
   const handlePrev = () => {
     if (index > 0) {
       setIndex(() => index - 1);
+    } else {
+      setIndex(() => 3);
     }
   };
   return (
