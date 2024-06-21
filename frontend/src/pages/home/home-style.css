@@ -203,4 +203,68 @@
 .animation .trunk.active {
   transition: 2s 3.5s;
   transform: rotate(0deg);
+}
+
+.home-intro {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  border-radius: 0.5rem;
+}
+.home-intro h3,
+.home-intro p {
+  color: white;
+}
+.home-intro article {
+  background-color: rgba(10, 58, 64, 0.8);
+  padding: 1rem;
+}
+
+.home-intro-gallery {
+  display: flex;
+  position: relative;
+  border-radius: 0.5rem;
+}
+.home-intro-gallery img {
+  width: 100%;
+  margin: 0 auto;
+}
+.home-intro-gallery button {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.25rem;
+  top: 50%;
+}
+.home-intro-gallery .right {
+  right: 0;
+}
+.home-intro-gallery .left {
+  left: 0;
+}
+
+.box-signals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  gap: 0.25rem;
+  border-radius: 0.35rem;
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+}
+.box-signals div {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.box-signals div.active {
+  background-color: rgba(0, 0, 0, 0.6);
 }/*# sourceMappingURL=home-style.css.map */

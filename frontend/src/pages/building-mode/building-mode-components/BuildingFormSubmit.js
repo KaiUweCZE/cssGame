@@ -159,7 +159,7 @@ const BuildingFormSubmit = () => {
         });
         setErrorMessage({
           invalid: false,
-          type: "",
+          type: "done",
         });
       } catch (error) {
         console.log("Error while creating the level:", err.message);
@@ -171,9 +171,9 @@ const BuildingFormSubmit = () => {
       <input type="submit" value="send" onClick={handleCreateLevel} />
       {errorMessage.invalid ? (
         <ErrorBuilding type={errorMessage.type} duplicate={duplicateName} />
-      ) : (
-        ""
-      )}
+      ) : errorMessage.type === "done" ? (
+        <span className="correct-level">Level is created</span>
+      ) : null}
     </>
   );
 };
