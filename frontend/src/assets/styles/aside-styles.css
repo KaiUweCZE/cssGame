@@ -85,6 +85,9 @@
 .Building:has(.secretText) .BuildingArea {
   opacity: 0;
 }
+.Building:has(.secretText) .building-form {
+  opacity: 0;
+}
 .Building:has(.secretText) .secretText {
   background-color: rgb(255, 255, 255);
   width: 100%;
