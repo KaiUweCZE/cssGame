@@ -49,7 +49,7 @@ export const homeIntro = [
     id: 0,
     headline: "Map",
     description:
-      "Po registraci budeš moci přistoupit do hry, kdy hlavním prvkem aplikace je kampaň a na každém levelu tě bude čekat nová výzva, kterou budeš muset zvládnout. Pokud si nebudeš vědět rady, tak v akademii bys měl najít veškeré informace, které jsou potřeba k tomu abys poté úkol zvládnul",
+      "Po registraci budeš mít přístup do hry. Hlavním prvkem aplikace je kampaň, ve které tě na každém levelu čeká nová výzva. Pokud budeš potřebovat pomoc, v akademii najdeš veškeré potřebné informace k úspěšnému dokončení úkolů.",
     img: mapScreen,
   },
   {
@@ -63,14 +63,14 @@ export const homeIntro = [
     id: 2,
     headline: "Academy",
     description:
-      "Zde se ukrývají veškeré potřebné materiály s informacemi a tipy, ke kterým postupně v průběhu budeš získavat přístup. Každý článek v sobě ukrývá informace potřebné pro splnění další lekce, video ze světa css a šikovnou aplikaci, kterou možná budeš moci využít při svých projektech.",
+      "V akademii najdeš všechny potřebné materiály, tipy a informace. Postupně získáš přístup k článkům, videím o CSS a šikovným aplikacím, které můžeš využít při svých projektech.",
     img: academyScreen,
   },
   {
     id: 3,
     headline: "Building",
     description:
-      "Sám také budeš moci vytvářet úkoly pro další uživatele, kde za pomoci css pravidel v kombinaci s pravidly, která navolíš, můžeš prozkoušet dovednosti ostatních uživatelů. Zároveň máš možnost ozkoušet levely, které vytvořili ostatní.",
+      "Můžeš vytvářet úkoly pro ostatní uživatele pomocí CSS pravidel a vlastních nastavení. Zároveň můžeš zkoušet levely vytvořené jinými uživateli a prověřit tak své dovednosti.",
     img: buildingScreen,
   },
   {
