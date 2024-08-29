@@ -7,7 +7,7 @@ import thirdMobileImg from "@images/thirdScene-mobile.webp";
 export const slideData = [
   {
     id: 1,
-    headline: "Ztráta",
+    headline: "???",
     paragraph: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic optio cumque consectetur nihil illum fugiat quas quaerat eius ipsam corrupti?`,
     image: firstImg,
     mobileImage: firstMobileImg,
@@ -22,7 +22,7 @@ export const slideData = [
   },
   {
     id: 3,
-    headline: "Win-cha",
+    headline: "???",
     paragraph: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima quo optio qui id. Nostrum, incidunt? `,
     image: secondImg,
     mobileImage: secondMobileImg,
@@ -30,7 +30,7 @@ export const slideData = [
   },
   {
     id: 4,
-    headline: "Jdi po své cestě!",
+    headline: "???",
     paragraph: `iusto laboriosam rem sapiente! Vitae nesciunt incidunt repudiandae delectus quis aliquam omnis nobis, esse ut, adipisci, recusandae non maiores totam voluptatum sint harum.`,
     image: thirdImg,
     mobileImage: thirdMobileImg,

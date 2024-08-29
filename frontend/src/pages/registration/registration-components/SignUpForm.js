@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
-import Loader from "../../../components/Loader";
-import WarningLabel from "@components/Errors/WarningLabel";
+import Loader from "@components/Loader";
+import WarningLabel from "@components/errors/WarningLabel";
+import LoginMessage from "./LoginMessage";
 
 const CREATE_USER = gql`
   mutation CreateUser($name: String!, $email: String!, $password: String!) {
@@ -28,7 +29,7 @@ const SignUpForm = () => {
   };
 
   if (loading) return <Loader />;
-  if (registred) return <h2>Registration was successful</h2>;
+  if (registred) return <LoginMessage />;
 
   return (
     <form className="login-form" onSubmit={handleCreateUser}>

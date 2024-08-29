@@ -3,7 +3,7 @@ import plusIcon from "@images/icons/plus-white.webp";
 import minusIcon from "@images/icons/minus-white.webp";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import { checkProperties } from "@utils/buildingFunctions";
-import WarningLabel from "../../../components/Errors/WarningLabel";
+import WarningLabel from "@components/errors/WarningLabel";
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 
 const FormSectionInputs = (props) => {
