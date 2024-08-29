@@ -8,6 +8,7 @@ const CssFormInputs = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const [suggestValue, setSuggestValue] = useState("");
   const [propertyIndex, setPropertyIndex] = useState(null);
+
   return (
     <>
       <form className="form-css" onSubmit={props.submit}>

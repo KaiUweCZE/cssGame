@@ -36,7 +36,7 @@ module.exports = {
       "@components": path.resolve(__dirname, "src", "components"),
       "@contexts": path.resolve(__dirname, "src", "contexts"),
       "@data": path.resolve(__dirname, "src", "data"),
-      //"@features": path.resolve(__dirname, "src", "features"),
+      "@features": path.resolve(__dirname, "src", "features"),
       "@images": path.resolve(__dirname, "src", "assets", "images"),
       "@pages": path.resolve(__dirname, "src", "pages"),
       "@styles": path.resolve(__dirname, "src", "assets", "styles"),

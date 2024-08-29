@@ -3,6 +3,7 @@ import { ResultContext } from "@contexts/form-contexts/resultContext";
 import { refreshIcon } from "@data/ImagesData";
 import { useSetLevel } from "@utils/useSetLevel";
 import next from "@images/icons/right-arrow.webp";
+import refIcon from "@images/icons/refresh.png";
 
 const ResultMessage = () => {
   const { resultText } = useContext(ResultContext);
@@ -22,12 +23,15 @@ const ResultMessage = () => {
         {resultText}
       </h2>
       {resultText === "Oops" && resultText ? (
-        <button onClick={() => handleRefresh()}>
-          <img className="retry" src={refreshIcon} alt="" />
+        <button className="retry-button" onClick={() => handleRefresh()}>
+          <img className="retry" src={refIcon} alt="" width={16} height={16} />
           <span>retry</span>
         </button>
       ) : (
-        <button onClick={() => nextLevel(level.id + 1)}>
+        <button
+          className="next-level-button"
+          onClick={() => nextLevel(level.id + 1)}
+        >
           <span>next level</span>
           <img className="next-level" src={next} alt="" />
         </button>

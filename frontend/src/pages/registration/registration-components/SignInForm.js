@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
-import { UserContext } from "../../../contexts/UserContext";
-import Loader from "../../../components/Loader";
+import { UserContext } from "@contexts/UserContext";
+import Loader from "@components/Loader";
 import { useNavigate } from "react-router-dom";
-import WarningLabel from "@components/Errors/WarningLabel";
+import WarningLabel from "@components/errors/WarningLabel";
 
 const LOGIN_USER = gql`
   mutation LoginUser($name: String!, $password: String!) {

@@ -49,35 +49,35 @@ export const homeIntro = [
     id: 0,
     headline: "Map",
     description:
-      "Po registraci budeš mít přístup do hry. Hlavním prvkem aplikace je kampaň, ve které tě na každém levelu čeká nová výzva. Pokud budeš potřebovat pomoc, v akademii najdeš veškeré potřebné informace k úspěšnému dokončení úkolů.",
+      "After registration, you'll gain access to the game. The main feature is a campaign where each level presents a new challenge. If you need assistance, the academy provides all the necessary information to successfully complete your tasks.",
     img: mapScreen,
   },
   {
     id: 1,
     headline: "Game",
     description:
-      "V samotné hře budeš moci stylovat až tři prvky, potřebné informace o .bridge a .container najdeš pod lupou. V případě, že si nebudeš vědět rady, tak se neváhej obrátit na tvého průvodce za pomoci tlačítka help, vždy se tě pokusí nějak nasměrovat",
+      "In the game, you'll be able to style up to three elements. Essential information about .bridge and .container can be found under the magnifying glass icon. If you're unsure, don't hesitate to ask your guide for help using the 'help' button - they'll always try to point you in the right direction.",
     img: gameScreen,
   },
   {
     id: 2,
     headline: "Academy",
     description:
-      "V akademii najdeš všechny potřebné materiály, tipy a informace. Postupně získáš přístup k článkům, videím o CSS a šikovným aplikacím, které můžeš využít při svých projektech.",
+      "The academy houses all the materials, tips, and information you'll need. You'll gradually unlock access to articles, CSS videos, and useful applications that you can leverage in your projects.",
     img: academyScreen,
   },
   {
     id: 3,
     headline: "Building",
     description:
-      "Můžeš vytvářet úkoly pro ostatní uživatele pomocí CSS pravidel a vlastních nastavení. Zároveň můžeš zkoušet levely vytvořené jinými uživateli a prověřit tak své dovednosti.",
+      "Create challenges for other users using CSS rules and custom settings. You can also test your skills by trying levels designed by fellow users, providing a dynamic learning experience.",
     img: buildingScreen,
   },
   {
     id: 4,
     headline: "Database",
     description:
-      "Sám také budeš moci vytvářet úkoly pro další uživatele, kde za pomoci css pravidel v kombinaci s pravidly, která navolíš, můžeš prozkoušet dovednosti ostatních uživatelů. Zároveň máš možnost ozkoušet levely, které vytvořili ostatní.",
+      "This is your hub for accessing all levels created by other users. Here, you can easily explore and attempt creative challenges designed by the community. It's a perfect place to test your skills, find inspiration, and engage with diverse CSS puzzles crafted by fellow learners.",
     img: databaseScreen,
   },
 ];

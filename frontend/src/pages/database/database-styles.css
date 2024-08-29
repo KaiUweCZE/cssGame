@@ -1,4 +1,4 @@
-.Database {
+.container-database {
   grid-column: 2;
   display: grid;
   grid-template-columns: 1fr;
@@ -11,43 +11,43 @@
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.419);
   overflow-y: scroll;
 }
-.Database::-webkit-scrollbar {
+.container-database::-webkit-scrollbar {
   width: 0.5rem;
 }
-.Database::-webkit-scrollbar-thumb {
+.container-database::-webkit-scrollbar-thumb {
   background-color: rgba(121, 190, 217, 0.5);
 }
-.Database::-webkit-scrollbar-thumb:hover {
+.container-database::-webkit-scrollbar-thumb:hover {
   background-color: #79bed9;
 }
-.Database p {
+.container-database p {
   color: white;
   font-size: clamp(1rem, 1.25rem, 2.25vw);
   font-weight: bold;
 }
-.Database img {
+.container-database img {
   filter: brightness(8);
 }
-.Database .wrapper-item {
+.container-database .wrapper-item {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.5s;
   overflow: hidden;
 }
-.Database .wrapper-item p {
+.container-database .wrapper-item p {
   min-height: 0;
   transition: 0.5s;
   border-radius: 0.35rem;
   background-color: rgba(76, 165, 165, 0.4);
   margin-right: 1rem;
 }
-.Database .wrapper-item.open {
+.container-database .wrapper-item.open {
   grid-template-rows: 1fr;
 }
-.Database .wrapper-item.open p {
+.container-database .wrapper-item.open p {
   padding: 0.5rem;
 }
-.Database .database-list-headline {
+.container-database .database-list-headline {
   display: grid;
   grid-template-columns: 1fr 0.5fr 5rem;
   grid-template-rows: fit-content;
@@ -55,7 +55,7 @@
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
-.Database .database-list-headline .toggles {
+.container-database .database-list-headline .toggles {
   grid-column: 3;
   display: flex;
   gap: 1rem;
@@ -64,7 +64,7 @@
   height: -moz-fit-content;
   height: fit-content;
 }
-.Database .database-list-headline .toggles button {
+.container-database .database-list-headline .toggles button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,11 +75,11 @@
   font-weight: bold;
   transition: 0.4s;
 }
-.Database .database-list-headline .toggles button:hover {
+.container-database .database-list-headline .toggles button:hover {
   background-color: rgb(76, 165, 165);
 }
 @media (width < 100rem) {
-  .Database {
+  .container-database {
     width: 80%;
   }
 }

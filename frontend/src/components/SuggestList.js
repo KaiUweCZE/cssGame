@@ -31,7 +31,7 @@ const SuggestList = (props) => {
   };
 
   return visible ? (
-    <ul className="SuggestList">
+    <ul className="suggest-list">
       {suggestions.map((property, index) => {
         return (
           <li key={index} onMouseDown={() => confrimText(property)}>

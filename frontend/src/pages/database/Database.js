@@ -6,6 +6,7 @@ import officeBackground from "@images/office.webp";
 import DatabaseList from "./database-components/DatabaseList";
 import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
 import { CustomContainerProvider } from "@contexts/building-contexts/customContainerContext";
+import ProgressBar from "@components/ProgressBar";
 
 const GET_LEVELS = gql`
   query GetLevels {
@@ -37,8 +38,8 @@ const Database = () => {
     <BuildingProvider>
       <CustomContainerProvider>
         <div className="wrapper-database">
-          <div className="Database">
-            <DatabaseList items={data ? data.levels : [""]} />
+          <div className="container-database">
+            {data ? <DatabaseList items={data.levels} /> : <ProgressBar />}
           </div>
           <AsideBox background={officeBackground}></AsideBox>
         </div>

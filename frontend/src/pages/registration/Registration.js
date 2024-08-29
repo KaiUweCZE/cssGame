@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SignInForm from "./registration-components/SignInForm";
 import SignUpForm from "./registration-components/SignUpForm";
+import "./registration-style.css";
 
 const Registration = () => {
   const [formType, setFormType] = useState(false);
@@ -26,8 +27,8 @@ const Registration = () => {
             </div>
             {formType ? (
               <p>
-                Pro registraci můžete zvolit jakýkoliv počet písmen + email
-                input je prozatím ilustrativní, takže bude stačit text s @
+                For registration you can choose any number of letters + email
+                input is illustrative for now, so text with @ will suffice
               </p>
             ) : (
               <p>

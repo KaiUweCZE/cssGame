@@ -166,7 +166,7 @@
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.ErrorMessage {
+.error-message {
   display: flex;
   position: absolute;
   bottom: -60%;
@@ -180,7 +180,7 @@
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 }
-.ErrorMessage p {
+.error-message p {
   color: white;
 }
 
@@ -199,39 +199,40 @@ button img:hover {
   transform: scale(1.2);
 }
 
-.SuggestList {
-  display: flex;
-  flex-direction: column;
+.suggest-list {
+  display: grid;
   position: absolute;
-  bottom: -8rem;
+  top: 8rem;
   list-style: none;
   background-color: rgba(0, 0, 0, 0.6);
   width: -moz-fit-content;
   width: fit-content;
+  min-width: 10rem;
   margin-left: 0.5rem;
   padding-block: 0.5rem;
   border-radius: 0.5rem;
   max-height: 8rem;
   overflow-y: scroll;
 }
-.SuggestList::-webkit-scrollbar {
+.suggest-list::-webkit-scrollbar {
   width: 0.5rem;
 }
-.SuggestList::-webkit-scrollbar-thumb {
+.suggest-list::-webkit-scrollbar-thumb {
   background-color: rgba(121, 190, 217, 0.5);
 }
-.SuggestList::-webkit-scrollbar-thumb:hover {
+.suggest-list::-webkit-scrollbar-thumb:hover {
   background-color: #79bed9;
 }
-.SuggestList span {
+.suggest-list span {
   font-weight: bold;
 }
-.SuggestList li {
+.suggest-list li {
   padding-inline: 0.5rem;
   color: white;
   cursor: pointer;
+  width: 100%;
 }
-.SuggestList li:hover {
+.suggest-list li:hover {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -507,7 +508,7 @@ button img:hover {
   background-color: #c95661;
   z-index: 1;
 }
-.message-result button {
+.message-result .next-level-button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -519,18 +520,18 @@ button img:hover {
   padding-inline: 0.5rem;
   transition: 0.25s;
   transform-origin: left;
+  /*&:hover .retry {
+    animation: rotation 1s linear forwards infinite;
+  }*/
 }
-.message-result button:hover .retry {
-  animation: rotation 1s linear forwards infinite;
-}
-.message-result button:hover .next-level {
+.message-result .next-level-button:hover .next-level {
   transition: 1s;
   animation: arrival 0.15s linear forwards;
 }
-.message-result button:not(:hover) .next-level {
+.message-result .next-level-button:not(:hover) .next-level {
   animation: departure 0.15s linear forwards;
 }
-.message-result button:has(.next-level):hover span {
+.message-result .next-level-button:has(.next-level):hover span {
   transform: translateX(-5%);
 }
 .message-result span {
@@ -564,6 +565,27 @@ button img:hover {
     font-size: 1.5rem;
     bottom: 50vh;
   }
+}
+
+.retry-button {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.1019607843);
+  box-shadow: 0px 4px 8px -2px rgba(9, 30, 66, 0.25), 0px 0px 0px 1px rgba(9, 30, 66, 0.08);
+  border-radius: 0.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 0.5rem;
+}
+.retry-button:hover .retry {
+  animation: rotation 1s linear forwards infinite;
+}
+.retry-button .retry {
+  position: relative;
+  height: 1rem;
+  width: 1rem;
 }
 
 @keyframes arrival {
@@ -637,7 +659,7 @@ button img:hover {
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.25);
-  width: 100%;
+  width: 15rem;
   aspect-ratio: 2/1;
 }
 .empty-box img {

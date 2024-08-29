@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { list } from "../../data/listOfProperities";
-import ErrorMessage from "@components/Errors/ErrorMessage";
 import { contextValues, useFormInputs } from "@utils/cssFormFunctions";
 import { EmojiContext } from "@contexts/emojiContext";
 import { BridgeContext } from "@contexts/form-contexts/bridgeContext";
@@ -14,6 +13,7 @@ import { styleChecker } from "@utils/styleChecker";
 import CssFormHeadline from "./CssFormHeadline";
 import CssFormInputs from "./CssFormInputs";
 import CloseForm from "./CloseForm";
+import ErrorMessage from "@components/errors/ErrorMessage";
 
 // key component for posting
 const CssForm = (props) => {
@@ -157,6 +157,7 @@ const CssForm = (props) => {
           values={cssValues}
           setValueAtIndex={setValueAtIndex}
           stop={stopAdd}
+          name={props.name}
         />
         {
           // wrong property?

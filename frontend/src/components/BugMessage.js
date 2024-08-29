@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import bugIcon from "@images/icons/bug.svg";
 import { useCreateMessage } from "@utils/queries/useCreateMessage";
 import { UserContext } from "@contexts/UserContext";
+import uploadImg from "@images/icons/upload.webp";
+import reportImg from "@images/icons/report.webp";
 
 const BugMessage = () => {
   const [active, setActive] = useState(false);
@@ -36,16 +38,37 @@ const BugMessage = () => {
             onClick={() => setActive(!active)}
           />
           <article>
-            <h2>Chyba?</h2>
-            <p>Neváhejte ji sdílet: </p>
+            <h2>Share Bugs</h2>
           </article>
-          <form className="bug-form" onSubmit={handleSend}>
+          <form className="bug-form">
+            <div className="bug-form-box">
+              <label htmlFor="">Subject:</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div className="bug-form-box">
+              <label htmlFor="">Screenshots:</label>
+              <label htmlFor="images" className="bug-form-button">
+                <img src={uploadImg} width={20} height={20} />
+                <span>Upload</span>
+              </label>
+              <input
+                type="file"
+                id="images"
+                name="images"
+                accept=".webp"
+                multiple
+                required
+              />
+            </div>
+
             <textarea
               name=""
               id=""
               onChange={(e) => setText(e.target.value)}
             ></textarea>
-            <input type="submit" value="send" />
+            <button className="bug-form-button" onClick={handleSend}>
+              <img src={reportImg} width={20} height={20} /> <span>Report</span>
+            </button>
           </form>
         </footer>
       ) : (
