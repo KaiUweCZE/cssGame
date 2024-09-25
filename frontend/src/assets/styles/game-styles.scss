@@ -112,6 +112,16 @@
     align-self: center;
     cursor: pointer;
   }
+
+  .play {
+    display: grid;
+    input[type="checkbox"] {
+      position: absolute;
+      place-self: end;
+      translate: 0.2rem 0.2rem;
+      cursor: pointer;
+    }
+  }
 }
 
 .form-css__row {

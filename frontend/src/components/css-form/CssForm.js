@@ -14,6 +14,7 @@ import CssFormHeadline from "./CssFormHeadline";
 import CssFormInputs from "./CssFormInputs";
 import CloseForm from "./CloseForm";
 import ErrorMessage from "@components/errors/ErrorMessage";
+import { CheckContext } from "@contexts/form-contexts/checkContext";
 
 // key component for posting
 const CssForm = (props) => {
@@ -21,6 +22,10 @@ const CssForm = (props) => {
   const { handleEmojiClass } = useContext(EmojiContext);
   // check if error occurs (typo error)
   const [error, setError] = useState(false);
+
+  const checkContext = useContext(CheckContext);
+
+  const { trigger, setTrigger, checkedBoxes } = checkContext;
   // error message for typo error
   const [errotMessage, setErrorMessage] = useState("");
   // values from Result Context
@@ -28,7 +33,7 @@ const CssForm = (props) => {
     useContext(ResultContext);
   // check if the form has already been sent
   const [hasChecked, setHasChecked] = useState(false);
-
+  const [isChecked, setIsChecked] = useState(false);
   // which context will be used?
   let context;
   switch (props.name) {
@@ -72,6 +77,13 @@ const CssForm = (props) => {
     handleAddLabel,
     handleRemoveLabel,
   } = useFormInputs([""], [""], maxLength);
+
+  useEffect(() => {
+    if (checkedBoxes.includes(props.name)) {
+      checkResult();
+      console.log("form name: ", props.name);
+    }
+  }, [trigger]);
 
   useEffect(() => {
     if (hasChecked) {
@@ -140,6 +152,7 @@ const CssForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     checkResult();
+    setTrigger((prev) => prev + 1);
   };
 
   return (
@@ -158,6 +171,8 @@ const CssForm = (props) => {
           setValueAtIndex={setValueAtIndex}
           stop={stopAdd}
           name={props.name}
+          isChecked={isChecked}
+          setIsChecked={setIsChecked}
         />
         {
           // wrong property?

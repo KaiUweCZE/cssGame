@@ -4,11 +4,17 @@ import { useCreateMessage } from "@utils/queries/useCreateMessage";
 import { UserContext } from "@contexts/UserContext";
 import uploadImg from "@images/icons/upload.webp";
 import reportImg from "@images/icons/report.webp";
+import binImg from "@images/icons/bin.png";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { AdvancedImage } from "@cloudinary/react";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 
 const BugMessage = () => {
   const [active, setActive] = useState(false);
   const [text, setText] = useState("");
   const { user } = useContext(UserContext);
+  const [error, setError] = useState("");
+  const [reportedImages, setReportedImages] = useState([]);
   const { handleCreateMessage, messageData, messageError, messageLoading } =
     useCreateMessage();
 
@@ -26,6 +32,28 @@ const BugMessage = () => {
     } catch (error) {
       alert("Failed to send message.");
     }
+  };
+
+  const handleImageChange = (e) => {
+    if (e.target.files) {
+      const files = Array.from(e.target.files);
+      const validFiles = files.filter((file) => file.type === "image/webp");
+
+      if (validFiles.length !== files.length) {
+        console.log("error in editing", validFiles, files);
+
+        setError("Some of uplloaded images are not in valid format");
+      } else {
+        console.log("uploading was succesfful");
+
+        setReportedImages((images) => [...images, ...validFiles]);
+      }
+    }
+  };
+
+  const removeImage = (index) => {
+    setReportedImages((prevImages) => prevImages.filter((_, i) => i !== index));
+    console.log("this files was removed: ", reportedImages[index], index);
   };
   return (
     <>
@@ -56,10 +84,30 @@ const BugMessage = () => {
                 id="images"
                 name="images"
                 accept=".webp"
+                onChange={handleImageChange}
                 multiple
                 required
               />
             </div>
+            {reportedImages.length > 0 && (
+              <div className="files-box">
+                <h3>Uploaded images:</h3>
+                <ul className="file-list">
+                  {reportedImages.map((image, index) => (
+                    <li key={index} className="file">
+                      <span>{image.name}</span>{" "}
+                      <img
+                        src={binImg}
+                        alt="delete icon"
+                        width={24}
+                        height={24}
+                        onClick={() => removeImage(index)}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <textarea
               name=""

@@ -746,6 +746,16 @@
   border-radius: 1rem 0 0 0;
   transition: 1s;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+  overflow-y: scroll;
+}
+.bug-message::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.bug-message::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 190, 217, 0.5);
+}
+.bug-message::-webkit-scrollbar-thumb:hover {
+  background-color: #79bed9;
 }
 .bug-message article {
   display: flex;
@@ -816,6 +826,10 @@
   height: 15rem;
   resize: none;
 }
+.bug-form span {
+  color: white;
+  font-weight: bold;
+}
 
 .bug-form-box {
   display: grid;
@@ -851,8 +865,6 @@
 }
 .bug-form-button span {
   transition: 0.5s;
-  font-weight: bold;
-  color: white;
 }
 .bug-form-button img {
   transition: 0.5s;
@@ -877,6 +889,33 @@ button.bug-form-button {
   padding-block: 0.5rem;
   padding-bottom: 1.75rem;
   font-size: 1rem;
+}
+
+.files-box h3 {
+  color: white;
+}
+
+.file-list {
+  display: grid;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 0.5rem;
+}
+
+.file {
+  display: grid;
+  grid-template-columns: subgrid;
+  place-items: center start;
+  grid-column: span 2;
+  gap: 0.5rem;
+}
+.file img {
+  transition: 0.35s;
+  cursor: pointer;
+}
+.file img:hover {
+  filter: brightness(1.4);
+  scale: 1.1;
 }
 
 @keyframes go-in {

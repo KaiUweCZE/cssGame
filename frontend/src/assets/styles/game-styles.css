@@ -127,6 +127,15 @@
   align-self: center;
   cursor: pointer;
 }
+.box-buttons .play {
+  display: grid;
+}
+.box-buttons .play input[type=checkbox] {
+  position: absolute;
+  place-self: end;
+  translate: 0.2rem 0.2rem;
+  cursor: pointer;
+}
 
 .form-css__row {
   height: 1.5rem;

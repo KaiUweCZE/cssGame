@@ -1,6 +1,15 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const webpack = require("webpack");
+
+const tryResolve = (name) => {
+  try {
+    return require.resolve(name);
+  } catch (e) {
+    return false;
+  }
+};
 
 module.exports = {
   entry: "./src/index.js",
@@ -42,6 +51,14 @@ module.exports = {
       "@styles": path.resolve(__dirname, "src", "assets", "styles"),
       "@utils": path.resolve(__dirname, "src", "utils"),
     },
+    fallback: {
+      crypto: tryResolve("crypto-browserify"),
+      path: tryResolve("path-browserify"),
+      stream: tryResolve("stream-browserify"),
+      buffer: tryResolve("buffer"),
+      process: tryResolve("process/browser"),
+      vm: false,
+    },
   },
   devServer: {
     historyApiFallback: true,
@@ -52,6 +69,10 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: "src/_redirects", to: "" }],
+    }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+      Buffer: ["buffer", "Buffer"],
     }),
   ],
 };
