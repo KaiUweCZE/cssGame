@@ -127,6 +127,15 @@
   align-self: center;
   cursor: pointer;
 }
+.box-buttons .play {
+  display: grid;
+}
+.box-buttons .play input[type=checkbox] {
+  position: absolute;
+  place-self: end;
+  translate: 0.2rem 0.2rem;
+  cursor: pointer;
+}
 
 .form-css__row {
   height: 1.5rem;
@@ -508,7 +517,7 @@ button img:hover {
   background-color: #c95661;
   z-index: 1;
 }
-.message-result button {
+.message-result .next-level-button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -520,18 +529,18 @@ button img:hover {
   padding-inline: 0.5rem;
   transition: 0.25s;
   transform-origin: left;
+  /*&:hover .retry {
+    animation: rotation 1s linear forwards infinite;
+  }*/
 }
-.message-result button:hover .retry {
-  animation: rotation 1s linear forwards infinite;
-}
-.message-result button:hover .next-level {
+.message-result .next-level-button:hover .next-level {
   transition: 1s;
   animation: arrival 0.15s linear forwards;
 }
-.message-result button:not(:hover) .next-level {
+.message-result .next-level-button:not(:hover) .next-level {
   animation: departure 0.15s linear forwards;
 }
-.message-result button:has(.next-level):hover span {
+.message-result .next-level-button:has(.next-level):hover span {
   transform: translateX(-5%);
 }
 .message-result span {
@@ -565,6 +574,27 @@ button img:hover {
     font-size: 1.5rem;
     bottom: 50vh;
   }
+}
+
+.retry-button {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.1019607843);
+  box-shadow: 0px 4px 8px -2px rgba(9, 30, 66, 0.25), 0px 0px 0px 1px rgba(9, 30, 66, 0.08);
+  border-radius: 0.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 0.5rem;
+}
+.retry-button:hover .retry {
+  animation: rotation 1s linear forwards infinite;
+}
+.retry-button .retry {
+  position: relative;
+  height: 1rem;
+  width: 1rem;
 }
 
 @keyframes arrival {

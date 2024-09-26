@@ -21,8 +21,8 @@ const DatabaseList = ({ items }) => {
         return [...items];
       case "latest":
         return [...items].reverse();
-      default:
-        return items;
+      /*default:
+        return items;*/
     }
   };
 
@@ -50,63 +50,59 @@ const DatabaseList = ({ items }) => {
         </li>
       </ul>
       {items
-        ? filterItems(items).map((item, index) => {
-            return (
-              <li key={index}>
-                <div className="database-list-headline">
-                  <p>
-                    {index + 1}. name: {item.name}
-                  </p>
-                  <DatabaseButtons
-                    levelId={item.id}
-                    likesList={item?.likes}
-                    likeCount={item?.likeCount ? item.likeCount : 0}
-                    finishes={item?.finish ? item.finish : 0}
-                    usersPlayed={item?.usersPlayed ? item.usersPlayed : []}
-                    usersCount={item?.usersCount ? item.usersCount : 0}
-                  />
-                  <div className="toggles">
-                    <button onClick={() => handleNavigate(item.id)}>
-                      play
-                    </button>
-                    <div
-                      className={
-                        open.active && open.id === index
-                          ? "toggle open"
-                          : "toggle"
-                      }
-                      onClick={() =>
-                        setOpen((prev) => ({
-                          active: prev.id !== index || !prev.active,
-                          id: index,
-                        }))
-                      }
-                    >
-                      {" "}
-                    </div>
+        ? filterItems(items).map((item, index) => (
+            <li key={index}>
+              <div className="database-list-headline">
+                <p>
+                  {index + 1}. name: {item.name}
+                </p>
+                <DatabaseButtons
+                  levelId={item.id}
+                  likesList={item?.likes}
+                  likeCount={item?.likeCount ? item.likeCount : 0}
+                  finishes={item?.finish ? item.finish : 0}
+                  usersPlayed={item?.usersPlayed ? item.usersPlayed : []}
+                  usersCount={item?.usersCount ? item.usersCount : 0}
+                />
+                <div className="toggles">
+                  <button onClick={() => handleNavigate(item.id)}>play</button>
+                  <div
+                    className={
+                      open.active && open.id === index
+                        ? "toggle open"
+                        : "toggle"
+                    }
+                    onClick={() =>
+                      setOpen((prev) => ({
+                        active: prev.id !== index || !prev.active,
+                        id: index,
+                      }))
+                    }
+                  >
+                    {" "}
                   </div>
                 </div>
+              </div>
 
-                <div
-                  className={
-                    open.active && open.id === index
-                      ? "wrapper-item open"
-                      : "wrapper-item"
-                  }
-                >
-                  {item.description ? (
-                    <p>{item.description}</p>
-                  ) : (
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Totam, quo dolorem. Laudantium sunt asperiores magnam,
-                      nihil, vitae rem sequi quod amet at sit voluptates a.
-                    </p>
-                  )}
-                </div>
-              </li>
-            );
-          })
+              <div
+                className={
+                  open.active && open.id === index
+                    ? "wrapper-item open"
+                    : "wrapper-item"
+                }
+              >
+                {item.description ? (
+                  <p>{item.description}</p>
+                ) : (
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Totam, quo dolorem. Laudantium sunt asperiores magnam,
+                    nihil, vitae rem sequi quod amet at sit voluptates a.
+                  </p>
+                )}
+              </div>
+            </li>
+          ))
         : null}
     </ul>
   );

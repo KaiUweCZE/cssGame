@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      //"@/*": ["src/*"],
+      "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
@@ -11,7 +11,9 @@
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/assets/styles/*"],
       "@utils/*": ["src/utils/*"]
-    }
+    },
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": ["src/**/*", "../src/intro-components", "../src/IntroOld.js"]
+  "include": ["src/**/*", "../src/intro-components", "../src/IntroOld.js"],
+  "exclude": ["node_modules"]
 }

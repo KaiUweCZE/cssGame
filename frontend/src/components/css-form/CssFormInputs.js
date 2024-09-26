@@ -51,6 +51,7 @@ const CssFormInputs = (props) => {
           addInput={props.addInput}
           addLabel={props.addLabel}
           stop={props.stop}
+          name={props.name}
         />
       </form>
       <RightBracket />
