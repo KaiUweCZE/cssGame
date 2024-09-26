@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { User } from "./User.js";
 
 const MessageSchema = new mongoose.Schema({
   author: {
@@ -7,9 +6,15 @@ const MessageSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  subject: {
+    type: String,
+  },
   text: {
     type: String,
     required: true,
+  },
+  images: {
+    type: [String],
   },
 });
 

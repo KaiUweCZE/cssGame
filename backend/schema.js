@@ -75,7 +75,9 @@ const MessageType = new GraphQLObjectType({
           : null;
       },
     },
+    subject: { type: GraphQLString },
     text: { type: GraphQLString },
+    images: { type: new GraphQLList(GraphQLString) },
   }),
 });
 
@@ -315,6 +317,8 @@ const mutation = new GraphQLObjectType({
       args: {
         userId: { type: new GraphQLNonNull(GraphQLID) },
         text: { type: new GraphQLNonNull(GraphQLString) },
+        subject: { type: GraphQLString },
+        images: { type: new GraphQLList(GraphQLString) },
       },
       resolve: async (parent, args) => {
         const user = await User.findById(args.userId);
@@ -324,6 +328,8 @@ const mutation = new GraphQLObjectType({
         const message = new Message({
           author: user._id.toString(),
           text: args.text,
+          subject: args.subject,
+          images: args.images,
         });
         await message.save();
         return message;

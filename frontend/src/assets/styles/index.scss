@@ -767,6 +767,7 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
   transition: 1s;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
   @include scroll-primary;
+  overflow-x: hidden;
   article {
     display: flex;
     flex-direction: column;
@@ -789,8 +790,10 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
     height: 1.5rem;
     cursor: pointer;
     transition: 1s;
+    //animation: moveBug 5s linear infinite;
     translate: 0 0;
     &.active {
+      animation: moveBug 5s linear infinite;
       transition: 1s;
       translate: -19rem -12.5rem;
       //animation: bug-walk 5s linear 1s forwards;
@@ -806,6 +809,15 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
         translate: -47vw -12.5rem;
       }
     }
+  }
+}
+
+@keyframes moveBug {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
   }
 }
 

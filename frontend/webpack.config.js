@@ -2,14 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
+const dotenv = require("dotenv");
 
-const tryResolve = (name) => {
-  try {
-    return require.resolve(name);
-  } catch (e) {
-    return false;
-  }
-};
+dotenv.config();
 
 module.exports = {
   entry: "./src/index.js",
@@ -38,7 +33,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js"],
+    extensions: [".js", ".jsx"],
     alias: {
       "@": path.resolve(__dirname, "src"),
       "@assets": path.resolve(__dirname, "src", "assets"),
@@ -52,12 +47,12 @@ module.exports = {
       "@utils": path.resolve(__dirname, "src", "utils"),
     },
     fallback: {
-      crypto: tryResolve("crypto-browserify"),
-      path: tryResolve("path-browserify"),
-      stream: tryResolve("stream-browserify"),
-      buffer: tryResolve("buffer"),
-      process: tryResolve("process/browser"),
-      vm: false,
+      crypto: require.resolve("crypto-browserify"),
+      buffer: require.resolve("buffer/"),
+      path: require.resolve("path-browserify"),
+      stream: require.resolve("stream-browserify"),
+      vm: require.resolve("vm-browserify"),
+      "process/browser": require.resolve("process/browser"),
     },
   },
   devServer: {
@@ -72,7 +67,9 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       process: "process/browser",
-      Buffer: ["buffer", "Buffer"],
+    }),
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
     }),
   ],
 };

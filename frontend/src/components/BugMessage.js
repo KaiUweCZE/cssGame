@@ -5,14 +5,15 @@ import { UserContext } from "@contexts/UserContext";
 import uploadImg from "@images/icons/upload.webp";
 import reportImg from "@images/icons/report.webp";
 import binImg from "@images/icons/bin.png";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { AdvancedImage } from "@cloudinary/react";
-import { fill } from "@cloudinary/url-gen/actions/resize";
+import { Image, Transformation } from "cloudinary-react";
+import { cld, cloudinaryConfig } from "@/utils/cloudinaryClient";
 
 const BugMessage = () => {
   const [active, setActive] = useState(false);
   const [text, setText] = useState("");
+  const [subject, setSubject] = useState("");
   const { user } = useContext(UserContext);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [reportedImages, setReportedImages] = useState([]);
   const { handleCreateMessage, messageData, messageError, messageLoading } =
@@ -25,19 +26,62 @@ const BugMessage = () => {
       return;
     }
     try {
-      await handleCreateMessage(user.id, text);
+      setIsLoading(true);
+      const uploadedImages = await Promise.all(
+        reportedImages.map(async (file) => {
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("upload_preset", cloudinaryConfig.uploadPreset);
+          formData.append("fetch_format", "auto");
+
+          console.log("start with images");
+
+          const response = await fetch(
+            `https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloudName}/image/upload`,
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Upload error:", errorText);
+            throw new Error(`Upload failed: ${errorText}`);
+          }
+          const data = await response.json();
+          console.log("data: ", data);
+
+          return {
+            publicId: data.public_id,
+            url: data.secure_url,
+            name: file.name,
+          };
+        })
+      );
+
+      const imageUrls = uploadedImages.map((image) => image.url);
+      console.log("images: ", imageUrls);
+
+      await handleCreateMessage(user.id, text, subject, imageUrls);
       setText(""); // Reset text field
       setActive(false); // Optionally close the form
       alert("Message sent successfully.");
+      console.log("Message sent successfully.", uploadedImages, imageUrls);
     } catch (error) {
+      console.log("error: ", error);
+
       alert("Failed to send message.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleImageChange = (e) => {
     if (e.target.files) {
       const files = Array.from(e.target.files);
-      const validFiles = files.filter((file) => file.type === "image/webp");
+      const validTypes = ["image/webp", "image/png", "image/jpeg", "image/jpg"];
+      const validFiles = files.filter((file) => validTypes.includes(file.type));
 
       if (validFiles.length !== files.length) {
         console.log("error in editing", validFiles, files);
@@ -71,7 +115,12 @@ const BugMessage = () => {
           <form className="bug-form">
             <div className="bug-form-box">
               <label htmlFor="">Subject:</label>
-              <input type="text" name="" id="" />
+              <input
+                type="text"
+                name=""
+                id=""
+                onChange={(e) => setSubject(e.target.value)}
+              />
             </div>
             <div className="bug-form-box">
               <label htmlFor="">Screenshots:</label>
@@ -83,7 +132,7 @@ const BugMessage = () => {
                 type="file"
                 id="images"
                 name="images"
-                accept=".webp"
+                accept=".webp, .png, .jpg, .jpeg"
                 onChange={handleImageChange}
                 multiple
                 required
@@ -114,7 +163,11 @@ const BugMessage = () => {
               id=""
               onChange={(e) => setText(e.target.value)}
             ></textarea>
-            <button className="bug-form-button" onClick={handleSend}>
+            <button
+              className="bug-form-button"
+              onClick={handleSend}
+              disabled={isLoading}
+            >
               <img src={reportImg} width={20} height={20} /> <span>Report</span>
             </button>
           </form>
