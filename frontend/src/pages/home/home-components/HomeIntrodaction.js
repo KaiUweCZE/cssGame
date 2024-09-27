@@ -8,6 +8,13 @@ const HomeIntrodaction = () => {
   const [index, setIndex] = useState(0);
   const data = homeIntro;
 
+  const images = {
+    0: <img src={data[0]} />,
+    1: <img src={data[1]} />,
+    2: <img src={data[2]} />,
+    3: <img src={data[3]} />,
+  };
+
   const handleNext = () => {
     if (index < 3) {
       setIndex(() => index + 1);
@@ -28,7 +35,7 @@ const HomeIntrodaction = () => {
       <div className="home-intro-gallery">
         <img src={data[index].img} alt="screen of the section" width="894px" />
         <button className="right" onClick={handleNext}>
-          <img src={next} alt="" srcset="" />
+          <img src={next} alt="" />
         </button>
         <button className="left" onClick={handlePrev}>
           <img src={prev} alt="" />

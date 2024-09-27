@@ -704,6 +704,7 @@ img.obstacle {
   cursor: pointer;
   transition: 0.5s;
   z-index: 1;
+  filter: drop-shadow(0 0 4px black);
 }
 .glass:hover {
   transform: scale(1.15);

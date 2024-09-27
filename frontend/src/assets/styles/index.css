@@ -60,6 +60,11 @@
     height: 0.5rem;
   }
 }
+.container-menu .header-wrapper {
+  display: grid;
+  position: relative;
+  width: 80rem;
+}
 .container-menu .navigation {
   display: flex;
   justify-content: flex-end;
@@ -989,4 +994,11 @@ button.bug-form-button {
   100% {
     background-size: 110%;
   }
+}
+.logo {
+  place-self: center start;
+  position: absolute;
+  transition: 0.5s;
+  translate: 2rem;
+  color: rgb(0, 0, 0);
 }/*# sourceMappingURL=index.css.map */
