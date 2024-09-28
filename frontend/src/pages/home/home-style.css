@@ -207,23 +207,33 @@
 .home-intro {
   display: flex;
   flex-direction: column;
+  border-radius: 0.5rem;
   max-width: 60rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
 }
 .home-intro h3,
 .home-intro p {
   color: white;
 }
+.home-intro h3 {
+  font-size: 1.5rem;
+}
+.home-intro p {
+  font-size: 1.25rem;
+}
 .home-intro article {
   background-color: rgba(10, 58, 64, 0.8);
+  background-color: #11626c;
   padding: 1rem;
-  box-shadow: 0 0 8px black;
+  line-height: 1.875rem;
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .home-intro-gallery {
   display: grid;
   position: relative;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  overflow: hidden;
 }
 .home-intro-gallery img {
   width: 100%;
@@ -267,4 +277,33 @@
 }
 .box-signals div.active {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.current-image.next {
+  animation: right-slide 0.5s linear forwards;
+}
+.current-image.prev {
+  animation: left-slide 0.5s linear forwards;
+}
+
+.prev-image {
+  position: absolute;
+  z-index: -1;
+}
+
+@keyframes right-slide {
+  from {
+    translate: 50%;
+  }
+  to {
+    translate: 0;
+  }
+}
+@keyframes left-slide {
+  from {
+    translate: -50%;
+  }
+  to {
+    translate: 0;
+  }
 }/*# sourceMappingURL=home-style.css.map */

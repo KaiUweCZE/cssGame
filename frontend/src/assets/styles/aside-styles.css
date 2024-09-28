@@ -319,23 +319,31 @@
   width: 35%;
 }
 
-.SecretTextBuilding {
-  /*img {
-    width: 10rem;
-    height: 10rem;
-  }*/
+.secret-text-building .secret-headline {
+  font-size: 1.875rem;
+  font-weight: "bold";
+  margin-bottom: 0.5rem;
 }
-.SecretTextBuilding ul {
+.secret-text-building ul {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
-.SecretTextBuilding ul li {
+.secret-text-building ul li {
   list-style: disc;
   list-style-position: inside;
   font-size: 1.25rem;
 }
-.SecretTextBuilding ul span {
+.secret-text-building ul span {
   font-weight: bold;
+}
+.secret-text-building p {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.secret-text-building article {
+  margin-bottom: 2rem;
 }
 
 p.ButtonEnd {

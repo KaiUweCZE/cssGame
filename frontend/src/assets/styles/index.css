@@ -16,6 +16,12 @@
   text-decoration: none;
 }
 
+@font-face {
+  font-family: "Fredoka", "sans-serif";
+  src: url("@assets/fonts/fredoka/Fredoka-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 .container-menu {
   display: flex;
   position: relative;
@@ -203,6 +209,7 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.2);
+  background-color: #0e525a;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
 }
@@ -996,9 +1003,37 @@ button.bug-form-button {
   }
 }
 .logo {
+  font-family: "Fredoka", monospace;
   place-self: center start;
   position: absolute;
   transition: 0.5s;
   translate: 2rem;
-  color: rgb(0, 0, 0);
+}
+
+.main-text {
+  color: #d7ba7d;
+  color: #c8bb66;
+  transition: 0.5s;
+  rotate: 0deg;
+}
+.main-text.bracket {
+  opacity: 1;
+  transition: 1s;
+}
+@starting-style {
+  .main-text.bracket {
+    opacity: 0;
+    rotate: 0deg;
+  }
+}
+
+.attribute-text {
+  color: #9ccdc4;
+  color: #9cdcfe;
+  color: #99ccfc;
+}
+
+.values-text {
+  color: #b48062;
+  color: #c3915b;
 }/*# sourceMappingURL=index.css.map */

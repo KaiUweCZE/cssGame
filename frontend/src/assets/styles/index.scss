@@ -5,6 +5,13 @@
 $primary-text: rgba(60, 60, 60, 1);
 $standard-section-bgc: rgba(0, 0, 0, 0.05);
 
+@font-face {
+  font-family: "Fredoka", "sans-serif";
+  src: url("@assets/fonts/fredoka/Fredoka-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 // main navigation and menu
 .container-menu {
   display: flex;
@@ -208,6 +215,7 @@ $standard-section-bgc: rgba(0, 0, 0, 0.05);
     padding: 0.5rem;
     border-radius: 0.5rem;
     background: rgba(255, 255, 255, 0.2);
+    background-color: lighten($main-color, 6);
     backdrop-filter: blur(5px);
     &.low-level {
       display: flex;
@@ -1017,9 +1025,33 @@ button.bug-form-button {
 }
 
 .logo {
+  font-family: "Fredoka", monospace;
   place-self: center start;
   position: absolute;
   transition: 0.5s;
   translate: 2rem;
-  color: rgb(0, 0, 0);
+}
+.main-text {
+  color: #d7ba7d;
+  color: #c8bb66;
+  transition: 0.5s;
+  rotate: 0deg;
+  &.bracket {
+    opacity: 1;
+    transition: 1s;
+
+    @starting-style {
+      opacity: 0;
+      rotate: 0deg;
+    }
+  }
+}
+.attribute-text {
+  color: #9ccdc4;
+  color: #9cdcfe;
+  color: #99ccfc;
+}
+.values-text {
+  color: #b48062;
+  color: #c3915b;
 }
