@@ -22,7 +22,7 @@ const BuildingSelectList = () => {
   };
   return (
     <>
-      <div className="FormSectionSelect">
+      <div className="form-section-select">
         <label htmlFor="">
           You can set a list of allowed/denied properties:
         </label>

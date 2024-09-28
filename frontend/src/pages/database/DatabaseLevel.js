@@ -95,7 +95,7 @@ const DatabaseLevel = () => {
           <p>Congrats</p>
         </div>
       ) : null}
-      <div className="BuildingArea">
+      <div className="building-area">
         <CustomBridge
           containerStyle={
             containerStyle !== "" ? newContainerStyle : originContainerStyle

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { glassImg } from "@data/ImagesData";
 import { CheckContext } from "@contexts/form-contexts/checkContext";
 import AboutClassInfo from "./AboutClassInfo";
@@ -14,6 +14,10 @@ const AboutClass = (props) => {
     setActive(false);
     setOption(!option);
   };
+
+  useEffect(() => {
+    setActive(false);
+  }, []);
 
   return (
     <>
@@ -32,23 +36,19 @@ const AboutClass = (props) => {
             : "about-class"
         }
       >
-        {option ? (
+        {option && (
           <AboutClassMenu
             active={active}
             setActive={setActive}
             setAboutClass={setAboutClass}
           />
-        ) : (
-          ""
         )}
-        {active ? (
+        {active && (
           <AboutClassInfo
             active={active}
             name={`.${aboutClass}`}
             information={props?.style}
           />
-        ) : (
-          ""
         )}
       </div>
       {props?.level === 1 ? <TemporaryLabel /> : null}

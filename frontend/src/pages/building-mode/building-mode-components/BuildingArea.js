@@ -18,7 +18,7 @@ const BuildingArea = () => {
     : "";
 
   return (
-    <div className="BuildingArea">
+    <div className="building-area">
       <CustomBridge containerStyle={containerStyle} bridgeStyle={bridgeStyle} />
     </div>
   );

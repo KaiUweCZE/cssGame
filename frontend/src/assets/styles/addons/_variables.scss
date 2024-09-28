@@ -13,6 +13,9 @@ $main-color: #0a3a40;
 // fonts settings
 $primary-font: "Open Sans", sans-serif;
 
+$primary-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25),
+  inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
+
 //margins and paddings
 $default-margin: 0.5rem;
 $default-padding: 0.5rem;

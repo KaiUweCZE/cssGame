@@ -27,10 +27,10 @@ const FormSectionInputs = (props) => {
   }, [properties]);
 
   return (
-    <div className="FormSection">
+    <div className="form-section">
       <div>
         <label htmlFor="">{props.label}:</label>
-        <div className="FormButtonsGroup">
+        <div className="form-buttons-group">
           <img
             className={number === 4 ? "deactivated" : ""}
             src={plusIcon}
@@ -51,7 +51,7 @@ const FormSectionInputs = (props) => {
         </div>
       </div>
       {Array.from({ length: number }, (_, index) => (
-        <div key={index} className="GroupOfInputs">
+        <div key={index} className="group-inputs">
           <input
             type="text"
             name={`name_${index}`}

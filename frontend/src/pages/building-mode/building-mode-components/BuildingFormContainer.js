@@ -43,7 +43,7 @@ const BuildingFormContainer = (props) => {
       ))}
       <div className="resolver-box">
         <img src={rightBracket} alt="" />
-        <input type="submit" value="set" />
+        <input type="submit" value="check" />
       </div>
       {error ? (
         <WarningLabel text="you do not meet the conditions of the allowed/denied list" />

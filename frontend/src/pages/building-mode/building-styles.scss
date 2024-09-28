@@ -3,7 +3,7 @@
 
 @include main-setting;
 
-.Building {
+.building {
   grid-column: 2;
   width: 100%;
   height: calc(100dvh - 4rem);
@@ -13,7 +13,7 @@
   margin: 0 auto;
 }
 
-.BuildingArea {
+.building-area {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   position: absolute;
@@ -129,13 +129,28 @@
   }
 }
 
-.GroupOfInputs {
+.group-inputs {
   display: flex;
   gap: 1rem;
   margin-bottom: 0.25rem;
+  input[type="text"] {
+    color: white;
+    background-color: transparent;
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: white !important;
+    }
+
+    &:autofill {
+      box-shadow: 0 0 0px 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: white !important;
+    }
+  }
 }
 
-.FormSection {
+.form-section {
   div {
     display: flex;
     justify-content: space-between;
@@ -155,16 +170,16 @@
   }
 }
 
-.FormButtonsGroup {
+.form-buttons-group {
   display: flex;
   gap: 0.5rem;
 }
 
-.FormRestrictions {
+.form-restrictions {
   display: flex;
   flex-direction: column;
   width: 100%;
-  .LabelSection {
+  .label-section {
     display: flex;
     align-items: center;
     width: 50%;
@@ -181,7 +196,7 @@
   }
 }
 
-.BuildingWarningLabel {
+.building-warning-label {
   color: rgb(255, 50, 50);
   font-weight: bold;
 }
@@ -191,12 +206,12 @@
   width: 100%;
 }
 
-.FormSectionSelect {
+.form-section-select {
   display: flex;
   flex-direction: column;
 }
 
-.FormSectionCheckbox {
+.form-section-checkbox {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -279,12 +294,12 @@ textarea {
   position: absolute;
   top: 0;
   left: 55%;
-  background-color: rgba(white, 0.1);
+  //background-color: rgba(white, 0.1);
   width: fit-content;
   height: fit-content;
   max-height: 50%;
-  padding: 1rem;
-  gap: 1rem;
+  margin-top: 1rem;
+  gap: 2rem;
   overflow-y: scroll;
   @include scroll-primary;
   @include medium-screen {
@@ -294,14 +309,14 @@ textarea {
 
 .building-resolver-form {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: max-content;
-  gap: 0.5rem;
-  flex-direction: column;
+  //grid-template-columns: 1fr;
+  // grid-auto-rows: max-content;
+  gap: 0.25rem;
   width: fit-content;
   .resolver-inputs {
     display: flex;
     gap: 1rem;
+    padding-inline: 1rem;
   }
   .resolver-box {
     display: flex;
@@ -311,8 +326,7 @@ textarea {
     }
   }
   input[type="text"] {
-    width: 100%;
-    max-width: 6rem;
+    width: 50%;
     background-color: transparent;
     outline: none;
     border: none;

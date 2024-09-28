@@ -63,12 +63,12 @@
   }
 }
 
-.Building:has(.secretText) {
+.building:has(.secretText) {
   background-color: transparent;
-  .BuildingForm {
+  .building-form {
     opacity: 0;
   }
-  .BuildingArea {
+  .building-area {
     opacity: 0;
   }
   .building-form {
@@ -96,6 +96,15 @@
     p {
       font-size: 1.25rem;
       font-weight: 400;
+    }
+  }
+  @media (width < 100rem) {
+    grid-template-columns: 1fr;
+    .secretText {
+      position: relative;
+      place-self: center;
+      margin: 0 auto;
+      margin-top: 5rem;
     }
   }
 }
@@ -220,7 +229,7 @@
   }
 }
 
-.drawerOne {
+.drawer-one {
   top: 1.5%;
   left: 1%;
   grid-row: 23;

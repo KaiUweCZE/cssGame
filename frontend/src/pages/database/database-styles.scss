@@ -1,6 +1,7 @@
 @import "../../assets/styles/addons/variables",
   "../../assets/styles/addons/mixins";
 
+$database-bg: lighten($main-color, 10);
 .container-database {
   grid-column: 2;
   display: grid;
@@ -73,6 +74,9 @@
     }
     @mixin medium-screen {
     }
+    @include small-screen {
+      grid-template-columns: max-content 1fr;
+    }
   }
   @media (width < 100rem) {
     width: 80%;
@@ -86,38 +90,7 @@
   height: 100%;
   place-items: center;
   margin-right: 1rem;
-  .wrapper-button {
-    display: flex;
-    width: fit-content;
-    justify-content: space-between;
-    padding-inline: 1rem;
-    gap: 0.5rem;
-    background-color: rgb(76, 165, 165, 0.4);
-    border-radius: 0.35rem;
-  }
-  .button {
-    display: grid;
-    place-items: center;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.25);
-    width: 2.5rem;
-    height: 1.85rem;
-    margin: 0.2rem;
-    padding-inline: 0.2rem;
-    border-radius: 0.25rem;
-    contain: paint;
-    transition: 0.35s;
-    cursor: pointer;
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.65);
-    }
-    &:hover img {
-      translate: 0 2rem;
-    }
-    &:hover span {
-      translate: 0 0;
-    }
-  }
+
   span {
     color: white;
     position: absolute;
@@ -136,6 +109,45 @@
     display: none;
   }
 }
+
+.wrapper-button {
+  display: flex;
+  width: fit-content;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  gap: 0.5rem;
+  background-color: rgb(76, 165, 165, 0.4);
+  background-color: $database-bg;
+  border-radius: 0.35rem;
+}
+
+.button {
+  display: grid;
+  place-items: center;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.25);
+  background-color: $main-color;
+  width: 2.5rem;
+  height: 1.85rem;
+  margin: 0.2rem;
+  padding-inline: 0.2rem;
+  border-radius: 0.25rem;
+  contain: paint;
+  transition: 0.35s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.65);
+    background-color: lighten($main-color, 5);
+  }
+  &:hover img {
+    translate: 0 2rem;
+  }
+  &:hover span {
+    translate: 0 0;
+  }
+}
+
 .button-tooltip {
   position: relative;
 }
@@ -151,7 +163,7 @@
   padding-inline: 0.35rem;
   opacity: 0;
   translate: 0 1rem;
-  transition: 0.35s;
+  transition: opacity 0.35s, translate 0.35s, visibility 0s 0.35s;
   color: white;
   &::before {
     content: "";
@@ -168,6 +180,8 @@
   position: absolute;
   opacity: 1;
   translate: 0 0;
+  transition: opacity 0.35s, translate 0.35s, visibility 0s 0s;
+  z-index: 1;
 }
 
 .database-list {
@@ -225,7 +239,9 @@
   max-height: 3rem;
   position: relative;
   background-color: rgb(76, 165, 165, 0.4);
+  background-color: lighten($main-color, 10);
   z-index: 1;
+  overflow: hidden;
   &::after {
     content: "";
     background-color: rgb(76, 165, 165, 0.4);

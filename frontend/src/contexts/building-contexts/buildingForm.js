@@ -47,13 +47,15 @@ export const BuildingProvider = ({ children }) => {
       setOriginProperties((prev) => [...prev, ""]);
       setOriginValues((prev) => [...prev, ""]);
     } else {
-      setMaximumNumber(true);
+      //setMaximumNumber(true);
     }
     console.log(number, type, originPropertiesBridge);
   };
 
   // Function to handle removing properties and values
   const handleRemove = (type, number, setNumber) => {
+    console.log("miiminini");
+
     const properties =
       type === "bridge" ? propertiesBridge : propertiesContainer;
     const values = type === "bridge" ? valuesBridge : valuesContainer;
@@ -83,7 +85,7 @@ export const BuildingProvider = ({ children }) => {
       const newOriginValues = originValues.slice(0, -1);
       setValues(newValues);
       setOriginValues(newOriginValues);
-      setMaximumNumber(false);
+      //setMaximumNumber(false);
     }
   };
 

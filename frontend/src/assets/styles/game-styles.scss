@@ -2,6 +2,8 @@
 
 @include main-setting;
 
+$checked-color: #b7e9b1;
+
 /* container-background is layout for Background components
 * it is parent component for each components around game page
 * uses animation for a smooth transition
@@ -105,21 +107,94 @@
 
 // box of buttons for cssForm component
 .box-buttons {
-  display: flex;
-  flex-direction: column;
-
-  img {
-    align-self: center;
-    cursor: pointer;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: fit-content;
+  place-items: center center;
+  position: relative;
+  padding: 0;
+  margin: 0;
 
   .play {
+    grid-column: 1;
+    grid-row: 1;
     display: grid;
-    input[type="checkbox"] {
+    width: fit-content;
+    height: fit-content;
+    place-self: center start;
+    translate: 0 1.5rem;
+  }
+
+  .plus-icon {
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    cursor: pointer;
+    img {
+      position: relative;
+    }
+  }
+
+  .checkbox {
+    grid-column: 3;
+    display: grid;
+    position: relative;
+    border: 1px solid #696969;
+    box-shadow: $primary-shadow;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 0.2rem;
+    place-self: center end;
+    cursor: pointer;
+    transition: 0.35s;
+
+    &:hover {
+      background-color: $checked-color;
+      .checkbox-label {
+        visibility: visible;
+        translate: 0 2rem;
+        opacity: 1;
+      }
+    }
+    &.active {
+      background-color: $checked-color;
+    }
+    .pin {
       position: absolute;
-      place-self: end;
-      translate: 0.2rem 0.2rem;
+      place-self: center;
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
       cursor: pointer;
+      opacity: 0;
+      z-index: 1;
+    }
+    .checkbox-label {
+      position: absolute;
+      background-color: #303030;
+      color: white;
+      width: max-content;
+      visibility: visible;
+      transition: 0.25s;
+      translate: 0 2.5rem;
+      padding: 0.35rem;
+      border-radius: 0.35rem;
+      opacity: 0;
+      box-shadow: $primary-shadow;
+      &::before {
+        content: "";
+        height: 1rem;
+        width: 1rem;
+        position: absolute;
+        background-color: #303030;
+
+        top: -0.5rem;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
     }
   }
 }
@@ -218,6 +293,7 @@ button {
   padding-block: 0.5rem;
   border-radius: 0.5rem;
   max-height: 8rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   @include scroll-primary;
 
   span {
@@ -731,7 +807,7 @@ img.obstacle {
   cursor: pointer;
   transition: 0.5s;
   z-index: 1;
-  filter: drop-shadow(0 0 4px black);
+  filter: drop-shadow(0 0 2px rgb(78, 78, 78));
   &:hover {
     transform: scale(1.15);
   }
@@ -757,6 +833,7 @@ img.obstacle {
   flex-direction: column;
   background-color: $addons-color;
   border-radius: 0.35rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   @include large-screen {
     position: fixed;
     top: 8.5rem;

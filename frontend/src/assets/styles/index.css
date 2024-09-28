@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   font-family: "Open Sans", sans-serif;
   padding: 0;
@@ -172,10 +173,11 @@
   margin: 0 auto;
   margin-block: 3rem;
   padding: 1rem;
-  box-shadow: 0 0 8px black;
+  box-shadow: 0 0 6px #303030;
   max-width: 80rem;
   max-height: 84dvh;
   overflow-y: scroll;
+  border-radius: 0.5rem;
   overflow-y: scroll;
 }
 .container-about::-webkit-scrollbar {
@@ -207,11 +209,11 @@
   display: grid;
   grid-template-rows: subgrid;
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 0.35rem;
   background: rgba(255, 255, 255, 0.2);
   background-color: #0e525a;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .container-about article.low-level {
   display: flex;
@@ -1003,37 +1005,130 @@ button.bug-form-button {
   }
 }
 .logo {
-  font-family: "Fredoka", monospace;
   place-self: center start;
   position: absolute;
   transition: 0.5s;
   translate: 2rem;
 }
+.logo.finished::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0;
+  background-color: #126a75;
+  filter: blur(16px);
+  animation: background-ease 0.5s 0.75s linear forwards;
+  translate: -1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  z-index: -1;
+}
 
 .main-text {
+  font-family: monospace;
   color: #d7ba7d;
-  color: #c8bb66;
   transition: 0.5s;
   rotate: 0deg;
 }
-.main-text.bracket {
-  opacity: 1;
-  transition: 1s;
+
+.main-text.finished {
+  font-family: "Fredoka";
+  color: white;
+  font-size: 2.25rem;
+  font-weight: bold;
+  text-shadow: 0 0 4px black;
+  transition: 0.5s;
+  z-index: 1;
 }
-@starting-style {
-  .main-text.bracket {
-    opacity: 0;
-    rotate: 0deg;
-  }
+.main-text.finished.second-letter {
+  display: inline-block;
+  color: white;
+  animation: colored-second 0.5s 0.5s forwards;
+}
+.main-text.finished.fifth-letter {
+  display: inline-block;
+  color: white;
+  animation: colored-fifth 0.5s 0.5s forwards;
 }
 
+.finish-bracket {
+  display: inline-block;
+  font-family: "Fredoka";
+  opacity: 1;
+  transition: 1s;
+  color: #1fb2c4;
+  font-size: 1.8rem;
+  transition: 0.5s;
+  font-weight: bold;
+  text-shadow: 0 0 4px #303030;
+  transition-delay: 5s;
+  transition: 0.5s;
+  animation: bracket-animation 1s 1.5s forwards;
+  rotate: 0deg;
+  margin-right: 0.15rem;
+  translate: 0 0rem;
+}
+.finish-bracket.first-bracket {
+  translate: 0 0rem;
+}
+
+@keyframes bracket-animation {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 3deg;
+  }
+}
 .attribute-text {
-  color: #9ccdc4;
-  color: #9cdcfe;
-  color: #99ccfc;
+  font-family: monospace;
+  color: #c586c0;
 }
 
 .values-text {
-  color: #b48062;
-  color: #c3915b;
-}/*# sourceMappingURL=index.css.map */
+  font-family: monospace;
+  color: #d4bfff;
+  color: #cfcfa1;
+}
+
+@keyframes background-ease {
+  0% {
+    width: 0;
+    height: 80%;
+  }
+  80% {
+    width: 120%;
+    height: 80%;
+    transform: skew(40deg, 0deg);
+  }
+  100% {
+    width: 120%;
+    height: 80%;
+    transform: skew(40deg, 0deg);
+  }
+}
+@keyframes colored-second {
+  from {
+    color: white;
+  }
+  to {
+    color: #1fb2c4;
+    rotate: -9deg;
+  }
+}
+@keyframes colored-fifth {
+  from {
+    color: white;
+  }
+  to {
+    color: #1fb2c4;
+    rotate: -9deg;
+  }
+}
+/*
+Selektory: #D7BA7D
+Vlastnosti: #9CDCFE
+Hodnoty: #CE9178
+Jednotky: #B5CEA8
+Závorky a interpunkce: #D4D4D4
+Komentáře: #6A9955
+*//*# sourceMappingURL=index.css.map */

@@ -19,7 +19,7 @@ const Building = () => {
     <BuildingProvider>
       <RestrictionProvider>
         <div className="wrapper-building">
-          <div className="Building">
+          <div className="building">
             {open ? <SecretText text="buildingInfo" func={setOpen} /> : ""}
             <BuildingForm />
             {styled ? <ResolveLevel /> : <></>}
@@ -27,7 +27,7 @@ const Building = () => {
           </div>
           <AsideBox background={buildingBackground} cssClass="workshop">
             <div
-              className="drawer drawerOne"
+              className="drawer drawer-one"
               style={{ backgroundImage: `url(${drawerImg})` }}
               onClick={() => setOpen(!open)}
             ></div>

@@ -1,11 +1,14 @@
 import { CheckContext } from "@contexts/form-contexts/checkContext";
 import { playIcon, playIconAfter, plusIcon } from "@data/ImagesData";
 import React, { useContext, useState } from "react";
+import pinIcon from "@/assets/images/icons/pin.webp";
+import pinFillIcon from "@/assets/images/icons/pin-fill.webp";
 
 const CssFormBoxButtons = (props) => {
   const [icon, setIcon] = useState(playIcon);
   const context = useContext(CheckContext);
   const { checkedBoxes, setCheckedBoxes } = context;
+  const [active, setActive] = useState(false);
 
   const handleCheck = () => {
     if (!checkedBoxes.includes(props.name)) {
@@ -19,7 +22,7 @@ const CssFormBoxButtons = (props) => {
         ""
       ) : (
         <img
-          className="icon"
+          className="plus-icon"
           src={plusIcon}
           alt=""
           onClick={() => {
@@ -33,9 +36,34 @@ const CssFormBoxButtons = (props) => {
         onMouseEnter={() => setIcon(playIconAfter)}
         type="submit"
       >
-        <input type="checkbox" name="" id="" onChange={handleCheck} />
-        <img src={icon} />
+        <img className="play-icon" src={icon} />
       </button>
+      <div className={active ? "checkbox active" : "checkbox"}>
+        <input
+          type="checkbox"
+          onChange={handleCheck}
+          onClick={() => setActive(!active)}
+        />
+        <span className="checkmark"></span>
+        {active ? (
+          <img
+            className="pin active"
+            src={pinFillIcon}
+            alt="pin icon"
+            height="16px"
+            width="16px"
+          />
+        ) : (
+          <img
+            className="pin"
+            src={pinIcon}
+            alt="pin icon"
+            height="16px"
+            width="16px"
+          />
+        )}
+        <span className="checkbox-label">always include</span>
+      </div>
     </div>
   );
 };

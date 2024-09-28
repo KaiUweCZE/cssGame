@@ -11,10 +11,10 @@ const FormSectionRestrictions = (props) => {
 
   const { setResult } = useContext(customCommonContext);
   return (
-    <div className="FormRestrictions">
-      <div className="LabelSection">
+    <div className="form-restrictions">
+      <div className="label-section">
         <label htmlFor="">{props.name}:</label>
-        <div className="FormButtonsGroup">
+        <div className="form-buttons-group">
           <img
             src={plusIcon}
             alt=""

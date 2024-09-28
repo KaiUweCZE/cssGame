@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { homeIntro } from "../data";
 import Signals from "./Signals";
 import next from "@images/icons/nextIcon.svg";
@@ -11,6 +11,13 @@ const HomeIntrodaction = () => {
   const [isLoading, setIsLoading] = useState(false);
   const timing = 500;
   const data = homeIntro;
+
+  useEffect(() => {
+    data.forEach((item) => {
+      const img = new Image();
+      img.src = item.img;
+    });
+  }, []);
 
   const images = [
     {
@@ -40,20 +47,12 @@ const HomeIntrodaction = () => {
     setPrevImage(
       <img className="prev-image" src={data[index].img} width="894px" />
     );
-    if (index < 3) {
-      setCssClass("next");
-      setIndex(() => index + 1);
-      setTimeout(() => {
-        setCssClass("");
-      }, timing);
-    } else {
-      setCssClass("next");
-      setIndex(() => 0);
-      setTimeout(() => {
-        setCssClass("");
-      }, timing);
-    }
-    setTimeout(() => setIsLoading(false), timing);
+    setCssClass("next");
+    setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setTimeout(() => {
+      setCssClass("");
+      setIsLoading(false);
+    }, timing);
   };
 
   const handlePrev = () => {
@@ -61,20 +60,13 @@ const HomeIntrodaction = () => {
     setPrevImage(
       <img className="prev-image" src={data[index].img} width="894px" />
     );
-    if (index > 0) {
-      setCssClass("prev");
-      setIndex(() => index - 1);
-      setTimeout(() => {
-        setCssClass("");
-      }, timing);
-    } else {
-      setCssClass("prev");
-      setIndex(() => 3);
-      setTimeout(() => {
-        setCssClass("");
-      }, timing);
-    }
-    setTimeout(() => setIsLoading(false), timing);
+    setCssClass("prev");
+    setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+
+    setTimeout(() => {
+      setCssClass("");
+      setIsLoading(false);
+    }, timing);
   };
   return (
     <section className="home-intro">

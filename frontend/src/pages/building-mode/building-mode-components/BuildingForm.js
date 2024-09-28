@@ -28,7 +28,7 @@ const BuildingForm = () => {
 
   return (
     <form className="building-form" action="">
-      <div className="FormSection">
+      <div className="form-section">
         <label htmlFor="">name of level:</label>
         <input
           type="text"

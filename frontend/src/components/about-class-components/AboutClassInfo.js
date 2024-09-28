@@ -1,25 +1,28 @@
 import React from "react";
 
-const AboutClassInfo = (props) => {
-    let index = 0
-    return(
-        <article className="about-class__article">
-            {
-            props.information ?
-            Object.entries(props.information).map(([key, value]) => {
-                index += 1
-                return(
-                    <li key={index}>{key}: {value}</li>
-                )
-            })
-            :
-            <>
-                <li>too easy</li>
-            </>
-            
-            }
-        </article>
-    )
-}
+const AboutClassInfo = ({ information }) => {
+  if (!information || Object.keys(information).length === 0) {
+    return (
+      <article className="about-class__article">
+        <li>nothing to see</li>
+      </article>
+    );
+  }
 
-export default AboutClassInfo
+  return (
+    <article className="about-class__article">
+      <ul>
+        {Object.entries(information).map(
+          ([key, value]) =>
+            key && (
+              <li key={key}>
+                {key}: {value}
+              </li>
+            )
+        )}
+      </ul>
+    </article>
+  );
+};
+
+export default AboutClassInfo;

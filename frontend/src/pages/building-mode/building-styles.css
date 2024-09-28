@@ -16,7 +16,7 @@
   text-decoration: none;
 }
 
-.Building {
+.building {
   grid-column: 2;
   width: 100%;
   height: calc(100dvh - 4rem);
@@ -26,7 +26,7 @@
   margin: 0 auto;
 }
 
-.BuildingArea {
+.building-area {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   position: absolute;
@@ -35,14 +35,14 @@
   height: 40vh;
   z-index: 1;
 }
-.BuildingArea .end {
+.building-area .end {
   grid-column: 3;
 }
-.BuildingArea .box-wave {
+.building-area .box-wave {
   grid-column: 2;
   width: 50%;
 }
-.BuildingArea .container-bridge {
+.building-area .container-bridge {
   grid-column: 2;
   width: 50%;
   position: absolute;
@@ -153,57 +153,72 @@
   margin: 0 auto;
 }
 
-.GroupOfInputs {
+.group-inputs {
   display: flex;
   gap: 1rem;
   margin-bottom: 0.25rem;
 }
+.group-inputs input[type=text] {
+  color: white;
+  background-color: transparent;
+}
+.group-inputs input[type=text]:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white !important;
+}
+.group-inputs input[type=text]:autofill {
+  box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white !important;
+}
 
-.FormSection div {
+.form-section div {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.FormSection img {
+.form-section img {
   width: 0.75rem;
   cursor: pointer;
   transition: 0.3s;
 }
-.FormSection img.deactivated {
+.form-section img.deactivated {
   opacity: 0.3;
 }
-.FormSection img:hover {
+.form-section img:hover {
   transform: scale(1.1);
   filter: brightness(0.2);
 }
 
-.FormButtonsGroup {
+.form-buttons-group {
   display: flex;
   gap: 0.5rem;
 }
 
-.FormRestrictions {
+.form-restrictions {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.FormRestrictions .LabelSection {
+.form-restrictions .label-section {
   display: flex;
   align-items: center;
   width: 50%;
   justify-content: space-between;
 }
-.FormRestrictions img {
+.form-restrictions img {
   width: 0.75rem;
   cursor: pointer;
   transition: 0.3s;
 }
-.FormRestrictions img:hover {
+.form-restrictions img:hover {
   transform: scale(1.1);
   filter: brightness(0.2);
 }
 
-.BuildingWarningLabel {
+.building-warning-label {
   color: rgb(255, 50, 50);
   font-weight: bold;
 }
@@ -213,17 +228,17 @@
   width: 100%;
 }
 
-.FormSectionSelect {
+.form-section-select {
   display: flex;
   flex-direction: column;
 }
 
-.FormSectionCheckbox {
+.form-section-checkbox {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.FormSectionCheckbox input[type=checkbox] {
+.form-section-checkbox input[type=checkbox] {
   cursor: pointer;
 }
 
@@ -306,14 +321,13 @@ textarea::placeholder {
   position: absolute;
   top: 0;
   left: 55%;
-  background-color: rgba(255, 255, 255, 0.1);
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-fit-content;
   height: fit-content;
   max-height: 50%;
-  padding: 1rem;
-  gap: 1rem;
+  margin-top: 1rem;
+  gap: 2rem;
   overflow-y: scroll;
   overflow-y: scroll;
 }
@@ -334,16 +348,14 @@ textarea::placeholder {
 
 .building-resolver-form {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: max-content;
-  gap: 0.5rem;
-  flex-direction: column;
+  gap: 0.25rem;
   width: -moz-fit-content;
   width: fit-content;
 }
 .building-resolver-form .resolver-inputs {
   display: flex;
   gap: 1rem;
+  padding-inline: 1rem;
 }
 .building-resolver-form .resolver-box {
   display: flex;
@@ -353,8 +365,7 @@ textarea::placeholder {
   filter: brightness(0);
 }
 .building-resolver-form input[type=text] {
-  width: 100%;
-  max-width: 6rem;
+  width: 50%;
   background-color: transparent;
   outline: none;
   border: none;

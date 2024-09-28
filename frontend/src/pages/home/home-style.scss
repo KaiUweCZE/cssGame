@@ -297,7 +297,7 @@
     animation: right-slide 0.5s linear forwards;
   }
   &.prev {
-    animation: left-slide 0.5s linear forwards;
+    animation: left-slide 0.5s ease-in forwards;
   }
 }
 
