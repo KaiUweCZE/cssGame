@@ -18,7 +18,6 @@ export const useLikeLevel = () => {
       const respons = await likeLevelMutation({
         variables: { levelId, userId },
       });
-      console.log("like přidán");
       return respons.data.likeLevel;
     } catch (err) {
       console.error("Error liking the level", err);

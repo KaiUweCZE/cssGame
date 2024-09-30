@@ -20,7 +20,6 @@ const Logo = () => {
         setText((prev) => prev + text[index]);
         index++;
       } else {
-        console.log("niow", nextStage + 1);
         clearInterval(timer);
 
         setAnimationStage((prev) => prev + 1);
@@ -36,7 +35,6 @@ const Logo = () => {
         setText((prev) => prev.slice(0, -1));
         index--;
       } else {
-        console.log("niow", nextStage + 1);
         clearInterval(timer);
 
         setAnimationStage((prev) => prev + 1);
@@ -51,7 +49,6 @@ const Logo = () => {
 
   useEffect(() => {
     if (animationStage === 1) {
-      console.log("attribute");
       return animateText(fullAttributeText, setAttributeText, 2, 100);
     }
   }, [animationStage]);
@@ -102,12 +99,6 @@ const Logo = () => {
     }
   }, [animationStage]);
 
-  const logText = () => {
-    console.log("Main text:", displayedText);
-    console.log("Attribute text:", attributeText);
-    console.log("Values text:", valuesText);
-  };
-
   const getSpecialClass = (index) => {
     switch (index) {
       case 1:
@@ -147,7 +138,7 @@ const Logo = () => {
   };
 
   return (
-    <div className={`logo ${newStyle}`} onClick={logText}>
+    <div className={`logo ${newStyle}`}>
       <span className={`main-text ${newStyle}`}>{renderDisplayedText()}</span>
       <span className={`main-text bracket ${bracketStyle}`}>
         {renderBracket()}

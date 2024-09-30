@@ -6,6 +6,7 @@ export const PartsContext = createContext({});
 
 export const PartsProvider = ({ children }) => {
   const [stopAdd, setStopAdd] = useState(false);
+  const maxLength = 3;
 
   const [propertiesParts, setPropertiesParts] = useState([]);
   const [valuesParts, setValuesParts] = useState([]);
@@ -45,6 +46,7 @@ export const PartsProvider = ({ children }) => {
     handleAddInput,
     handleRemoveInput,
     closeForm,
+    maxLength,
   };
 
   return (

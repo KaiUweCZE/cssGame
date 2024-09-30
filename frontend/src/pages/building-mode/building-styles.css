@@ -131,16 +131,38 @@
   color: white;
   font-weight: bold;
 }
-.building-form select {
+.building-form img {
+  width: 2rem;
+  margin: 0 auto;
+}
+
+.select-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
   background-color: rgba(255, 255, 255, 0.2);
+}
+.select-wrapper select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: flex;
+  position: relative;
+  background-color: transparent;
   font-weight: bold;
   outline: none;
   border: none;
   transition: 1s;
   cursor: pointer;
   color: white;
+  width: 100%;
+  padding: 0.25rem;
+  z-index: 1;
 }
-.building-form option {
+.select-wrapper option {
   cursor: pointer;
   background-color: rgba(10, 58, 64, 0.8);
   white-space: normal;
@@ -148,9 +170,14 @@
   font-weight: bold;
   color: white;
 }
-.building-form img {
-  width: 2rem;
-  margin: 0 auto;
+
+img.select-icon {
+  position: absolute;
+  place-self: center end;
+  right: 0.25rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
 }
 
 .group-inputs {
@@ -323,11 +350,11 @@ textarea::placeholder {
   left: 55%;
   width: -moz-fit-content;
   width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: auto;
+  max-width: 40%;
   max-height: 50%;
   margin-top: 1rem;
-  gap: 2rem;
+  gap: 1rem;
   overflow-y: scroll;
   overflow-y: scroll;
 }
@@ -348,7 +375,7 @@ textarea::placeholder {
 
 .building-resolver-form {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.5rem;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -356,6 +383,7 @@ textarea::placeholder {
   display: flex;
   gap: 1rem;
   padding-inline: 1rem;
+  height: 1rem;
 }
 .building-resolver-form .resolver-box {
   display: flex;
@@ -366,6 +394,8 @@ textarea::placeholder {
 }
 .building-resolver-form input[type=text] {
   width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: transparent;
   outline: none;
   border: none;

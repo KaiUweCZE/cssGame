@@ -1,7 +1,6 @@
 import React from "react";
 
 const SecretTextBuilding = ({ data }) => {
-  console.log(data);
   return (
     <div className="secret-text-building">
       <article>

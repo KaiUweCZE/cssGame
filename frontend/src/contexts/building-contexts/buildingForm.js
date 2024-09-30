@@ -49,13 +49,10 @@ export const BuildingProvider = ({ children }) => {
     } else {
       //setMaximumNumber(true);
     }
-    console.log(number, type, originPropertiesBridge);
   };
 
   // Function to handle removing properties and values
   const handleRemove = (type, number, setNumber) => {
-    console.log("miiminini");
-
     const properties =
       type === "bridge" ? propertiesBridge : propertiesContainer;
     const values = type === "bridge" ? valuesBridge : valuesContainer;

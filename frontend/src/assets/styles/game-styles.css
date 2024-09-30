@@ -100,6 +100,8 @@
   width: -moz-fit-content;
   width: fit-content;
   position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .container-form .headline {
   display: flex;
@@ -223,6 +225,12 @@
 .form-css__row .icon {
   left: 90%;
 }
+.form-css__row input::-moz-placeholder {
+  color: #696969;
+}
+.form-css__row input::placeholder {
+  color: #696969;
+}
 
 .icon {
   position: absolute;
@@ -286,7 +294,7 @@ button img:hover {
 .suggest-list {
   display: grid;
   position: absolute;
-  top: 8rem;
+  top: 100%;
   list-style: none;
   background-color: rgba(0, 0, 0, 0.6);
   width: -moz-fit-content;
@@ -298,6 +306,7 @@ button img:hover {
   max-height: 8rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   overflow-y: scroll;
+  z-index: 2;
 }
 .suggest-list::-webkit-scrollbar {
   width: 0.5rem;

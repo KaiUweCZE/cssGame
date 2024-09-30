@@ -19,7 +19,6 @@ export const useUnlikeLevel = () => {
       const respons = await unlikeLevelMutation({
         variables: { levelId, userId },
       });
-      console.log("level unlikovan");
       return respons.data.unlikeLevel;
     } catch (err) {
       console.error("Error unliking the level", err);

@@ -54,8 +54,6 @@ export const useFormInputs = (
     } else {
       setCssProperties((properties) => [...properties, ""]);
       setCssValues((values) => [...values, ""]);
-      //console.log("properties", cssProperties);
-      //console.log("values", cssValues);
     }
   };
 
@@ -121,6 +119,7 @@ export const contextValues = (name, context) => {
         handleAddInput: context.handleAddInput,
         handleRemoveInput: context.handleRemoveInput,
         stopAdd: context.stopAdd,
+        maxLength: context.maxLength,
         closeForm: context.closeForm,
       };
     default: {

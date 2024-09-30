@@ -7,7 +7,6 @@ export const handleAddInput = (
   stopAdd,
   setStopAdd
 ) => {
-  console.log("z funkce: ", maxLength, properties, values);
   if (properties.length >= maxLength) {
     setProperties([...properties, ""]);
     setValues([...values, ""]);

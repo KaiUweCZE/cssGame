@@ -17,8 +17,6 @@ const useFormHandlers = (properties, values, setProperties, setValues) => {
   }, [properties, values]);
 
   useEffect(() => {
-    console.log("Properties:", properties);
-    console.log("Values:", values);
     setOriginProperties(properties);
     setOriginValues(values);
   }, [properties, values]);

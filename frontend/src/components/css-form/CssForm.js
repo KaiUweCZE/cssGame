@@ -81,7 +81,6 @@ const CssForm = (props) => {
   useEffect(() => {
     if (checkedBoxes.includes(props.name)) {
       checkResult();
-      console.log("form name: ", props.name);
     }
   }, [trigger]);
 
@@ -92,7 +91,6 @@ const CssForm = (props) => {
       const styleResult = level.styleResolver
         ? styleChecker(level, props.name, properties, values)
         : true;
-      console.log("style result je: ", styleResult);
       /* some components need to know if styles are correct, e.g.
                 EnemyEmoji animation depends on styleResult
             */

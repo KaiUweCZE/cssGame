@@ -34,8 +34,6 @@ const BugMessage = () => {
           formData.append("upload_preset", cloudinaryConfig.uploadPreset);
           formData.append("fetch_format", "auto");
 
-          console.log("start with images");
-
           const response = await fetch(
             `https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloudName}/image/upload`,
             {
@@ -50,7 +48,6 @@ const BugMessage = () => {
             throw new Error(`Upload failed: ${errorText}`);
           }
           const data = await response.json();
-          console.log("data: ", data);
 
           return {
             publicId: data.public_id,
@@ -61,7 +58,6 @@ const BugMessage = () => {
       );
 
       const imageUrls = uploadedImages.map((image) => image.url);
-      console.log("images: ", imageUrls);
 
       await handleCreateMessage(user.id, text, subject, imageUrls);
       setText(""); // Reset text field
@@ -69,7 +65,7 @@ const BugMessage = () => {
       alert("Message sent successfully.");
       console.log("Message sent successfully.", uploadedImages, imageUrls);
     } catch (error) {
-      console.log("error: ", error);
+      console.error("error: ", error);
 
       alert("Failed to send message.");
     } finally {
@@ -97,7 +93,6 @@ const BugMessage = () => {
 
   const removeImage = (index) => {
     setReportedImages((prevImages) => prevImages.filter((_, i) => i !== index));
-    console.log("this files was removed: ", reportedImages[index], index);
   };
   return (
     <>

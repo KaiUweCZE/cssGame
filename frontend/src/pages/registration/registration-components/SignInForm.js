@@ -39,8 +39,7 @@ const SignInForm = () => {
         setLogin(true);
         setUsername("");
         setPassword("");
-        console.log("Login was successful, token is:", token);
-        console.log("User id is: ", user.id);
+
         setUser(user);
         //const userString = JSON.parse(localStorage.getItem('user'))
         user.level === 0 ? navigate("/welcome") : navigate("/map");

@@ -14,7 +14,6 @@ const CssFormBoxButtons = (props) => {
     if (!checkedBoxes.includes(props.name)) {
       setCheckedBoxes((prev) => [...prev, props.name]);
     }
-    console.log(checkedBoxes);
   };
   return (
     <div className="box-buttons">

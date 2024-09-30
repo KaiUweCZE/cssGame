@@ -84,6 +84,8 @@ $checked-color: #b7e9b1;
   flex-direction: column;
   width: fit-content;
   position: relative;
+  height: fit-content;
+
   .headline {
     display: flex;
     align-items: center;
@@ -211,6 +213,9 @@ $checked-color: #b7e9b1;
   .icon {
     left: 90%;
   }
+  input::placeholder {
+    color: #696969;
+  }
 }
 
 .icon {
@@ -284,7 +289,7 @@ button {
 .suggest-list {
   display: grid;
   position: absolute;
-  top: 8rem;
+  top: 100%;
   list-style: none;
   background-color: $addons-color;
   width: fit-content;
@@ -295,7 +300,7 @@ button {
   max-height: 8rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   @include scroll-primary;
-
+  z-index: 2;
   span {
     font-weight: bold;
   }
