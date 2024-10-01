@@ -13,32 +13,29 @@ const EnemyEmoji = (props) => {
   const animationFalse = currentLevelAnimations[0];
   const animationTrue = currentLevelAnimations[1];
 
+  const getEnemyClass = () => {
+    if (!checked.check) return "";
+    return checked.result
+      ? currentLevelAnimations[1]
+      : currentLevelAnimations[0];
+  };
+
   return (
-    <>
-      <img
-        src={enemyImg}
-        alt=""
-        className={
-          checked.check
-            ? checked.result
-              ? `emoji-character enemy ${animationTrue}`
-              : `emoji-character enemy ${animationFalse}`
-            : `emoji-character enemy`
-        }
-      />
+    <div className={`enemy-emoji ${getEnemyClass()}`}>
+      <img src={enemyImg} alt="" width="64" height="64" />
       {checked.check ? (
         checked.check && checked.result ? (
-          <EmojiMessage text="Ok, není tu most" specialClass="enemy" />
+          <EmojiMessage text="no one can pass this way" specialClass="enemy" />
         ) : (
           <EmojiMessage
-            text="tenhle most nemůžu nechat bez povšimnutí"
-            specialClass="enemy"
+            text="I can't leave this unattended."
+            specialClass={getEnemyClass()}
           />
         )
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 };
 

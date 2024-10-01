@@ -3,7 +3,7 @@ import StartPoint from "../../../components/StartPoint";
 import CrossRoad from "./CrossRoad";
 import EndPoint from "@components/EndPoint";
 import MainEmoji from "@components/Emojis/MainEmoji";
-import ResultMessage from "../../../components/ResultMessage";
+import MessageResult from "@/components/MessageResult";
 
 const PlayGround = () => {
   return (
@@ -12,7 +12,6 @@ const PlayGround = () => {
       <CrossRoad />
       <EndPoint mode="game" />
       <MainEmoji />
-      <ResultMessage />
     </div>
   );
 };

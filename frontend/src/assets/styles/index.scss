@@ -1035,7 +1035,10 @@ button.bug-form-button {
   place-self: center start;
   position: absolute;
   transition: 0.5s;
-  translate: 2rem;
+  translate: 4rem;
+  @media (width < 55rem) {
+    translate: 2rem;
+  }
 
   &.finished::before {
     content: "";
@@ -1056,7 +1059,6 @@ button.bug-form-button {
 .main-text {
   font-family: monospace;
   color: #d7ba7d;
-  //color: #c8bb66;
   transition: 0.5s;
   rotate: 0deg;
 }
@@ -1089,7 +1091,7 @@ button.bug-form-button {
   opacity: 1;
   transition: 1s;
   color: $logo-color;
-  font-size: 1.8rem;
+  font-size: 2rem;
   transition: 0.5s;
   font-weight: bold;
   text-shadow: 0 0 4px #303030;
@@ -1098,9 +1100,9 @@ button.bug-form-button {
   animation: bracket-animation 1s 1.5s forwards;
   rotate: 0deg;
   margin-right: 0.15rem;
-  translate: 0 0rem;
+  translate: 0 -0.05rem;
   &.first-bracket {
-    translate: 0 0rem;
+    //translate: 0 0rem;
   }
 }
 
@@ -1110,14 +1112,11 @@ button.bug-form-button {
   }
   to {
     rotate: 3deg;
-    //translate: 0 -0.05rem;
   }
 }
 .attribute-text {
   font-family: monospace;
-  //@include logo-style;
   color: #c586c0;
-  //color: #d4bfff;
 }
 .values-text {
   font-family: monospace;
@@ -1129,6 +1128,7 @@ button.bug-form-button {
   0% {
     width: 0;
     height: 80%;
+    transform: skew(40deg, 0deg);
   }
   80% {
     width: 120%;

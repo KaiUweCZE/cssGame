@@ -5,7 +5,7 @@ import { useSetLevel } from "@utils/useSetLevel";
 import next from "@images/icons/right-arrow.webp";
 import refIcon from "@images/icons/refresh.png";
 
-const ResultMessage = () => {
+const MessageResult = () => {
   const { resultText } = useContext(ResultContext);
   const { nextLevel, level } = useSetLevel();
 
@@ -40,4 +40,4 @@ const ResultMessage = () => {
   );
 };
 
-export default ResultMessage;
+export default MessageResult;

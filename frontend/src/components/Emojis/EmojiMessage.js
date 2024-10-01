@@ -8,7 +8,7 @@ const EmojiMessage = ({ text, specialClass = "" }) => {
   return (
     <>
       {text ? (
-        <div className={`emoji__message ${specialClass}`}>
+        <div className={`emoji-message ${specialClass}`}>
           <p>{resultText}</p>
         </div>
       ) : (

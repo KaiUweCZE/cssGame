@@ -391,17 +391,50 @@ button img:hover {
   top: -3.95rem;
   transform-origin: center;
 }
-.emoji-character.enemy {
+
+.enemy-emoji {
+  display: grid;
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  top: -4rem;
+  transform-origin: center;
   right: 0;
-  transform: translateX(5rem);
 }
-.emoji-character.enemy.twenty-one-true {
+
+.enemy-emoji.twenty-one-true {
   animation: twentyOneTrue 3s linear forwards;
 }
-.emoji-character.enemy.twenty-one-false {
+
+.enemy-emoji.twenty-one-false {
   animation: twentyOneFalse 2s linear forwards;
 }
 
+.emoji-message {
+  background-color: white;
+  position: relative;
+  width: 10rem;
+  top: -8rem;
+  padding: 0.5rem;
+  opacity: 0;
+}
+.emoji-message.twenty-one-false {
+  animation: twenty-one-message 0.5s 2s linear forwards;
+}
+.emoji-message.twenty-one-true {
+  opacity: 1;
+  transition: 0.5s;
+  transition-delay: 3s;
+}
+
+@keyframes twenty-one-message {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes twentyOneTrue {
   50% {
     transform: translateX(-10rem) rotate(-2turn);
@@ -578,13 +611,20 @@ button img:hover {
   display: none;
   flex-direction: column;
   align-items: center;
+  justify-self: center;
   position: absolute;
-  bottom: 55vh;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 50%;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 3rem;
   font-weight: bold;
-  justify-self: center;
   z-index: 5;
-  margin: 0 auto;
+  margin: 0;
   padding: 1rem;
   padding-inline: 3rem;
   gap: 1rem;

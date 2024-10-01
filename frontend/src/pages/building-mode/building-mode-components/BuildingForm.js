@@ -34,6 +34,7 @@ const BuildingForm = () => {
           type="text"
           name=""
           id=""
+          maxLength={20}
           onChange={(e) => setLevelName(e.target.value)}
         />
       </div>

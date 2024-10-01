@@ -10,6 +10,7 @@ import { PartsProvider } from "@contexts/form-contexts/partsContext";
 import { ResultProvider } from "@contexts/form-contexts/resultContext";
 import EmptyBox from "../../../components/EmptyBox";
 import Clouds from "./Clouds";
+import MessageResult from "@/components/MessageResult";
 
 const Mission = () => {
   const [containerClass, setContainerClass] = useState();
@@ -25,6 +26,7 @@ const Mission = () => {
               <PartsProvider>
                 <div className="container-mission">
                   <Clouds />
+                  <MessageResult />
                   <div className="box__classes">
                     <CssForm name="bridge" />
                     {containerClass ? (
