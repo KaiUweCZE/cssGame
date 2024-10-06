@@ -323,3 +323,17 @@
     translate: 0;
   }
 }
+
+.primary-button {
+  border: none;
+  display: grid;
+  background-color: $main-color;
+  width: fit-content;
+  height: fit-content;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  color: white;
+  font-weight: bold;
+  box-shadow: $primary-shadow;
+  border-radius: 0.35rem;
+}

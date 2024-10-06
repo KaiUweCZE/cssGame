@@ -14,6 +14,7 @@ const LOGIN_USER = gql`
         name
         level
         completedLevels
+        email
       }
     }
   }

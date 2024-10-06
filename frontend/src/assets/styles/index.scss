@@ -436,7 +436,9 @@ $logo-color: lighten($main-color, 30);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-color: rgba($main-color, 0.85);
-  height: 15rem;
+  min-height: 15rem;
+  width: 100%;
+  height: fit-content;
   margin: 0 auto;
   padding: 2rem;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -560,6 +562,7 @@ $logo-color: lighten($main-color, 30);
 // background animation for login form
 .login-form__background {
   max-width: 50rem;
+  width: 100%;
   margin: 0 auto;
   background-color: #8ec5fc;
   background: linear-gradient(#2121213a, #2121213a) padding-box,
@@ -1162,6 +1165,13 @@ button.bug-form-button {
     color: $logo-color;
     rotate: -9deg;
   }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /*

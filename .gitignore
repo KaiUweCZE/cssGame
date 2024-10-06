@@ -266,3 +266,4 @@ dist
 src/pages/Examples.js
 src/styles/examples.css
 
+backend/.env

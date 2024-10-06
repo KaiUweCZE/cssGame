@@ -13,13 +13,17 @@ import { Level } from "./Level.js";
 import { Message } from "./Message.js";
 import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
+import { emailMutations } from "./emailSchema/emailSchema.js";
+import { tokenMutations, tokenQueries } from "./tokenSchema/tokenSchema.js";
+import { VerificationToken } from "./VerificationToken.js";
 
-const UserType = new GraphQLObjectType({
+export const UserType = new GraphQLObjectType({
   name: "User",
   fields: {
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     email: { type: GraphQLString },
+    emailVerified: { type: GraphQLBoolean },
     password: { type: GraphQLString },
     level: { type: GraphQLInt },
     completedLevels: { type: new GraphQLList(GraphQLString) },
@@ -92,6 +96,7 @@ const UserAndLevelType = new GraphQLObjectType({
 const RootQueryType = new GraphQLObjectType({
   name: "Query",
   fields: {
+    ...tokenQueries,
     users: {
       type: new GraphQLList(UserType),
       resolve: (root, args) => {
@@ -126,21 +131,33 @@ const RootQueryType = new GraphQLObjectType({
   },
 });
 
+const VerificationResponseType = new GraphQLObjectType({
+  name: "VerificationResponse",
+  fields: {
+    success: { type: GraphQLBoolean },
+    message: { type: GraphQLString },
+    user: { type: UserType },
+  },
+});
+
 const mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
+    ...emailMutations,
+    ...tokenMutations,
     createUser: {
       type: UserType,
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
-        email: { type: new GraphQLNonNull(GraphQLString) },
+        email: { type: GraphQLString },
         password: { type: new GraphQLNonNull(GraphQLString) },
       },
       resolve(parent, args) {
         const hashedPassword = bcryptjs.hashSync(args.password, 10);
         const user = new User({
           name: args.name,
-          email: args.email,
+          email: args.email || null,
+          emailVerified: false,
           password: hashedPassword,
         });
         return user.save();
@@ -170,10 +187,49 @@ const mutation = new GraphQLObjectType({
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
           expiresIn: "1h",
         });
-        if (!user) {
-          throw new Error("Invalid credentials");
-        }
+
         return { token, user };
+      },
+    },
+    verifyUser: {
+      type: VerificationResponseType,
+      args: {
+        token: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (_, { token }) => {
+        console.log("Received verifyUser request for token:", token);
+        try {
+          const verificationToken = await VerificationToken.findOne({ token });
+          if (!verificationToken) {
+            return { success: false, message: "Invalid token" };
+          }
+
+          if (verificationToken.expiresAt < new Date()) {
+            return { success: false, message: "Token has expired" };
+          }
+
+          const user = await User.findByIdAndUpdate(
+            verificationToken.userId,
+            { emailVerified: true },
+            { new: true }
+          );
+
+          if (!user) {
+            return { success: false, message: "User not found" };
+          }
+
+          await VerificationToken.deleteOne({ _id: verificationToken._id });
+
+          console.log("User verified successfully:", user);
+          return {
+            success: true,
+            message: "Email verified successfully",
+            user: user,
+          };
+        } catch (error) {
+          console.error("Error in verifyUser resolver:", error);
+          return { success: false, message: "Failed to verify email" };
+        }
       },
     },
     increaseLevel: {

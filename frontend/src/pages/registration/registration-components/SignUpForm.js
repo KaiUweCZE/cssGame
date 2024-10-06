@@ -3,9 +3,11 @@ import { useMutation, gql } from "@apollo/client";
 import Loader from "@components/Loader";
 import WarningLabel from "@components/errors/WarningLabel";
 import LoginMessage from "./LoginMessage";
+import { SEND_CONFIRMATION_EMAIL } from "@/utils/queries/sendEmail";
+import { useCreateToken } from "@/utils/queries/createVerificationToken";
 
 const CREATE_USER = gql`
-  mutation CreateUser($name: String!, $email: String!, $password: String!) {
+  mutation CreateUser($name: String!, $email: String, $password: String!) {
     createUser(name: $name, email: $email, password: $password) {
       id
     }
@@ -16,20 +18,48 @@ const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [registred, setRegistred] = useState(false);
+  const [registered, setRegistered] = useState(false);
   const [createUser, { error, loading }] = useMutation(CREATE_USER);
+  const [sendEmail, { loading: emailLoading, error: emailError }] = useMutation(
+    SEND_CONFIRMATION_EMAIL
+  );
+  const {
+    createToken,
+    loading: tokenLoading,
+    error: tokenError,
+  } = useCreateToken();
 
-  const handleCreateUser = (e) => {
+  const handleCreateUser = async (e) => {
     e.preventDefault();
-    createUser({
-      variables: { name: username, email: email, password: password },
-    })
-      .then(() => setRegistred(true))
-      .catch((err) => console.error(err));
+    const variables = { name: username, password: password };
+    if (email.trim() !== "") {
+      variables.email = email.trim();
+    }
+    try {
+      const { data } = await createUser({ variables });
+      console.log("user is: ", data.createUser);
+      if (email.trim()) {
+        try {
+          const tokenResult = await createToken(data.createUser.id);
+          console.log("token is", tokenResult);
+          await sendEmail({
+            variables: { email: email.trim(), token: tokenResult.token.token },
+          });
+          alert("Confirmation email sent successfully!");
+        } catch (err) {
+          console.error("Failed to send email:", err);
+          alert("Error sending email. Please try again later.");
+        }
+      }
+
+      setRegistered(true);
+    } catch (err) {
+      console.error("Error creating user", err);
+    }
   };
 
-  if (loading) return <Loader />;
-  if (registred) return <LoginMessage />;
+  if (loading || emailLoading || tokenLoading) return <Loader />;
+  if (registered) return <LoginMessage />;
 
   return (
     <form className="login-form" onSubmit={handleCreateUser}>
@@ -41,7 +71,7 @@ const SignUpForm = () => {
       />
       <input
         type="email"
-        placeholder="Email"
+        placeholder="Email is optional"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -52,7 +82,7 @@ const SignUpForm = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <input type="submit" value="Sign Up" />
-      {error ? <WarningLabel text="Error occurs" /> : null}
+      {error && <WarningLabel text="Error occurs" />}
     </form>
   );
 };

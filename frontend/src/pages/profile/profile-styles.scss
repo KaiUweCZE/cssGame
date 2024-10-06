@@ -1,0 +1,40 @@
+@import "../../assets/styles/addons/variables";
+
+.container-profile {
+  display: grid;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.box-profile {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.profile-item {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  width: fit-content;
+  place-items: center;
+  column-gap: 1rem;
+  .primary-button {
+    grid-column: 2;
+  }
+}
+
+.profile-item-info {
+  display: grid;
+}
+
+span {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.bold {
+  color: #222;
+  font-weight: bold;
+  font-size: 1.1rem;
+}

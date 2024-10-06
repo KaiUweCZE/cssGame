@@ -17,6 +17,8 @@ import Intro from "@pages/intro/Intro";
 import SubDatabase from "@pages/database/DatabaseLevel";
 import CustomStylesProvider from "@contexts/building-contexts/CustomStylesProvider";
 import { CheckContextProvider } from "@contexts/form-contexts/checkContext";
+import Verify from "./pages/verify/Verify";
+import Profile from "./pages/profile/Profile";
 
 const App = () => {
   return (
@@ -32,7 +34,9 @@ const App = () => {
                     <Route path="/academy" element={<Academy />} />
                     <Route path="/game" element={<Game />} />
                     <Route path="/login" element={<Registration />} />
+                    <Route path="/verify/:id" element={<Verify />} />
                     <Route element={<ProtectedLayout />}>
+                      <Route path="/profile" element={<Profile />} />
                       <Route path="/database" element={<Database />} />
                       <Route path="/building" element={<Building />} />
                       <Route path="/map" element={<RoadMap />} />

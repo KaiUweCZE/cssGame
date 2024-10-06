@@ -1,0 +1,55 @@
+@import "../../assets/styles/addons/variables";
+
+$error-color: #f54a47;
+.container-verify {
+  display: grid;
+  max-width: 80rem;
+  margin: 0 auto;
+  place-items: center;
+}
+
+.box-verify {
+  display: grid;
+  place-items: center;
+  width: 60%;
+  min-height: 10rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  //box-shadow: $primary-shadow;
+  border-radius: 0.35rem;
+  &.verified {
+    background-color: lighten($main-color, 10);
+  }
+  &.unrecognized {
+    span {
+      color: #404040;
+    }
+    //background-color: #f54a47;
+  }
+}
+
+.correct-token {
+  display: grid;
+  h3 {
+    color: #3db39e;
+  }
+}
+
+.invalid-token {
+  display: grid;
+  place-items: start;
+  h3 {
+    color: $error-color;
+  }
+  p {
+    margin-top: 1rem;
+    color: #404040;
+  }
+  ul {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    list-style: disc;
+    list-style-position: inside;
+  }
+}

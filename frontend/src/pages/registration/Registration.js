@@ -27,14 +27,13 @@ const Registration = () => {
             </div>
             {formType ? (
               <p>
-                For registration you can choose any number of letters + email
-                input is illustrative for now, so text with @ will suffice
+                Providing an email is not required to create an account.
+                However, it can be useful if you ever forget your password. You
+                can always add or update your email later in your account
+                settings.
               </p>
             ) : (
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-                aspernatur eligendi in exercitationem quam, suscipit illo.
-              </p>
+              <p>Welcome back & Happy coding</p>
             )}
           </article>
           {formType ? <SignUpForm /> : <SignInForm />}

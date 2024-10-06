@@ -424,7 +424,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-color: rgba(10, 58, 64, 0.85);
-  height: 15rem;
+  min-height: 15rem;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   margin: 0 auto;
   padding: 2rem;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -543,6 +546,7 @@
 }
 .login-form__background {
   max-width: 50rem;
+  width: 100%;
   margin: 0 auto;
   background-color: #8ec5fc;
   background: linear-gradient(rgba(33, 33, 33, 0.2274509804), rgba(33, 33, 33, 0.2274509804)) padding-box, linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
@@ -1126,6 +1130,13 @@ button.bug-form-button {
     rotate: -9deg;
   }
 }
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /*
 Selektory: #D7BA7D
 Vlastnosti: #9CDCFE

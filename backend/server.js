@@ -5,11 +5,7 @@ import { graphqlHTTP } from "express-graphql";
 import { connectDB } from "./db.js";
 import { schema } from "./schema.js";
 import { authMiddleware, handleLogin } from "./auth.js";
-//import helmet
-//import rateLimit
-//import { readFile } from 'node:fs/promises';
-//import { expressMiddleware } from '@apollo/server/express4'
-//import {ApolloServer} from "@apollo/server";
+import { VerificationToken } from "./VerificationToken.js";
 
 const app = express();
 dotenv.config();
@@ -36,10 +32,6 @@ app.use(
     graphiql: process.env.NODE_ENV === "development",
   })
 );
-
-/*app.listen( {port: PORT}, () => {
-    console.log(`Server is running on port: ${PORT}`);
-})*/
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port: ${process.env.PORT}`);
