@@ -17,7 +17,7 @@ import { emailMutations } from "./emailSchema/emailSchema.js";
 import { tokenMutations, tokenQueries } from "./tokenSchema/tokenSchema.js";
 import { VerificationToken } from "./VerificationToken.js";
 
-export const UserType = new GraphQLObjectType({
+const UserType = new GraphQLObjectType({
   name: "User",
   fields: {
     id: { type: GraphQLID },
@@ -140,6 +140,15 @@ const VerificationResponseType = new GraphQLObjectType({
   },
 });
 
+const ChangePasswordType = new GraphQLObjectType({
+  name: "ChangePasswordResponse",
+  fields: {
+    success: { type: GraphQLBoolean },
+    message: { type: GraphQLString },
+    user: { type: UserType },
+  },
+});
+
 const mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
@@ -189,6 +198,66 @@ const mutation = new GraphQLObjectType({
         });
 
         return { token, user };
+      },
+    },
+    addEmail: {
+      type: UserType,
+      args: {
+        userId: { type: new GraphQLNonNull(GraphQLID) },
+        email: { type: GraphQLString },
+      },
+      resolve: async (_, { userId, email }) => {
+        try {
+          const existingUser = await User.findOne({ email });
+          if (existingUser) {
+            throw new Error("Email already in use");
+          }
+          const user = await User.findById(userId);
+          if (!user) {
+            console.log("User not found for userId:", userId);
+            return { success: false, message: "User not found" };
+          }
+          console.log("User found:", user);
+          user.email = email;
+
+          await user.save();
+          return user;
+        } catch (error) {
+          console.error("Error in addEmail resolver:", error);
+          return { success: false, message: "Failed to add email" };
+        }
+      },
+    },
+    changePassword: {
+      type: ChangePasswordType,
+      args: {
+        userId: { type: new GraphQLNonNull(GraphQLID) },
+        password: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (_, { userId, password }) => {
+        try {
+          const user = await User.findById(userId);
+          if (!user) {
+            return { success: false, message: "User not found" };
+          }
+
+          const hashedPassword = await bcryptjs.hash(password, 10);
+          user.password = hashedPassword;
+          await user.save();
+
+          return {
+            success: true,
+            message: "Password changed successfully",
+            user,
+          };
+        } catch (error) {
+          console.error("Error changing password:", error);
+          return {
+            success: false,
+            message: "An error occurred while changing the password",
+            user: null,
+          };
+        }
       },
     },
     verifyUser: {
