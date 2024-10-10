@@ -89,25 +89,31 @@ $logo-color: lighten($main-color, 30);
       display: none;
       //responsive styles for small screen(40rem)
       position: absolute;
-      height: fit-content;
+      flex-direction: column;
       top: 4rem;
       padding: 0.5rem;
-      margin-right: 0.75rem;
+      padding-inline: 1rem;
+      margin-right: 0rem;
       border-radius: 0 0 0.5rem 0.5rem;
       background-color: $main-color;
-      flex-direction: column;
-      transition: 0.5s;
-      opacity: 0;
+      transition: display 0.3s, translate 0.3s, opacity 0.3s;
+      transition-behavior: allow-discrete;
+      opacity: 1;
+      translate: 10rem;
       z-index: 5;
       &.active {
         display: flex;
+        height: fit-content;
+        translate: 0;
+        opacity: 1;
+
+        @starting-style {
+          opacity: 0;
+          translate: 10rem;
+        }
       }
       .menu__item {
         z-index: 2;
-      }
-
-      &.active {
-        opacity: 1;
       }
     }
   }
@@ -148,6 +154,10 @@ $logo-color: lighten($main-color, 30);
   }
 }
 
+.menu-hamburger {
+  display: none;
+}
+
 //hamburger menu for small screen (40rem)
 @include small-screen {
   .menu-hamburger {
@@ -155,7 +165,6 @@ $logo-color: lighten($main-color, 30);
     grid-template-rows: repeat(3, 1fr);
     position: absolute;
     top: 1.5rem;
-    flex-direction: column;
     height: 1.75rem;
     width: 2rem;
     align-items: center;

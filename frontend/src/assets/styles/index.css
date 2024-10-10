@@ -88,26 +88,34 @@
   .container-menu .menu {
     display: none;
     position: absolute;
-    height: -moz-fit-content;
-    height: fit-content;
+    flex-direction: column;
     top: 4rem;
     padding: 0.5rem;
-    margin-right: 0.75rem;
+    padding-inline: 1rem;
+    margin-right: 0rem;
     border-radius: 0 0 0.5rem 0.5rem;
     background-color: #0a3a40;
-    flex-direction: column;
-    transition: 0.5s;
-    opacity: 0;
+    transition: display 0.3s, translate 0.3s, opacity 0.3s;
+    transition-behavior: allow-discrete;
+    opacity: 1;
+    translate: 10rem;
     z-index: 5;
   }
   .container-menu .menu.active {
     display: flex;
+    height: -moz-fit-content;
+    height: fit-content;
+    translate: 0;
+    opacity: 1;
+  }
+  @starting-style {
+    .container-menu .menu.active {
+      opacity: 0;
+      translate: 10rem;
+    }
   }
   .container-menu .menu .menu__item {
     z-index: 2;
-  }
-  .container-menu .menu.active {
-    opacity: 1;
   }
 }
 
@@ -134,13 +142,16 @@
   height: 0;
 }
 
+.menu-hamburger {
+  display: none;
+}
+
 @media (max-width: 40rem) {
   .menu-hamburger {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     position: absolute;
     top: 1.5rem;
-    flex-direction: column;
     height: 1.75rem;
     width: 2rem;
     align-items: center;

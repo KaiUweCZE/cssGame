@@ -337,3 +337,24 @@
   box-shadow: $primary-shadow;
   border-radius: 0.35rem;
 }
+
+.hff {
+  display: none;
+  transition: display 0.3s, translate 0.3s, opacity 0.3s, scale 0.3s;
+  transition-behavior: allow-discrete;
+  scale: 0.5;
+  opacity: 0;
+  translate: -10rem;
+}
+
+.hff.show {
+  display: grid;
+  translate: 0;
+  scale: 1;
+  opacity: 1;
+  @starting-style {
+    scale: 0.5;
+    opacity: 0;
+    translate: 10rem;
+  }
+}

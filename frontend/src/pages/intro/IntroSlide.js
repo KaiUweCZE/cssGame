@@ -1,24 +1,46 @@
 import { useTypingEffect } from "@utils/useTypingEffect";
 import React from "react";
 
-const IntroSlide = (props) => {
-  const resultText = useTypingEffect(props.paragraph, 5);
+const IntroSlide = ({
+  func,
+  paragraph,
+  slideId,
+  classPortrait,
+  position,
+  headline,
+  background,
+}) => {
+  const resultText = useTypingEffect(paragraph, 5);
+
+  const imgClass = () => {
+    if (slideId >= 3) {
+      return "img-intro-animation";
+    }
+    return "";
+  };
 
   const handleId = () => {
-    if (props.slideId >= 4) {
+    if (slideId >= 4) {
       window.location = "map";
     } else {
-      props.func((prev) => prev + 1);
+      func((prev) => prev + 1);
     }
   };
 
   return (
-    <section className={`intro-background ${props.classPortrait}`}>
-      <img src={props.background} alt="" />
-      <article className={props.position !== "" ? props.position : ""}>
-        <h2>{props.headline}</h2>
+    <section className={`intro-background ${classPortrait}`}>
+      <img
+        className={imgClass()}
+        src={background}
+        alt=""
+        loading="eager"
+        width={1600}
+        height={900}
+      />
+      <article className={position !== "" ? position : ""}>
+        <h2>{headline}</h2>
         <p>{resultText}</p>
-        <button className="button-next" onClick={() => handleId()}>
+        <button className="button-next" onClick={handleId}>
           next
         </button>
       </article>
