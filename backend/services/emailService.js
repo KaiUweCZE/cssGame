@@ -18,7 +18,7 @@ export async function sendConfirmationEmail(userEmail, token) {
     });
 
     console.log("Email sent successfully:", data);
-    return { success: true, id: data.id };
+    return { success: true };
   } catch (error) {
     console.error("Error sending email:", error);
     return { success: false, error: error.message };

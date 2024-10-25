@@ -1,21 +1,20 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import "./profile-styles.css";
-
+import styles from "./profile-styles.module.css";
 import { UserContext } from "@/contexts/UserContext";
-import BoxProfile from "./BoxProfile";
+import BoxProfile from "./components/BoxProfile";
+import { ProfileProvider } from "./context/ProfileContext";
 
 const Profile = () => {
   const context = useContext(UserContext);
 
-  useEffect(() => {
-    console.log(context);
-  }, [context]);
-
   return (
-    <main className="container-profile">
-      <h2>User Profile</h2>
-      {context && <BoxProfile user={context.user} />}
-    </main>
+    <ProfileProvider>
+      <main className={styles.container}>
+        <h2>User Profile</h2>
+        {context && <BoxProfile user={context.user} />}
+      </main>
+    </ProfileProvider>
   );
 };
 

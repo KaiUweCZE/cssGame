@@ -32,10 +32,10 @@ const IntroSlide = ({
       <img
         className={imgClass()}
         src={background}
-        alt=""
+        alt="Image of emoji in nature"
         loading="eager"
-        width={1600}
-        height={900}
+        width="1600"
+        height="900"
       />
       <article className={position !== "" ? position : ""}>
         <h2>{headline}</h2>

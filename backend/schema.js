@@ -30,6 +30,15 @@ const UserType = new GraphQLObjectType({
   },
 });
 
+const ResponseType = new GraphQLObjectType({
+  name: "Response",
+  fields: {
+    success: { type: GraphQLBoolean },
+    message: { type: GraphQLString },
+    user: { type: UserType },
+  },
+});
+
 const AuthPayloadType = new GraphQLObjectType({
   name: "AuthPayload",
   fields: {
@@ -128,24 +137,25 @@ const RootQueryType = new GraphQLObjectType({
         return Level.findById(args.id);
       },
     },
-  },
-});
+    getUsersLevels: {
+      type: new GraphQLList(LevelType),
+      args: {
+        userName: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, { userName }) => {
+        try {
+          const levels = await Level.find({ author: userName });
+          if (!levels || levels.length === 0) {
+            return [];
+          }
 
-const VerificationResponseType = new GraphQLObjectType({
-  name: "VerificationResponse",
-  fields: {
-    success: { type: GraphQLBoolean },
-    message: { type: GraphQLString },
-    user: { type: UserType },
-  },
-});
-
-const ChangePasswordType = new GraphQLObjectType({
-  name: "ChangePasswordResponse",
-  fields: {
-    success: { type: GraphQLBoolean },
-    message: { type: GraphQLString },
-    user: { type: UserType },
+          return levels;
+        } catch (error) {
+          console.error("An Error while getting levels: ", error);
+          throw new Error("Levels does not exist.");
+        }
+      },
+    },
   },
 });
 
@@ -161,15 +171,26 @@ const mutation = new GraphQLObjectType({
         email: { type: GraphQLString },
         password: { type: new GraphQLNonNull(GraphQLString) },
       },
-      resolve(parent, args) {
+      async resolve(parent, args) {
         const hashedPassword = bcryptjs.hashSync(args.password, 10);
-        const user = new User({
+        const userData = {
           name: args.name,
-          email: args.email || null,
-          emailVerified: false,
           password: hashedPassword,
-        });
-        return user.save();
+          emailVerified: false,
+        };
+
+        if (args.email) {
+          userData.email = args.email;
+        }
+
+        const user = new User(userData);
+        try {
+          const savedUser = await user.save();
+          return savedUser;
+        } catch (error) {
+          console.error("Error creating user:", error);
+          throw new Error("Failed to create user: " + error.message);
+        }
       },
     },
     deleteUser: {
@@ -201,35 +222,48 @@ const mutation = new GraphQLObjectType({
       },
     },
     addEmail: {
-      type: UserType,
+      type: ResponseType,
       args: {
         userId: { type: new GraphQLNonNull(GraphQLID) },
         email: { type: GraphQLString },
       },
       resolve: async (_, { userId, email }) => {
         try {
-          const existingUser = await User.findOne({ email });
-          if (existingUser) {
-            throw new Error("Email already in use");
+          const existingEmail = await User.findOne({ email });
+          if (existingEmail) {
+            return {
+              user: null,
+              success: false,
+              message: "Email is already use",
+            };
           }
+
           const user = await User.findById(userId);
           if (!user) {
             console.log("User not found for userId:", userId);
-            return { success: false, message: "User not found" };
+            return { user: null, success: false, message: "User not found" };
           }
-          console.log("User found:", user);
-          user.email = email;
 
+          if (user.email) {
+            return {
+              user: null,
+              success: false,
+              message: "User has email already",
+            };
+          }
+          console.log("User found:", user.name);
+          user.email = email;
           await user.save();
-          return user;
+
+          return { user, success: true, message: "Email successfully added" };
         } catch (error) {
           console.error("Error in addEmail resolver:", error);
-          return { success: false, message: "Failed to add email" };
+          return { user: null, success: false, message: "Failed to add email" };
         }
       },
     },
     changePassword: {
-      type: ChangePasswordType,
+      type: ResponseType,
       args: {
         userId: { type: new GraphQLNonNull(GraphQLID) },
         password: { type: new GraphQLNonNull(GraphQLString) },
@@ -261,7 +295,7 @@ const mutation = new GraphQLObjectType({
       },
     },
     verifyUser: {
-      type: VerificationResponseType,
+      type: ResponseType,
       args: {
         token: { type: new GraphQLNonNull(GraphQLString) },
       },
@@ -358,6 +392,86 @@ const mutation = new GraphQLObjectType({
         return level.save();
       },
     },
+    editDescription: {
+      type: LevelType,
+      args: {
+        levelId: { type: new GraphQLNonNull(GraphQLID) },
+        userName: { type: new GraphQLNonNull(GraphQLString) },
+        newDescription: { type: GraphQLString },
+      },
+      resolve: async (parent, { levelId, userName, newDescription }) => {
+        try {
+          const level = await Level.findById(levelId);
+
+          if (!level) {
+            throw new Error("Level not found");
+          }
+
+          if (userName !== level.author) {
+            throw new Error(
+              "Unauthorized user - only author can edit this level"
+            );
+          }
+
+          const updatedLevel = await Level.findByIdAndUpdate(
+            levelId,
+            { description: newDescription },
+            { new: true }
+          );
+          return updatedLevel;
+        } catch (error) {
+          throw new Error("An error occured during editation.");
+        }
+      },
+    },
+    deleteLevel: {
+      type: LevelType,
+      args: {
+        levelId: { type: new GraphQLNonNull(GraphQLID) },
+        levelName: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, { levelId, levelName }) => {
+        /*if (!context.userId) {
+          throw new Error("Authentication required");
+        }*/
+
+        console.log("Delete level attempt:", {
+          levelId,
+          levelName,
+          //userId: context.userId,
+          timestamp: new Date().toISOString(),
+        });
+
+        try {
+          if (!levelId.match(/^[0-9a-fA-F]{24}$/)) {
+            throw new Error("Invalid level ID format");
+          }
+
+          const level = await Level.findById(levelId);
+
+          if (!level) {
+            throw new Error("Level not found");
+          }
+
+          if (level.name !== levelName) {
+            throw new Error("Level name does not match");
+          }
+
+          /*if (level.createdBy.toString() !== context.userId) {
+            throw new Error(
+              "Unauthorized - you can only delete your own levels"
+            );
+          }*/
+
+          const deletedLevel = await Level.findByIdAndDelete(levelId);
+          return deletedLevel;
+        } catch (err) {
+          throw new Error(
+            err.message || "An error occurred while deleting the level"
+          );
+        }
+      },
+    },
     likeLevel: {
       type: LevelType,
       args: {
@@ -390,6 +504,7 @@ const mutation = new GraphQLObjectType({
         );
       },
     },
+    userPlay: {},
     levelPlayed: {
       type: LevelType,
       args: {

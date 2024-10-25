@@ -12,12 +12,12 @@ const Background = () => {
       <Mission />
       <AsideBox background={heroBackground}>
         <div
-          className="emoji-master emojiOne"
+          className="emoji-master emoji-one"
           onClick={() => setActive(!active)}
         >
           <span>help</span>
         </div>
-        {active ? <InfoBox /> : null}
+        <InfoBox active={active} />
       </AsideBox>
     </div>
   );

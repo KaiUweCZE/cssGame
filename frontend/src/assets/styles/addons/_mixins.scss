@@ -92,3 +92,10 @@
   align-items: $align;
   justify-content: $justify;
 }
+
+@mixin basic-focus {
+  &:focus {
+    outline: $focus-color 2px solid;
+    outline-offset: 0px;
+  }
+}

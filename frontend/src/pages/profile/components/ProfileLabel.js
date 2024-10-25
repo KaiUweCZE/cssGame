@@ -1,13 +1,14 @@
 import React from "react";
+import styles from "../profile-styles.module.css";
 
 const ProfileLabel = ({ icon, element, label }) => {
   return (
-    <div className="profile-item">
+    <div className={styles.item}>
       <img src={icon} alt="user icon" width="24" />
-      <div className="profile-item-info">
+      <fieldset className={styles.itemInfo}>
         <span>{label}</span>
-        <span className="bold">{element}</span>
-      </div>
+        <span className={styles.bold}>{element}</span>
+      </fieldset>
     </div>
   );
 };

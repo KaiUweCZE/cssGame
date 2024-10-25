@@ -1,23 +1,26 @@
 import React, { useState } from "react";
 
 // hamburger menu for small screen
-const HamburgerMenu = (props) => {
-    //const [isActive, setIsActive] = useState(false)
+const HamburgerMenu = ({ state, setState }) => {
+  //const [isActive, setIsActive] = useState(false)
 
-    // set the opposite value of the props.state
-    const clickedOnMenu = () => {
-        props.setState(!props.state)
-    }
-    const spanClass = props.state ? "active" : ""
+  // set the opposite value of the props.state
+  const handleActive = () => {
+    setState(!state);
+  };
+  const spanClass = state ? "active" : "";
 
-    return (
-        <div className="menu-hamburger" onClick={() => clickedOnMenu()}>
-            <span className={`${spanClass}`}></span>
-            <span className={`${spanClass}`}></span>
-            <span className={`${spanClass}`}></span>
-        </div>
-    )
-}
+  return (
+    <div
+      aria-controls="hamburger-navigation"
+      className="menu-hamburger"
+      onClick={handleActive}
+    >
+      <span className={`hamburger-item top ${spanClass}`}></span>
+      <span className={`hamburger-item middle ${spanClass}`}></span>
+      <span className={`hamburger-item bottom ${spanClass}`}></span>
+    </div>
+  );
+};
 
-
-export default HamburgerMenu
+export default HamburgerMenu;

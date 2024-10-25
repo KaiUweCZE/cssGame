@@ -2,6 +2,7 @@
 $primary-color: rgb(50, 50, 50);
 $secondary-color: white;
 $error-color: #c95661;
+$correct-color: #46804c;
 $addons-color: rgba(0, 0, 0, 0.6);
 
 // background themes
@@ -9,6 +10,7 @@ $background-primary: #50a0bf;
 $background-secondary: #79bed9;
 //
 $main-color: #0a3a40;
+$focus-color: lighten($main-color, 40);
 
 // fonts settings
 $primary-font: "Open Sans", sans-serif;
@@ -17,8 +19,8 @@ $primary-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25),
   inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
 
 //margins and paddings
-$default-margin: 0.5rem;
-$default-padding: 0.5rem;
+$standard-size: 0.5rem;
+$size-sm: 0.15rem;
 
 //responzive breakpoints
 $breakpoint-sm: 40rem; // ? 36rem ??
@@ -27,8 +29,8 @@ $breakpoint-lg: 992px; // 62rem?
 $breakpoint-xl: 75rem; // or more?
 
 // shadows and border
-$default-radius: 0.5rem;
-$default-shadow: 0 0 8px rgba(0, 0, 0, 1);
+$border-radius: 0.35rem;
+$border-sm: 0.15rem;
 
 //length
 $max-width: 80rem;

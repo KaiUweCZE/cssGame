@@ -936,16 +936,35 @@ img.obstacle {
 }
 
 .info-box {
+  display: none;
   position: absolute;
   grid-row: 8;
-  grid-column: span 12;
+  grid-column: 1/13;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
   padding: 0.5rem;
+  opacity: 0;
+  scale: 0;
+  transition: display 0.3s, scale 0.3s, opacity 0.3s;
+  transition-behavior: allow-discrete;
+  box-shadow: 0 0 4px #303030;
+  border-top: 2px solid rgba(48, 48, 48, 0.5490196078);
+  border-bottom: 2px solid rgba(48, 48, 48, 0.5490196078);
 }
 .info-box p {
   color: white;
+}
+.info-box.active {
+  display: grid;
+  scale: 1;
+  opacity: 1;
+}
+@starting-style {
+  .info-box.active {
+    scale: 0.5;
+    opacity: 0.2;
+  }
 }/*# sourceMappingURL=game-styles.css.map */

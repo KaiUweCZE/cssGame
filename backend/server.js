@@ -5,7 +5,6 @@ import { graphqlHTTP } from "express-graphql";
 import { connectDB } from "./db.js";
 import { schema } from "./schema.js";
 import { authMiddleware, handleLogin } from "./auth.js";
-import { VerificationToken } from "./VerificationToken.js";
 
 const app = express();
 dotenv.config();

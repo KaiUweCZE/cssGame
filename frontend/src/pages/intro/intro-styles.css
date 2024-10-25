@@ -1,14 +1,12 @@
 .intro {
   display: flex;
   position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-  max-width: 100rem;
+  width: 104rem;
+  max-width: 95%;
   height: 100dvh;
   max-height: calc(100dvh - 4rem);
   aspect-ratio: 16/9;
   margin: 0 auto;
-  box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3), inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
 }
 .intro:has(.portrait) {
   aspect-ratio: 2/3;
@@ -21,6 +19,7 @@
   margin: 0 auto;
   opacity: 1;
   transition: 1s;
+  overflow: hidden;
 }
 @starting-style {
   .intro-background {
@@ -60,7 +59,8 @@
 .intro-background img {
   display: flex;
   position: absolute;
-  height: 100%;
+  width: 100%;
+  height: auto;
   aspect-ratio: 16/9;
   z-index: -1;
 }

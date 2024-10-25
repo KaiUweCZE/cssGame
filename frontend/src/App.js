@@ -19,6 +19,7 @@ import CustomStylesProvider from "@contexts/building-contexts/CustomStylesProvid
 import { CheckContextProvider } from "@contexts/form-contexts/checkContext";
 import Verify from "./pages/verify/Verify";
 import Profile from "./pages/profile/Profile";
+import ErrorPage from "./components/errors/ErrorPage";
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
                       <Route path="/database/:id" element={<SubDatabase />} />
                       <Route path="/welcome" element={<Intro />} />
                     </Route>
+                    <Route path="*" element={<ErrorPage />} />
                   </Route>
                 </Routes>
               </BR>

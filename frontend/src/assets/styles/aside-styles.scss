@@ -83,7 +83,7 @@
     margin-block: 2rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.445);
     padding-inline: 3rem;
-    border-radius: 0.5rem;
+    border-radius: $standard-size;
     h1,
     h2,
     h3,
@@ -173,7 +173,7 @@
   grid-row: 18 / span 2;
   grid-column: 3 / span 8;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0.5rem;
+  border-radius: $border-radius;
   box-shadow: 0 0 8px black;
   transition: 0.5s;
   overflow: hidden;
@@ -195,7 +195,7 @@
     color: white;
   }
   &:hover {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.74);
     &::after {
       translate: 12rem 2rem;
     }

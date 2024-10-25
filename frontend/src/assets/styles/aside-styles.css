@@ -228,7 +228,7 @@
   grid-row: 18/span 2;
   grid-column: 3/span 8;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0.5rem;
+  border-radius: 0.35rem;
   box-shadow: 0 0 8px black;
   transition: 0.5s;
   overflow: hidden;
@@ -251,7 +251,7 @@
   color: white;
 }
 .emoji-master:hover {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.74);
 }
 .emoji-master:hover::after {
   translate: 12rem 2rem;

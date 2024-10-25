@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    sparse: null,
+    sparse: true,
   },
   emailVerified: {
     type: Boolean,
@@ -22,6 +22,10 @@ const UserSchema = new mongoose.Schema({
   level: {
     type: Number,
     default: 0,
+  },
+  playedLevels: {
+    type: [string],
+    default: [],
   },
   completedLevels: {
     type: [String],

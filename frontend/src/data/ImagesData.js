@@ -36,6 +36,8 @@ import cssgradient from "@images/gradient.webp";
 import toolsIcon from "@images/icons/tools.webp";
 import plusIcon2 from "@images/icons/plus.png";
 import minusIcon2 from "@images/icons/minus.png";
+import settingIcon from "@images/icons/settings.png";
+import profileIcon from "@images/icons/user.png";
 
 export const cssFormImages = {
   leftBracket,
@@ -55,6 +57,8 @@ export const navbarImages = {
   leaveIcon,
   toolsIcon,
   databaseIcon,
+  settingIcon,
+  profileIcon,
 };
 export {
   refreshIcon,
