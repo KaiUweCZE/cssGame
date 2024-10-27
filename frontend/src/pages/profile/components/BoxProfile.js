@@ -5,15 +5,17 @@ import ChangePassword from "./ChangePassword";
 import ProfileLabel from "./ProfileLabel";
 import CreateEmail from "./CreateEmail";
 import styles from "../profile-styles.module.css";
-import UsersLevels from "./UsersLevels";
+import UsersLevels from "./created-levels/UsersLevels";
 import useGetUsersLevels from "../hooks/useGetUsersLevels";
-import PlayedLevels from "./PlayedLevels";
+import PlayedLevels from "./played-levels/PlayedLevels";
+import SkeletonProfileBox from "./SkeletonProfileBox";
+import SkeletonProfile from "./SkeletonProfile";
 
 const BoxProfile = ({ user }) => {
   const { levels, loading, error, isEmpty, refetch } = useGetUsersLevels(
     user.name
   );
-  if (loading) return <div>Načítání...</div>;
+
   if (error)
     return (
       <div>
@@ -23,15 +25,29 @@ const BoxProfile = ({ user }) => {
     );
   return (
     <section className={styles.box}>
-      <ProfileLabel icon={profileIcon} label="Username" element={user.name} />
-      {user.email ? (
-        <ProfileLabel icon={emailIcon} label="Email" element={user.email} />
+      {loading ? (
+        <SkeletonProfile />
       ) : (
-        <CreateEmail icon={emailIcon} userId={user.id} />
+        <>
+          <ProfileLabel
+            icon={profileIcon}
+            label="Username"
+            element={user.name}
+          />
+          {user.email ? (
+            <ProfileLabel icon={emailIcon} label="Email" element={user.email} />
+          ) : (
+            <CreateEmail icon={emailIcon} userId={user.id} />
+          )}
+          <ChangePassword userId={user.id} />
+          <UsersLevels levels={levels} />{" "}
+        </>
       )}
-      <ChangePassword userId={user.id} />
-      <UsersLevels levels={levels} />
-      <PlayedLevels />
+      {user.completedLevels ? (
+        <PlayedLevels userId={user.id} completedLevels={user.completedLevels} />
+      ) : (
+        <SkeletonProfileBox />
+      )}
     </section>
   );
 };

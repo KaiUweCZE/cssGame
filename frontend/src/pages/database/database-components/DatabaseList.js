@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DatabaseButtons from "./DatabaseButtons";
+import useAddPlayedLevel from "@/utils/queries/useAddPlayedLevel";
 
-const DatabaseList = ({ items }) => {
+const DatabaseList = ({ items, userId }) => {
   const [filter, setFilter] = useState("oldest");
   const [open, setOpen] = useState({ active: false, id: null });
   const navigate = useNavigate();
+  const { handleAddPlayedLevel, loading } = useAddPlayedLevel();
 
-  const handleNavigate = (id) => {
-    navigate(`/database/${id}`);
+  const handleNavigate = async (id) => {
+    try {
+      if (loading) return;
+      await handleAddPlayedLevel(userId, id);
+
+      navigate(`/database/${id}`);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const filterItems = (items) => {
@@ -94,11 +103,7 @@ const DatabaseList = ({ items }) => {
                 {item.description ? (
                   <p>{item.description}</p>
                 ) : (
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Totam, quo dolorem. Laudantium sunt asperiores magnam,
-                    nihil, vitae rem sequi quod amet at sit voluptates a.
-                  </p>
+                  <p>There is no description for this level.</p>
                 )}
               </div>
             </li>

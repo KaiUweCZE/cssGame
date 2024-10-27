@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../profile-styles.module.css";
+import styles from "../../profile-styles.module.css";
 
 const UserLevelHeader = () => {
   return (

@@ -26,6 +26,7 @@ const UserType = new GraphQLObjectType({
     emailVerified: { type: GraphQLBoolean },
     password: { type: GraphQLString },
     level: { type: GraphQLInt },
+    levelsPlayed: { type: new GraphQLList(GraphQLString) },
     completedLevels: { type: new GraphQLList(GraphQLString) },
   },
 });
@@ -124,6 +125,24 @@ const RootQueryType = new GraphQLObjectType({
         return user;
       },
     },
+    getLevelsDetails: {
+      type: new GraphQLList(LevelType),
+      args: {
+        levelIds: { type: GraphQLList(new GraphQLNonNull(GraphQLID)) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          const levels = await Level.find({
+            _id: { $in: args.levelIds },
+          });
+
+          return levels;
+        } catch (err) {
+          console.error("Error fetching levels:", err);
+          throw new Error("Error fetching levels: " + err.message);
+        }
+      },
+    },
     levels: {
       type: new GraphQLList(LevelType),
       resolve: (root, args) => {
@@ -217,7 +236,9 @@ const mutation = new GraphQLObjectType({
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
           expiresIn: "1h",
         });
-
+        if (!user) {
+          throw new Error("Invalid credentials");
+        }
         return { token, user };
       },
     },
@@ -504,7 +525,24 @@ const mutation = new GraphQLObjectType({
         );
       },
     },
-    userPlay: {},
+    addLevelPlayed: {
+      type: UserType,
+      args: {
+        userId: { type: new GraphQLNonNull(GraphQLID) },
+        levelId: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args) => {
+        const user = await User.findById(args.userId);
+        if (!user) {
+          throw new Error("user not found");
+        }
+        if (!user.levelsPlayed.includes(args.levelId)) {
+          user.levelsPlayed.push(args.levelId);
+          await user.save();
+        }
+        return user;
+      },
+    },
     levelPlayed: {
       type: LevelType,
       args: {

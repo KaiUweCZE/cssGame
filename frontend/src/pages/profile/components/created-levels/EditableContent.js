@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import styles from "../profile-styles.module.css";
+import styles from "../../profile-styles.module.css";
 import { UserContext } from "@/contexts/UserContext";
-import useEditDescription from "../hooks/useEditDescription";
+import useEditDescription from "../../hooks/useEditDescription";
 import SuccessMessage from "@/components/alerts/SuccessMessage";
 import editIcon from "@images/icons/edit.png";
 import closeIcon from "@images/icons/close4.webp";

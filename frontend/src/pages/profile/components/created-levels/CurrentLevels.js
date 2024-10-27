@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../profile-styles.module.css";
+import styles from "../../profile-styles.module.css";
 import EditableContent from "./EditableContent";
 import DeleteLevel from "./DeleteLevel";
 

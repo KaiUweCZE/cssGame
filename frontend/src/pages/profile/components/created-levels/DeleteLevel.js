@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import styles from "../profile-styles.module.css";
-import useDeleteLevel from "../hooks/useDeleteLevel";
+import styles from "../../profile-styles.module.css";
+import useDeleteLevel from "../../hooks/useDeleteLevel";
 import SuccessMessage from "@/components/alerts/SuccessMessage";
+import { useClickOutside } from "@/utils/hooks/useClickOutside";
 
 const DeleteLevel = ({
   levelId,
@@ -15,6 +16,10 @@ const DeleteLevel = ({
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  useClickOutside({
+    className: styles.deleteBox,
+    setState: setActive,
+  });
 
   const handleDeleteLevel = async (e) => {
     e.preventDefault();

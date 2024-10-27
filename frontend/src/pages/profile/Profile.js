@@ -11,7 +11,7 @@ const Profile = () => {
   return (
     <ProfileProvider>
       <main className={styles.container}>
-        <h2>User Profile</h2>
+        <h2>Account Info</h2>
         {context && <BoxProfile user={context.user} />}
       </main>
     </ProfileProvider>

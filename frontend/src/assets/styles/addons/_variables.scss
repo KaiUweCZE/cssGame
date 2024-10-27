@@ -4,6 +4,7 @@ $secondary-color: white;
 $error-color: #c95661;
 $correct-color: #46804c;
 $addons-color: rgba(0, 0, 0, 0.6);
+$text-color: #303030;
 
 // background themes
 $background-primary: #50a0bf;
@@ -11,7 +12,9 @@ $background-secondary: #79bed9;
 //
 $main-color: #0a3a40;
 $focus-color: lighten($main-color, 40);
-
+$input-bg: lighten($main-color, 80);
+$line-color: lighten($main-color, 20);
+$header-color: $main-color;
 // fonts settings
 $primary-font: "Open Sans", sans-serif;
 

@@ -742,45 +742,24 @@ a.menu__item {
 }
 
 // message in about section, it will be displayed if user does not logged in
-.message__alert {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.unauthorized-access {
+  display: grid;
+  place-items: center;
   width: fit-content;
   margin: 0 auto;
   margin-top: 3rem;
   padding: 3rem;
   border-radius: 0.5rem;
-  background-color: rgba(40, 40, 40, 0.65);
-  background-color: rgba($main-color, 0.65);
-  background-color: $main-color;
-  //background-color: rgba(219, 3, 3, 0.808);
-  box-shadow: 0 0 12px $addons-color;
+  box-shadow: $primary-shadow;
+
   h2 {
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    color: $secondary-color;
+    font-size: 1.5rem;
+    color: $text-color;
     //color: #404040;
   }
   button {
-    display: flex;
-    color: $secondary-color;
-    position: relative;
-    font-size: clamp(1.25rem, 1vw, 1.5rem);
-    font-weight: bold;
-    width: fit-content;
-    height: 100%;
-    align-items: center;
-    border-radius: 0.15rem;
-    padding-inline: 0.75rem;
-    transition: 0.5s;
-    background-color: rgb(180, 206, 205);
-    background-color: $main-color;
-    border: 1px solid white;
-    &:hover {
-      color: $primary-text;
-      background-color: white;
-    }
+    margin-top: 1rem;
+    font-size: 1rem;
   }
 }
 
@@ -1286,4 +1265,7 @@ button.bug-form-button {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.click-outside-ignore {
 }

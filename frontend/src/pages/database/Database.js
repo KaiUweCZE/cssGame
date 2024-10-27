@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { gql, useQuery } from "@apollo/client";
 import "./database-styles.css";
 import AsideBox from "../../components/AsideBox";
@@ -7,6 +7,7 @@ import DatabaseList from "./database-components/DatabaseList";
 import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
 import { CustomContainerProvider } from "@contexts/building-contexts/customContainerContext";
 import ProgressBar from "@components/ProgressBar";
+import { UserContext } from "@/contexts/UserContext";
 
 const GET_LEVELS = gql`
   query GetLevels {
@@ -28,6 +29,7 @@ const GET_LEVELS = gql`
 
 const Database = () => {
   const { data } = useQuery(GET_LEVELS);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     if (data) {
@@ -39,7 +41,11 @@ const Database = () => {
       <CustomContainerProvider>
         <div className="wrapper-database">
           <div className="container-database">
-            {data ? <DatabaseList items={data.levels} /> : <ProgressBar />}
+            {data ? (
+              <DatabaseList items={data.levels} userId={user.id} />
+            ) : (
+              <ProgressBar />
+            )}
           </div>
           <AsideBox background={officeBackground}></AsideBox>
         </div>

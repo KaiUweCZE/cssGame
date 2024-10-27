@@ -1,27 +1,17 @@
-const useClickOutside = ({ className, setState }) => {
+import { useEffect } from "react";
+
+export const useClickOutside = ({ className, setState }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const target = event.target;
-      const elements = document.getElementsByClassName(className);
+      const clickedElement = event.target.closest(`.${className}`);
 
-      let clickedInside = false;
-
-      for (let i = 0; i < elements.length; i++) {
-        if (elements[i].contains(target)) {
-          clickedInside = true;
-          break;
-        }
-      }
-
-      if (!clickedInside) {
-        setState(false);
+      if (!clickedElement) {
+        setState({ index: 0, active: false });
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [className, setState]);
 };
