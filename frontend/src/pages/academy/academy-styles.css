@@ -69,6 +69,13 @@
   height: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
   border-radius: 0.35rem;
+  padding: 1rem;
+}
+.level-exercise .editable-box {
+  display: grid;
+  gap: 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .level-main {
@@ -186,15 +193,48 @@
   border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
 }
 
-.position-exercise {
+.exercise-box {
   display: grid;
   width: 10rem;
   height: 10rem;
-  background-color: #297883;
+  border: 1px solid #0a3a40;
 }
 
-.position-element {
+.exercise-element {
   width: 2rem;
   height: 2rem;
   background-color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.padding-level {
+  border: 2px solid black;
+}
+
+.academy-level-form {
+  display: grid;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 0.5rem;
+}
+.academy-level-form .input-box {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 2;
+  gap: 0.5rem;
+  place-items: end;
+}
+.academy-level-form input[type=text] {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #0a3a40;
+  padding: 0.25rem;
+  padding-bottom: 0;
+}
+.academy-level-form input[type=text]:focus {
+  outline: none;
+  background-color: #e7f9fb;
 }/*# sourceMappingURL=academy-styles.css.map */

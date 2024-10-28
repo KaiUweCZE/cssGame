@@ -26,7 +26,7 @@ const MainLevel = ({ levelName, data }) => {
             ))}
           </ul>
         </div>
-        <AcademyExercise />
+        <AcademyExercise level={levelName} />
       </div>
     </main>
   );

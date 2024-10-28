@@ -73,6 +73,12 @@ $exercise-bg: rgb(219, 219, 219);
   height: 100%;
   box-shadow: $primary-shadow;
   border-radius: $border-radius;
+  padding: $standard-size * 2;
+  .editable-box {
+    display: grid;
+    gap: $standard-size * 2;
+    height: fit-content;
+  }
 }
 
 .level-main {
@@ -185,15 +191,50 @@ $exercise-bg: rgb(219, 219, 219);
   }
 }
 
-.position-exercise {
+.exercise-box {
   display: grid;
   width: 10rem;
   height: 10rem;
-  background-color: #297883;
+  // background-color: #297883;
+  border: 1px solid $main-color;
 }
 
-.position-element {
+.exercise-element {
   width: 2rem;
   height: 2rem;
   background-color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.padding-level {
+  border: 2px solid black;
+}
+
+.academy-level-form {
+  display: grid;
+  width: fit-content;
+  gap: $standard-size;
+  .input-box {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
+    gap: $standard-size;
+    place-items: end;
+  }
+  input[type="text"] {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid $main-color;
+    padding: $standard-size * 0.5;
+    padding-bottom: 0;
+    //@include basic-focus;
+    &:focus {
+      //border: none;
+      outline: none;
+      background-color: $input-bg;
+    }
+  }
 }
