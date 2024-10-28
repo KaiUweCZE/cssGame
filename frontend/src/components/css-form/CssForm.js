@@ -27,7 +27,7 @@ const CssForm = (props) => {
 
   const { trigger, setTrigger, checkedBoxes } = checkContext;
   // error message for typo error
-  const [errotMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   // values from Result Context
   const { isCorrectPosition, setChecked, setResultText, checkBridgePosition } =
     useContext(ResultContext);
@@ -174,7 +174,7 @@ const CssForm = (props) => {
         />
         {
           // wrong property?
-          error ? <ErrorMessage text={errotMessage} /> : ""
+          error ? <ErrorMessage text={errorMessage} /> : ""
         }
 
         {props.name !== "bridge" ? <CloseForm func={handleClose} /> : ""}
