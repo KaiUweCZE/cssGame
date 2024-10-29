@@ -8,11 +8,11 @@ const MainLevel = ({ levelName, data }) => {
       <h2>level {levelName}</h2>
       <div className="main-layout">
         <div className="main-layout-left">
-          <p>{data.description ?? "popis není k dispozici"}</p>
-          <ul>
+          <p>{data.description ?? "no description"}</p>
+          <ul className="main-list">
             {data.li?.map((li, index) => (
               <li key={index}>
-                <div>
+                <div className="headline-box">
                   <img
                     src={hashtagIcon}
                     alt="hash tag icon"

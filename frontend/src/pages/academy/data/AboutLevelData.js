@@ -14,34 +14,56 @@ export const aboutLevelData = [
 
     main: {
       description: `
-                V CSS, position je zásadní vlastnost, 
-                která umožňuje přesné umístění HTML 
-                elementů na stránce. Pomocí této vlastnosti 
-                můžete ovlivnit, jak a kde se element zobrazí 
-                ve vztahu k ostatním elementům nebo k viewportu 
-                prohlížeče. Existuje pět hlavních hodnot 
-                position: static, relative, absolute, fixed, a sticky.
+                In CSS, the position property is fundamental 
+                for precisely placing HTML elements on a page. 
+                This property determines how an element is positioned 
+                relative to other elements or 
+                the browser's viewport. There are six main position values:
                 `,
       li: [
         {
-          headline: "static",
-          p: `static: Toto je výchozí hodnota. Elementy s position: static jsou umístěny v normálním toku dokumentu, což znamená, že nejsou ovlivněny top, right, bottom, a left vlastnostmi.`,
+          headline: "Static",
+          p: ` Every element has this position by default. 
+          Elements with position: static follow the normal page 
+          flow and are not affected by top, 
+          right, bottom, left properties or z-index. 
+          Think of it as the element's "natural state".`,
         },
         {
-          headline: "relative",
-          p: `Element s position: relative je umístěn relativně vzhledem k jeho normální pozici v toku dokumentu. Můžete použít top, right, bottom, a left vlastnosti k jeho posunutí od této výchozí pozice, aniž byste ovlivnili umístění jiných elementů.`,
+          headline: "Relative",
+          p: `The element stays in its original place in the document 
+          flow, just like static. However, you can now use top, right, 
+          bottom, and left properties to "nudge" it from its original 
+          position. The key point is that moving the element 
+          doesn't affect the position of other elements around it.`,
         },
         {
-          headline: "absolute",
-          p: `Element s position: absolute je vyjmut z normálního toku dokumentu a umístěn relativně k nejbližšímu umístěnému předkovi (tedy předkovi s hodnotou position jinou než static). Pokud takový předek neexistuje, bude se vztahovat k dokumentu jako celku. Top, right, bottom, a left vlastnosti poté určují jeho pozici vzhledem k tomuto předku.`,
+          headline: "Absolute",
+          p: `The element is removed from the flow of the document 
+          and other elements will behave as if 
+          it’s not even there whilst all 
+          the other positional properties will work on it.`,
         },
         {
-          headline: "fixed",
-          p: `Element s position: fixed je umístěn relativně k viewportu, což znamená, že zůstává na stejném místě i při rolování stránky. Stejně jako u absolute, můžete použít top, right, bottom, a left pro určení jeho pozice.`,
+          headline: "Fixed",
+          p: `The element is removed from the flow of the document like 
+          absolutely positioned elements. In fact they behave almost 
+          the same, only fixed positioned elements are always relative 
+          to the document, not any particular parent, 
+          and are unaffected by scrolling.`,
         },
         {
-          headline: "sticky",
-          p: `Element s position: sticky je kombinací relative a fixed pozicování. Element se chová jako relative pozicovaný, dokud nenarazí na stanovený bod při rolování, v tom okamžiku se chová jako fixed pozicovaný. To je užitečné pro hlavičky tabulek a navigační menu, které mají zůstat viditelné na stránce při rolování.`,
+          headline: "Sticky",
+          p: `The element is treated like a relative value until the 
+          scroll location of the viewport reaches a specified threshold, 
+          at which point the element takes a 
+          fixed position where it is told to stick.`,
+        },
+        {
+          headline: "Inherit",
+          p: `This position value doesn’t cascade, so this can be used 
+          to specifically force it to, 
+          and inherit the positioning value from its parent.`,
         },
       ],
       aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)

@@ -262,6 +262,15 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+@media (width < 30rem) {
+  .database-list-filter {
+    width: 100%;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
 
 .filter-item {
   display: flex;

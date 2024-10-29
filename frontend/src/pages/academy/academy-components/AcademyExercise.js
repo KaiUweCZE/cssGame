@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
 import { exercises } from "../data/ExercisesSettings";
 import { AcamedyContext } from "../context/AcademyContext";
-import ExerciseBox from "./exercise/position/ExerciseBox";
+import ExerciseBox from "./exercise/ExerciseBox";
+import ExerciseHelp from "./exercise/ExerciseHelp";
 
 const AcademyExercise = ({ level }) => {
   const { cssValues, setCssValues } = useContext(AcamedyContext);
   const data = exercises.find((e) => e.id === level);
   const { properties, help } = data;
+  const [focusedProperty, setFocusedProperty] = useState(null);
 
   const handleState = (value, property) => {
     const newValue = { property, value };
@@ -33,7 +35,8 @@ const AcademyExercise = ({ level }) => {
   return (
     <div className="level-exercise">
       <div className="editable-box">
-        <h2>setting this:</h2>
+        <h3>Try Own Setting:</h3>
+
         <form
           onSubmit={(e) => e.preventDefault()}
           className="academy-level-form"
@@ -48,15 +51,24 @@ const AcademyExercise = ({ level }) => {
                   id={`input-${property}`}
                   onChange={(e) => handleState(e.target.value, property)}
                   list={`suggestions-${property}`}
+                  onFocus={() => {
+                    /* Set the delay compared to onBlur so that focusedProperty
+                    is no switched to null */
+                    setTimeout(() => setFocusedProperty(property), 20);
+                  }}
+                  onBlur={() => {
+                    setTimeout(() => setFocusedProperty(null), 10);
+                  }}
                 />
+                {focusedProperty === property && help[property] && (
+                  <ExerciseHelp
+                    property={property}
+                    values={help[property]}
+                    handleState={handleState}
+                    setFocusedProperty={setFocusedProperty}
+                  />
+                )}
               </div>
-              {/* <ul className="hidden">
-                {help[property]?.map((suggestion) => (
-                  <li key={suggestion} value={suggestion}>
-                    {suggestion}
-                  </li>
-                ))}
-              </ul>*/}
             </>
           ))}
         </form>
