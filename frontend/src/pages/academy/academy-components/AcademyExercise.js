@@ -41,8 +41,8 @@ const AcademyExercise = ({ level }) => {
           onSubmit={(e) => e.preventDefault()}
           className="academy-level-form"
         >
-          {properties.map((property) => (
-            <>
+          {properties.map((property, index) => (
+            <React.Fragment key={index}>
               <div key={property} className="input-box">
                 <label htmlFor={`input-${property}`}>{property}: </label>{" "}
                 <input
@@ -69,7 +69,7 @@ const AcademyExercise = ({ level }) => {
                   />
                 )}
               </div>
-            </>
+            </React.Fragment>
           ))}
         </form>
         <ExerciseBox levelId={level} />

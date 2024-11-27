@@ -68,32 +68,17 @@ export const aboutLevelData = [
       ],
       aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
                 nicméně emoji se musí dostat přes řeku!`,
+
+      tip: {
+        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
+        img: {
+          src: tipsImages.adobeColor,
+          alt: "Adobe Color Palette",
+          span: "Check it!",
+          href: "https://color.adobe.com/explore",
+        },
+      },
     },
-    videoSection: {
-      src: "https://www.youtube.com/embed/fF_NVrd1s14?si=cTyvY6EZ1Zm1mWvH",
-      text: `Problematika position je trochu obšírnější a pro hlubší ponoření doporučuji shlédnout videoSection od Kevina Powella,
-                skvělého lekotra, který dokáže srozumitelně zasvětit do CSS`,
-    },
-    tipsSection: {
-      p: [
-        `V designu webových stránek hraje volba správných barev 
-                klíčovou roli. To, jak kombinujete barvy, může ovlivnit 
-                nejen celkový vzhled vašeho webu, 
-                ale i to, jak jsou vaše stránky vnímány návštěvníky.
-                Najít tu pravou kombinaci, která je nejen esteticky přitažlivá, 
-                ale také podporuje celkový záměr vaší stránky, může být výzvou. 
-                Překonat tento tvůrčí blok, vám může pomoci nástroj Adobe Color.`,
-        `Tato webová stránka navíc nabízí možnost experimentovat s vlastními 
-                kombinacemi barev pomocí snadno použitelného rozhraní.
-                Můžete vytvářet a sdílet vlastní palety, získávat zpětnou 
-                vazbu od komunity a dokonce analyzovat trendy v 
-                barevných schématech, které se v daném období nejvíce používají.`,
-      ],
-      img: tipsImages.adobeColor,
-      h2: "Adobe Color",
-      src: "https://color.adobe.com/explore",
-    },
-    images: {},
   },
 
   {
@@ -145,18 +130,19 @@ export const aboutLevelData = [
                         `,
         },
       ],
+
       aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
                 nicméně emoji se musí dostat přes řeku!`,
+      tip: {
+        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
+        img: {
+          src: tipsImages.animista,
+          alt: "Animista.net web app",
+          span: "Check it!",
+          href: "https://animista.net",
+        },
+      },
     },
-    tipsSection: {
-      p: [
-        `Vaše počáteční setkání s CSS animacemi může působit jako výzva, ale osvojením základních pravidel si rychle otevřete dveře k oživení vašeho webu. Začít můžete třeba prohlédnutím inspirativních animací na stránce animista.net, kde najdete nejen předpřipravené CSS kódy, ale také možnost tyto animace dále přizpůsobit ve vašem editoru, aby ladily s vaší vizí.`,
-      ],
-      img: tipsImages.animista,
-      src: "https://animista.net",
-      h2: "Animista",
-    },
-    images: {},
   },
 
   {

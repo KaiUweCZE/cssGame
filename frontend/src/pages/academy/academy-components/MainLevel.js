@@ -1,16 +1,18 @@
 import React from "react";
 import { hashtagIcon } from "@data/ImagesData";
 import AcademyExercise from "./AcademyExercise";
+import TipSection from "./TipSection";
 
 const MainLevel = ({ levelName, data }) => {
+  const { description, li, tip } = data;
   return (
     <main className="level-main">
-      <h2>level {levelName}</h2>
-      <div className="main-layout">
+      <h2 className="main-headline">level {levelName}</h2>
+      <section className="main-layout">
         <div className="main-layout-left">
-          <p>{data.description ?? "no description"}</p>
+          <p>{description ?? "no description"}</p>
           <ul className="main-list">
-            {data.li?.map((li, index) => (
+            {li?.map((li, index) => (
               <li key={index}>
                 <div className="headline-box">
                   <img
@@ -27,7 +29,8 @@ const MainLevel = ({ levelName, data }) => {
           </ul>
         </div>
         <AcademyExercise level={levelName} />
-      </div>
+      </section>
+      <TipSection data={tip} />
     </main>
   );
 };

@@ -27,23 +27,21 @@ const Academy = () => {
         ) : (
           ""
         )}
-        {aboutLevelData.map((level, index) => {
-          return (
-            <>
-              {user.level + 1 < level.id ? (
-                <article className="low-level" key={level.id}>
-                  <h2>Your level is too low {level.id}</h2>
-                </article>
-              ) : (
-                <article key={level.id}>
-                  <h2>level {level.id}</h2>
-                  <p>{level.introduction}</p>
-                  <button onClick={() => toClass(level.id)}>more</button>
-                </article>
-              )}
-            </>
-          );
-        })}
+        {aboutLevelData.map((level, index) => (
+          <React.Fragment key={level.id}>
+            {user.level + 1 < level.id ? (
+              <article className="low-level">
+                <h2>Your level is too low {level.id}</h2>
+              </article>
+            ) : (
+              <article>
+                <h2>level {level.id}</h2>
+                <p>{level.introduction}</p>
+                <button onClick={() => toClass(level.id)}>more</button>
+              </article>
+            )}
+          </React.Fragment>
+        ))}
       </div>
       <AsideBox cssClass="academyLibrary" background={academyImg}>
         <div
