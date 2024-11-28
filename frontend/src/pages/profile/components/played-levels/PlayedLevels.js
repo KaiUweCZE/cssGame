@@ -10,13 +10,11 @@ import SkeletonProfileBox from "../SkeletonProfileBox";
 const PlayedLevels = ({ userId, completedLevels }) => {
   const { user, levels, loading } = useGetPlayedLevels(userId);
   const {
-    isShowed,
-    setIsShowed,
     currentPage,
-    setCurrentPage,
+
     goToNextPage,
     goToPrevPage,
-    levelsPerPage,
+
     currentLevels,
     totalPages,
   } = useNavigateToPage(levels);

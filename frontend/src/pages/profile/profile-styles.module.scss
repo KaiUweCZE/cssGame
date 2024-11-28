@@ -82,6 +82,11 @@ button {
   background-color: $error-color;
 }
 
+.profileBox {
+  // display: flex;
+  // gap: 1rem;
+}
+
 .profileInput {
   border-radius: $border-radius;
   border: 1px lighten($main-color, 30) solid;

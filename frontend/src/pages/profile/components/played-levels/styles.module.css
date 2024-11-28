@@ -4,6 +4,13 @@ span {
   color: #303030;
 }
 
+.wrapper {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.35rem;
+}
+
 .header {
   display: grid;
   background-color: #0a3a40;

@@ -188,14 +188,15 @@ export const aboutLevelData = [
                         přizpůsobit se různým velikostem a orientacím obrazovek.`,
         },
       ],
-    },
-    tipsSection: {
-      p: [
-        `Započít vaši cestu s CSS gradienty může být na první pohled komplikované, ale jakmile se seznámíte s jejich základními principy, vaše webové stránky se mohou proměnit a získat úplně nový rozměr estetiky. Kde začít? Stránka cssgradient.com je skvělým výchozím bodem, kde najdete inspiraci a praktické příklady gradientů, které můžete snadno implementovat a upravit v souladu s vaším designovým směrem.`,
-      ],
-      img: tipsImages.cssgradient,
-      src: "https://cssgradient.io/",
-      h2: "CSS GRADIENT",
+      tip: {
+        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
+        img: {
+          src: tipsImages.cssgradient,
+          alt: "Adobe Color Palette",
+          span: "Check it!",
+          href: "https://color.adobe.com/explore",
+        },
+      },
     },
     images: {},
   },
@@ -221,19 +222,17 @@ export const aboutLevelData = [
           p: "repellendus velit et error eius nemo temporibus, tempore repudiandae",
         },
       ],
+      tip: {
+        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
+        img: {
+          src: tipsImages.cssgradient,
+          alt: "Adobe Color Palette",
+          span: "Check it!",
+          href: "https://color.adobe.com/explore",
+        },
+      },
     },
-    tipsSection: {
-      p: [
-        `Fancy Boreder radius je jeden z dalších zajímavých projektů, který vám umožní zábavně měnit a nastavovat hodnotu border-raidus v CSS.
-                Díky intuitivnímu rozhraní můžete snadno měnit 
-                zakřivení hran objektů, a tak 
-                dodat vašim projektům osobitý charakter a styl.`,
-      ],
-      img: tipsImages.cssgradient,
-      src: "https://9elements.github.io/fancy-border-radius/",
-      h2: "Fancy border radius",
-      specialClass: "fancy-border",
-    },
+
     images: {},
   },
   {

@@ -1,0 +1,79 @@
+.wrapper {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 2rem;
+  --main-text: #0a3a40;
+}
+
+.header {
+  text-align: center;
+  color: var(--main-text); /* text-teal-300 */
+}
+
+.title {
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--main-text);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  opacity: 0.8;
+}
+
+.codeContainer {
+  font-family: ui-monospace, monospace;
+  background-color: rgb(229 231 235 / 0.9); /* bg-gray-200/90 */
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: left;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.code {
+  color: rgb(55 65 81); /* text-gray-700 */
+}
+
+.codeProp {
+  color: rgb(13 148 136); /* text-teal-600 */
+}
+
+.codeError {
+  color: rgb(239 68 68); /* text-red-500 */
+}
+
+.codeValue {
+  color: rgb(15 118 110); /* text-teal-700 */
+}
+
+.codeIndent {
+  margin-left: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--main-text); /* bg-teal-600 */
+  color: white;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: var(--main-text); /* bg-teal-500 */
+}
+
+.buttonIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}

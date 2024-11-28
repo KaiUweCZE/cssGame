@@ -6,6 +6,13 @@ span {
   color: $text-color;
 }
 
+.wrapper {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.35rem;
+}
+
 .header {
   display: grid;
   background-color: $header-color;

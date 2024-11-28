@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { levelData } from "../data/LevelData";
 import { LevelContext } from "@contexts/form-contexts/levelContext";
+import { useNavigate } from "react-router-dom";
 
 export const useSetLevel = () => {
   const [result, setResult] = useState("");
   const { setStyle, setLevel, level } = useContext(LevelContext);
+  const navigate = useNavigate();
 
   const nextLevel = (level) => {
     const currentLevel = levelData.find((e) => e.id === level);
@@ -17,7 +19,7 @@ export const useSetLevel = () => {
       bridge: currentLevel.bridgeStyles,
       partOfBridge: currentLevel.partOfBridgeStyles,
     });
-    window.location.href = "/game";
+    navigate("/game");
   };
 
   return { nextLevel, level };

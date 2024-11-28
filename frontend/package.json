@@ -17,6 +17,7 @@
     "core-js": "^3.38.1",
     "dotenv": "^16.4.5",
     "graphql": "^16.8.1",
+    "lucide-react": "^0.462.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1",

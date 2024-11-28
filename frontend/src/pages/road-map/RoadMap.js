@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "./roadmap-styles.css";
 import { mapBG } from "../../data/ImagesData";
 import { UserContext } from "../../contexts/UserContext";
