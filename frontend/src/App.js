@@ -20,6 +20,7 @@ import { CheckContextProvider } from "@contexts/form-contexts/checkContext";
 import Verify from "./pages/verify/Verify";
 import Profile from "./pages/profile/Profile";
 import ErrorPage from "./components/errors/ErrorPage";
+import ProfileDashboard from "./pages/profile2/ProfileDashboard";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
                     <Route path="/verify/:id" element={<Verify />} />
                     <Route element={<ProtectedLayout />}>
                       <Route path="/profile" element={<Profile />} />
+                      <Route path="/profile2" element={<ProfileDashboard />} />
                       <Route path="/database" element={<Database />} />
                       <Route path="/building" element={<Building />} />
                       <Route path="/map" element={<RoadMap />} />
