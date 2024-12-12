@@ -4,7 +4,7 @@ import AcademyExercise from "./AcademyExercise";
 import TipSection from "./TipSection";
 
 const MainLevel = ({ levelName, data }) => {
-  const { description, li, tip } = data;
+  const { description, li, tip, videoSection } = data;
   return (
     <main className="level-main">
       <h2 className="main-headline">level {levelName}</h2>
@@ -30,7 +30,7 @@ const MainLevel = ({ levelName, data }) => {
         </div>
         <AcademyExercise level={levelName} />
       </section>
-      <TipSection data={tip} />
+      <TipSection tip={tip} video={videoSection} />
     </main>
   );
 };

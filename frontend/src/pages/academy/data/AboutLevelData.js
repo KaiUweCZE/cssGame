@@ -69,6 +69,12 @@ export const aboutLevelData = [
       aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
                 nicméně emoji se musí dostat přes řeku!`,
 
+      videoSection: {
+        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
+        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
+                            vido od Kevina Powella`,
+      },
+
       tip: {
         text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
         img: {
@@ -86,12 +92,6 @@ export const aboutLevelData = [
     introduction: `Praesentium amet, iusto est sunt 
         facilis, dicta recusandae aperiam nisi nulla autem, 
         error sapiente quae asperiores dolor enim `,
-
-    videoSection: {
-      src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-      text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                vido od Kevina Powella`,
-    },
     main: {
       description: `
                 Marginy a paddingy patří k dalším základním vlastnostem,
@@ -133,6 +133,11 @@ export const aboutLevelData = [
 
       aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
                 nicméně emoji se musí dostat přes řeku!`,
+      videoSection: {
+        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
+        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
+                            vido od Kevina Powella`,
+      },
       tip: {
         text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
         img: {

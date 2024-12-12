@@ -1,9 +1,11 @@
 import React from "react";
 import TipPicture from "./TipPicture";
 import videoIcon from "@images/icons/youtube.svg";
+import { Link } from "react-router-dom";
 
-const TipSection = ({ data }) => {
-  const { img } = data;
+const TipSection = ({ tip, video }) => {
+  const { img } = tip;
+  console.log(tip, video);
   return (
     <section className="dernier">
       <article className="tip-article">
@@ -11,8 +13,12 @@ const TipSection = ({ data }) => {
           <img className="tip-icon" src={videoIcon} alt="" />
           <h3>Video</h3>
         </span>
-        <p>For deeply understanding you can check this video:</p>
-        <a href=""></a>
+        <div className="academy-tip">
+          <p>For deeply understanding you can check this video:</p>
+          <Link to={video.src} className="academy-link">
+            To the video
+          </Link>
+        </div>
       </article>
 
       <article className="tip-article">
@@ -48,8 +54,13 @@ const TipSection = ({ data }) => {
 
           <h3>Tip</h3>
         </span>
-        <p>{data.text}</p>
-        <TipPicture imgSrc={img.src} altText={img.alt} text={img.span} />
+        <div className="academy-tip">
+          <p>{tip.text}</p>
+          <Link to={img.href} className="academy-link">
+            To Tool
+          </Link>
+        </div>
+        {/* <TipPicture imgSrc={img.src} altText={img.alt} text={img.span} /> */}
       </article>
     </section>
   );
