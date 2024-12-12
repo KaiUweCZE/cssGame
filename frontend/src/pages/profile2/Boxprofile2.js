@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styles from "./LevelDashboard.module.css";
 import { Key, Mail, User } from "lucide-react";
 import AddEmailModal from "./AddEmailModal";
+import ChangePasswordModal from "./ChangePassworModal";
 
 const BoxProfile2 = ({ user }) => {
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
 
   const handleAddEmail = async (email) => {
     // Zde implementuj volání API pro přidání emailu
@@ -29,16 +31,21 @@ const BoxProfile2 = ({ user }) => {
             <span className={styles.labelText}>Username:</span>
             <span>{user.name}</span>
           </div>
-          {user.email && <p>UserEmail</p>}
+          {user.email && <p>Email: {user.email}</p>}
           <div className={styles.buttonGroup}>
+            {!user.email && (
+              <button
+                className={styles.primaryButton}
+                onClick={() => setIsEmailModalOpen(true)}
+              >
+                <Mail className="w-4 h-4" color="white" strokeWidth={1} />
+                Add Email
+              </button>
+            )}
             <button
-              className={styles.primaryButton}
-              onClick={() => setIsEmailModalOpen(true)}
+              className={styles.secondaryButton}
+              onClick={() => setIsChangingPassword(!isChangingPassword)}
             >
-              <Mail className="w-4 h-4" color="white" strokeWidth={1} />
-              Add Email
-            </button>
-            <button className={styles.secondaryButton}>
               <Key className="w-4 h-4" />
               Change Password
             </button>
@@ -47,9 +54,17 @@ const BoxProfile2 = ({ user }) => {
       </section>
       <AddEmailModal
         isOpen={isEmailModalOpen}
+        userId={user.id}
         onClose={() => setIsEmailModalOpen(false)}
         onSubmit={handleAddEmail}
       />
+      {isChangingPassword && (
+        <ChangePasswordModal
+          isOpen={isChangingPassword}
+          userId={user.id}
+          onClose={() => setIsChangingPassword(false)}
+        />
+      )}
     </>
   );
 };

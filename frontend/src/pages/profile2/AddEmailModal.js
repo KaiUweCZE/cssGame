@@ -25,13 +25,20 @@ const AddEmailModal = ({ isOpen, onClose, userId }) => {
 
     try {
       // 1. Add email to user
-      await addEmail(userId, email);
+      console.log("adding email:", userId);
+
+      const addEmailResult = await addEmail(userId, email);
+      if (!addEmailResult?.success) {
+        throw new Error("Failed to add email");
+      }
 
       // 2. Create verification token
       const tokenResponse = await createToken(userId);
-      if (!tokenResponse?.success || !tokenResponse?.token?.token) {
+      if (!tokenResponse?.success) {
         throw new Error("Failed to generate verification token");
       }
+      console.log("token is this: ", tokenResponse);
+
       const token = tokenResponse.token.token;
       // 3. Send verification email
       const sendResult = await handleSendEmail(email, token);
@@ -95,10 +102,10 @@ const AddEmailModal = ({ isOpen, onClose, userId }) => {
           <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.formGroup}>
               <label htmlFor="email" className={styles.label}>
-                Email Address
+                <Mail className="w-3 h-3" strokeWidth={1} />
+                <span className={styles.labelText}>Email:</span>
               </label>
               <div className={styles.inputWrapper}>
-                <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
                 <input
                   id="email"
                   type="email"

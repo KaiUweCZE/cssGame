@@ -297,6 +297,26 @@ $exercise-bg: rgb(219, 219, 219);
   }
 }
 
+.academy-tip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.academy-link {
+  font-weight: bold;
+  background-color: lighten($main-color, 20);
+  width: fit-content;
+  color: white;
+  padding: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: $border-radius;
+  transition: 0.4s;
+  &:hover {
+    background-color: $main-color;
+  }
+}
+
 /****MAIN PART OF SPECIFIC LEVEL - LEFT SIDE****/
 .level-exercise {
   display: grid;

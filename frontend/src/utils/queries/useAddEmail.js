@@ -18,10 +18,18 @@ export const useAddEmail = () => {
   const [addEmail, { data, loading, error }] = useMutation(ADD_EMAIL);
 
   const handleAddEmail = async (userId, email) => {
+    console.log(userId, email);
+
     try {
       const response = await addEmail({
         variables: { userId, email },
       });
+
+      console.log(response, userId, email);
+
+      if (!response || !response.data) {
+        throw new Error("No response from server");
+      }
 
       if (response.errors) {
         const errorMessage = response.errors[0]?.message;
