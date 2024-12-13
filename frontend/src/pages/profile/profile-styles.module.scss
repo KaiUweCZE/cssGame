@@ -137,12 +137,13 @@ button {
 .wrapper {
   display: grid;
   max-width: 100%;
+  box-shadow: $primary-shadow;
+  padding: 1rem;
+  border-radius: $border-radius;
 }
 
 .containerLevels {
   display: grid;
-  box-shadow: $primary-shadow;
-  border-radius: $border-radius;
 }
 
 .pageList {
@@ -154,7 +155,7 @@ button {
     align-items: center;
     grid-column: span 2;
     border-bottom: 1px solid $line-color;
-    background-color: $input-bg;
+    //background-color: $input-bg;
     font-weight: bold;
     span {
       display: flex;

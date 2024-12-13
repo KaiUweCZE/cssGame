@@ -8,17 +8,6 @@ const BoxProfile2 = ({ user }) => {
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
   const [isChangingPassword, setIsChangingPassword] = useState(false);
 
-  const handleAddEmail = async (email) => {
-    // Zde implementuj volání API pro přidání emailu
-    try {
-      // await addEmailToUser(user.id, email);
-      console.log("Adding email:", email);
-      // Po úspěšném přidání můžeš aktualizovat stav uživatele
-    } catch (error) {
-      throw new Error("Failed to add email");
-    }
-  };
-
   return (
     <>
       <section className={`${styles.card} ${styles.section}`}>
@@ -56,7 +45,6 @@ const BoxProfile2 = ({ user }) => {
         isOpen={isEmailModalOpen}
         userId={user.id}
         onClose={() => setIsEmailModalOpen(false)}
-        onSubmit={handleAddEmail}
       />
       {isChangingPassword && (
         <ChangePasswordModal
