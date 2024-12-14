@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
-import useEditDescription from "../../../profile/hooks/useEditDescription";
+import useEditDescription from "../../hooks/useEditDescription";
 import SuccessMessage from "@/components/alerts/SuccessMessage";
 import "./modal-styles.css";
 

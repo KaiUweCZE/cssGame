@@ -4,23 +4,32 @@ import TableHeader from "./TableHeader";
 import "./table-styles.css";
 import TableBody from "./TableBody";
 import TableFooter from "./TableFooter";
+import SkeletonTableLoader from "./components/SkeletonTableLoader";
 
-const CreatedLevels = ({ levels, onDelete }) => {
+const CreatedLevels = ({ levels, onDelete, loading = false }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const numberOfPages = Math.ceil(levels.length / itemsPerPage);
+  const numberOfPages = Math.ceil(levels?.length / itemsPerPage || 0);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const levelPage = levels.slice(startIndex, endIndex);
+  const levelPage = levels?.slice(startIndex, endIndex) || [];
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+  const columns = ["Level", "Likes", "Finished/Played", "Actions"];
+
+  if (loading) {
+    return <SkeletonTableLoader columns={4} />;
+  }
 
   return (
-    <div className="created-levels">
-      <TableHeader />
+    <div className="table-container">
+      <TableHeader
+        minorClass={"table-header-created-levels"}
+        columns={columns}
+      />
       <TableBody
         levels={levelPage}
         currentPage={currentPage}

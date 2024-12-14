@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import useDeleteLevel from "../../../profile/hooks/useDeleteLevel";
+import useDeleteLevel from "../../hooks/useDeleteLevel";
 import SuccessMessage from "@/components/alerts/SuccessMessage";
 import "./modal-styles.css";
 
@@ -28,7 +28,7 @@ const DeleteLevelModal = ({ onClose, level, onDelete }) => {
           setConfirmName("");
         }, 1500); // Give time to show success message
       } catch (error) {
-        console.error('Error deleting level:', error);
+        console.error("Error deleting level:", error);
       }
     }
   };

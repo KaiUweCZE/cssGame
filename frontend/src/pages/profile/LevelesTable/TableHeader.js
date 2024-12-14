@@ -1,9 +1,8 @@
 import React from "react";
 
-const TableHeader = () => {
-  const columns = ["Levels", "Likes", "Finished/Played", "Actions"];
+const TableHeader = ({ minorClass, columns }) => {
   return (
-    <header className="table-header">
+    <header className={`table-header ${minorClass}`}>
       {columns.map((column) => (
         <span key={column}>{column}</span>
       ))}
