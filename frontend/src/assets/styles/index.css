@@ -127,6 +127,7 @@ a.menu__item.active::after {
 }
 .menu__item span {
   color: white;
+  font-weight: normal;
 }
 @media (max-width: 40rem) {
   .menu__item {
@@ -156,6 +157,18 @@ a.menu__item.active::after {
 
 .menu__item.settings.open {
   filter: contrast(0);
+}
+.menu__item.settings.active img {
+  filter: brightness(1);
+}
+.menu__item.settings.active span {
+  color: white;
+}
+.menu__item.settings span {
+  color: white;
+}
+.menu__item.settings::after {
+  height: 0;
 }
 
 .sub-nav {

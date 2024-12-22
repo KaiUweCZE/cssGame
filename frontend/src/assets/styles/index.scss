@@ -123,6 +123,7 @@ a.menu__item {
   cursor: pointer;
   span {
     color: $secondary-color;
+    font-weight: normal;
   }
   @include small-screen {
     flex-direction: row;
@@ -164,6 +165,20 @@ a.menu__item {
 .menu__item.settings {
   &.open {
     filter: contrast(0);
+  }
+  &.active {
+    img {
+      filter: brightness(1);
+    }
+    span {
+      color: white;
+    }
+  }
+  span {
+    color: white;
+  }
+  &::after {
+    height: 0;
   }
 }
 

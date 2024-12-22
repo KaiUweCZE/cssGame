@@ -61,7 +61,7 @@ const Navbar = () => {
                   <img src={navbarImages.gameIcon} alt="" />
                   <span>Game</span>
                 </NavLink>
-                <li
+                <NavLink
                   className={
                     settingIsActive
                       ? "menu__item settings open"
@@ -70,8 +70,8 @@ const Navbar = () => {
                   onClick={handleSubMenu}
                 >
                   <img src={navbarImages.settingIcon} alt="" />
-                  <span>settings</span>
-                </li>
+                  <span>Settings</span>
+                </NavLink>
               </>
             ) : (
               <>

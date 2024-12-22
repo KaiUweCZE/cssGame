@@ -1,20 +1,25 @@
 @import "../../assets/styles/addons/variables",
   "../../assets/styles/addons/mixins";
 
+// container-database
+// wrapper-database
+
 $database-bg: lighten($main-color, 10);
 .container-database {
   grid-column: 2;
   display: grid;
+  position: relative;
   grid-template-columns: 1fr;
   margin: 0 auto;
   margin-top: $standard-size * 5;
   //padding: 1rem;
   width: 100%;
-  height: 80%;
+  height: 50rem;
   border-radius: 0.5rem;
   background-color: $main-color;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.419);
-  @include scroll-primary;
+  box-shadow: $primary-shadow;
+  overflow: hidden;
   p {
     color: white;
     font-size: clamp(1rem, 1.25rem, 2.25vw);
@@ -49,6 +54,7 @@ $database-bg: lighten($main-color, 10);
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.5rem;
+
     .toggles {
       grid-column: 3;
       //grid-row: 1;
@@ -81,6 +87,20 @@ $database-bg: lighten($main-color, 10);
   @media (width < 100rem) {
     width: 80%;
   }
+}
+
+.container-database-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+
+.database-header {
+  display: grid;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-inline: 2rem;
 }
 
 .database-buttons {
@@ -188,7 +208,9 @@ $database-bg: lighten($main-color, 10);
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  //margin: 1rem;
+  padding-block: 2rem;
+  overflow-y: scroll;
+  @include scroll-primary;
   li {
     width: 100%;
     transition: 0.35s;
@@ -238,10 +260,10 @@ $database-bg: lighten($main-color, 10);
   grid-template-rows: 1fr;
   max-height: 3rem;
   position: relative;
-  background-color: rgb(76, 165, 165, 0.4);
-  background-color: lighten($main-color, 10);
+  // background-color: lighten($main-color, 10);
   z-index: 1;
   overflow: hidden;
+
   &::after {
     content: "";
     background-color: rgb(76, 165, 165, 0.4);
@@ -263,6 +285,12 @@ $database-bg: lighten($main-color, 10);
   }
 }
 
+.filter-line {
+  border: none;
+  height: 2px;
+  background-color: rgba(76, 165, 165, 0.4);
+}
+
 .filter-item {
   display: flex;
   justify-content: center;
@@ -275,7 +303,10 @@ $database-bg: lighten($main-color, 10);
   height: 100%;
   cursor: pointer;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(76, 165, 165, 0.4);
+  }
+  &.active {
+    background-color: rgba(76, 165, 165, 0.4);
   }
 }
 
