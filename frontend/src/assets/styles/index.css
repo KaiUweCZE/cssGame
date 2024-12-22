@@ -264,7 +264,7 @@ a.menu__item.active::after {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin: 0 auto;
-  margin-block: 3rem;
+  margin-block: 2.5rem;
   padding: 1rem;
   box-shadow: 0 0 6px #303030;
   max-width: 80rem;

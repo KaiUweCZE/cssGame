@@ -278,7 +278,7 @@ a.menu__item {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin: 0 auto;
-  margin-block: 3rem;
+  margin-block: $standard-size * 5;
   padding: 1rem;
   box-shadow: 0 0 6px #303030;
   //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);

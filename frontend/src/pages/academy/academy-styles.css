@@ -4,7 +4,6 @@
   width: 90%;
   max-width: 80rem;
   margin: 0 auto;
-  margin-bottom: 2rem;
   row-gap: 1rem;
 }
 @media (max-width: 40rem) {

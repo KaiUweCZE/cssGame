@@ -11,7 +11,6 @@ $exercise-bg: rgb(219, 219, 219);
   width: 90%;
   max-width: 80rem;
   margin: 0 auto;
-  margin-bottom: 2rem;
   row-gap: 1rem;
   @include small-screen {
     width: 96%;
@@ -104,8 +103,6 @@ $exercise-bg: rgb(219, 219, 219);
 
 .level-main {
   display: grid;
-  //margin-top: 2rem;
-
   background-color: $standard-section-bgc;
   border-radius: 0.5rem;
 }
