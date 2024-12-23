@@ -202,7 +202,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  padding-block: 2rem;
+  padding-block: 1.5rem;
   overflow-y: scroll;
   overflow-y: scroll;
 }

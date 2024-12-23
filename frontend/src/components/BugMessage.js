@@ -7,12 +7,13 @@ import reportImg from "@images/icons/report.webp";
 import binImg from "@images/icons/bin.png";
 import { Image, Transformation } from "cloudinary-react";
 import { cld, cloudinaryConfig } from "@/utils/cloudinaryClient";
+import { Send, Upload } from "lucide-react";
 
 const BugMessage = () => {
   const [active, setActive] = useState(false);
   const [text, setText] = useState("");
   const [subject, setSubject] = useState("");
-  const { user } = useContext(UserContext);
+  const { user, login } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [reportedImages, setReportedImages] = useState([]);
@@ -80,13 +81,12 @@ const BugMessage = () => {
       const validFiles = files.filter((file) => validTypes.includes(file.type));
 
       if (validFiles.length !== files.length) {
-        console.log("error in editing", validFiles, files);
-
-        setError("Some of uplloaded images are not in valid format");
+        setError("Some of uploaded images are not in valid format");
+      } else if (reportedImages.length + validFiles.length > 4) {
+        setError("Maximum 4 screenshots allowed");
       } else {
-        console.log("uploading was succesfful");
-
         setReportedImages((images) => [...images, ...validFiles]);
+        setError("");
       }
     }
   };
@@ -96,86 +96,123 @@ const BugMessage = () => {
   };
   return (
     <>
-      {active ? (
-        <footer className={active ? "bug-message active" : "bug-message"}>
-          <img
-            className={active ? "bug-image active" : "bug-image"}
-            src={bugIcon}
-            alt="bug icon"
-            onClick={() => setActive(!active)}
-          />
-          <article>
-            <h2>Share Bugs</h2>
-          </article>
-          <form className="bug-form">
-            <div className="bug-form-box">
-              <label htmlFor="">Subject:</label>
-              <input
-                type="text"
-                name=""
-                id=""
-                onChange={(e) => setSubject(e.target.value)}
-              />
-            </div>
-            <div className="bug-form-box">
-              <label htmlFor="">Screenshots:</label>
-              <label htmlFor="images" className="bug-form-button">
-                <img src={uploadImg} width={20} height={20} />
-                <span>Upload</span>
-              </label>
-              <input
-                type="file"
-                id="images"
-                name="images"
-                accept=".webp, .png, .jpg, .jpeg"
-                onChange={handleImageChange}
-                multiple
-                required
-              />
-            </div>
-            {reportedImages.length > 0 && (
-              <div className="files-box">
-                <h3>Uploaded images:</h3>
-                <ul className="file-list">
-                  {reportedImages.map((image, index) => (
-                    <li key={index} className="file">
-                      <span>{image.name}</span>{" "}
-                      <img
-                        src={binImg}
-                        alt="delete icon"
-                        width={24}
-                        height={24}
-                        onClick={() => removeImage(index)}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            <textarea
-              name=""
-              id=""
-              onChange={(e) => setText(e.target.value)}
-            ></textarea>
-            <button
-              className="bug-form-button"
-              onClick={handleSend}
-              disabled={isLoading}
+      {login && (
+        <>
+          {active ? (
+            <footer
+              className={active ? "bug-message active" : "bug-message"}
+              role="complementary"
+              aria-label="Bug Report Form"
             >
-              <img src={reportImg} width={20} height={20} /> <span>Report</span>
-            </button>
-          </form>
-        </footer>
-      ) : (
-        <footer className={active ? "bug-message active" : "bug-message"}>
-          <img
-            className={active ? "bug-image active" : "bug-image"}
-            src={bugIcon}
-            alt="bug icon"
-            onClick={() => setActive(!active)}
-          />
-        </footer>
+              <img
+                className={active ? "bug-image active" : "bug-image"}
+                src={bugIcon}
+                alt="Close bug report form"
+                onClick={() => setActive(!active)}
+                role="button"
+                tabIndex="0"
+              />
+
+              <h2 id="bug-form-title">Share Bugs</h2>
+
+              <form className="bug-form" aria-labelledby="bug-form-title">
+                <div className="bug-form-box">
+                  <label htmlFor="bug-subject" className="bug-label">
+                    Subject:
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    id="bug-subject"
+                    onChange={(e) => setSubject(e.target.value)}
+                    aria-required="true"
+                    placeholder="Brief description of the issue"
+                  />
+                </div>
+                <div className="bug-form-box">
+                  <label htmlFor="bug-images" className="bug-label">
+                    Screenshots: ({reportedImages.length}/4)
+                  </label>
+                  <label
+                    htmlFor="bug-images"
+                    className={`bug-form-button ${
+                      reportedImages.length >= 4 ? "disabled" : ""
+                    }`}
+                    tabIndex={reportedImages.length >= 4 ? -1 : 0}
+                  >
+                    <Upload color="white" height={20} aria-hidden="true" />
+                    <span>Upload Images</span>
+                  </label>
+                  <input
+                    type="file"
+                    id="bug-images"
+                    name="images"
+                    accept=".webp, .png, .jpg, .jpeg"
+                    onChange={handleImageChange}
+                    multiple
+                    disabled={reportedImages.length >= 4}
+                    aria-label="Upload screenshots"
+                  />
+                  {error && <div className="error-message">{error}</div>}
+                </div>
+                {reportedImages.length > 0 && (
+                  <div className="files-box" aria-live="polite">
+                    <ul className="file-list" aria-label="Uploaded images">
+                      {reportedImages.map((image, index) => (
+                        <li key={index} className="file">
+                          <span title={image.name}>
+                            {image.name.length > 12
+                              ? "..." + image.name.slice(-12)
+                              : image.name}
+                          </span>{" "}
+                          <img
+                            src={binImg}
+                            alt={`Remove ${image.name}`}
+                            width={24}
+                            height={24}
+                            onClick={() => removeImage(index)}
+                            role="button"
+                            tabIndex="0"
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="bug-form-box-textarea">
+                  <textarea
+                    name="description"
+                    id="bug-description"
+                    onChange={(e) => setText(e.target.value)}
+                    aria-label="Bug description"
+                    placeholder="Describe the bug in detail"
+                  ></textarea>
+                  <button
+                    className="bug-form-button"
+                    onClick={handleSend}
+                    disabled={isLoading}
+                    aria-busy={isLoading}
+                  >
+                    <Send height={16} color="white" aria-hidden="true" />
+                    <span>{isLoading ? "Sending..." : "Report"}</span>
+                  </button>
+                </div>
+              </form>
+            </footer>
+          ) : (
+            <footer className={active ? "bug-message active" : "bug-message"}>
+              <img
+                className={active ? "bug-image active" : "bug-image"}
+                src={bugIcon}
+                alt="Open bug report form"
+                onClick={() => setActive(!active)}
+                role="button"
+                tabIndex="0"
+              />
+            </footer>
+          )}
+        </>
       )}
     </>
   );

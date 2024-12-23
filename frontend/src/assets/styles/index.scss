@@ -697,10 +697,13 @@ a.menu__item {
   }
 }
 
+.bug-form-box-textarea {
+  margin-bottom: 1rem;
+}
 .bug-message {
   display: grid;
   place-items: center;
-  background-color: rgba($main-color, 1);
+  background-color: $main-color;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -710,8 +713,10 @@ a.menu__item {
   border-radius: 1rem 0 0 0;
   transition: 1s;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
-  @include scroll-primary;
-  overflow-x: hidden;
+  overflow-y: clip;
+  overflow-x: clip;
+  padding: 1rem;
+  // padding-block: 0rem;
   article {
     display: flex;
     flex-direction: column;
@@ -726,6 +731,8 @@ a.menu__item {
     //border-radius: 0.5rem;
     width: 40rem;
     height: 27.5rem;
+    width: 52.5rem;
+    height: 35rem;
     max-width: 100%;
     aspect-ratio: 3/2;
   }
@@ -739,7 +746,7 @@ a.menu__item {
     &.active {
       animation: moveBug 5s linear infinite;
       transition: 1s;
-      translate: -19rem -12.5rem;
+      translate: -25rem -16rem;
       //animation: bug-walk 5s linear 1s forwards;
     }
     &:hover {
@@ -748,9 +755,15 @@ a.menu__item {
     &.active:hover {
       rotate: 135deg;
     }
+
+    @media (width < 53rem) {
+      &.active {
+        translate: -48vw -16rem;
+      }
+    }
     @include small-screen {
       &.active {
-        translate: -47vw -12.5rem;
+        translate: -47vw -16rem;
       }
     }
   }
@@ -769,8 +782,8 @@ a.menu__item {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  gap: 0.5rem;
-  height: 80%;
+  gap: 1rem;
+  height: 90%;
   width: 90%;
   opacity: 0;
   animation: go-in 1s linear 0.25s forwards;
@@ -792,6 +805,9 @@ a.menu__item {
     width: 100%;
     height: 15rem;
     resize: none;
+    @include small-screen {
+      max-height: 12rem;
+    }
   }
   span {
     color: white;
@@ -801,6 +817,7 @@ a.menu__item {
 
 .bug-form-box {
   display: grid;
+
   label {
     color: white;
     font-weight: bold;
@@ -812,6 +829,9 @@ a.menu__item {
     font-weight: bold;
     font-size: 1rem;
     background-color: #3b6166;
+    &::placeholder {
+      color: white;
+    }
   }
   input[type="file"] {
     display: none;
@@ -820,16 +840,18 @@ a.menu__item {
 
 .bug-form-button {
   display: flex;
-  background-color: #101010;
+  background-color: lighten($color: $main-color, $amount: 10);
   border-radius: 0.15rem;
   width: fit-content;
   cursor: pointer;
   gap: 0.5rem;
   padding: 0.35rem;
+  padding-inline: 1rem;
   box-shadow: 0 0 8px rgb(53, 53, 53);
   overflow: hidden;
   transition: 0.35s;
-
+  justify-content: center;
+  align-items: center;
   span {
     transition: 0.5s;
   }
@@ -837,14 +859,7 @@ a.menu__item {
     transition: 0.5s;
   }
   &:hover {
-    translate: 0;
-    background-color: rgb(255, 255, 255);
-    span {
-      color: #101010;
-    }
-    img {
-      filter: brightness(0.1);
-    }
+    background-color: lighten($color: $main-color, $amount: 30);
   }
 }
 
@@ -858,6 +873,10 @@ button.bug-form-button {
   font-size: 1rem;
 }
 
+.bug-label {
+  font-size: 1.25rem;
+}
+
 .files-box {
   h3 {
     color: white;
@@ -866,17 +885,19 @@ button.bug-form-button {
 
 .file-list {
   display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
   width: fit-content;
-
-  gap: 0.5rem;
 }
 
 .file {
-  display: grid;
-  grid-template-columns: subgrid;
+  display: inline-flex;
   place-items: center start;
-  grid-column: span 2;
+  //grid-column: span 2;
   gap: 0.5rem;
+  span {
+    font-size: 0.8rem;
+  }
   img {
     transition: 0.35s;
     cursor: pointer;
