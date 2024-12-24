@@ -16,7 +16,8 @@ const AboutClassInfo = ({ information }) => {
           ([key, value]) =>
             key && (
               <li key={key}>
-                {key}: {value}
+                <span className="css-key">{key}</span>:{" "}
+                <span className="css-value">{value}</span>;
               </li>
             )
         )}

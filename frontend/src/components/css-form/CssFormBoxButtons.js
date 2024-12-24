@@ -17,9 +17,7 @@ const CssFormBoxButtons = (props) => {
   };
   return (
     <div className="box-buttons">
-      {props.stop ? (
-        ""
-      ) : (
+      {!props.stop && (
         <img
           className="plus-icon"
           src={plusIcon}

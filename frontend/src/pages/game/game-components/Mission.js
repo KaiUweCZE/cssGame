@@ -11,11 +11,14 @@ import { ResultProvider } from "@contexts/form-contexts/resultContext";
 import EmptyBox from "../../../components/EmptyBox";
 import Clouds from "./Clouds";
 import MessageResult from "@/components/MessageResult";
+import ContainerTemporaryLabels from "./labels/ContainerTemporaryLabels";
 
 const Mission = () => {
   const [containerClass, setContainerClass] = useState();
   const [partsClass, setPartsClass] = useState();
   const { level } = useContext(LevelContext);
+
+  console.log("level", level);
 
   return (
     <CheckContextProvider>
@@ -29,6 +32,7 @@ const Mission = () => {
                   <MessageResult />
                   <div className="box__classes">
                     <CssForm name="bridge" />
+                    {level?.id === 1 && <ContainerTemporaryLabels />}
                     {containerClass ? (
                       <CssForm
                         name="container"

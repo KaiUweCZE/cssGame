@@ -4,7 +4,7 @@ const DatabaseHeader = ({ filter, setFilter }) => {
   const navItems = [
     { name: "most played", filter: "mostPlayed" },
     { name: "most popular", filter: "mostPopular" },
-    { name: "hardest", filter: "mostPopular" },
+    { name: "hardest", filter: "hardest" },
     { name: "oldest", filter: "oldest" },
     { name: "latest", filter: "latest" },
   ];

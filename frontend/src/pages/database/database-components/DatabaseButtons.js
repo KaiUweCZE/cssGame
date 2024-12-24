@@ -9,6 +9,7 @@ import likedIcon from "@images/icons/heart-liked.webp";
 import { UserContext } from "@contexts/UserContext";
 import { useLikeLevel } from "@utils/queries/useLikeLevel";
 import { useUnlikeLevel } from "@utils/queries/useUnlikeLevel";
+import { calculateDifficulty } from "../utils/calculateDifficulty";
 
 const DatabaseButtons = ({
   levelId,
@@ -30,6 +31,8 @@ const DatabaseButtons = ({
   useEffect(() => {
     console.log("data: ", data);
   }, [likeLevel]);
+
+  const difficulty = calculateDifficulty(finishes, usersCount);
 
   return (
     <div className="database-buttons">
@@ -76,7 +79,7 @@ const DatabaseButtons = ({
         </div>
         <div className="button-tooltip">
           <div className="button">
-            <span>4.5</span>
+            <span>{difficulty}</span>
             <img src={dumbbellIcon} alt="" />
           </div>
           <div className="tooltip">difficulty</div>

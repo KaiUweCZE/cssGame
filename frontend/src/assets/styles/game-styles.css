@@ -218,6 +218,7 @@
   height: 1.5rem;
   display: flex;
   gap: 1rem;
+  position: relative;
 }
 .form-css__row img {
   cursor: pointer;
@@ -900,6 +901,14 @@ img.obstacle {
   color: white;
 }
 
+.css-key {
+  color: #9cdcfe;
+}
+
+.css-value {
+  color: #b5cea8;
+}
+
 @keyframes blure {
   0% {
     height: 0;
@@ -943,8 +952,7 @@ img.obstacle {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: auto;
   padding: 0.5rem;
   opacity: 0;
   scale: 0;
@@ -967,4 +975,87 @@ img.obstacle {
     scale: 0.5;
     opacity: 0.2;
   }
+}
+
+.temporary-container {
+  display: grid;
+  position: absolute;
+  top: 15rem;
+  left: 20rem;
+  padding: 1rem;
+  padding-top: 1.5rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgba(250, 250, 250, 0.35);
+  border: 1px solid #606060;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
+  border-radius: 0.15rem;
+}
+.temporary-container .close-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.temporary-container .close-icon:hover {
+  transform: scale(1.2);
+}
+
+.temporary-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.temporary-box p {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.temporary-box span {
+  font-weight: bold;
+  font-size: 1.35rem;
+}
+
+.temporary-circle-bg {
+  position: absolute;
+  filter: brightness(2);
+  top: -5rem;
+  left: -5rem;
+}
+
+.temporary-play {
+  position: absolute;
+  left: 2rem;
+}
+.temporary-play img {
+  transform: rotate(-80deg);
+}
+
+.temporary-arrow {
+  position: absolute;
+  top: -8rem;
+  left: -9rem;
+  rotate: -80deg;
+}
+
+.temporary-label {
+  display: grid;
+  place-self: start end;
+  translate: -2rem -7rem;
+  position: absolute;
+}
+.temporary-label .temporary-text {
+  display: flex;
+  text-wrap: nowrap;
+  position: absolute;
+  gap: 1rem;
+  bottom: 0.15rem;
+  translate: 6.25rem;
+  font-style: italic;
+}
+.temporary-label .temporary-text svg {
+  cursor: pointer;
 }/*# sourceMappingURL=game-styles.css.map */

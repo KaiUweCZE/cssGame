@@ -3,7 +3,7 @@ import { glassImg } from "@data/ImagesData";
 import { CheckContext } from "@contexts/form-contexts/checkContext";
 import AboutClassInfo from "./AboutClassInfo";
 import AboutClassMenu from "./AboutClassMenu";
-import TemporaryLabel from "../../pages/game/game-components/TemporaryLabel";
+import MagnifierTemporaryLabel from "../../pages/game/game-components/labels/MagnifierTemporaryLabel";
 
 const AboutClass = (props) => {
   const [option, setOption] = useState(false);
@@ -51,7 +51,7 @@ const AboutClass = (props) => {
           />
         )}
       </div>
-      {props?.level === 1 ? <TemporaryLabel /> : null}
+      {props?.level === 1 ? <MagnifierTemporaryLabel option={option} /> : null}
     </>
   );
 };

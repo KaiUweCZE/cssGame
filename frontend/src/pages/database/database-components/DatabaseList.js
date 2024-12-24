@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DatabaseButtons from "./DatabaseButtons";
 import useAddPlayedLevel from "@/utils/queries/useAddPlayedLevel";
 import DatabaseHeader from "./DatabaseHeader";
+import { calculateDifficulty } from "../utils/calculateDifficulty";
 
 const DatabaseList = ({ items, userId }) => {
   const [filter, setFilter] = useState("oldest");
@@ -31,14 +32,15 @@ const DatabaseList = ({ items, userId }) => {
         return [...items];
       case "latest":
         return [...items].reverse();
-      /*default:
-        return items;*/
+      case "hardest":
+        return [...items].sort((a, b) => {
+          return (
+            calculateDifficulty(b.finish, b.usersCount) -
+            calculateDifficulty(a.finish, a.usersCount)
+          );
+        });
     }
   };
-
-  useEffect(() => {
-    console.log("items are? ", items);
-  }, [items]);
 
   return (
     <div className="container-database-list">
