@@ -664,8 +664,9 @@ a.menu__item {
   }
   .label__close {
     position: absolute;
-    bottom: 0;
-    left: 50%;
+    //place-self: end end;
+    bottom: 0.15rem;
+    left: 55%;
     cursor: pointer;
     z-index: 1;
     transition: 0.4s;
@@ -677,6 +678,7 @@ a.menu__item {
     position: absolute;
     left: -3.5rem;
     place-self: start start;
+    font-weight: bold;
   }
   p {
     position: absolute;
@@ -697,6 +699,9 @@ a.menu__item {
   }
   @include medium-screen {
     right: 1vw;
+  }
+  @include small-screen {
+    visibility: hidden;
   }
 }
 

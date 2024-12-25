@@ -353,11 +353,21 @@ button img:hover {
 }
 
 .end {
-  display: flex;
+  display: grid;
   position: relative;
   width: 100%;
   background-size: auto;
   background-repeat: repeat;
+}
+
+.actual-level {
+  place-self: end end;
+  font-size: 2.5rem;
+  padding-right: 1rem;
+  font-weight: bold;
+  z-index: 100;
+  color: #ebdccf;
+  text-shadow: 0 0 4px black;
 }
 
 .lawn {
@@ -1003,10 +1013,19 @@ img.obstacle {
 .temporary-container .close-icon:hover {
   transform: scale(1.2);
 }
+.temporary-container.second-level {
+  left: 35rem;
+}
+@media (width < 40.01rem) {
+  .temporary-container {
+    display: none;
+  }
+}
 
 .temporary-box {
   display: flex;
   align-items: center;
+  text-wrap: nowrap;
   gap: 0.5rem;
 }
 .temporary-box p {

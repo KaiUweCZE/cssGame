@@ -341,11 +341,20 @@ button {
 
 // endpoint in playground, it is used in EndPoint.js
 .end {
-  display: flex;
+  display: grid;
   position: relative;
   width: 100%;
   background-size: auto;
   background-repeat: repeat;
+}
+.actual-level {
+  place-self: end end;
+  font-size: 2.5rem;
+  padding-right: 1rem;
+  font-weight: bold;
+  z-index: 100;
+  color: lighten(#a77347, 40);
+  text-shadow: 0 0 4px black;
 }
 
 // seamless texture on top of .start and .end
@@ -1011,11 +1020,19 @@ img.obstacle {
       transform: scale(1.2);
     }
   }
+  &.second-level {
+    left: 35rem;
+  }
+
+  @media (width < 40.01rem) {
+    display: none;
+  }
 }
 
 .temporary-box {
   display: flex;
   align-items: center;
+  text-wrap: nowrap;
   gap: 0.5rem;
   p {
     font-style: italic;

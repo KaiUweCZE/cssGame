@@ -632,8 +632,8 @@ a.menu__item.active::after {
 }
 .temporary__box .label__close {
   position: absolute;
-  bottom: 0;
-  left: 50%;
+  bottom: 0.15rem;
+  left: 55%;
   cursor: pointer;
   z-index: 1;
   transition: 0.4s;
@@ -645,6 +645,7 @@ a.menu__item.active::after {
   position: absolute;
   left: -3.5rem;
   place-self: start start;
+  font-weight: bold;
 }
 .temporary__box p {
   position: absolute;
@@ -670,6 +671,11 @@ a.menu__item.active::after {
 @media (max-width: 65rem) {
   .temporary__box {
     right: 1vw;
+  }
+}
+@media (max-width: 40rem) {
+  .temporary__box {
+    visibility: hidden;
   }
 }
 
