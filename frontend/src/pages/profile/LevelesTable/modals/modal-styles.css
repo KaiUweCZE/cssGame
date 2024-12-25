@@ -175,7 +175,7 @@
   margin-top: var(--space-2);
 }
 
-.error-message {
+.error-message-modal {
   color: var(--color-danger);
   font-size: 0.875rem;
   margin-top: var(--space-2);

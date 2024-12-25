@@ -8,6 +8,8 @@ const CssFormInputs = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const [suggestValue, setSuggestValue] = useState("");
   const [propertyIndex, setPropertyIndex] = useState(null);
+  const [focusedInput, setFocusedInput] = useState(null);
+  const [focusedSecondInput, setFocusedSecondInput] = useState(null);
 
   return (
     <>
@@ -16,38 +18,68 @@ const CssFormInputs = (props) => {
           <div className="form-css__row" key={index}>
             <div>
               <input
+                className={
+                  property.length > 0
+                    ? "form-css__input inputed"
+                    : "form-css__input"
+                }
                 type="text"
                 placeholder={
                   props.name === "parts" ? `${index + 1}.element` : ""
                 }
-                value={property}
+                value={
+                  property.length > 0 &&
+                  property.length < 8 &&
+                  focusedInput !== index
+                    ? `${property}:`
+                    : property
+                }
                 onFocus={() => {
                   setIsFocused(true);
+                  setFocusedInput(index);
                   setPropertyIndex(index);
                 }}
-                // if user clicks somewhere isFocused will be false after 50ms
                 onBlur={() =>
                   setTimeout(() => {
                     setIsFocused(false);
+                    setFocusedInput(null); // Přidáno resetování focusedInput
                   }, 50)
                 }
-                // the text that the user typess will be displayed in form
                 onChange={(e) => {
-                  props.setPropertyAtIndex(index, e.target.value),
-                    setSuggestValue(e.target.value);
+                  const newValue = e.target.value.replace(/:$/, "");
+                  props.setPropertyAtIndex(index, newValue);
+                  setSuggestValue(newValue);
                 }}
               />
-              <span className="form-css-span">:</span>
+              {property.length > 8 && focusedInput !== index && <span>:</span>}
             </div>
+
             <div>
               <input
+                className={
+                  props.values[index]?.length > 0
+                    ? "form-css__input inputed"
+                    : "form-css__input"
+                }
                 type="text"
-                value={props.values[index] || ""}
-                // the text that the user typess will be displayed in form
-                onChange={(e) => props.setValueAtIndex(index, e.target.value)}
+                value={
+                  props.values[index]?.length > 0 &&
+                  props.values[index]?.length < 8 &&
+                  focusedSecondInput !== index
+                    ? `${props.values[index]};`
+                    : props.values[index]
+                }
+                onChange={(e) => {
+                  const newValue = e.target.value.replace(/;$/, "");
+                  props.setValueAtIndex(index, newValue);
+                }}
+                onFocus={() => setFocusedSecondInput(index)}
+                onBlur={() => setFocusedSecondInput(null)}
               />
-              <span>;</span>
+              {props.values[index]?.length > 8 &&
+                focusedSecondInput !== index && <span>;</span>}
             </div>
+
             <RemoveInput
               index={index}
               removeInput={props.removeInput}

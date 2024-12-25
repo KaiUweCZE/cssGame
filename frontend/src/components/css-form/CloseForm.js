@@ -1,10 +1,8 @@
-import { closeIcon } from "@data/ImagesData";
+import { XCircle } from "lucide-react";
 import React from "react";
 
 const CloseForm = (props) => {
-  return (
-    <img className="class-button" onClick={props.func} src={closeIcon} alt="" />
-  );
+  return <XCircle className="class-button" onClick={props.func} />;
 };
 
 export default CloseForm;

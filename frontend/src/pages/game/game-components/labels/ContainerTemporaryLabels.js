@@ -4,7 +4,7 @@ import pinIcon from "@/assets/images/icons/pin.webp";
 import { labelImages, playIcon } from "@/data/ImagesData";
 import { Braces, X } from "lucide-react";
 
-const ContainerTemporaryLabels = ({ level }) => {
+const ContainerTemporaryLabels = ({ level, containerClass }) => {
   const [active, setActive] = useState(true);
   return (
     <>
@@ -39,8 +39,15 @@ const ContainerTemporaryLabels = ({ level }) => {
               </div>
             </div>
           )}
-          {level === 2 && (
+          {active && level === 2 && !containerClass && (
             <div className="temporary-container second-level">
+              <X
+                className="close-icon"
+                height={16}
+                width={16}
+                strokeWidth={3}
+                onClick={() => setActive(!active)}
+              />
               <img
                 src={labelImages.curvedArrow}
                 width={140}

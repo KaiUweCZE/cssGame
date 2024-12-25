@@ -28,7 +28,9 @@ const EndPoint = ({ mode = "" }) => {
     >
       <div className="lawn" style={lawnStyle}></div>
       {level.enemy && mode === "game" ? <EnemyEmoji level={level.id} /> : ""}
-      {level && <span className="actual-level">Actual level: {level.id}</span>}
+      {level && mode !== "custom" && (
+        <span className="actual-level">Actual level: {level.id}</span>
+      )}
     </div>
   );
 };

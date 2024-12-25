@@ -78,7 +78,7 @@ const EditLevelModal = ({ onClose, level }) => {
               {description.length}/{MAX_LENGTH}
             </span>
             {error && (
-              <div className="error-message" role="alert">
+              <div className="error-message-modal" role="alert">
                 {error}
               </div>
             )}

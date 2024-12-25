@@ -123,7 +123,7 @@ const CssForm = (props) => {
       setError(true);
       // text to error component
       setErrorMessage("Oh man, this is not a correct css property");
-      setTimeout(() => setError(false), 2000);
+      setTimeout(() => setError(false), 3000);
     } else {
       setProperties(cssProperties);
       setValues(cssValues);

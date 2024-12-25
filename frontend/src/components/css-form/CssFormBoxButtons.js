@@ -3,6 +3,7 @@ import { playIcon, playIconAfter, plusIcon } from "@data/ImagesData";
 import React, { useContext, useState } from "react";
 import pinIcon from "@/assets/images/icons/pin.webp";
 import pinFillIcon from "@/assets/images/icons/pin-fill.webp";
+import { PlusCircle, PlusCircleIcon } from "lucide-react";
 
 const CssFormBoxButtons = (props) => {
   const [icon, setIcon] = useState(playIcon);
@@ -18,10 +19,9 @@ const CssFormBoxButtons = (props) => {
   return (
     <div className="box-buttons">
       {!props.stop && (
-        <img
+        <PlusCircle
           className="plus-icon"
-          src={plusIcon}
-          alt=""
+          width={20}
           onClick={() => {
             props.addInput(), props.addLabel();
           }}

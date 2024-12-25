@@ -32,7 +32,10 @@ const Mission = () => {
                   <MessageResult />
                   <div className="box__classes">
                     <CssForm name="bridge" />
-                    <ContainerTemporaryLabels level={level.id} />
+                    <ContainerTemporaryLabels
+                      level={level.id}
+                      containerClass={containerClass}
+                    />
                     {containerClass ? (
                       <CssForm
                         name="container"

@@ -1,20 +1,18 @@
 import { minusIcon } from "@data/ImagesData";
+import { MinusCircle } from "lucide-react";
 import React from "react";
 
 const RemoveInput = (props) => {
   return (
     <>
-      {props.index > 0 ? (
-        <img
+      {props.index > 0 && (
+        <MinusCircle
           className="icon"
+          width={20}
           onClick={() => {
             props.removeInput(props.index), props.removeLabel(props.index);
           }}
-          src={minusIcon}
-          alt=""
         />
-      ) : (
-        ""
       )}
     </>
   );
