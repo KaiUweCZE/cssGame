@@ -376,6 +376,8 @@ button img:hover {
 }
 
 .actual-level {
+  position: sticky;
+  bottom: 0;
   place-self: end end;
   font-size: 2.5rem;
   padding-right: 1rem;

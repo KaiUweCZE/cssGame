@@ -171,6 +171,7 @@ const CssForm = (props) => {
           name={props.name}
           isChecked={isChecked}
           setIsChecked={setIsChecked}
+          maxInputs={props.name === "parts" ? level.partOfBridge : maxLength} // Use partOfBridge for parts form
         />
         {
           // wrong property?

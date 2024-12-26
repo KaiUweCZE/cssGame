@@ -91,7 +91,11 @@ const CssFormInputs = (props) => {
         <CssFormBoxButtons
           addInput={props.addInput}
           addLabel={props.addLabel}
-          stop={props.stop}
+          stop={
+            props.name === "parts"
+              ? props.properties.length >= props.maxInputs // Use level's partOfBridge value passed as maxInputs
+              : props.properties.length >= (props.maxInputs || 3) // Default or specified max for others
+          }
           name={props.name}
         />
       </form>
