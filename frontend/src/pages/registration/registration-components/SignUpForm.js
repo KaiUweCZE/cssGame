@@ -81,7 +81,7 @@ const SignUpForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <input type="submit" value="Sign Up" />
+      <button type="submit">Sign Up</button>
       {error && <WarningLabel text="Error occurs" />}
     </form>
   );

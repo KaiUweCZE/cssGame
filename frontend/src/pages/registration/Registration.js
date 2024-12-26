@@ -16,13 +16,13 @@ const Registration = () => {
                 className={formType ? "active" : ""}
                 onMouseDown={() => setFormType(true)}
               >
-                Sign Up
+                <span>Sign Up</span>
               </button>
               <button
                 className={formType ? "" : "active"}
                 onMouseDown={() => setFormType(false)}
               >
-                Login
+                <span>Sign In</span>
               </button>
             </div>
             {formType ? (

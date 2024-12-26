@@ -67,7 +67,7 @@ const SignInForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <input type="submit" value="Login" />
+      <button type="submit">Sign In</button>
       {error ? (
         <WarningLabel text="this username or password is not valid" />
       ) : null}
