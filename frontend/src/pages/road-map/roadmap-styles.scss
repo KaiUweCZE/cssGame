@@ -8,14 +8,15 @@ $con: 2;
 // background of roadmap
 .roadmap__background {
   display: flex;
+  position: relative;
   width: 90%;
-  max-width: 1552px;
-  max-height: 873px;
+  max-width: 1440px;
+  max-height: 810px;
   aspect-ratio: 16/9;
-  margin: 0 auto;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-inline: auto;
+  margin-block: 2.5rem;
   background-size: contain;
+  width: 90%;
   //background-position: center center;
   background-repeat: no-repeat;
   opacity: 0.1;
