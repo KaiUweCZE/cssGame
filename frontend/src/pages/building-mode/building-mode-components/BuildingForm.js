@@ -6,7 +6,7 @@ import BuildingTextarea from "./BuildingTextarea";
 import BuildingSelectList from "./BuildingSelectList";
 import BuildingRadio from "./BuildingRadio";
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
-import ResolverButton from "./ResolverButton";
+import VerifyButton from "./VerifyButton";
 
 const BuildingForm = () => {
   const { setLevelName, setDescription, setMaximumNumber } =
@@ -29,7 +29,7 @@ const BuildingForm = () => {
   return (
     <form className="building-form" action="">
       <div className="form-section">
-        <label htmlFor="">name of level:</label>
+        <label htmlFor="">name of the level:</label>
         <input
           type="text"
           name=""
@@ -38,13 +38,15 @@ const BuildingForm = () => {
           onChange={(e) => setLevelName(e.target.value)}
         />
       </div>
-      <FormSectionInputs label="bridge" />
-      <FormSectionInputs label="container" />
+      <FormSectionInputs label=".bridge" />
+      <FormSectionInputs label=".container" />
       <BuildingRadio maximumNumber={setMaximumNumber} />
       <BuildingSelectList />
       <BuildingTextarea description={setDescription} />
-      <ResolverButton />
-      <BuildingFormSubmit />
+      <div className="building-form-box">
+        <VerifyButton />
+        <BuildingFormSubmit />
+      </div>
     </form>
   );
 };

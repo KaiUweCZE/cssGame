@@ -8,6 +8,7 @@ import { customCommonContext } from "@contexts/building-contexts/customCommonCon
 import { list } from "@data/listOfProperities";
 import { useGetLevels } from "@utils/queries/useGetLevels";
 import { arraysEqual } from "@utils/arraysEqual";
+import { Save } from "lucide-react";
 
 // submit input for handling the creation of a new level
 const BuildingFormSubmit = () => {
@@ -170,11 +171,20 @@ const BuildingFormSubmit = () => {
   };
   return (
     <>
-      {disable ? (
-        <input type="submit" value="send" />
-      ) : (
-        <input type="submit" value="send" onClick={handleCreateLevel} />
-      )}
+      <button
+        className="building-button"
+        type="submit"
+        disabled={disable}
+        onClick={handleCreateLevel}
+      >
+        {errorMessage.type === "done" ? (
+          <Verified color="#69c972" />
+        ) : (
+          <Save color="white" />
+        )}{" "}
+        <span>Save Level</span>
+      </button>
+
       {errorMessage.invalid ? (
         <ErrorBuilding type={errorMessage.type} duplicate={duplicateName} />
       ) : errorMessage.type === "done" ? (

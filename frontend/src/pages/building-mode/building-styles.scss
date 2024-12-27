@@ -20,6 +20,7 @@
   bottom: 0;
   width: 100%;
   height: 40vh;
+
   z-index: 1;
   .end {
     grid-column: 3;
@@ -36,14 +37,13 @@
 }
 
 .building-form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
   max-width: 50%;
   padding: 2rem;
   background-color: rgba(black, 0.65);
-  max-height: 20rem;
-  overflow-y: scroll;
+  max-height: 27rem;
+  overflow-y: auto;
   border-radius: 0 0 0.8rem 0;
   @include scroll-primary;
   input {
@@ -109,6 +109,35 @@
   img {
     width: 2rem;
     margin: 0 auto;
+  }
+}
+
+.building-form-box {
+  display: grid;
+  position: relative;
+  gap: 1rem;
+  place-items: center;
+
+  grid-template-columns: 1fr 1fr;
+  //grid-template-rows: 1fr 1fr;
+  height: fit-content;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.building-button {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.35rem;
+  box-shadow: $primary-shadow;
+  gap: 0.5rem;
+  padding-inline: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  span {
+    color: white;
+    font-weight: bold;
   }
 }
 .select-wrapper {
@@ -306,11 +335,17 @@ textarea {
 }
 
 .error-building {
+  grid-row: 2;
   display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  position: absolute;
   justify-content: center;
   background-color: rgb(40, 40, 40);
   border-radius: 0.5rem;
   padding: 0.5rem;
+  bottom: -2.5rem;
+
   p {
     font-weight: bold;
     color: rgb(255, 255, 255);
@@ -330,7 +365,7 @@ textarea {
   max-height: 50%;
   margin-top: 1rem;
   gap: 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   @include scroll-primary;
   @include medium-screen {
     grid-template-columns: 1fr;
