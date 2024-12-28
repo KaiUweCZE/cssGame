@@ -27,9 +27,9 @@ const FormSectionInputs = (props) => {
   }, [properties]);
 
   return (
-    <div className="form-section">
+    <div className="form-section ">
       <div>
-        <label htmlFor="">{props.label}:</label>
+        <label htmlFor="">.{props.label}</label>
         <div className="form-buttons-group">
           <img
             className={number === 4 ? "deactivated" : ""}

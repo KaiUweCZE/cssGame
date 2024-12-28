@@ -29,7 +29,7 @@ const BuildingForm = () => {
   return (
     <form className="building-form" action="">
       <div className="form-section">
-        <label htmlFor="">name of the level:</label>
+        <label htmlFor="">Name of the level:</label>
         <input
           type="text"
           name=""
@@ -38,8 +38,11 @@ const BuildingForm = () => {
           onChange={(e) => setLevelName(e.target.value)}
         />
       </div>
-      <FormSectionInputs label=".bridge" />
-      <FormSectionInputs label=".container" />
+      <div className="bridge-elements">
+        <h3>Set own styles:</h3>
+        <FormSectionInputs label="bridge" />
+        <FormSectionInputs label="container" />
+      </div>
       <BuildingRadio maximumNumber={setMaximumNumber} />
       <BuildingSelectList />
       <BuildingTextarea description={setDescription} />

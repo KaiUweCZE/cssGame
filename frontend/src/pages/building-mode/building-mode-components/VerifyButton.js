@@ -1,7 +1,6 @@
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 import React, { useContext } from "react";
-import correctIcon from "@images/icons/correct.svg";
-import wrongIcon from "@images/icons/wrong.svg";
+
 import { CircleX, Play, PlayIcon, Verified, WormIcon } from "lucide-react";
 
 const VerifyButton = () => {

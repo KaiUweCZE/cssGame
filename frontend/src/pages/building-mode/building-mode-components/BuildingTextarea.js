@@ -6,7 +6,7 @@ const BuildingTextarea = (props) => {
   return (
     <>
       <div className="form-section-checkbox">
-        <label>set description?</label>
+        <label>Set description(optional):</label>
         <input
           type="checkbox"
           name=""

@@ -8,7 +8,7 @@ import { customCommonContext } from "@contexts/building-contexts/customCommonCon
 import { list } from "@data/listOfProperities";
 import { useGetLevels } from "@utils/queries/useGetLevels";
 import { arraysEqual } from "@utils/arraysEqual";
-import { Save } from "lucide-react";
+import { Save, Verified } from "lucide-react";
 
 // submit input for handling the creation of a new level
 const BuildingFormSubmit = () => {
@@ -187,9 +187,11 @@ const BuildingFormSubmit = () => {
 
       {errorMessage.invalid ? (
         <ErrorBuilding type={errorMessage.type} duplicate={duplicateName} />
-      ) : errorMessage.type === "done" ? (
-        <span className="correct-level">Level is created</span>
-      ) : null}
+      ) : (
+        errorMessage.type === "done" && (
+          <span className="correct-level">Level is created</span>
+        )
+      )}
     </>
   );
 };
