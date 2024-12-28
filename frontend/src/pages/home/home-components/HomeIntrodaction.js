@@ -22,22 +22,38 @@ const HomeIntrodaction = () => {
   const images = [
     {
       element: (
-        <img className={`current-image ${cssClass}`} src={data[0].img} />
+        <img 
+          className={`current-image ${cssClass}`} 
+          src={data[0].img}
+          alt={data[0].headline}
+        />
       ),
     },
     {
       element: (
-        <img className={`current-image ${cssClass}`} src={data[1].img} />
+        <img 
+          className={`current-image ${cssClass}`} 
+          src={data[1].img}
+          alt={data[1].headline}
+        />
       ),
     },
     {
       element: (
-        <img className={`current-image ${cssClass}`} src={data[2].img} />
+        <img 
+          className={`current-image ${cssClass}`} 
+          src={data[2].img}
+          alt={data[2].headline}
+        />
       ),
     },
     {
       element: (
-        <img className={`current-image ${cssClass}`} src={data[3].img} />
+        <img 
+          className={`current-image ${cssClass}`} 
+          src={data[3].img}
+          alt={data[3].headline}
+        />
       ),
     },
   ];
@@ -69,14 +85,24 @@ const HomeIntrodaction = () => {
     }, timing);
   };
   return (
-    <section className="home-intro">
+    <section className="home-intro" aria-label="Introduction slideshow">
       <div className="home-intro-gallery">
         {images[index].element}
         {prevImage && prevImage}
-        <button className="right" onClick={handleNext} disabled={isLoading}>
+        <button 
+          className="right" 
+          onClick={handleNext} 
+          disabled={isLoading}
+          aria-label="Next slide"
+        >
           <img src={next} alt="" />
         </button>
-        <button className="left" onClick={handlePrev} disabled={isLoading}>
+        <button 
+          className="left" 
+          onClick={handlePrev} 
+          disabled={isLoading}
+          aria-label="Previous slide"
+        >
           <img src={prev} alt="" />
         </button>
         <Signals index={index} setIndex={setIndex} />

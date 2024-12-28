@@ -3,78 +3,148 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="/favicon.ico"
-      sizes="32x32"
+    <!-- Primary Meta Tags -->
+    <title>CSS Game - Interactive Learning Platform for CSS Mastery</title>
+    <meta
+      name="title"
+      content="CSS Game - Interactive Learning Platform for CSS Mastery"
     />
-
-    <!-- SEO Meta Tags -->
-    <title>CSS Game - Learn CSS Styles Through Interactive Gameplay</title>
     <meta
       name="description"
-      content="Enhance your CSS skills with our interactive educational game. Learn and practice CSS styles while having fun!"
+      content="Master CSS through interactive gameplay. Perfect for beginners and intermediate developers. Learn flexbox, grid, and more while having fun!"
+    />
+    <meta name="theme-color" content="#4a90e2" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="CSS game, learn CSS, interactive CSS, web development, CSS tutorial, CSS practice, CSS exercises, web design learning, CSS flexbox, CSS grid"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["WebApplication", "LearningResource"],
+        "name": "CSS Game",
+        "description": "Master CSS through interactive gameplay. Perfect for beginners and intermediate developers learning web styling.",
+        "url": "https://css-game.com",
+        "applicationCategory": "EducationalApplication",
+        "educationalLevel": "Beginner to Intermediate",
+        "learningResourceType": "Interactive Tutorial",
+        "interactivityType": "active",
+        "teaches": [
+          "CSS",
+          "Web Styling",
+          "Web Development",
+          "Frontend Development"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Interactive CSS learning",
+          "Real-time feedback",
+          "Progressive difficulty levels",
+          "Practice exercises",
+          "Custom level creation"
+        ],
+        "screenshot": {
+          "@type": "ImageObject",
+          "url": "https://css-game.com/images/level-17.webp"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "KaiUwe"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CSS Game",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://css-game.com/images/logo.webp"
+          }
+        }
+      }
+    </script>
     <meta property="og:url" content="https://css-game.com/" />
-    <meta property="og:title" content="CSS Game - Master CSS Through Play" />
+    <meta property="og:site_name" content="CSS Game" />
+    <meta
+      property="og:title"
+      content="CSS Game - Learn CSS Through Interactive Challenges"
+    />
     <meta
       property="og:description"
       content="Improve your CSS skills with our engaging educational game. Learn, practice, and excel in CSS styling!"
     />
     <meta
       property="og:image"
-      content="https://css-game.com/path-to-your-image.jpg"
+      content="https://css-game.com/images/level-17.webp"
     />
-
+    <meta property="og:locale" content="en_US" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://css-game.com/" />
     <meta
-      property="twitter:title"
-      content="CSS Game - Interactive CSS Learning"
+      name="twitter:title"
+      content="CSS Game - Interactive CSS Learning Platform"
     />
+    <meta property="twitter:url" content="https://css-game.com/" />
+    <meta name="twitter:title" content="CSS Game - Interactive CSS Learning" />
     <meta
       property="twitter:description"
       content="Level up your CSS skills through our interactive game. Fun, educational, and effective!"
     />
     <meta
       property="twitter:image"
-      content="https://css-game.com/path-to-your-image.jpg"
+      content="https://css-game.com/images/level-17.webp"
     />
 
-    <!-- Additional SEO Tags -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Caveat:wght@400;700&family=Fredoka:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Critical Assets -->
+    <link rel="preload" as="image" href="/images/logo.webp" />
+
+    <!-- Additional SEO -->
+    <link rel="canonical" href="https://css-game.netlify.app/" />
+    <meta name="author" content="Your Name" />
+    <meta name="application-name" content="CSS Game" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="CSS Game" />
+
+    <!-- Security -->
     <meta
-      name="keywords"
-      content="CSS, game, learning, web development, interactive education, styling, web design"
-    />
-    <meta name="author" content="Your Name or Company Name" />
-    <link rel="canonical" href="https://css-game.com/" />
-    <!-- Font preconnect and stylesheet links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
-      rel="stylesheet"
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https://css-backend.vercel.app/graphql;"
     />
   </head>
   <body>
     <div id="result"></div>
+    <noscript>
+      <p>
+        Please enable JavaScript to use CSS Game - an interactive platform for
+        learning CSS.
+      </p>
+    </noscript>
   </body>
 </html>

@@ -4,7 +4,7 @@ import { Key, Mail, User } from "lucide-react";
 import AddEmailModal from "./AddEmailModal";
 import ChangePasswordModal from "./ChangePassworModal";
 
-const BoxProfile2 = ({ user }) => {
+const BoxProfile = ({ user }) => {
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
   const [isChangingPassword, setIsChangingPassword] = useState(false);
 
@@ -57,4 +57,4 @@ const BoxProfile2 = ({ user }) => {
   );
 };
 
-export default BoxProfile2;
+export default BoxProfile;

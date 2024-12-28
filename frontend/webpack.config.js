@@ -61,9 +61,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+      favicon: "./public/favicon.ico"
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "src/_redirects", to: "" }],
+      patterns: [
+        { from: "src/_redirects", to: "" },
+        { from: "public", to: "" }
+      ],
     }),
     new webpack.ProvidePlugin({
       process: "process/browser",

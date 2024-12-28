@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./LevelDashboard.module.css";
-import BoxProfile2 from "./Boxprofile2";
+import BoxProfile from "./Boxprofile";
 import { UserContext } from "@/contexts/UserContext";
 import CreatedLevels from "./LevelesTable/CreatedLevels";
 import useGetUsersLevels from "./hooks/useGetUsersLevels";
@@ -16,7 +16,7 @@ const ProfileDashboard = () => {
 
   return (
     <main className={styles.container}>
-      <BoxProfile2 user={user} />
+      <BoxProfile user={user} />
       <section>
         <h2>Created Levels</h2>
         <CreatedLevels levels={levels} onDelete={refetch} loading={loading} />

@@ -1,0 +1,15 @@
+# https://css-game.com/robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://css-game.com/sitemap.xml
+
+# Disallow potentially sensitive routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+
+# Crawl-delay
+Crawl-delay: 5
