@@ -51,7 +51,7 @@ const DatabaseList = ({ items, userId }) => {
               <li key={index}>
                 <div className="database-list-headline">
                   <p>
-                    {index + 1}. name: {item.name}
+                    {index + 1}. {item.name}
                   </p>
                   <DatabaseButtons
                     levelId={item.id}

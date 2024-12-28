@@ -297,7 +297,7 @@ a.menu__item.active::after {
 }
 @media (width < 100rem) {
   .container-about {
-    width: 80%;
+    width: 90%;
   }
 }
 @media (max-width: 65rem) {

@@ -56,7 +56,7 @@
   padding: 2rem;
   background-color: #0f565f;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
-  max-height: 27rem;
+  height: 27rem;
   overflow-y: auto;
   border-radius: 0 0 0.8rem 0;
   overflow-y: scroll;
@@ -139,6 +139,7 @@
 @media (max-width: 40rem) {
   .building-form {
     max-width: 80vw;
+    max-height: 40vh;
   }
 }
 
@@ -321,6 +322,11 @@ img.select-icon {
   white-space: nowrap;
   margin: 0 auto;
 }
+@media (max-width: 40rem) {
+  .building-warning-label {
+    white-space: normal;
+  }
+}
 
 .GroupOfRestrictions {
   display: flex;
@@ -455,19 +461,30 @@ textarea::placeholder {
 }
 @media (max-width: 40rem) {
   .wrapper-resolver-form {
+    width: 90%;
+    max-width: 90%;
     padding: 1rem;
-    top: 10rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 2rem;
+    left: 0;
+    margin-inline: 5%;
+    border: 2px solid rgba(255, 255, 255, 0.336);
+    border-radius: 0.35rem;
+    background-color: rgba(143, 227, 237, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    z-index: 2;
   }
-  .wrapper-resolver-form::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 0.5rem;
-    background-color: rgba(255, 255, 255, 0.6);
-    filter: blur(4px);
-    z-index: -1;
+}
+
+.resolver-close {
+  display: none;
+}
+@media (max-width: 40rem) {
+  .resolver-close {
+    display: inline-flex;
+    position: sticky;
+    top: 0;
+    left: 100%;
   }
 }
 
@@ -500,18 +517,25 @@ textarea::placeholder {
   font-weight: bold;
   border-bottom: 2px dotted black;
 }
-.building-resolver-form input[type=submit] {
-  border: none;
+.building-resolver-form img {
+  width: 1.5rem;
+}
+
+.button-resolver {
+  display: flex;
+  gap: 0.5rem;
+  place-items: center;
+  border-radius: 0.35rem;
   font-weight: bold;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid #404040;
   width: -moz-fit-content;
   width: fit-content;
   padding-inline: 1rem;
   cursor: pointer;
+  transition: 0.3s;
 }
-.building-resolver-form img {
-  width: 1.5rem;
+.button-resolver:hover {
+  background-color: rgba(128, 128, 128, 0.2666666667);
 }
 
 .correct-level {

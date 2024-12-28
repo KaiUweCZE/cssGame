@@ -36,6 +36,10 @@
     font-size: 1.25rem;
     color: white;
     margin-inline: 0.5rem;
+    white-space: nowrap;
+    @media (width < 43rem) {
+      font-size: 1rem;
+    }
   }
 
   button {

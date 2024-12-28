@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
-import { leftBracket, rightBracket } from "@data/ImagesData";
+import { leftBracket } from "@data/ImagesData";
 import useFormHandlers from "@utils/hooks/useFormHandlers";
 import WarningLabel from "@components/errors/WarningLabel";
+import ResolverButton from "./ResolverButton";
 
 const BuildingFormContainer = (props) => {
   const {
@@ -41,10 +42,7 @@ const BuildingFormContainer = (props) => {
           />
         </div>
       ))}
-      <div className="resolver-box">
-        <img src={rightBracket} alt="" />
-        <input type="submit" value="check" />
-      </div>
+      <ResolverButton />
       {error ? (
         <WarningLabel text="you do not meet the conditions of the allowed/denied list" />
       ) : (

@@ -18,7 +18,7 @@ $exercise-bg: rgb(219, 219, 219);
     section {
       width: 100%;
       margin: 0 auto;
-      margin-top: 1rem;
+      //margin-top: 1rem;
     }
   }
   h2 {
@@ -93,7 +93,7 @@ $exercise-bg: rgb(219, 219, 219);
 .main-headline {
   margin-inline: 1.5rem;
   margin-block: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .main-layout-left {

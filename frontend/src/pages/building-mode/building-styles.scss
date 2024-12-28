@@ -45,7 +45,7 @@
   background-color: lighten($color: $main-color, $amount: 7);
   // background-color: rgba(black, 0.7);
   box-shadow: $primary-shadow;
-  max-height: 27rem;
+  height: 27rem;
   overflow-y: auto;
   border-radius: 0 0 0.8rem 0;
   @include scroll-primary;
@@ -115,6 +115,7 @@
   }
   @include small-screen {
     max-width: 80vw;
+    max-height: 40vh;
   }
 }
 
@@ -290,6 +291,9 @@ img.select-icon {
   font-weight: bold;
   white-space: nowrap;
   margin: 0 auto;
+  @include small-screen {
+    white-space: normal;
+  }
 }
 
 .GroupOfRestrictions {
@@ -410,19 +414,27 @@ textarea {
     grid-template-columns: 1fr;
   }
   @include small-screen {
+    width: 90%;
+    max-width: 90%;
     padding: 1rem;
-    top: 10rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 0.5rem;
-      background-color: rgba(white, 0.6);
-      filter: blur(4px);
-      z-index: -1;
-    }
+    top: 2rem;
+    left: 0;
+    margin-inline: 5%;
+    border: 2px solid rgba(255, 255, 255, 0.336);
+    border-radius: 0.35rem;
+    background-color: rgba(lighten($main-color, 60), 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+  }
+}
+
+.resolver-close {
+  display: none;
+  @include small-screen {
+    display: inline-flex;
+    position: sticky;
+    top: 0;
+    left: 100%;
   }
 }
 
@@ -452,17 +464,25 @@ textarea {
     font-weight: bold;
     border-bottom: 2px dotted black;
   }
-  input[type="submit"] {
-    border: none;
-    font-weight: bold;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    width: fit-content;
-    padding-inline: 1rem;
-    cursor: pointer;
-  }
+
   img {
     width: 1.5rem;
+  }
+}
+
+.button-resolver {
+  display: flex;
+  gap: 0.5rem;
+  place-items: center;
+  border-radius: 0.35rem;
+  font-weight: bold;
+  border: 2px solid #404040;
+  width: fit-content;
+  padding-inline: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: #80808044;
   }
 }
 

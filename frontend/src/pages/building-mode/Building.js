@@ -13,7 +13,7 @@ import { customCommonContext } from "@contexts/building-contexts/customCommonCon
 
 const Building = () => {
   const [open, setOpen] = useState(false);
-  const { styled } = useContext(customCommonContext);
+  const { styled, setStyled } = useContext(customCommonContext);
 
   return (
     <BuildingProvider>
@@ -22,7 +22,7 @@ const Building = () => {
           <div className="building">
             {open ? <SecretText text="buildingInfo" func={setOpen} /> : ""}
             <BuildingForm />
-            {styled ? <ResolveLevel /> : <></>}
+            {styled ? <ResolveLevel setStyled={setStyled} /> : <></>}
             <BuildingArea />
           </div>
           <AsideBox background={buildingBackground} cssClass="workshop">

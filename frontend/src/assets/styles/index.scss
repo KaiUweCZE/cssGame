@@ -304,7 +304,7 @@ a.menu__item {
   @include scroll-primary;
   // styles for medium screen 65rem
   @media (width < 100rem) {
-    width: 80%;
+    width: 90%;
   }
   @include medium-screen {
     grid-template-columns: repeat(2, 1fr);
