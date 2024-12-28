@@ -6,7 +6,7 @@ import next from "@images/icons/right-arrow.webp";
 import refIcon from "@images/icons/refresh.png";
 
 const MessageResult = () => {
-  const { resultText } = useContext(ResultContext);
+  const { resultText, setResultText } = useContext(ResultContext);
   const { nextLevel, level } = useSetLevel();
 
   const handleRefresh = () => {
@@ -23,7 +23,7 @@ const MessageResult = () => {
         {resultText}
       </h2>
       {resultText === "Oops" && resultText ? (
-        <button className="retry-button" onClick={() => handleRefresh()}>
+        <button className="retry-button" onClick={handleRefresh}>
           <img className="retry" src={refIcon} alt="" width={16} height={16} />
           <span>retry</span>
         </button>

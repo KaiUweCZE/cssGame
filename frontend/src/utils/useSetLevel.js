@@ -8,10 +8,9 @@ export const useSetLevel = () => {
   const { setStyle, setLevel, level } = useContext(LevelContext);
   const navigate = useNavigate();
 
-  const nextLevel = (level) => {
+  const toLevel = (level) => {
     const currentLevel = levelData.find((e) => e.id === level);
     setResult(currentLevel.id);
-    console.log(currentLevel);
     setLevel(currentLevel);
     console.log("current level", currentLevel);
     setStyle({
@@ -22,5 +21,18 @@ export const useSetLevel = () => {
     navigate("/game");
   };
 
-  return { nextLevel, level };
+  const nextLevel = (level) => {
+    const currentLevel = levelData.find((e) => e.id === level);
+    setResult(currentLevel.id);
+    setLevel(currentLevel);
+    console.log("current level", currentLevel);
+    setStyle({
+      container: currentLevel.containerStyles,
+      bridge: currentLevel.bridgeStyles,
+      partOfBridge: currentLevel.partOfBridgeStyles,
+    });
+    window.location.href = "/game";
+  };
+
+  return { toLevel, nextLevel, level };
 };

@@ -32,7 +32,7 @@ const ROADMAP_LEVELS = [
 const RoadMap = () => {
   const { user } = useContext(UserContext);
   const level = user.level;
-  const { nextLevel } = useSetLevel();
+  const { toLevel } = useSetLevel();
 
   return (
     <div
@@ -43,7 +43,7 @@ const RoadMap = () => {
         {ROADMAP_LEVELS.map((levelData) => (
           <RoadmapLevel
             key={levelData.num}
-            onClick={() => nextLevel(levelData.num)}
+            onClick={() => toLevel(levelData.num)}
             specialClass={levelData.specialClass}
             num={levelData.num}
             level={level}
