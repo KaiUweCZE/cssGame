@@ -18,7 +18,11 @@ const BuildingArea = () => {
     : "";
 
   return (
-    <div className="building-area">
+    <div 
+      className="building-area" 
+      role="region" 
+      aria-label="Interactive building preview area"
+    >
       <CustomBridge containerStyle={containerStyle} bridgeStyle={bridgeStyle} />
     </div>
   );

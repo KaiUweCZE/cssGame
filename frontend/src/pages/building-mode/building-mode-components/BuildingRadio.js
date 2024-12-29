@@ -11,8 +11,12 @@ const BuildingRadio = (props) => {
     props.maximumNumber(selectedValue);
   };
   return (
-    <div className="radio-container">
-      <label htmlFor="">How many inputs the user can use for styling?</label>
+    <div 
+      className="radio-container" 
+      role="group" 
+      aria-labelledby="input-count-label"
+    >
+      <label id="input-count-label">How many inputs the user can use for styling?</label>
       <div className="radio-box">
         <label className={select === 1 ? "active" : ""}>
           <input
@@ -20,6 +24,8 @@ const BuildingRadio = (props) => {
             name="number"
             value="1"
             onClick={(e) => handleSelect(e.target.value)}
+            checked={select === 1}
+            aria-label="1 input"
           />{" "}
           1
         </label>
@@ -29,6 +35,8 @@ const BuildingRadio = (props) => {
             name="number"
             value="2"
             onClick={(e) => handleSelect(e.target.value)}
+            checked={select === 2}
+            aria-label="2 inputs"
           />{" "}
           2
         </label>
@@ -38,6 +46,8 @@ const BuildingRadio = (props) => {
             name="number"
             value="3"
             onClick={(e) => handleSelect(e.target.value)}
+            checked={select === 3}
+            aria-label="3 inputs"
           />{" "}
           3
         </label>
@@ -47,6 +57,8 @@ const BuildingRadio = (props) => {
             name="number"
             value="4"
             onClick={(e) => handleSelect(e.target.value)}
+            checked={select === 4}
+            aria-label="4 inputs"
           />{" "}
           4
         </label>

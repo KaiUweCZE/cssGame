@@ -18,8 +18,16 @@ const Building = () => {
   return (
     <BuildingProvider>
       <RestrictionProvider>
-        <div className="wrapper-building">
-          <div className="building">
+        <div
+          className="wrapper-building"
+          role="main"
+          aria-label="Building mode workspace"
+        >
+          <div
+            className="building"
+            role="region"
+            aria-label="Building area and controls"
+          >
             {open ? <SecretText text="buildingInfo" func={setOpen} /> : ""}
             <BuildingForm />
             {styled ? <ResolveLevel setStyled={setStyled} /> : <></>}
@@ -30,6 +38,17 @@ const Building = () => {
               className="drawer drawer-one"
               style={{ backgroundImage: `url(${drawerImg})` }}
               onClick={() => setOpen(!open)}
+              role="button"
+              aria-label="Toggle building information"
+              aria-expanded={open}
+              tabIndex="0"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setOpen(!open);
+                } else if (e.key === "Escape") {
+                  setOpen(false);
+                }
+              }}
             ></div>
           </AsideBox>
         </div>

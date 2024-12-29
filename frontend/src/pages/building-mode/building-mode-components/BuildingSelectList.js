@@ -23,12 +23,17 @@ const BuildingSelectList = () => {
   };
   return (
     <>
-      <div className="form-section-select">
-        <label htmlFor="">
+      <div className="form-section-select" role="group" aria-labelledby="list-type-label">
+        <label id="list-type-label" htmlFor="options">
           You can set a list of allowed/denied properties:
         </label>
         <div className="select-wrapper">
-          <select name="options" id="options" onChange={handleSelect}>
+          <select 
+            name="options" 
+            id="options" 
+            onChange={handleSelect}
+            aria-label="Select property list type"
+          >
             <option className="hoverer" value="0">
               You can select here
             </option>
@@ -41,6 +46,7 @@ const BuildingSelectList = () => {
             width="16"
             height="16"
             alt="dropdown icon"
+            aria-hidden="true"
           />
         </div>
       </div>

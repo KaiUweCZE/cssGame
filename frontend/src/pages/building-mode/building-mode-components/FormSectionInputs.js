@@ -27,31 +27,66 @@ const FormSectionInputs = (props) => {
   }, [properties]);
 
   return (
-    <div className="form-section ">
+    <div
+      className="form-section"
+      role="group"
+      aria-labelledby={`${props.label}-section-label`}
+    >
       <div>
-        <label htmlFor="">.{props.label}</label>
+        <label id={`${props.label}-section-label`} htmlFor={`id_0_1`}>
+          .{props.label}
+        </label>
         <div className="form-buttons-group">
           <img
             className={number === 4 ? "deactivated" : ""}
             src={plusIcon}
-            alt=""
+            alt="Add new property input"
             onClick={() => {
-              handleAdd(props.label, number, setNumber);
-              setResult(false);
+              if (number < 4) {
+                handleAdd(props.label, number, setNumber);
+                setResult(false);
+              }
+            }}
+            role="button"
+            tabIndex="0"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                if (number < 4) {
+                  handleAdd(props.label, number, setNumber);
+                  setResult(false);
+                }
+              }
             }}
           />
           <img
             src={minusIcon}
-            alt=""
+            alt="Remove last property input"
             onClick={() => {
-              handleRemove(props.label, number, setNumber);
-              setResult(false);
+              if (number > 1) {
+                handleRemove(props.label, number, setNumber);
+                setResult(false);
+              }
+            }}
+            role="button"
+            tabIndex="0"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                if (number > 1) {
+                  handleRemove(props.label, number, setNumber);
+                  setResult(false);
+                }
+              }
             }}
           />
         </div>
       </div>
       {Array.from({ length: number }, (_, index) => (
-        <div key={index} className="group-inputs">
+        <div
+          key={index}
+          className="group-inputs"
+          role="group"
+          aria-label={`Property input group ${index + 1}`}
+        >
           <input
             type="text"
             name={`name_${index}`}
@@ -60,6 +95,7 @@ const FormSectionInputs = (props) => {
               setResult(false);
               handlePropertyChange(index, e.target.value, props.label);
             }}
+            aria-label={`CSS property ${index + 1}`}
           />
           <input
             type="text"
@@ -69,6 +105,7 @@ const FormSectionInputs = (props) => {
               setResult(false);
               handleValueChange(index, e.target.value, props.label);
             }}
+            aria-label={`Value for property ${index + 1}`}
           />
         </div>
       ))}

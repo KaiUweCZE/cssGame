@@ -1,38 +1,34 @@
 import React from "react";
 
-const ErrorBuilding = (props) => {
-  const renderMessage = () => {
-    switch (props.type) {
-      case "no-name":
-        return <p>Name of the level is required</p>;
-      case "no-styles":
-        return (
-          <p>
-            Properties and values must be filled in for at least one element
-          </p>
-        );
-      case "not-unique-name":
-        return <p>This level name exists</p>;
+const errorMessages = {
+  "no-name": "Name of the level is required",
+  "no-styles":
+    "Properties and values must be filled in for at least one element",
+  "not-unique-name": "This level name exists",
+  "result-false": "You must prove that the level is solvable",
+  invalid: "Invalid css properties",
+  "duplicate-properties": (duplicate) =>
+    `Your setup is very similar with this level: ${duplicate}`,
+};
 
-      case "result-false":
-        return <p>You must prove that the level is solvable</p>;
+const ErrorBuilding = ({ type, duplicate }) => {
+  const message =
+    typeof errorMessages[type] === "function"
+      ? errorMessages[type](duplicate)
+      : errorMessages[type];
 
-      case "invalid":
-        return <p>Invalid css properties</p>;
+  if (!message) return null;
 
-      case "duplicite-name":
-        return <p>This level name exists</p>;
-
-      case "duplicate-properties":
-        return (
-          <p>Your setup is very similar with this level: {props.duplicate}</p>
-        );
-
-      default:
-        break;
-    }
-  };
-  return <div className="error-building">{renderMessage()}</div>;
+  return (
+    <div
+      className="error-building"
+      role="alert"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <p>{message}</p>
+    </div>
+  );
 };
 
 export default ErrorBuilding;

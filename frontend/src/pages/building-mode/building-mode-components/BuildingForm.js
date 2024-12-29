@@ -27,18 +27,24 @@ const BuildingForm = () => {
   }, [change]);
 
   return (
-    <form className="building-form" action="">
-      <div className="form-section">
-        <label htmlFor="">Name of the level:</label>
+    <form 
+      className="building-form" 
+      action=""
+      role="form"
+      aria-label="Level building configuration form"
+    >
+      <div className="form-section" role="group" aria-label="Level name input">
+        <label htmlFor="level-name">Name of the level:</label>
         <input
           type="text"
-          name=""
-          id=""
+          name="level-name"
+          id="level-name"
           maxLength={20}
           onChange={(e) => setLevelName(e.target.value)}
+          aria-required="true"
         />
       </div>
-      <div className="bridge-elements">
+      <div className="bridge-elements" role="region" aria-label="Style configuration section">
         <h3>Set own styles:</h3>
         <FormSectionInputs label="bridge" />
         <FormSectionInputs label="container" />
@@ -46,7 +52,7 @@ const BuildingForm = () => {
       <BuildingRadio maximumNumber={setMaximumNumber} />
       <BuildingSelectList />
       <BuildingTextarea description={setDescription} />
-      <div className="building-form-box">
+      <div className="building-form-box" role="group" aria-label="Form actions">
         <VerifyButton />
         <BuildingFormSubmit />
       </div>

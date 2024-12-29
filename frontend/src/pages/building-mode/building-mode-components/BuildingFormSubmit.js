@@ -165,7 +165,7 @@ const BuildingFormSubmit = () => {
         });
         setDisable(true);
       } catch (error) {
-        console.log("Error while creating the level:", err.message);
+        console.log("Error while creating the level:", error.message);
       }
     }
   };
@@ -176,11 +176,18 @@ const BuildingFormSubmit = () => {
         type="submit"
         disabled={disable}
         onClick={handleCreateLevel}
+        aria-label={
+          errorMessage.type === "done"
+            ? "Level saved successfully"
+            : "Save level"
+        }
+        aria-disabled={disable}
+        aria-busy={loading}
       >
         {errorMessage.type === "done" ? (
-          <Verified color="#69c972" />
+          <Verified color="#69c972" aria-hidden="true" />
         ) : (
-          <Save color="white" />
+          <Save color="white" aria-hidden="true" />
         )}{" "}
         <span>Save Level</span>
       </button>
@@ -189,7 +196,9 @@ const BuildingFormSubmit = () => {
         <ErrorBuilding type={errorMessage.type} duplicate={duplicateName} />
       ) : (
         errorMessage.type === "done" && (
-          <span className="correct-level">Level is created</span>
+          <span className="correct-level" role="status" aria-live="polite">
+            Level is created
+          </span>
         )
       )}
     </>
