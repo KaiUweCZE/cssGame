@@ -62,27 +62,58 @@ const SignUpForm = () => {
   if (registered) return <LoginMessage />;
 
   return (
-    <form className="login-form" onSubmit={handleCreateUser}>
+    <form
+      className="login-form"
+      onSubmit={handleCreateUser}
+      id="signup-form"
+      role="tabpanel"
+      aria-labelledby="signup-tab"
+    >
       <input
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        id="signup-username"
+        name="username"
+        required
+        aria-required="true"
+        aria-describedby={error ? "signup-error" : undefined}
       />
       <input
         type="email"
         placeholder="Email is optional"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        id="signup-email"
+        name="email"
+        aria-required="false"
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        id="signup-password"
+        name="password"
+        required
+        aria-required="true"
+        aria-describedby={error ? "signup-error" : undefined}
       />
-      <button type="submit">Sign Up</button>
-      {error && <WarningLabel text="Error occurs" />}
+      <button
+        type="submit"
+        aria-label="Create new account"
+      >
+        Sign Up
+      </button>
+      {error && (
+        <WarningLabel
+          text="Error occurs"
+          id="signup-error"
+          role="alert"
+          aria-live="assertive"
+        />
+      )}
     </form>
   );
 };

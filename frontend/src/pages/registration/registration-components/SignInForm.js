@@ -54,22 +54,48 @@ const SignInForm = () => {
   if (loading) return <Loader />;
 
   return (
-    <form className="login-form" onSubmit={handleLogin}>
+    <form 
+      className="login-form" 
+      onSubmit={handleLogin}
+      id="signin-form"
+      role="tabpanel"
+      aria-labelledby="signin-tab"
+    >
       <input
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        id="username-input"
+        name="username"
+        required
+        aria-required="true"
+        aria-describedby={error ? "login-error" : undefined}
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        id="password-input"
+        name="password"
+        required
+        aria-required="true"
+        aria-describedby={error ? "login-error" : undefined}
       />
-      <button type="submit">Sign In</button>
+      <button 
+        type="submit"
+        aria-label="Sign in to your account"
+      >
+        Sign In
+      </button>
       {error ? (
-        <WarningLabel text="this username or password is not valid" />
+        <WarningLabel 
+          text="this username or password is not valid" 
+          id="login-error"
+          role="alert"
+          aria-live="assertive"
+        />
       ) : null}
     </form>
   );
