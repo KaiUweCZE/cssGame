@@ -7,7 +7,7 @@ import { ResultContext } from "@contexts/form-contexts/resultContext";
 import { ContainerContext } from "@contexts/form-contexts/containerContext";
 import { PartsContext } from "@contexts/form-contexts/partsContext";
 import AboutClass from "../about-class-components/AboutClass";
-import Obstacle from "../Obstacle";
+import Obstacle from "@components/game/Obstacle";
 import OneBridgeElement from "./OneBridgeElement";
 import ManyBridgeElement from "./ManyBridgeElement";
 import MasterBridgeElement from "./MasterBridgeElement";

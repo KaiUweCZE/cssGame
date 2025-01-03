@@ -1,8 +1,8 @@
 import React from "react";
-import StartPoint from "../../../components/StartPoint";
+import StartPoint from "@components/game/StartPoint";
 import CrossRoad from "./CrossRoad";
-import EndPoint from "@components/EndPoint";
-import MainEmoji from "@components/Emojis/MainEmoji";
+import EndPoint from "@components/game/EndPoint";
+import MainEmoji from "@components/emojis/MainEmoji";
 
 const PlayGround = () => {
   return (

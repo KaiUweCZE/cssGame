@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { aboutLevelData } from "@/pages/academy/data/AboutLevelData";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "@contexts/UserContext";
-import AsideBox from "@components/AsideBox";
+import AsideBox from "@/components/aside/AsideBox";
 import academyImg from "@images/academy2.webp";
 import book1Img from "@images/book1.webp";
 import book2Img from "@images/book2.webp";
-import SecretText from "@components/SecretText";
+import SecretText from "@components/aside/SecretText";
 import paperBg from "@images/paper.webp";
 
 //I need to try subgrid

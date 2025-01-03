@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as BR, Route, Routes } from "react-router-dom";
-import SharedLayout from "./components/SharedLayout";
+import SharedLayout from "@components/layouts/SharedLayout";
 import Home from "@pages/home/Home";
 import Game from "@pages/game/Game";
 import Academy from "@pages/academy/Academy";
 import Registration from "@pages/registration/Registration";
-import { ApolloClientProvider } from "./client";
+import { ApolloClientProvider } from "./services/client";
 import { UserContextProvider } from "./contexts/UserContext";
 import RoadMap from "@pages/road-map/RoadMap";
-import ProtectedLayout from "./components/ProtectedLayout";
+import ProtectedLayout from "./components/layouts/ProtectedLayout";
 import { LevelProvider } from "@contexts/form-contexts/levelContext";
 import LevelInfo from "@pages/academy/LevelInfo";
 import Building from "@pages/building-mode/Building";

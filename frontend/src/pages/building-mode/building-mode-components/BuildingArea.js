@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import CustomBridge from "@components/CustomBridge";
-import useSetStyle from "@utils/hooks/useSetStyle";
+import useSetStyle from "@/hooks/useSetStyle";
 
 const BuildingArea = () => {
   const {

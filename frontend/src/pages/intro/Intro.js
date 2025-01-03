@@ -3,8 +3,8 @@ import "./intro-styles.css";
 import IntroSlide from "./IntroSlide";
 import firstImg from "@images/firstScene.webp";
 import { slideData } from "./data/slideData";
-import Loader from "@components/Loader";
-import useWindowSize from "@utils/hooks/useWindowSize";
+import Loader from "@/components/feedback/Loader";
+import useWindowSize from "@/hooks/useWindowSize";
 
 const Intro = () => {
   const [slideId, setSlideId] = useState(1);

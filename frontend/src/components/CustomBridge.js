@@ -1,9 +1,9 @@
 import { barkTexture } from "@data/ImagesData";
 import React, { useRef, useEffect, useContext } from "react";
 import OneBridgeElement from "./bridge-components/OneBridgeElement";
-import StartPoint from "./StartPoint";
-import River from "./River";
-import EndPoint from "./EndPoint";
+import StartPoint from "./game/StartPoint";
+import River from "./game/River";
+import EndPoint from "./game/EndPoint";
 import CheckPoint from "./bridge-components/CheckPoint";
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 import useCompletedLevel from "@utils/queries/useCompletedLevel";

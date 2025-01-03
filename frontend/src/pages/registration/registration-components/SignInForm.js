@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "@contexts/UserContext";
-import Loader from "@components/Loader";
+import Loader from "@/components/feedback/Loader";
 import { useNavigate } from "react-router-dom";
 import WarningLabel from "@components/errors/WarningLabel";
 

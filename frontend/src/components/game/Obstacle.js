@@ -1,5 +1,5 @@
 import React from "react";
-import { stoneImg } from "../data/ImagesData";
+import { stoneImg } from "@data/ImagesData";
 
 const Obstacle = () => {
 

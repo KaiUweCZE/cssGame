@@ -2,7 +2,7 @@ import CustomBridge from "@components/CustomBridge";
 import CustomFormContainer from "@pages/database/CustomFormContainer";
 import EmptyBox from "@components/EmptyBox";
 import { customContainerContext } from "@contexts/building-contexts/customContainerContext";
-import useSetStyle from "@utils/hooks/useSetStyle";
+import useSetStyle from "@/hooks/useSetStyle";
 import { useGetLevel } from "@utils/queries/useGetLevel";
 import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";

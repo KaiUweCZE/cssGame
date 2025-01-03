@@ -1,5 +1,5 @@
 import React from "react";
-import { texts } from "../data/secretData";
+import { texts } from "@data/secretData";
 import SecretTextBuilding from "./SecretTextBuilding";
 import SecretTextStandard from "./SecretTextStandard";
 

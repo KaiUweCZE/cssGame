@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./home-style.css";
-import useScrollPosition from "@utils/hooks/useScrollPosition";
+import useScrollPosition from "@/hooks/useScrollPosition";
 import HomeIntrodaction from "./home-components/HomeIntrodaction";
 import DemoHome from "./home-components/DemoHome";
 

@@ -14,6 +14,6 @@
     },
     "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": ["src/**/*", "../src/intro-components", "../src/IntroOld.js"],
+  "include": ["src/**/*", "../src/intro-components", "../src/IntroOld.js", "src/hooks"],
   "exclude": ["node_modules"]
 }

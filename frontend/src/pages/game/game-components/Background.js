@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Mission from "./Mission";
 import "@styles/game-styles.css";
-import AsideBox from "@components/AsideBox";
+import AsideBox from "@/components/aside/AsideBox";
 import heroBackground from "@images/game-aside.webp";
 import InfoBox from "./InfoBox";
 

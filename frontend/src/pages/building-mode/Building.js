@@ -4,10 +4,10 @@ import BuildingArea from "@pages/building-mode/building-mode-components/Building
 import BuildingForm from "@pages/building-mode/building-mode-components/BuildingForm";
 import { RestrictionProvider } from "@contexts/building-contexts/restrictionContext";
 import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
-import AsideBox from "../../components/AsideBox";
+import AsideBox from "../../components/aside/AsideBox";
 import buildingBackground from "@images/workshop3.webp";
 import drawerImg from "@images/drawer.webp";
-import SecretText from "@components/SecretText";
+import SecretText from "@components/aside/SecretText";
 import ResolveLevel from "./building-mode-components/ResolveLevel";
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 

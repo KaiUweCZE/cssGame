@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { gql, useQuery } from "@apollo/client";
 import "./database-styles.css";
-import AsideBox from "../../components/AsideBox";
+import AsideBox from "../../components/aside/AsideBox";
 import officeBackground from "@images/office.webp";
 import DatabaseList from "./database-components/DatabaseList";
 import { BuildingProvider } from "@contexts/building-contexts/buildingForm";
 import { CustomContainerProvider } from "@contexts/building-contexts/customContainerContext";
-import ProgressBar from "@components/ProgressBar";
+import ProgressBar from "@/components/feedback/ProgressBar";
 import { UserContext } from "@/contexts/UserContext";
 
 const GET_LEVELS = gql`

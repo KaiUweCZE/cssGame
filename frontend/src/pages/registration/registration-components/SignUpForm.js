@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
-import Loader from "@components/Loader";
+import Loader from "@/components/feedback/Loader";
 import WarningLabel from "@components/errors/WarningLabel";
 import LoginMessage from "./LoginMessage";
 import { SEND_CONFIRMATION_EMAIL } from "@/utils/queries/sendEmail";
