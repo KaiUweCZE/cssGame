@@ -15,15 +15,23 @@ const ProfileDashboard = () => {
   );
 
   return (
-    <main className={styles.container}>
+    <main className={styles.container} role="main" aria-label="User Profile Dashboard">
       <BoxProfile user={user} />
-      <section>
-        <h2>Created Levels</h2>
-        <CreatedLevels levels={levels} onDelete={refetch} loading={loading} />
+      <section aria-labelledby="created-levels-heading">
+        <h2 id="created-levels-heading">Created Levels</h2>
+        <CreatedLevels 
+          levels={levels} 
+          onDelete={refetch} 
+          loading={loading} 
+          aria-busy={loading}
+        />
       </section>
-      <section>
-        <h2>Played Levels</h2>
-        <PlayedLevels userId={user.id} completedLevels={user.completedLevels} />
+      <section aria-labelledby="played-levels-heading">
+        <h2 id="played-levels-heading">Played Levels</h2>
+        <PlayedLevels 
+          userId={user.id} 
+          completedLevels={user.completedLevels} 
+        />
       </section>
     </main>
   );

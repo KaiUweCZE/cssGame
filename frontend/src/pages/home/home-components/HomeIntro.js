@@ -4,7 +4,7 @@ import Signals from "./Signals";
 import next from "@images/icons/nextIcon.svg";
 import prev from "@images/icons/prevIcon.svg";
 
-const HomeIntrodaction = () => {
+const HomeIntro = () => {
   const [index, setIndex] = useState(0);
   const [prevImage, setPrevImage] = useState();
   const [cssClass, setCssClass] = useState("");
@@ -115,4 +115,4 @@ const HomeIntrodaction = () => {
   );
 };
 
-export default HomeIntrodaction;
+export default HomeIntro;

@@ -71,10 +71,16 @@ const AddEmailModal = ({ isOpen, onClose, userId }) => {
   };
 
   return (
-    <div className={styles.modalOverlay} onClick={handleOverlayClick}>
+    <div 
+      className={styles.modalOverlay} 
+      onClick={handleOverlayClick}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="email-modal-title"
+    >
       <div className={styles.modal}>
         <div className={styles.modalHeader}>
-          <h3 className={styles.modalTitle}>
+          <h3 className={styles.modalTitle} id="email-modal-title">
             {success ? "Email Added Successfully" : "Add Email Address"}
           </h3>
           <button
@@ -85,14 +91,19 @@ const AddEmailModal = ({ isOpen, onClose, userId }) => {
               setError("");
               setSuccess(false);
             }}
+            aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
         {success ? (
-          <div className={styles.successMessage}>
-            <CheckCircle className="w-6 h-6 text-green-500" />
+          <div 
+            className={styles.successMessage}
+            role="status"
+            aria-live="polite"
+          >
+            <CheckCircle className="w-6 h-6 text-green-500" aria-hidden="true" />
             <p>Verification email has been sent to {email}</p>
             <p className={styles.successSubtext}>
               Please check your inbox to verify your email address

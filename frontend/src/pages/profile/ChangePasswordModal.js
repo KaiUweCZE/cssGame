@@ -51,10 +51,16 @@ const ChangePasswordModal = ({ isOpen, onClose, userId }) => {
   if (!isOpen) return null;
 
   return (
-    <div className={styles.modalOverlay} onClick={handleOverlayClick}>
+    <div 
+      className={styles.modalOverlay} 
+      onClick={handleOverlayClick}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="password-modal-title"
+    >
       <div className={styles.modal}>
         <div className={styles.modalHeader}>
-          <h3 className={styles.modalTitle}>
+          <h3 className={styles.modalTitle} id="password-modal-title">
             {success ? "Password Changed Successfully" : "Change Password"}
           </h3>
           <button
@@ -65,8 +71,9 @@ const ChangePasswordModal = ({ isOpen, onClose, userId }) => {
               setConfirmPassword("");
               setSuccess(false);
             }}
+            aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
@@ -98,7 +105,9 @@ const ChangePasswordModal = ({ isOpen, onClose, userId }) => {
                   }}
                   placeholder="Enter new password"
                   required
-                  //minLength={8}
+                  aria-required="true"
+                  aria-invalid={error ? "true" : "false"}
+                  aria-describedby={error ? "password-error" : undefined}
                 />
               </div>
             </div>
@@ -121,14 +130,20 @@ const ChangePasswordModal = ({ isOpen, onClose, userId }) => {
                   }}
                   placeholder="Confirm new password"
                   required
-                  //minLength={8}
+                  aria-required="true"
+                  aria-invalid={error ? "true" : "false"}
+                  aria-describedby={error ? "password-error" : undefined}
                 />
               </div>
             </div>
 
             {error && (
-              <div className={styles.errorMessage}>
-                <AlertCircle className="w-4 h-4 text-red-500" />
+              <div 
+                className={styles.errorMessage}
+                role="alert"
+                aria-live="assertive"
+              >
+                <AlertCircle className="w-4 h-4 text-red-500" aria-hidden="true" />
                 <p className={styles.error}>{error}</p>
               </div>
             )}
@@ -150,6 +165,7 @@ const ChangePasswordModal = ({ isOpen, onClose, userId }) => {
                 type="submit"
                 className={styles.submitButton}
                 disabled={isSubmitting || !password || !confirmPassword}
+                aria-busy={isSubmitting}
               >
                 {isSubmitting ? "Changing..." : "Change Password"}
               </button>

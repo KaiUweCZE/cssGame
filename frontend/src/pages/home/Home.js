@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./home-style.css";
 import useScrollPosition from "@/hooks/useScrollPosition";
-import HomeIntrodaction from "./home-components/HomeIntrodaction";
+import HomeIntro from "./home-components/HomeIntro";
 import DemoHome from "./home-components/DemoHome";
 
 const Home = () => {
@@ -9,8 +9,8 @@ const Home = () => {
 
   return (
     <main className="container-home">
-      <HomeIntrodaction />
-      {/*<DemoHome />*/}
+      <HomeIntro />
+      {/* <DemoHome /> */}
     </main>
   );
 };
