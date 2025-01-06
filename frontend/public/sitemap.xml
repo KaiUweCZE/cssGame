@@ -3,51 +3,59 @@
   <!-- Homepage -->
   <url>
     <loc>https://css-game.com/</loc>
-    <lastmod>2024-12-28</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-01-06</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Main Sections -->
+  <!-- Core Game Features -->
   <url>
-    <loc>https://css-game.com/academy</loc>
-    <lastmod>2024-12-28</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://css-game.com/game</loc>
+    <lastmod>2024-01-06</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <description>Interactive CSS learning game</description>
   </url>
 
   <url>
-    <loc>https://css-game.com/roadmap</loc>
-    <lastmod>2024-12-28</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://css-game.com/academy</loc>
+    <lastmod>2024-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <description>Learn CSS through interactive academy lessons</description>
+  </url>
+
+  <!-- Database - frequently updated by users -->
+  <url>
+    <loc>https://css-game.com/database</loc>
+    <lastmod>2024-01-06</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <description>Comprehensive CSS property database</description>
+  </url>
+
+  <!-- Supporting Features -->
+  <url>
+    <loc>https://css-game.com/roadmap</loc>
+    <lastmod>2024-01-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <description>Your learning path to CSS mastery</description>
   </url>
 
   <url>
     <loc>https://css-game.com/building</loc>
-    <lastmod>2024-12-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://css-game.com/database</loc>
-    <lastmod>2024-12-28</lastmod>
+    <lastmod>2024-01-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <description>Practice CSS by building real projects</description>
   </url>
 
+  <!-- Auth -->
   <url>
-    <loc>https://css-game.com/intro</loc>
-    <lastmod>2024-12-28</lastmod>
+    <loc>https://css-game.com/login</loc>
+    <lastmod>2024-01-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://css-game.com/profile</loc>
-    <lastmod>2024-12-28</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>

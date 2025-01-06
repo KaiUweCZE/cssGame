@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./ErrorPage.module.css";
 import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
+
+  useEffect(() => {
+    document.title = '404 - Page Not Found | CSS Game';
+  }, []);
+  
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
