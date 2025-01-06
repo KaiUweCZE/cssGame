@@ -60,7 +60,7 @@ const Clouds = () => {
       <div className="background-clouds">
         <img
           src={clouds[0]}
-          alt=""
+          alt="cloud in the background"
           style={{
             top: `${position.cloud1.top}rem`,
             left: `${position.cloud1.left}rem`,
@@ -69,7 +69,7 @@ const Clouds = () => {
         />
         <img
           src={clouds[1]}
-          alt=""
+          alt="cloud in the background"
           style={{
             top: `${position.cloud2.top}rem`,
             left: `${position.cloud2.left}rem`,
@@ -78,7 +78,7 @@ const Clouds = () => {
         />
         <img
           src={clouds[2]}
-          alt=""
+          alt="cloud in the background"
           style={{
             top: `${position.cloud3.top}rem`,
             left: `${position.cloud3.left}rem`,
@@ -89,7 +89,7 @@ const Clouds = () => {
       <div className="background-clouds-second">
         <img
           src={clouds[1]}
-          alt=""
+          alt="cloud in the background"
           style={{
             top: `${position.cloud2.top}rem`,
             left: `${position.cloud4.left}rem`,
@@ -98,7 +98,7 @@ const Clouds = () => {
         />
         <img
           src={clouds[0]}
-          alt=""
+          alt="cloud in the background"
           style={{
             top: `${position.cloud4.top}rem`,
             left: `${position.cloud5.left}rem`,
@@ -107,7 +107,7 @@ const Clouds = () => {
         />
         <img
           src={clouds[4]}
-          alt=""
+          alt="cloud in the background"
           style={{
             top: `${position.cloud5.top}rem`,
             left: `${position.cloud4.left}rem`,

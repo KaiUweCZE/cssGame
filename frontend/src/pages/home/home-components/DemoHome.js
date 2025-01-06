@@ -6,7 +6,12 @@ const DemoHome = () => {
   return (
     <>
       <section className="home-section">
-        <img src={homeIntro[0].img} alt="map background" width={600} />
+        <img 
+          src={homeIntro[0].img} 
+          alt="Interactive CSS game map showing available levels and progression" 
+          width={600}
+          loading="lazy"
+        />
         <article>
           <h2>Map</h2>
           <p>
@@ -17,7 +22,12 @@ const DemoHome = () => {
         </article>
       </section>
       <section className="home-section even">
-        <img src={homeIntro[1].img} alt="map background" width={600} />
+        <img 
+          src={homeIntro[1].img} 
+          alt="CSS Academy interface showcasing learning materials and tutorials" 
+          width={600}
+          loading="lazy"
+        />
         <article>
           <h2>Game</h2>
           <p>
@@ -29,7 +39,12 @@ const DemoHome = () => {
       </section>
 
       <section className="home-section ">
-        <img src={homeIntro[2].img} alt="map background" width={600} />
+        <img 
+          src={homeIntro[2].img} 
+          alt="CSS Academy interface with unlocked articles, videos, and applications" 
+          width={600}
+          loading="lazy"
+        />
         <article>
           <h2>Academy</h2>
           <p>
@@ -37,8 +52,14 @@ const DemoHome = () => {
           articles, CSS videos, and useful applications that you can leverage in your projects.
           </p>
         </article>
-      </section>  <section className="home-section even">
-        <img src={homeIntro[3].img} alt="map background" width={600} />
+      </section>  
+      <section className="home-section even">
+        <img 
+          src={homeIntro[3].img} 
+          alt="Level editor for creating custom CSS challenges and testing skills" 
+          width={600}
+          loading="lazy"
+        />
         <article>
           <h2>Building</h2>
           <p>

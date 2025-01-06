@@ -95,7 +95,7 @@ const HomeIntro = () => {
           disabled={isLoading}
           aria-label="Next slide"
         >
-          <img src={next} alt="" />
+          <img src={next} alt="arrow to the right" />
         </button>
         <button 
           className="left" 
@@ -103,7 +103,7 @@ const HomeIntro = () => {
           disabled={isLoading}
           aria-label="Previous slide"
         >
-          <img src={prev} alt="" />
+          <img src={prev} alt="arrow to the left" />
         </button>
         <Signals index={index} setIndex={setIndex} />
       </div>

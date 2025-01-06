@@ -10,7 +10,12 @@ const TipSection = ({ tip, video }) => {
     <section className="dernier">
       <article className="tip-article">
         <span>
-          <img className="tip-icon" src={videoIcon} alt="" />
+          <img 
+            className="tip-icon" 
+            src={videoIcon} 
+            alt="Video tutorial icon" 
+            loading="lazy"
+          />
           <h3>Video</h3>
         </span>
         <div className="academy-tip">
