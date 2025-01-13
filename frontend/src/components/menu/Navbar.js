@@ -87,7 +87,7 @@ const Navbar = () => {
               </>
             )}
           </ul>
-          {settingIsActive && (
+          {login &&settingIsActive && (
             <SubMenu
               specialClass={subSpecialClass}
               logout={logout}

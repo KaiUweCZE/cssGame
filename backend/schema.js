@@ -213,10 +213,41 @@ const mutation = new GraphQLObjectType({
       },
     },
     deleteUser: {
-      type: UserType,
-      args: { id: { type: new GraphQLNonNull(GraphQLID) } },
-      resolve(parent, args) {
-        return User.findByIdAndDelete(args.id);
+      type: ResponseType,
+      args: {
+        userId: { type: new GraphQLNonNull(GraphQLID) },
+        password: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      async resolve(parent, { userId, password }) {
+
+        try {
+          // Find user and verify they exist
+          const user = await User.findById(userId);
+          if (!user) {
+            throw new Error("User not found");
+          }
+
+          // Verify password
+          const isValid = await bcryptjs.compare(password, user.password);
+          if (!isValid) {
+            throw new Error("Invalid password");
+          }
+
+          // Delete the user
+          await User.findByIdAndDelete(userId);
+
+          return {
+            success: true,
+            message: "User account successfully deleted",
+            user: user
+          };
+        } catch (error) {
+          return {
+            success: false,
+            message: error.message,
+            user: null
+          };
+        }
       },
     },
     loginUser: {

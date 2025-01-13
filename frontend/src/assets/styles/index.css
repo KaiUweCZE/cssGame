@@ -156,7 +156,7 @@ a.menu__item.active::after {
 }
 
 .menu__item.settings.open {
-  filter: contrast(0);
+  filter: brightness(0.8);
 }
 .menu__item.settings.active img {
   filter: brightness(1);

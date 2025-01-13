@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styles from "../../LevelDashboard.module.css";
 import { AlertTriangle } from "lucide-react";
+import { useDeleteUser } from "../../hooks/useDeleteUser";
 
 const DeleteUserModal = ({ isOpen, onClose, userId }) => {
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const { deleteUser, loading, error } = useDeleteUser();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    // TODO: Implement actual delete functionality
-    console.log("Delete user with password:", password);
-  };
+    if (!password.trim()) {
+      return;
+    }
+    try {
+      await deleteUser(userId, password);
+    } catch (err) {
+      console.error("Error deleting user:", err);
+    }
+  }, [deleteUser, userId, password]);
 
   if (!isOpen) return null;
 
@@ -42,6 +49,7 @@ const DeleteUserModal = ({ isOpen, onClose, userId }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 className={styles.input}
                 required
+                disabled={loading}
               />
             </div>
             {error && (
@@ -54,14 +62,16 @@ const DeleteUserModal = ({ isOpen, onClose, userId }) => {
                 type="button"
                 onClick={onClose}
                 className={styles.secondaryButton}
+                disabled={loading}
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 className={`${styles.primaryButton} ${styles.deleteButton}`}
+                disabled={loading}
               >
-                Delete Account
+                {loading ? "Deleting..." : "Delete Account"}
               </button>
             </div>
           </form>

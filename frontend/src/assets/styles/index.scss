@@ -164,7 +164,8 @@ a.menu__item {
 
 .menu__item.settings {
   &.open {
-    filter: contrast(0);
+   filter: brightness(.8);
+ 
   }
   &.active {
     img {
