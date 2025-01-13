@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { X, Lock, CheckCircle, AlertCircle } from "lucide-react";
-import styles from "./LevelDashboard.module.css";
+import styles from "../../LevelDashboard.module.css";
 import { useChangePassword } from "@/utils/queries/useChangePassword";
 
 const ChangePasswordModal = ({ isOpen, onClose, userId }) => {

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styles from "./LevelDashboard.module.css";
+import styles from "../LevelDashboard.module.css";
 import { Key, Mail, User } from "lucide-react";
-import AddEmailModal from "./AddEmailModal";
-import ChangePasswordModal from "./ChangePasswordModal";
+import AddEmailModal from "./modals/AddEmailModal";
+import ChangePasswordModal from "./modals/ChangePasswordModal";
+import DeleteUserButton from "./DeleteUserButton";
 
 const BoxProfile = ({ user }) => {
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
@@ -46,9 +47,10 @@ const BoxProfile = ({ user }) => {
               aria-label="Change password"
               aria-expanded={isChangingPassword}
             >
-              <Key className="w-4 h-4" aria-hidden="true" />
+              <Key height={20} aria-hidden="true" />
               Change Password
             </button>
+            <DeleteUserButton userId={user.id} />
           </div>
         </div>
       </section>

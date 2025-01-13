@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { X, Mail, CheckCircle, AlertCircle } from "lucide-react";
-import styles from "./LevelDashboard.module.css";
+import styles from "../../LevelDashboard.module.css";
 import { useSendEmail } from "@/utils/queries/sendEmail";
 import { useCreateToken } from "@/utils/queries/createVerificationToken";
 import { useAddEmail } from "@/utils/queries/useAddEmail";

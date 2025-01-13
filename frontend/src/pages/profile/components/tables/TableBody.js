@@ -1,7 +1,7 @@
 import { MoreHorizontal, Trash2, CheckCircle2, Clock } from "lucide-react";
 import React, { useState } from "react";
-import EditLevelModal from "./modals/EditLevelModal";
-import DeleteLevelModal from "./modals/DeleteLevelModal";
+import EditLevelModal from "../modals/EditLevelModal";
+import DeleteLevelModal from "../modals/DeleteLevelModal";
 
 const TableBody = ({
   levels,

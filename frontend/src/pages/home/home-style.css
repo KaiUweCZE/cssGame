@@ -222,27 +222,26 @@
 }
 
 .home-intro-gallery {
-  display: grid;
   position: relative;
-  border-radius: 0.5rem 0.5rem 0 0;
+  width: 100%;
+  min-height: 444px;
+  background: #f0f0f0;
   overflow: hidden;
 }
 .home-intro-gallery img {
   width: 100%;
   height: 100%;
-  margin: 0 auto;
-}
-.home-intro-gallery button {
+  -o-object-fit: cover;
+     object-fit: cover;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 0.25rem;
-  top: 50%;
-}
-.home-intro-gallery .right {
-  right: 0;
-}
-.home-intro-gallery .left {
+  top: 0;
   left: 0;
+}
+.home-intro-gallery .current-image {
+  z-index: 2;
+}
+.home-intro-gallery .prev-image {
+  z-index: 1;
 }
 
 .box-signals {

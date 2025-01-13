@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import styles from "./LevelDashboard.module.css";
-import BoxProfile from "./Boxprofile";
+import BoxProfile from "./components/Boxprofile";
 import { UserContext } from "@/contexts/UserContext";
-import CreatedLevels from "./LevelesTable/CreatedLevels";
+import CreatedLevels from "./components/tables/CreatedLevels";
 import useGetUsersLevels from "./hooks/useGetUsersLevels";
-import PlayedLevels from "./LevelesTable/PlayedLevels";
+import PlayedLevels from "./components/tables/PlayedLevels";
 
 const ProfileDashboard = () => {
   const context = useContext(UserContext);

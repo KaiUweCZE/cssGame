@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import useGetPlayedLevels from "@/pages/profile/hooks/useGetPlayedLevels";
+
 import TableHeader from "./TableHeader";
+import "./table-styles.css";
 import TableBody from "./TableBody";
 import TableFooter from "./TableFooter";
-import "./table-styles.css";
-import SkeletonTableLoader from "./components/SkeletonTableLoader";
+import SkeletonTableLoader from "../SkeletonTableLoader";
 
-const PlayedLevels = ({ userId, completedLevels }) => {
-  const { levels, loading } = useGetPlayedLevels(userId);
+const CreatedLevels = ({ levels, onDelete, loading = false }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const numberOfPages = Math.ceil(levels?.length / itemsPerPage || 0);
@@ -19,24 +18,22 @@ const PlayedLevels = ({ userId, completedLevels }) => {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
-
-  const columns = ["Level", "Author", "Status"];
+  const columns = ["Level", "Likes", "Finished/Played", "Actions"];
 
   if (loading) {
-    return <SkeletonTableLoader columns={3} />;
+    return <SkeletonTableLoader columns={4} />;
   }
 
   return (
     <div className="table-container">
       <TableHeader
+        minorClass={"table-header-created-levels"}
         columns={columns}
-        minorClass={"table-header-played-levels"}
       />
       <TableBody
         levels={levelPage}
         currentPage={currentPage}
-        isPlayedLevels={true}
-        completedLevels={completedLevels}
+        onDelete={onDelete}
       />
       <TableFooter
         currentPage={currentPage}
@@ -47,4 +44,4 @@ const PlayedLevels = ({ userId, completedLevels }) => {
   );
 };
 
-export default PlayedLevels;
+export default CreatedLevels;
