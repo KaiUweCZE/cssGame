@@ -12,12 +12,6 @@ const DELETE_LEVEL = gql`
 const useDeleteLevel = (options = {}) => {
   const [deleteLevel, { error, data, loading }] = useMutation(DELETE_LEVEL, {
     ...options,
-
-    /* context: {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("authToken")}`,
-      },
-    },*/
   });
 
   const handleDeleteLevel = async (levelId, levelName) => {

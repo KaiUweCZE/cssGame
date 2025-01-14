@@ -9,9 +9,17 @@ const DeleteUserModal = ({ isOpen, onClose, userId }) => {
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
+    if (userId === "65b90f264eb9004c9b46cf75") {
+      console.log("Cannot delete admin account");
+      
+      return
+    }
     if (!password.trim()) {
       return;
     }
+
+  
+
     try {
       await deleteUser(userId, password);
     } catch (err) {

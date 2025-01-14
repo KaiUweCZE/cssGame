@@ -38,6 +38,27 @@
   gap: 0.5rem;
 }
 
+.emailRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.removeButton {
+  display: grid;
+  place-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.removeButton:hover {
+  scale: 1.4;
+}
+
 .labelText {
   color: #4b5563;
 }

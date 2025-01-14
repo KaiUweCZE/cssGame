@@ -23,16 +23,21 @@ export const UserContext = createContext({
 });
 
 export const UserContextProvider = ({ children }) => {
-  const [userId, setUserId] = useState(null);
   const [login, setLogin] = useState(false);
   const [token, setToken] = useState(null);
   const [user, setUser] = useState({});
+
+  const updateUser = (newUserData) => {
+    setUser(newUserData);
+    localStorage.setItem("user", JSON.stringify(newUserData));
+  };
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
     const storedUser = localStorage.getItem("user");
     if (storedToken) {
-      setUser(JSON.parse(storedUser));
+      //setUser(JSON.parse(storedUser));
+      updateUser(JSON.parse(storedUser));
       setToken(storedToken);
       setLogin(true);
     }
@@ -40,6 +45,8 @@ export const UserContextProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem("authToken");
+    localStorage.removeItem("user");
+    setUser({});
     setToken(null);
     setLogin(false);
   };
@@ -49,6 +56,7 @@ export const UserContextProvider = ({ children }) => {
     token,
     user,
     setUser,
+    updateUser,
     setLogin,
     setToken,
     logout,

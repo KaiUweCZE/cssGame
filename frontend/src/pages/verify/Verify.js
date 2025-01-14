@@ -10,7 +10,7 @@ import CorrectToken from "./CorrectToken";
 const Verify = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [message, setMessage] = useState("");
-  const { user } = useContext(UserContext);
+  const { user, updateUser } = useContext(UserContext);
   const { id: paramId } = useParams();
   const [verificationAttempted, setVerificationAttempted] = useState(false);
   const { handleVerifyUser } = useVerification();
@@ -24,13 +24,14 @@ const Verify = () => {
         setVerificationAttempted(true);
         if (tokenValues.includes(paramId)) {
           setIsVerified(true);
-          console.log("Attempting to verify with token:", paramId);
+          setMessage("Verifying your email...");
           const result = await handleVerifyUser(paramId);
-          console.log("Verification result:", result);
+          updateUser({ ...user, email: result.user.email, emailVerified: true });
           setMessage("Your email has been successfully verified.");
+          console.log("result", result);
+          
         } else {
           setIsVerified(false);
-          console.log("No valid token found", paramId);
           setMessage("No valid verification token found.");
         }
       } catch (error) {
@@ -41,8 +42,6 @@ const Verify = () => {
     };
     verifyEmail();
   }, [tokenValues]);
-
-  console.log("Available tokens:", tokenValues);
 
   return (
     <div className="container-verify">

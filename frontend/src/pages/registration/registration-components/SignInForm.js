@@ -15,6 +15,7 @@ const LOGIN_USER = gql`
         level
         completedLevels
         email
+        emailVerified
       }
     }
   }
@@ -23,7 +24,7 @@ const LOGIN_USER = gql`
 const SignInForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { setLogin, setUser } = useContext(UserContext);
+  const { setLogin, updateUser, setUser } = useContext(UserContext);
   const [loginUser, { loading, error }] = useMutation(LOGIN_USER);
   const navigate = useNavigate();
 
@@ -36,12 +37,12 @@ const SignInForm = () => {
       if (response.data.loginUser) {
         const { user, token } = response.data.loginUser;
         localStorage.setItem("authToken", token);
-        localStorage.setItem("user", JSON.stringify(user));
+       // localStorage.setItem("user", JSON.stringify(user));
         setLogin(true);
-        setUsername("");
+        updateUser(user);
         setPassword("");
 
-        setUser(user);
+        // setUser(user);
         //const userString = JSON.parse(localStorage.getItem('user'))
         user.level === 0 ? navigate("/welcome") : navigate("/map");
       }

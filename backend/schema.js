@@ -314,6 +314,40 @@ const mutation = new GraphQLObjectType({
         }
       },
     },
+    removeEmail: {
+      type: ResponseType,
+      args: {
+        userId: { type: new GraphQLNonNull(GraphQLID) }
+      },
+      async resolve(parent, { userId }) {
+        try {
+          const user = await User.findById(userId);
+          if (!user) {
+            throw new Error("User not found");
+          }
+    
+          if (!user.email) {
+            throw new Error("User doesn't have an email to remove");
+          }
+    
+          user.email = null;
+          user.emailVerified = false;
+          await user.save();
+    
+          return {
+            success: true,
+            message: "Email successfully removed",
+            user: user
+          };
+        } catch (error) {
+          return {
+            success: false,
+            message: error.message,
+            user: null
+          };
+        }
+      },
+    },
     changePassword: {
       type: ResponseType,
       args: {

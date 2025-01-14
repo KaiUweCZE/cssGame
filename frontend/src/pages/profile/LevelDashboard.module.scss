@@ -45,6 +45,26 @@ $text-color: rgb(50, 50, 50);
   gap: 0.5rem;
 }
 
+.emailRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.removeButton {
+  display:grid;
+  place-items: center;
+  height: fit-content;
+  width: fit-content; 
+   aspect-ratio: 1/1;
+  border-radius: 50%;
+  transition: 0.2s;
+ // background-color: orange;
+  &:hover{
+    scale: 1.4;
+  }
+}
+
 .labelText {
   color: #4b5563;
 }
