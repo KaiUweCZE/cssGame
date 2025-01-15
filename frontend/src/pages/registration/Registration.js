@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import SignInForm from "./registration-components/SignInForm";
 import SignUpForm from "./registration-components/SignUpForm";
 import "./registration-style.css";
+import { Link } from "react-router-dom";
+import ForgotPasswordModal from "./registration-components/modals/ForgotPasswordModal";
 
 const Registration = () => {
   const [formType, setFormType] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="wrapper">
@@ -37,14 +40,19 @@ const Registration = () => {
               <p id="signup-info" aria-live="polite">
                 Providing an email is not required to create an account.
                 However, it can be useful if you ever forget your password. You
-                can always add or update your email later in your account
-                settings.
+                can always add or update your email later in your account.
               </p>
             ) : (
-              <p id="signin-info" aria-live="polite">Welcome back & Happy coding</p>
+              <div id="signin-info" aria-live="polite">
+                <p>Welcome back & Happy coding</p>          
+              </div>
             )}
           </article>
-          {formType ? <SignUpForm /> : <SignInForm />}
+          {formType ? <SignUpForm /> : <SignInForm setIsModalOpen={setIsModalOpen} />}
+          <ForgotPasswordModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ const LOGIN_USER = gql`
   }
 `;
 
-const SignInForm = () => {
+const SignInForm = ({ setIsModalOpen }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setLogin, updateUser, setUser } = useContext(UserContext);
@@ -37,7 +37,7 @@ const SignInForm = () => {
       if (response.data.loginUser) {
         const { user, token } = response.data.loginUser;
         localStorage.setItem("authToken", token);
-       // localStorage.setItem("user", JSON.stringify(user));
+        // localStorage.setItem("user", JSON.stringify(user));
         setLogin(true);
         updateUser(user);
         setPassword("");
@@ -55,8 +55,8 @@ const SignInForm = () => {
   if (loading) return <Loader />;
 
   return (
-    <form 
-      className="login-form" 
+    <form
+      className="login-form"
       onSubmit={handleLogin}
       id="signin-form"
       role="tabpanel"
@@ -84,15 +84,28 @@ const SignInForm = () => {
         aria-required="true"
         aria-describedby={error ? "login-error" : undefined}
       />
-      <button 
-        type="submit"
-        aria-label="Sign in to your account"
-      >
-        Sign In
-      </button>
+
+      <div className="login-button-group">
+        <button
+          type="submit"
+          aria-label="Sign in to your account"
+        >
+          Sign In
+        </button>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsModalOpen(true)
+          }}
+          className="link-button"
+        >
+          Forgot your password?
+        </button>
+      </div>
       {error ? (
-        <WarningLabel 
-          text="this username or password is not valid" 
+        <WarningLabel
+          text="this username or password is not valid"
           id="login-error"
           role="alert"
           aria-live="assertive"
