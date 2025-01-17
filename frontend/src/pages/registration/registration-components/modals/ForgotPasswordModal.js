@@ -31,7 +31,8 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
     setError("");
     
     try {
-      const result = await handleSendEmail(email);
+      const token = "123456789";
+      const result = await handleSendEmail(email, token);
       if (!result.success) {
         throw new Error(result.error);
       }

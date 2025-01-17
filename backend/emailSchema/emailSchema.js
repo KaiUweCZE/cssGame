@@ -4,7 +4,7 @@ import {
   GraphQLBoolean,
   GraphQLNonNull,
 } from "graphql";
-import { sendConfirmationEmail } from "../services/emailService.js";
+import { sendConfirmationEmail, sendResetPasswordEmail } from "../services/emailService.js";
 
 const EmailResponseType = new GraphQLObjectType({
   name: "EmailResponse",
@@ -24,6 +24,25 @@ export const emailMutations = {
     resolve: async (_, { email, token }) => {
       try {
         const result = await sendConfirmationEmail(email, token);
+        return {
+          success: result.success,
+          message: result.success ? "Email sent successfully" : result.error,
+        };
+      } catch (error) {
+        console.error("Error sending email:", error);
+        return { success: false, message: "Failed to send email" };
+      }
+    },
+  },
+  sendResetPasswordEmail: {
+    type: EmailResponseType,
+    args: {
+      email: { type: new GraphQLNonNull(GraphQLString) },
+      token: { type: new GraphQLNonNull(GraphQLString) },
+    },
+    resolve: async (_, { email, token }) => {
+      try {
+        const result = await sendResetPasswordEmail(email, token);
         return {
           success: result.success,
           message: result.success ? "Email sent successfully" : result.error,
