@@ -21,8 +21,12 @@ export const useCreateToken = () => {
   );
 
   const handleCreateToken = async (userId) => {
+    console.log("Starting token creation");
+
     try {
       const response = await createToken({ variables: { userId } });
+      console.log("response", response.data.createToken);
+
       return response.data.createToken;
     } catch (error) {
       console.error("Error creating token:", error);

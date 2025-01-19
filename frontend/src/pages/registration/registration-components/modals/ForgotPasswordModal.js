@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useResetPassword } from "@utils/queries/useResetPassword";
+import { useCreateToken } from "@/utils/queries/createVerificationToken";
+import { useGetUserByEmail } from "@/utils/queries/useGetUserByEmail";
 
 const ForgotPasswordModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
@@ -7,6 +9,8 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const { handleSendEmail } = useResetPassword();
+  const { createToken } = useCreateToken();
+  const { handleGetUserByEmail } = useGetUserByEmail();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,7 +25,7 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateEmail(email)) {
       setError("Please enter a valid email address");
       return;
@@ -29,19 +33,38 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
 
     setLoading(true);
     setError("");
-    
+
     try {
-      const token = "123456789";
-      const result = await handleSendEmail(email, token);
+      console.log("Starting password reset flow");
+      const userId = await handleGetUserByEmail(email);
+      console.log("Got userId:", userId);
+
+      if (!userId) {
+        setMessage(
+          "If an account exists with this email, you will receive password reset instructions."
+        );
+        return;
+      }
+
+      const tokenResponse = await createToken(userId);
+      console.log("Token response:", tokenResponse);
+
+      if (!tokenResponse.success) {
+        throw new Error(tokenResponse.message);
+      }
+
+      const result = await handleSendEmail(email, tokenResponse.token.token);
+      console.log("Email send result:", result);
+
       if (!result.success) {
         throw new Error(result.error);
       }
-      
-      console.log("result", result);
-      
-      
-      setMessage("If an account exists with this email, you will receive password reset instructions.");
+
+      setMessage(
+        "If an account exists with this email, you will receive password reset instructions."
+      );
     } catch (error) {
+      console.error("Reset password error:", error);
       setMessage("An error occurred. Please try again later.");
     } finally {
       setLoading(false);
@@ -60,7 +83,7 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
   const isEmailValid = validateEmail(email);
 
   return (
-    <div 
+    <div
       className="modal-overlay"
       role="dialog"
       aria-labelledby="reset-password-title"
@@ -71,22 +94,28 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
         <div className="reset-password-content">
           {message ? (
             <>
-              <p className="message" role="status">{message}</p>
-           
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="primary-button close-button"
-                >
-                  <span>Close</span>
-                </button>
-             
+              <p className="message" role="status">
+                {message}
+              </p>
+
+              <button
+                type="button"
+                onClick={handleClose}
+                className="primary-button close-button"
+              >
+                <span>Close</span>
+              </button>
             </>
           ) : (
             <form className="modal-form" onSubmit={handleSubmit} noValidate>
-              <p id="reset-password-description">Enter your email address and we'll send you instructions to reset your password.</p>
+              <p id="reset-password-description">
+                Enter your email address and we'll send you instructions to
+                reset your password.
+              </p>
               <div className="form-field">
-                <label htmlFor="email" className="visually-hidden">Email address</label>
+                <label htmlFor="email" className="visually-hidden">
+                  Email address
+                </label>
                 <input
                   id="email"
                   type="email"
@@ -97,7 +126,11 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
                   className={error ? "input-error" : ""}
                 />
                 {error && (
-                  <span id="email-error" className="error-forgot-password" role="alert">
+                  <span
+                    id="email-error"
+                    className="error-forgot-password"
+                    role="alert"
+                  >
                     {error}
                   </span>
                 )}

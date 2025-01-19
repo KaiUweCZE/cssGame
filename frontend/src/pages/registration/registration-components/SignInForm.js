@@ -4,6 +4,7 @@ import { UserContext } from "@contexts/UserContext";
 import Loader from "@/components/feedback/Loader";
 import { useNavigate } from "react-router-dom";
 import WarningLabel from "@components/errors/WarningLabel";
+import { LogIn } from "lucide-react";
 
 const LOGIN_USER = gql`
   mutation LoginUser($name: String!, $password: String!) {
@@ -86,17 +87,15 @@ const SignInForm = ({ setIsModalOpen }) => {
       />
 
       <div className="login-button-group">
-        <button
-          type="submit"
-          aria-label="Sign in to your account"
-        >
-          Sign In
+        <button type="submit" aria-label="Sign in to your account">
+          <LogIn size={20} color="#fff" />
+          <span>Sign In</span>
         </button>
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
-            setIsModalOpen(true)
+            setIsModalOpen(true);
           }}
           className="link-button"
         >

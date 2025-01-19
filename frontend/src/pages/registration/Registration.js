@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import SignInForm from "./registration-components/SignInForm";
 import SignUpForm from "./registration-components/SignUpForm";
 import "./registration-style.css";
-import { Link } from "react-router-dom";
 import ForgotPasswordModal from "./registration-components/modals/ForgotPasswordModal";
 
 const Registration = () => {
@@ -13,7 +12,11 @@ const Registration = () => {
     <div className="wrapper">
       <div className="login-form__background">
         <div className="container-login">
-          <article className="login__info" role="region" aria-label="Registration options">
+          <article
+            className="login__info"
+            role="region"
+            aria-label="Registration options"
+          >
             <div role="tablist">
               <button
                 className={formType ? "active" : ""}
@@ -44,11 +47,15 @@ const Registration = () => {
               </p>
             ) : (
               <div id="signin-info" aria-live="polite">
-                <p>Welcome back & Happy coding</p>          
+                <p>Welcome back & Happy coding</p>
               </div>
             )}
           </article>
-          {formType ? <SignUpForm /> : <SignInForm setIsModalOpen={setIsModalOpen} />}
+          {formType ? (
+            <SignUpForm />
+          ) : (
+            <SignInForm setIsModalOpen={setIsModalOpen} />
+          )}
           <ForgotPasswordModal
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}

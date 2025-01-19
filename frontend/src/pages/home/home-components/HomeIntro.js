@@ -10,6 +10,9 @@ const HomeIntro = () => {
   const [cssClass, setCssClass] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const timing = 500;
+  const imgWidth = 810;
+  const imgHeight = 460;
+
   const data = homeIntro;
 
   useEffect(() => {
@@ -26,8 +29,8 @@ const HomeIntro = () => {
           className={`current-image ${cssClass}`}
           src={data[0].img}
           alt={data[0].headline}
-          width="894"
-          height="444"
+          width={imgWidth}
+          height={imgHeight}
           style={{ aspectRatio: "894/444" }}
         />
       ),
@@ -38,9 +41,9 @@ const HomeIntro = () => {
           className={`current-image ${cssClass}`}
           src={data[1].img}
           alt={data[1].headline}
-          width="894"
-          height="444"
-          style={{ aspectRatio: "894/444" }}
+          width={imgWidth}
+          height={imgHeight}
+          style={{ aspectRatio: "810/460" }}
         />
       ),
     },
@@ -50,9 +53,9 @@ const HomeIntro = () => {
           className={`current-image ${cssClass}`}
           src={data[2].img}
           alt={data[2].headline}
-          width="894"
-          height="444"
-          style={{ aspectRatio: "894/444" }}
+          width={imgWidth}
+          height={imgHeight}
+          style={{ aspectRatio: "810/460" }}
         />
       ),
     },
@@ -62,9 +65,9 @@ const HomeIntro = () => {
           className={`current-image ${cssClass}`}
           src={data[3].img}
           alt={data[3].headline}
-          width="894"
-          height="444"
-          style={{ aspectRatio: "894/444" }}
+          width={imgWidth}
+          height={imgHeight}
+          style={{ aspectRatio: "810/460" }}
         />
       ),
     },
@@ -76,8 +79,8 @@ const HomeIntro = () => {
       <img
         className="prev-image"
         src={data[index].img}
-        width="894px"
-        height="444px"
+        width={imgWidth}
+        height={imgHeight}
       />
     );
     setCssClass("next");
@@ -94,8 +97,8 @@ const HomeIntro = () => {
       <img
         className="prev-image"
         src={data[index].img}
-        width="894px"
-        height="444px"
+        width={imgWidth}
+        height={imgHeight}
       />
     );
     setCssClass("prev");
@@ -111,21 +114,22 @@ const HomeIntro = () => {
       <div className="home-intro-gallery">
         {images[index].element}
         {prevImage && prevImage}
+
         <button
-          className="right"
+          className="intro-arrow"
           onClick={handleNext}
           disabled={isLoading}
           aria-label="Next slide"
         >
-          <img src={next} alt="arrow to the right" />
+          <img className="right-arrow" src={next} alt="arrow to the right" />
         </button>
         <button
-          className="left"
+          className="intro-arrow"
           onClick={handlePrev}
           disabled={isLoading}
           aria-label="Previous slide"
         >
-          <img src={prev} alt="arrow to the left" />
+          <img className="left-arrow" src={prev} alt="arrow to the left" />
         </button>
         <Signals index={index} setIndex={setIndex} />
       </div>

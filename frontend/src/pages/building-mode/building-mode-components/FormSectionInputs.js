@@ -109,11 +109,7 @@ const FormSectionInputs = (props) => {
           />
         </div>
       ))}
-      {isValid ? (
-        ""
-      ) : (
-        <WarningLabel text="Your inputs contain wrong property" />
-      )}
+      {isValid ? "" : <WarningLabel text="Wrong property" />}
     </div>
   );
 };

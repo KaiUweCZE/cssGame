@@ -11,7 +11,7 @@ export const createVerificationToken = async (userId) => {
 
   await verificationToken.save();
 
-  const expiresAt = new Date(verificationToken.createdAt.getTime() + 600);
+  const expiresAt = new Date(verificationToken.createdAt.getTime() + 86400);
 
   console.log("Token created:", {
     id: verificationToken._id,

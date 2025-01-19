@@ -3,7 +3,7 @@
   position: relative;
   grid-template-columns: 1fr;
   place-items: center;
-  max-width: 80rem;
+  max-width: 810px;
   width: 80%;
   margin: 0 auto;
   margin-top: 5rem;
@@ -13,187 +13,6 @@
 }
 .container-home p {
   font-size: 1.25rem;
-}
-
-.home-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  align-items: center;
-}
-.home-section.even img {
-  grid-column: 2;
-}
-.home-section.even article {
-  grid-row: 1;
-  grid-column: 1;
-}
-
-.home-gallery {
-  display: grid;
-  grid-template-areas: "first second" "third third";
-  width: 100%;
-}
-.home-gallery img {
-  width: 100%;
-  height: 100%;
-}
-.home-gallery img:first-child {
-  grid-area: first;
-}
-.home-gallery img:nth-child(2) {
-  grid-area: second;
-}
-.home-gallery img:nth-child(3) {
-  width: 50%;
-  grid-area: third;
-}
-
-.home-box {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  gap: 0.5rem;
-  width: 60%;
-  height: -moz-fit-content;
-  height: fit-content;
-  background-color: #0a3a40;
-  border-radius: 0.5rem;
-  border: 2px solid #11626c;
-  padding: 1rem;
-  margin-block: 2rem;
-  transition: 1s;
-  transform-origin: center;
-  overflow: hidden;
-}
-.home-box p {
-  font-size: 1rem;
-  font-family: monospace;
-  color: white;
-}
-.home-box:has(.left-item:hover) {
-  transform: rotateZ(-3deg);
-}
-.home-box:has(.left-item:hover) .circle {
-  transition: 3s ease-in-out;
-  transform: translateX(-25rem) rotate(-720deg);
-}
-.home-box:has(.right-item:hover) {
-  transform: rotateZ(3deg);
-}
-.home-box:has(.right-item:hover) .circle {
-  transition: 3s ease-in;
-  transform: translateX(25rem) rotate(720deg);
-}
-
-.left-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 4rem;
-  z-index: 1;
-}
-
-.right-item {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 4rem;
-  z-index: 1;
-}
-
-.circle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 0.8rem;
-  height: 0.8rem;
-  background-color: white;
-  background: linear-gradient(0deg, rgb(34, 193, 195) 0%, #00c988 100%);
-  border-radius: 50%;
-  bottom: 0;
-  left: 50%;
-  transition: 3s ease-in-out;
-  transform-origin: center;
-}
-
-.wrapper-home {
-  display: grid;
-  grid-template-columns: 1fr 80rem 1fr;
-  gap: 1rem;
-  align-items: flex-start;
-}
-@media (width < 100rem) {
-  .wrapper-home {
-    display: flex;
-  }
-}
-
-@keyframes text-focus-in {
-  0% {
-    filter: blur(8px);
-    opacity: 1;
-  }
-  100% {
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-.animation {
-  display: flex;
-  width: 70%;
-  height: 100%;
-  aspect-ratio: 16/9;
-  position: relative;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-}
-.animation .catchphrase {
-  display: flex;
-  position: absolute;
-  top: 10%;
-  left: 20%;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 1rem;
-  transition: 0.1s;
-  opacity: 0;
-}
-.animation .catchphrase.active {
-  transition: 1s 2s;
-  opacity: 1;
-}
-.animation .emoji {
-  position: absolute;
-  width: 10%;
-  bottom: 40%;
-  transform: translateX(-5rem) rotate(0);
-  transition: 2.5s ease-in-out;
-}
-.animation .emoji.come-in {
-  transform: translateX(5rem) rotate(1turn);
-  transition: 2.5s ease-in-out;
-}
-.animation .trunk {
-  position: absolute;
-  width: 44%;
-  top: 60%;
-  left: 27.5%;
-  z-index: 1;
-  transform: rotate(-90deg);
-  transition: 0.1s;
-}
-.animation .trunk.active {
-  transition: 2s 3.5s;
-  transform: rotate(0deg);
 }
 
 .home-intro {
@@ -224,9 +43,10 @@
 .home-intro-gallery {
   position: relative;
   width: 100%;
-  min-height: 444px;
+  min-height: 460px;
   background: #f0f0f0;
   overflow: hidden;
+  z-index: 0;
 }
 .home-intro-gallery img {
   width: 100%;
@@ -243,6 +63,31 @@
 .home-intro-gallery .prev-image {
   z-index: 1;
 }
+.home-intro-gallery .left {
+  width: 2rem;
+  height: 2rem;
+}
+.home-intro-gallery .left img {
+  width: 100%;
+  height: 100%;
+}
+
+.intro-arrow {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+.intro-arrow:has(.left-arrow) {
+  left: 0;
+}
+.intro-arrow:has(.right-arrow) {
+  right: 0;
+}
+.intro-arrow img {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5)) brightness(2);
+}
 
 .box-signals {
   display: flex;
@@ -258,6 +103,10 @@
   border-radius: 0.35rem;
   position: absolute;
   place-self: end center;
+  z-index: 2;
+  bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
 .box-signals div {
   width: 0.75rem;

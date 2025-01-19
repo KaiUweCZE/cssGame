@@ -164,8 +164,7 @@ a.menu__item {
 
 .menu__item.settings {
   &.open {
-   filter: brightness(.8);
- 
+    filter: brightness(0.8);
   }
   &.active {
     img {
@@ -991,4 +990,8 @@ button.bug-form-button {
 }
 
 .click-outside-ignore {
+}
+
+.primary-shadow {
+  box-shadow: $primary-shadow;
 }

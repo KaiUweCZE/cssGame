@@ -59,7 +59,7 @@ const BuildingFormContainer = (props) => {
       ))}
       <ResolverButton />
       {error ? (
-        <WarningLabel text="you do not meet the conditions of the allowed/denied list" />
+        <WarningLabel text="Wrong properties allowed/denied list" />
       ) : (
         ""
       )}

@@ -5,6 +5,7 @@ import WarningLabel from "@components/errors/WarningLabel";
 import LoginMessage from "./LoginMessage";
 import { SEND_CONFIRMATION_EMAIL } from "@/utils/queries/sendEmail";
 import { useCreateToken } from "@/utils/queries/createVerificationToken";
+import { RegexIcon, UserRoundPlus } from "lucide-react";
 
 const CREATE_USER = gql`
   mutation CreateUser($name: String!, $email: String, $password: String!) {
@@ -100,11 +101,9 @@ const SignUpForm = () => {
         aria-required="true"
         aria-describedby={error ? "signup-error" : undefined}
       />
-      <button
-        type="submit"
-        aria-label="Create new account"
-      >
-        Sign Up
+      <button type="submit" aria-label="Create new account">
+        <UserRoundPlus size={20} aria-hidden="true" color="white" />
+        <span>Sign Up</span>
       </button>
       {error && (
         <WarningLabel

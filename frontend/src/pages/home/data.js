@@ -1,11 +1,11 @@
 import screen1 from "@images/screens/screen1.webp";
 import screen2 from "@images/screens/screen2.webp";
 import screen3 from "@images/screens/screen3.webp";
-import gameScreen from "@images/screens/game.webp";
-import databaseScreen from "@images/screens/database.webp";
-import buildingScreen from "@images/screens/building.webp";
-import academyScreen from "@images/screens/academy.webp";
-import mapScreen from "@images/screens/map.webp";
+import gameScreen from "@images/screens/game-screen.webp";
+import databaseScreen from "@images/screens/database-screen.webp";
+
+import academyScreen from "@images/screens/academy-screen.webp";
+import mapScreen from "@images/screens/map-screen.webp";
 
 export const homeData = [
   {
@@ -71,7 +71,7 @@ export const homeIntro = [
     headline: "Building",
     description:
       "Create challenges for other users using CSS rules and custom settings. You can also test your skills by trying levels designed by fellow users, providing a dynamic learning experience.",
-    img: buildingScreen,
+    img: databaseScreen,
   },
   {
     id: 4,

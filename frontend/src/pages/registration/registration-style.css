@@ -18,6 +18,7 @@
   .loader {
     place-self: center;
   }
+  --secondary-color: 20, 184, 165;
 }
 
 /* part of login-container wich contains some information
@@ -32,7 +33,7 @@
     margin-bottom: 0.5rem;
   }
 
-  div:has(p){
+  div:has(p) {
     flex-direction: column;
   }
 
@@ -59,6 +60,10 @@
     position: relative;
     z-index: 1;
 
+    &:focus {
+      outline: 1px solid rgb(var(--secondary-color));
+    }
+
     &.active {
       transition: 0.5s;
       border-radius: 0.25rem;
@@ -71,7 +76,7 @@
         height: 100%;
         width: 100%;
         background-color: transparent;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgb(var(--secondary-color));
       }
     }
   }
@@ -110,35 +115,36 @@
     font-size: 1rem;
     font-weight: bold;
     border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.25rem;
     width: 100%;
     color: white;
     transition: 0.5s;
 
     &::placeholder {
       transition: 0.25s;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.8);
     }
 
     &:focus {
-      outline: none;
-
+      outline: 1px solid rgb(var(--secondary-color));
       &::placeholder {
         opacity: 0;
       }
     }
   }
-  .login-button-group{
+  .login-button-group {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
   }
 
   button {
-    display: grid;
+    display: flex;
+    gap: 0.5rem;
     width: fit-content;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
+    background-color: rgba(var(--secondary-color), 0.75);
     font-size: 1rem;
     font-weight: bold;
     padding: 0.25rem;
@@ -147,8 +153,15 @@
     border-radius: 0.25rem;
     cursor: pointer;
     transition: 0.4s;
+    span {
+      color: white;
+    }
     &:hover {
       background-color: rgba(255, 255, 255, 0.35);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 4px 2px rgba(var(--secondary-color), 0.5);
     }
   }
 
@@ -169,11 +182,9 @@
   background-repeat: no-repeat;
   padding: -0.25rem;
   border: 2px solid transparent;
-
   border-radius: 0.5rem;
   background-size: 400% 100%;
   animation: gradient 7s linear infinite;
-
   h2 {
     color: white;
   }
@@ -205,10 +216,16 @@ button.link-button {
   width: fit-content;
   font: inherit;
   background-color: transparent;
+  color: rgb(30, 238, 214);
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    text-shadow: 0 0 6px rgba(var(--secondary-color), 0.5);
+  }
 }
 
 button.link-button:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: white;
   background-color: transparent;
 }
 
@@ -254,17 +271,17 @@ button.link-button:hover {
   }
 
   input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  background: white;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    background: white;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
   }
 
-  span{
+  span {
     color: white;
   }
 
@@ -284,19 +301,16 @@ button.link-button:hover {
 
   .close-button {
     margin: 0 auto;
-    
   }
-  
+
   .primary-button:disabled {
     background: rgba(10, 58, 64, 0.5);
     cursor: not-allowed;
   }
-  
+
   .secondary-button {
     background-color: rgb(226, 88, 88);
-
   }
-
 }
 
 .message {
@@ -323,8 +337,8 @@ button.link-button:hover {
 
 span.error-forgot-password {
   color: #ff2f44;
-  margin: .25rem;
-  font-size: .9rem;
+  margin: 0.25rem;
+  font-size: 0.9rem;
 }
 
 .visually-hidden {

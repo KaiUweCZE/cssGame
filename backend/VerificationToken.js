@@ -13,11 +13,11 @@ const VerificationTokenSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    expires: 3600,
+    expires: 86400,
   },
 });
 
-VerificationTokenSchema.index({ createdAt: 1 }, { expireAfterSeconds: 3600 });
+VerificationTokenSchema.index({ createdAt: 1 }, { expireAfterSeconds: 86400 });
 
 export const VerificationToken = mongoose.model(
   "VerificationToken",
