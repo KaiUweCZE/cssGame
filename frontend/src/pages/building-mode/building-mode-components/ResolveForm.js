@@ -1,33 +1,42 @@
-import React from "react";
-
-import ResolveForm from "./ResolveForm";
-
-const BuildingFormBridge = (props) => {
-  return <ResolveForm name={props.name} type="bridge" />;
-};
-
-export default BuildingFormBridge;
-
-/*import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
 import { leftBracket } from "@data/ImagesData";
 import useFormHandlers from "@/hooks/useFormHandlers";
 import WarningLabel from "@components/errors/WarningLabel";
 import ResolverButton from "./ResolverButton";
 
-const BuildingFormBridge = (props) => {
+const ResolveForm = ({ name, type }) => {
   const {
     originPropertiesBridge,
     originValuesBridge,
     setPropertiesBridge,
     setValuesBridge,
+    originPropertiesContainer,
+    originValuesContainer,
+    setPropertiesContainer,
+    setValuesContainer,
   } = useContext(BuildingFormContext);
 
+  const formProps = {
+    bridge: {
+      originProperties: originPropertiesBridge,
+      originValues: originValuesBridge,
+      setProperties: setPropertiesBridge,
+      setValues: setValuesBridge,
+    },
+    container: {
+      originProperties: originPropertiesContainer,
+      originValues: originValuesContainer,
+      setProperties: setPropertiesContainer,
+      setValues: setValuesContainer,
+    },
+  }[type];
+
   const { inputs, handleInputChange, handleSubmit, error } = useFormHandlers(
-    originPropertiesBridge,
-    originValuesBridge,
-    setPropertiesBridge,
-    setValuesBridge
+    formProps.originProperties,
+    formProps.originValues,
+    formProps.setProperties,
+    formProps.setValues
   );
 
   return (
@@ -35,10 +44,14 @@ const BuildingFormBridge = (props) => {
       <form
         onSubmit={handleSubmit}
         className="building-resolver-form"
-        aria-label={`Bridge properties form for ${props.name}`}
+        aria-label={`${type} properties form for ${name}`}
       >
-        <div className="resolver-box" role="group" aria-label="Bridge selector">
-          <span>.{props.name}</span>
+        <div
+          className="resolver-box"
+          role="group"
+          aria-label={`${type} selector`}
+        >
+          <span>.{name}</span>
           <img src={leftBracket} alt="Left bracket symbol" />
         </div>
         {inputs.map((input, index) => (
@@ -66,13 +79,11 @@ const BuildingFormBridge = (props) => {
             />
           </div>
         ))}
-
         <ResolverButton />
-      </form>{" "}
+      </form>
       {error && <WarningLabel text="You used forbidden properties" />}
     </div>
   );
 };
 
-export default BuildingFormBridge;
-*/
+export default ResolveForm;

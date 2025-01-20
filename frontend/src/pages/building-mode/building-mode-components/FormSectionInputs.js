@@ -9,22 +9,35 @@ import { customCommonContext } from "@contexts/building-contexts/customCommonCon
 const FormSectionInputs = (props) => {
   const [number, setNumber] = useState(1);
   const [isValid, setIsValid] = useState(true);
+  const [localProperties, setLocalProperties] = useState([]);
   const { setResult } = useContext(customCommonContext);
-  const {
-    maximumNumber,
-    propertiesContainer,
-    propertiesBridge,
-    handleAdd,
-    handleRemove,
-    handlePropertyChange,
-    handleValueChange,
-  } = useContext(BuildingFormContext);
-  const properties =
-    props.label === "bridge" ? propertiesBridge : propertiesContainer;
+  const { handleAdd, handleRemove, handlePropertyChange, handleValueChange } =
+    useContext(BuildingFormContext);
 
-  useEffect(() => {
-    setIsValid(checkProperties(properties));
-  }, [properties]);
+  const handleCheckProperties = (value, index) => {
+    const existingPropIndex = localProperties.findIndex(
+      (prop) => prop.index === index
+    );
+
+    let newProperties;
+
+    if (existingPropIndex !== -1) {
+      newProperties = localProperties.map((prop) =>
+        prop.index === index ? { value, index } : prop
+      );
+    } else {
+      newProperties = [...localProperties, { value, index }];
+    }
+
+    setLocalProperties(
+      newProperties.filter((prop) => prop.value.trim() !== "")
+    );
+
+    const valuesToCheck = newProperties
+      .map((prop) => prop.value)
+      .filter(Boolean);
+    setIsValid(checkProperties(valuesToCheck));
+  };
 
   return (
     <div
@@ -91,8 +104,10 @@ const FormSectionInputs = (props) => {
             type="text"
             name={`name_${index}`}
             id={`id_${index}_1`}
+            placeholder="css property:"
             onChange={(e) => {
               setResult(false);
+              handleCheckProperties(e.target.value, index);
               handlePropertyChange(index, e.target.value, props.label);
             }}
             aria-label={`CSS property ${index + 1}`}
@@ -101,6 +116,7 @@ const FormSectionInputs = (props) => {
             type="text"
             name={`value_${index}`}
             id={`id_${index}_2`}
+            placeholder="css value;"
             onChange={(e) => {
               setResult(false);
               handleValueChange(index, e.target.value, props.label);

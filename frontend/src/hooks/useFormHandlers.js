@@ -41,8 +41,8 @@ const useFormHandlers = (properties, values, setProperties, setValues) => {
       deniedList.includes(prop)
     );
     // Check if all of the submitted properties are in the allowed list
-    const isAllowed = submittedProperties.every((prop) =>
-      allowedList.includes(prop)
+    const isAllowed = submittedProperties.every(
+      (prop) => allowedList.includes(prop) || prop === ""
     );
 
     if ((deniedList.length > 1 || deniedList[0] !== "") && isDenied) {
@@ -51,6 +51,12 @@ const useFormHandlers = (properties, values, setProperties, setValues) => {
     }
 
     if ((allowedList.length > 1 || allowedList[0] !== "") && !isAllowed) {
+      console.log(
+        "You must use only values from the allowed list.",
+        allowedList,
+        isAllowed,
+        submittedProperties
+      );
       setError("You must use only values from the allowed list.");
       return;
     }

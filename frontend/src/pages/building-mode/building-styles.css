@@ -241,6 +241,20 @@ img.select-icon {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-text-fill-color: white !important;
 }
+.group-inputs input[type=text]::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.521);
+  font-weight: 300;
+}
+.group-inputs input[type=text]::placeholder {
+  color: rgba(255, 255, 255, 0.521);
+  font-weight: 300;
+}
+.group-inputs input[type=text]:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px transparent inset;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white !important;
+}
 .group-inputs input[type=text]:autofill {
   box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
@@ -299,6 +313,7 @@ img.select-icon {
 }
 
 .form-restrictions {
+  grid-column: span 2;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -320,8 +335,7 @@ img.select-icon {
 }
 
 .building-warning-label {
-  color: rgb(255, 73, 73);
-  font-weight: bold;
+  color: rgb(255, 50, 50);
   margin: 0 auto;
 }
 @media (max-width: 40rem) {
@@ -438,9 +452,7 @@ textarea::placeholder {
   left: 55%;
   width: -moz-fit-content;
   width: fit-content;
-  height: auto;
   max-width: 40%;
-  max-height: 50%;
   margin-top: 1rem;
   gap: 1rem;
   overflow-y: auto;
@@ -477,6 +489,12 @@ textarea::placeholder {
     z-index: 2;
   }
 }
+.wrapper-resolver-form .building-warning-label {
+  grid-row: 2;
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+}
 
 .resolver-close {
   display: none;
@@ -492,6 +510,7 @@ textarea::placeholder {
 
 .building-resolver-form {
   display: grid;
+  position: relative;
   gap: 0.5rem;
   width: -moz-fit-content;
   width: fit-content;
@@ -505,6 +524,7 @@ textarea::placeholder {
 .building-resolver-form .resolver-box {
   display: flex;
   align-items: center;
+  margin-top: 0.5rem;
 }
 .building-resolver-form .resolver-box img {
   filter: brightness(0);
