@@ -74,17 +74,16 @@ const CustomFormContainer = (props) => {
         setValueAtIndex={setValueAtIndex}
         stop={props.stopAdd}
       />
-      {error.denied || error.allowed ? (
-        <>
-          <ErrorList
-            type={error.allowed ? "allowed list" : "denied list"}
-            list={error.allowed ? allowedList : deniedList}
-            remove={() => setError({ allowed: false, denied: false })}
-          />
-        </>
-      ) : (
-        ""
-      )}
+      {error.denied ||
+        (error.allowed && (
+          <>
+            <ErrorList
+              type={error.allowed ? "allowed list" : "denied list"}
+              list={error.allowed ? allowedList : deniedList}
+              remove={() => setError({ allowed: false, denied: false })}
+            />
+          </>
+        ))}
     </div>
   );
 };

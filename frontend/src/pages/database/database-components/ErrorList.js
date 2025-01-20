@@ -11,7 +11,7 @@ const ErrorList = (props) => {
         width="16px"
         height="16px"
       />
-      <li className="error-headline">{props.type}: </li>
+      <li className="error-headline">{props.type} </li>
       {props.list.map((item, index) => {
         return <li key={index}>{item}</li>;
       })}

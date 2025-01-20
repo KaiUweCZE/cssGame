@@ -54,8 +54,8 @@
   padding: var(--space-6);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  width: 100%;
-  max-width: 32rem;
+  width: 32rem;
+  max-width: 90%;
   position: relative;
   animation: content-show 300ms var(--ease-out);
 }
@@ -92,6 +92,10 @@
   resize: none;
 }
 
+.modal-textarea::placeholder {
+  color: #505050;
+  font-weight: 100;
+}
 .modal-input:hover,
 .modal-textarea:hover {
   border-color: var(--color-border-hover);

@@ -15,6 +15,7 @@ import CssFormInputs from "./CssFormInputs";
 import CloseForm from "./CloseForm";
 import ErrorMessage from "@components/errors/ErrorMessage";
 import { CheckContext } from "@contexts/form-contexts/checkContext";
+import ErrorList from "@/pages/database/database-components/ErrorList";
 
 // key component for posting
 const CssForm = (props) => {
@@ -22,6 +23,7 @@ const CssForm = (props) => {
   const { handleEmojiClass } = useContext(EmojiContext);
   // check if error occurs (typo error)
   const [error, setError] = useState(false);
+  const [listError, setListError] = useState(false);
 
   const checkContext = useContext(CheckContext);
 
@@ -115,15 +117,25 @@ const CssForm = (props) => {
     return list.includes(property) || property === "";
   };
 
+  const validateDeniedProperties = (properties) => {
+    if (!level.deniedList) return true;
+    return !properties.some((prop) => level.deniedList.includes(prop));
+  };
+
   // check result
   const checkResult = () => {
+    // validateDeniedProperties(cssProperties);
     const propertiesValidator = cssProperties.every(checkTypo);
+    const deniedValidator = validateDeniedProperties(cssProperties);
+
     if (!propertiesValidator) {
       // wrong property?
       setError(true);
       // text to error component
       setErrorMessage("Oh man, this is not a correct css property");
       setTimeout(() => setError(false), 3000);
+    } else if (!deniedValidator) {
+      setListError(true);
     } else {
       setProperties(cssProperties);
       setValues(cssValues);
@@ -177,7 +189,18 @@ const CssForm = (props) => {
           // wrong property?
           error ? <ErrorMessage text={errorMessage} /> : ""
         }
-
+        {
+          // wrong list?
+          listError ? (
+            <ErrorList
+              type="denied list"
+              list={level.deniedList}
+              remove={() => setListError(false)}
+            />
+          ) : (
+            ""
+          )
+        }
         {props.name !== "bridge" ? <CloseForm func={handleClose} /> : ""}
       </div>
     </>
