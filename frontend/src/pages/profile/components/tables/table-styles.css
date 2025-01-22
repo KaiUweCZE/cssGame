@@ -142,7 +142,12 @@
 
 .skeleton-loader .skeleton-cell {
   height: 1rem;
-  background: linear-gradient(to right, var(--line-color) 4%, var(--hover-bg) 25%, var(--line-color) 36%);
+  background: linear-gradient(
+    to right,
+    var(--line-color) 4%,
+    var(--hover-bg) 25%,
+    var(--line-color) 36%
+  );
   background-size: 1000px 100%;
   animation: shimmer 2s infinite linear;
   border-radius: 4px;
@@ -163,4 +168,27 @@
 
 .skeleton-loader .table-list-item .skeleton-cell:first-child {
   width: 60%;
+}
+
+@media (width < 35rem) {
+  .table-header,
+  .table-list-item {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .table-header-created-levels,
+  .table-list-item {
+    grid-template-columns: 1.5fr repeat(3, minmax(0, 1fr));
+  }
+
+  .table-header-played-levels,
+  .played-levels-item {
+    grid-template-columns: 1.5fr repeat(2, minmax(0, 1fr));
+  }
+
+  .buttons {
+    gap: 0.25rem;
+  }
 }

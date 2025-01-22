@@ -52,15 +52,15 @@ $text-color: rgb(50, 50, 50);
 }
 
 .removeButton {
-  display:grid;
+  display: grid;
   place-items: center;
   height: fit-content;
-  width: fit-content; 
-   aspect-ratio: 1/1;
+  width: fit-content;
+  aspect-ratio: 1/1;
   border-radius: 50%;
   transition: 0.2s;
- // background-color: orange;
-  &:hover{
+  // background-color: orange;
+  &:hover {
     scale: 1.4;
   }
 }
@@ -187,7 +187,7 @@ $text-color: rgb(50, 50, 50);
   background-color: $error-color;
   color: white;
   &:hover {
-    background-color:lighten($error-color, 10);
+    background-color: lighten($error-color, 10);
   }
 }
 
@@ -308,7 +308,6 @@ $text-color: rgb(50, 50, 50);
   transition: border-color 0.2s;
 }
 
-
 .error {
   color: #dc2626;
   font-size: 0.875rem;
@@ -400,4 +399,22 @@ $text-color: rgb(50, 50, 50);
 .successSubtext {
   color: #6b7280;
   font-size: 0.875rem;
+}
+
+@media (width < 35rem) {
+  .container {
+    padding: 1rem;
+    padding-inline: 1rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
 }

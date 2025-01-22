@@ -4,6 +4,8 @@ import CssFormBoxButtons from "./CssFormBoxButtons";
 import SuggestList from "@components/SuggestList";
 import RightBracket from "./RightBracket";
 
+const CHAR_LIMIT = 11;
+
 const CssFormInputs = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const [suggestValue, setSuggestValue] = useState("");
@@ -29,7 +31,7 @@ const CssFormInputs = (props) => {
                 }
                 value={
                   property.length > 0 &&
-                  property.length < 8 &&
+                  property.length < CHAR_LIMIT &&
                   focusedInput !== index
                     ? `${property}:`
                     : property
@@ -51,7 +53,9 @@ const CssFormInputs = (props) => {
                   setSuggestValue(newValue);
                 }}
               />
-              {property.length > 8 && focusedInput !== index && <span>:</span>}
+              {property.length > CHAR_LIMIT && focusedInput !== index && (
+                <span>:</span>
+              )}
             </div>
 
             <div>
@@ -62,9 +66,10 @@ const CssFormInputs = (props) => {
                     : "form-css__input"
                 }
                 type="text"
+                placeholder=""
                 value={
                   props.values[index]?.length > 0 &&
-                  props.values[index]?.length < 8 &&
+                  props.values[index]?.length < CHAR_LIMIT &&
                   focusedSecondInput !== index
                     ? `${props.values[index]};`
                     : props.values[index]
@@ -76,7 +81,7 @@ const CssFormInputs = (props) => {
                 onFocus={() => setFocusedSecondInput(index)}
                 onBlur={() => setFocusedSecondInput(null)}
               />
-              {props.values[index]?.length > 8 &&
+              {props.values[index]?.length > CHAR_LIMIT &&
                 focusedSecondInput !== index && <span>;</span>}
             </div>
 

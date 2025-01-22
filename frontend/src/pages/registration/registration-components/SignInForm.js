@@ -104,7 +104,7 @@ const SignInForm = ({ setIsModalOpen }) => {
       </div>
       {error ? (
         <WarningLabel
-          text="this username or password is not valid"
+          text="username or password is not valid"
           id="login-error"
           role="alert"
           aria-live="assertive"

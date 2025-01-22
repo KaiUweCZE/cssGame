@@ -94,40 +94,39 @@ export const aboutLevelData = [
         error sapiente quae asperiores dolor enim `,
     main: {
       description: `
-                Marginy a paddingy patří k dalším základním vlastnostem,
-                které ovlivňují rozložení a prostorové vztahy mezi elementy na webové stránce.
-                Ačkoliv se na první pohled mohou zdát podobné, mají odlišné účely a 
-                jejich správné použití je klíčové pro vytváření dobře 
-                strukturovaných a vizuálně příjemných webových layoutů.
-                Hlavní rozdíl mezi marginy a paddingy spočívá v tom, 
-                že marginy ovlivňují prostor vně elementu, zatímco 
-                paddingy ovlivňují prostor uvnitř elementu.
+               Margins and padding are among the fundamental properties
+                that influence the layout and spatial relationships between
+                 elements on a webpage. Although they may seem similar at
+                  first glance, they serve different purposes, and their
+                   correct usage is crucial for creating well-structured and
+                    visually appealing web layouts. The main difference between 
+                    margins and padding lies in the fact that margins affect the
+                     space outside an element,
+                while padding affects the space inside an element.
                 `,
       li: [
         {
           headline: "margin",
           p: `
-                        definuje prostor kolem elementu; prostor mezi okrajem 
-                        elementu a sousedními elementy. Marginy mohou být 
-                        aplikovány na všechny čtyři strany elementu 
-                        (horní, pravý, dolní, levý) a mohou mít různé hodnoty, 
-                        což umožňuje flexibilní ovládání rozestupů mezi elementy. 
-                        Marginy mohou být také záporné, což umožňuje překryv elementů.
+                        margin defines the space around an element; it is the space
+                         between the edge of an element and its neighboring elements. 
+                         Margins can be applied to all four sides of an element 
+                         (top, right, bottom, left) and can have different values, 
+                         allowing for flexible control of spacing between elements. 
+                        Margins can also be negative, which enables elements to overlap.
                         `,
         },
         {
           headline: "padding",
           p: `
-                        Na rozdíl od marginu, padding, neboli výplň, definuje 
-                        prostor mezi okrajem elementu a jeho obsahem. 
-                        Padding zvyšuje vnější rozměry elementu tím, že 
-                        přidává prostor uvnitř elementu. Stejně jako marginy, i 
-                        paddingy mohou být aplikovány na všechny čtyři strany
-                        Padding je důležitý pro vizuální komfort uživatelů, 
-                        protože zajišťuje, že text a další obsah nejsou 
-                        příliš blízko k 
-                        okrajům elementů, což usnadňuje čtení a interakci s obsahem.
-                        `,
+              unlike margins, padding, or inner spacing, defines the space 
+              between the edge of an element and its content. Padding increases 
+              the outer dimensions of an element by adding space inside it. 
+              Like margins, padding can be applied to all four sides. 
+              Padding is important for user visual comfort, as it ensures 
+              that text and other content are not too close to the edges of elements, 
+              making reading and interaction with the content easier.
+               `,
         },
       ],
 

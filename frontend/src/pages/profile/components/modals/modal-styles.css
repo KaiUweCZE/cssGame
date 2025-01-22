@@ -208,3 +208,23 @@
     transform: translateY(0) scale(1);
   }
 }
+
+@media (max-width: 35rem) {
+  .modal-overlay {
+    padding: var(--space-2);
+  }
+
+  .modal-content {
+    padding: var(--space-4);
+    width: 95dvw;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .modal-buttons button {
+    width: 100%;
+  }
+}

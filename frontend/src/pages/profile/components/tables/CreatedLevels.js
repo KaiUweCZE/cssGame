@@ -5,11 +5,13 @@ import "./table-styles.css";
 import TableBody from "./TableBody";
 import TableFooter from "./TableFooter";
 import SkeletonTableLoader from "../SkeletonTableLoader";
+import useWindowSize from "@/hooks/useWindowSize";
 
 const CreatedLevels = ({ levels, onDelete, loading = false }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const numberOfPages = Math.ceil(levels?.length / itemsPerPage || 0);
+  const { width } = useWindowSize();
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -18,7 +20,12 @@ const CreatedLevels = ({ levels, onDelete, loading = false }) => {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
-  const columns = ["Level", "Likes", "Finished/Played", "Actions"];
+  const columns = [
+    "Level",
+    "Likes",
+    width < 1000 ? "F/P" : "Finished/Played",
+    "Actions",
+  ];
 
   if (loading) {
     return <SkeletonTableLoader columns={4} />;

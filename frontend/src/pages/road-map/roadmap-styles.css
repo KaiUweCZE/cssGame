@@ -56,9 +56,12 @@
   cursor: pointer;
 }
 .roadmap__item span {
-  font-size: clamp(0.65rem, 1.65vw, 1.5rem);
+  font-size: clamp(0.6rem, 1.65vw, 1.5rem);
   font-weight: bold;
   color: white;
+  /* @media (width < 43rem) {
+    font-size: 0.5rem;
+  }*/
 }
 .roadmap__item::after {
   content: "";

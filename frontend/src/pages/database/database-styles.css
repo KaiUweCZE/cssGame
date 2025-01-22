@@ -97,6 +97,11 @@
   z-index: 1;
   margin-inline: 2rem;
 }
+@media (width < 35rem) {
+  .database-header {
+    overflow-x: auto;
+  }
+}
 
 .database-buttons {
   grid-column: 2;
@@ -281,8 +286,9 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (width < 30rem) {
+@media (width < 35rem) {
   .database-list-filter {
+    grid-template-columns: repeat(5, 1fr);
     width: 100%;
     max-height: -moz-fit-content;
     max-height: fit-content;
@@ -314,6 +320,12 @@
 }
 .filter-item.active {
   background-color: rgba(76, 165, 165, 0.4);
+}
+@media (width < 35rem) {
+  .filter-item {
+    width: -moz-max-content;
+    width: max-content;
+  }
 }
 
 .glass.database {

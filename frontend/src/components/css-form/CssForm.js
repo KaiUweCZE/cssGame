@@ -193,7 +193,7 @@ const CssForm = (props) => {
           // wrong list?
           listError ? (
             <ErrorList
-              type="denied list"
+              type="Denied Properties"
               list={level.deniedList}
               remove={() => setListError(false)}
             />

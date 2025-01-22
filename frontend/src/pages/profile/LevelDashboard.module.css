@@ -396,4 +396,20 @@
 .successSubtext {
   color: #6b7280;
   font-size: 0.875rem;
+}
+
+@media (width < 35rem) {
+  .container {
+    padding: 1rem;
+    padding-inline: 1rem;
+  }
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=LevelDashboard.module.css.map */

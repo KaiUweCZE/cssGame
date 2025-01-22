@@ -103,6 +103,9 @@ $database-bg: lighten($main-color, 10);
   top: 0;
   z-index: 1;
   margin-inline: 2rem;
+  @media (width < 35rem) {
+    overflow-x: auto;
+  }
 }
 
 .database-buttons {
@@ -279,8 +282,8 @@ $database-bg: lighten($main-color, 10);
 
     //grid-template-rows: 1fr 1fr;
   }
-  @media (width < 30rem) {
-    // grid-template-columns: 1fr 1fr;
+  @media (width < 35rem) {
+    grid-template-columns: repeat(5, 1fr);
     width: 100%;
     max-height: fit-content;
     height: fit-content;
@@ -309,6 +312,9 @@ $database-bg: lighten($main-color, 10);
   }
   &.active {
     background-color: rgba(76, 165, 165, 0.4);
+  }
+  @media (width < 35rem) {
+    width: max-content;
   }
 }
 
