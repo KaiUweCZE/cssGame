@@ -1,51 +1,99 @@
-# CSS Play
+# CSS Play 🎮
 
-## Description
+## Overview
 
-_CSS Play_ aims to make css accessible through interactivity, the user can complete preset levels in the application, levels from other users from database, or create their own levels.
+_CSS Play_ is an interactive learning platform that makes CSS accessible and fun through gamification. Users can progress through carefully designed levels, challenge themselves with community-created content, or unleash their creativity by designing their own levels.
 
-## Project principle
+🎯 **[Try it live](https://play-css.netlify.app)** (Launch: 20.4.2024)
 
-You can visit the deployed version of the project [here](https://play-css.netlify.app) (20.4.2024).
+## ✨ Features
 
-## Features
+- 🎓 **Progressive Learning Path**
 
-- After each level the user can access new learning materials and tools
-- Progressive difficulty levels
-- Creation of custom levels
-- Real-time feedback on user input
+  - Carefully designed levels with increasing difficulty
+  - Unlock new learning materials and tools after each completion
+  - Real-time feedback on your CSS solutions
 
-## Get started
+- 🎨 **Level Creation**
+
+  - Design and share your own CSS challenges
+  - Test other users' creative levels
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-Before running the project, make sure you have installed:
+Before you begin, ensure you have the following installed:
 
-- Node.js
-- npm
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- MongoDB Atlas account (free tier is sufficient)
 
-### Instalation
+### Environment Setup
 
-Follow these steps to install and rub the project:
+1. **Backend Configuration**
 
-1.**Clone the Repository**
+   ```bash
+   cd backend/
+   cp .env.example .env
+   # Fill in your environment variables in .env
+   ```
 
-```bash
-git clone https://github.com/KaiUweCZE/cssGame.git
-```
+   Required environment variables:
 
-2.**Install and run the backend**
+   - `MONGO_URI`: MongoDB Atlas connection string (create a free cluster at mongodb.com/atlas)
+   - `PORT`: Server port (default: 3000)
+   - `JWT_SECRET`: Secret for JWT authentication
+   - `RESEND_API_KEY`: API key for email services
 
-```bash
-cd backend/
-npm install
-npm start
-```
+2. **Frontend Configuration**
+   ```bash
+   cd frontend/
+   cp .env.example .env
+   # Fill in your environment variables in .env
+   ```
+   Required environment variables:
+   - `CLOUDINARY_URL`: For image uploads
+   - `CLOUDINARY_API_KEY`: Cloudinary API key
 
-3.**Instal and run the frontend**
+### Installation
 
-```bash
-cd frontend/
-npm install
-npm start
-```
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/KaiUweCZE/cssGame.git
+   cd cssGame
+   ```
+
+2. **Backend Setup**
+
+   ```bash
+   cd backend/
+   npm install
+   npm start
+   ```
+
+3. **Frontend Setup**
+   ```bash
+   cd frontend/
+   npm install
+   npm start
+   ```
+
+## 🛠️ Tech Stack
+
+- **Frontend**:
+
+  - React.js
+  - SCSS/CSS Modules
+  - Cloudinary (image handling)
+
+- **Backend**:
+  - Node.js
+  - Express
+  - MongoDB Atlas
+  - JWT Authentication
+
+## 🤝 Contact
+
+Have questions? Feel free to reach out!
