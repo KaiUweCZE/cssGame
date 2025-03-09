@@ -16,20 +16,27 @@
   text-decoration: none;
 }
 
-.roadmap__background {
+.roadmap-background {
   display: flex;
   position: relative;
-  width: 90%;
   max-width: 1440px;
   max-height: 810px;
   aspect-ratio: 16/9;
+  max-width: 80rem;
+  width: 100%;
   margin-inline: auto;
   margin-block: 2.5rem;
   background-size: contain;
-  width: 90%;
   background-repeat: no-repeat;
   opacity: 0.1;
   animation: blur 0.4s linear forwards;
+}
+
+.roadmap-background-img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
 }
 
 .roadmap {
@@ -57,7 +64,7 @@
 }
 .roadmap__item span {
   font-size: clamp(0.6rem, 1.65vw, 1.5rem);
-  font-weight: bold;
+  font-weight: 600;
   color: white;
   /* @media (width < 43rem) {
     font-size: 0.5rem;
@@ -66,8 +73,8 @@
 .roadmap__item::after {
   content: "";
   position: absolute;
-  width: 3vw;
-  height: 3vw;
+  width: clamp(1.5rem, 3vw, 3.5rem);
+  height: clamp(1.5rem, 3vw, 3.5rem);
   opacity: 1;
   border-radius: 19% 81% 14% 86%/80% 10% 90% 20%;
   background-color: rgba(10, 58, 64, 0.6);

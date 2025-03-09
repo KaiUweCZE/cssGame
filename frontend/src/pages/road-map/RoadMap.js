@@ -36,16 +36,12 @@ const RoadMap = () => {
 
   return (
     <div
-      className="roadmap__background"
-      style={{ backgroundImage: `url(${mapBG})` }}
+      className="roadmap-background"
       role="main"
       aria-label="Game level selection map"
     >
-      <div 
-        className="roadmap"
-        role="navigation"
-        aria-label="Level selection"
-      >
+      <img src={mapBG} alt="roadmap" className="roadmap-background-img" />
+      <div className="roadmap" role="navigation" aria-label="Level selection">
         {ROADMAP_LEVELS.map((levelData) => (
           <RoadmapLevel
             key={levelData.num}
