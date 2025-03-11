@@ -1,4 +1,4 @@
-import { rightBracket } from "@data/ImagesData";
+import { rightBracket } from "@/data/imagesData";
 import React from "react";
 
 const RightBracket = () => {

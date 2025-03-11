@@ -1,5 +1,5 @@
 import React from "react";
-import { leftBracket } from "@data/ImagesData";
+import { leftBracket } from "@/data/imagesData";
 
 const CssFormHeadline = (props) => {
   return (

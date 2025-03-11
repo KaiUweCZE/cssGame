@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { masterImg } from "../../data/ImagesData";
+import { masterImg } from "../../data/imagesData";
 import { EmojiContext } from "@contexts/emojiContext";
 import EmojiMessage from "./EmojiMessage";
 import { useMessageCounter } from "@utils/MessageCounter";

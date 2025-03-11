@@ -1,5 +1,5 @@
 import { CheckContext } from "@contexts/form-contexts/checkContext";
-import { playIcon, playIconAfter, plusIcon } from "@data/ImagesData";
+import { playIcon, playIconAfter, plusIcon } from "@/data/imagesData";
 import React, { useContext, useState } from "react";
 import pinIcon from "@/assets/images/icons/pin.webp";
 import pinFillIcon from "@/assets/images/icons/pin-fill.webp";

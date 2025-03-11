@@ -1,7 +1,7 @@
 import React from "react";
-import { guideImg } from "../../data/ImagesData";
+import { guideImg } from "../../data/imagesData";
 import EmojiMessage from "./EmojiMessage";
-import { emojiData } from "../../data/EmojiData";
+import { emojiData } from "../../data/emojiData";
 import { useMessageCounter } from "@utils/MessageCounter";
 
 const GuideEmoji = (props) => {

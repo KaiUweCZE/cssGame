@@ -1,4 +1,4 @@
-import { minusIcon } from "@data/ImagesData";
+import { minusIcon } from "@/data/imagesData";
 import { MinusCircle } from "lucide-react";
 import React from "react";
 

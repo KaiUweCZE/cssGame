@@ -1,4 +1,4 @@
-import { tipsImages } from "../../../data/ImagesData";
+import { tipsImages } from "../../../data/imagesData";
 
 /*
 next tips: uiverse, adobe/express/tools, svgrepo, haikei app, css battle, codepen, clip path, filter to specific color generator

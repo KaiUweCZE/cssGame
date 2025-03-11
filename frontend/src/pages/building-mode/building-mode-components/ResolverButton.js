@@ -1,5 +1,5 @@
 import React from "react";
-import { rightBracket } from "@data/ImagesData";
+import { rightBracket } from "@/data/imagesData";
 
 const ResolverButton = () => {
   return (

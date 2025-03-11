@@ -1,4 +1,4 @@
-import { barkTexture } from "@data/ImagesData";
+import { barkTexture } from "@/data/imagesData";
 import React, { useRef, useEffect, useContext } from "react";
 import OneBridgeElement from "./bridge-components/OneBridgeElement";
 import StartPoint from "./game/StartPoint";

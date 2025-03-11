@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ResultContext } from "@contexts/form-contexts/resultContext";
-import { refreshIcon } from "@data/ImagesData";
+import { refreshIcon } from "@/data/imagesData";
 import { useSetLevel } from "@utils/useSetLevel";
 import next from "@images/icons/right-arrow.webp";
 import refIcon from "@images/icons/refresh.png";

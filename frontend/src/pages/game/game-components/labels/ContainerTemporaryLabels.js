@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import pinIcon from "@/assets/images/icons/pin.webp";
-import { labelImages, playIcon } from "@/data/ImagesData";
+import { labelImages, playIcon } from "@/data/imagesData";
 import { Braces, X } from "lucide-react";
 
 const ContainerTemporaryLabels = ({ level, containerClass }) => {

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { glassImg } from "@data/ImagesData";
+import { glassImg } from "@/data/imagesData";
 import { CheckContext } from "@contexts/form-contexts/checkContext";
 import AboutClassInfo from "./AboutClassInfo";
 import AboutClassMenu from "./AboutClassMenu";

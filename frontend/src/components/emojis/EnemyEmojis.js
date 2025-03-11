@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { enemyImg } from "../../data/ImagesData";
+import { enemyImg } from "../../data/imagesData";
 import EmojiMessage from "./EmojiMessage";
-import { emojiData } from "../../data/EmojiData";
+import { emojiData } from "../../data/emojiData";
 import { ResultContext } from "@contexts/form-contexts/resultContext";
 
 const EnemyEmoji = (props) => {

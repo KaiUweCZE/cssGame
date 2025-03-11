@@ -1,11 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
-import { navbarImages } from "@/data/ImagesData";
 import { UserContext } from "@/contexts/UserContext";
-import hatIcon from "@images/icons/hat.svg";
 import Logo from "./Logo";
 import SubMenu from "./SubMenu";
+import {
+  Gamepad2,
+  PencilRuler,
+  Archive,
+  Settings,
+  Map,
+  GraduationCap,
+  Home,
+  LogIn,
+} from "lucide-react";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
@@ -41,53 +49,53 @@ const Navbar = () => {
           <ul className={`menu ${specialClass}`}>
             {login ? (
               <>
-                <NavLink className="menu__item" to="/map">
-                  <img src={navbarImages.mapIcon} alt="" />
+                <NavLink className="menu-item" to="/map">
+                  <Map className="menu-item-icon" color="#fff" />
                   <span>Map</span>
                 </NavLink>
-                <NavLink className="menu__item" to="/database">
-                  <img src={navbarImages.databaseIcon} alt="" />
+                <NavLink className="menu-item" to="/database">
+                  <Archive className="menu-item-icon" color="#fff" />
                   <span>Database</span>
                 </NavLink>
-                <NavLink className="menu__item" to="/building">
-                  <img src={navbarImages.toolsIcon} alt="" />
+                <NavLink className="menu-item" to="/building">
+                  <PencilRuler className="menu-item-icon" color="#fff" />
                   <span>Building</span>
                 </NavLink>
-                <NavLink className="menu__item" to="/academy">
-                  <img src={hatIcon} alt="" />
+                <NavLink className="menu-item" to="/academy">
+                  <GraduationCap className="menu-item-icon" color="#fff" />
                   <span>Academy</span>
                 </NavLink>
-                <NavLink className="menu__item" to="/game">
-                  <img src={navbarImages.gameIcon} alt="" />
+                <NavLink className="menu-item" to="/game">
+                  <Gamepad2 className="menu-item-icon" color="#fff" />
                   <span>Game</span>
                 </NavLink>
                 <NavLink
                   className={
                     settingIsActive
-                      ? "menu__item settings open"
-                      : "menu__item settings"
+                      ? "menu-item settings open"
+                      : "menu-item settings"
                   }
                   onClick={handleSubMenu}
                 >
-                  <img src={navbarImages.settingIcon} alt="" />
+                  <Settings className="menu-item-icon" color="#fff" />
                   <span>Settings</span>
                 </NavLink>
               </>
             ) : (
               <>
-                <NavLink className="menu__item" to="/">
-                  <img src={navbarImages.homeIcon} alt="" />
+                <NavLink className="menu-item" to="/">
+                  <Home className="menu-item-icon" color="#fff" />
                   <span>Home</span>
                 </NavLink>
 
-                <NavLink className="menu__item" to="/login">
-                  <img src={navbarImages.loginIcon} alt="" />
+                <NavLink className="menu-item" to="/login">
+                  <LogIn className="menu-item-icon" color="#fff" />
                   <span>Sign In</span>
                 </NavLink>
               </>
             )}
           </ul>
-          {login &&settingIsActive && (
+          {login && settingIsActive && (
             <SubMenu
               specialClass={subSpecialClass}
               logout={logout}

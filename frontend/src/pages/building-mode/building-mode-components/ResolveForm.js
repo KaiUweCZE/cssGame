@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { BuildingFormContext } from "@contexts/building-contexts/buildingForm";
-import { leftBracket } from "@data/ImagesData";
+import { leftBracket } from "@/data/imagesData";
 import useFormHandlers from "@/hooks/useFormHandlers";
 import WarningLabel from "@components/errors/WarningLabel";
 import ResolverButton from "./ResolverButton";

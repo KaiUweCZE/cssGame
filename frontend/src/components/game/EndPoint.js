@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { enviromentImages } from "@data/ImagesData";
+import { enviromentImages } from "@/data/imagesData";
 import { LevelContext } from "@contexts/form-contexts/levelContext";
 import EnemyEmoji from "@components/emojis/EnemyEmojis";
 

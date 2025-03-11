@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { labelImages } from "@/data/ImagesData";
+import { labelImages } from "@/data/imagesData";
 import { Check } from "lucide-react";
 
 const FormTemporaryLabel = () => {

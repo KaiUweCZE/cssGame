@@ -1,5 +1,5 @@
 import React from "react";
-import { hashtagIcon } from "@data/ImagesData";
+import { hashtagIcon } from "@/data/imagesData";
 import AcademyExercise from "./AcademyExercise";
 import TipSection from "./TipSection";
 

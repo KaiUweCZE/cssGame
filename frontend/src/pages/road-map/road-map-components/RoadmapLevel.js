@@ -1,7 +1,14 @@
 import React, { useState } from "react";
-import { lockIcon } from "../../../data/ImagesData";
+import { lockIcon } from "../../../data/imagesData";
 
-const RoadmapLevel = ({ locked, specialClass, onClick, num, current, completed }) => {
+const RoadmapLevel = ({
+  locked,
+  specialClass,
+  onClick,
+  num,
+  current,
+  completed,
+}) => {
   const [active, setActive] = useState(false);
 
   const handleActiveClass = () => {
@@ -12,7 +19,8 @@ const RoadmapLevel = ({ locked, specialClass, onClick, num, current, completed }
   };
 
   const getAriaLabel = () => {
-    if (locked) return `Level ${num} - Locked. Complete previous level to unlock`;
+    if (locked)
+      return `Level ${num} - Locked. Complete previous level to unlock`;
     if (current) return `Level ${num} - Current level`;
     if (completed) return `Level ${num} - Completed`;
     return `Level ${num} - Available to play`;

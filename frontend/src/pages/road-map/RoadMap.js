@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./roadmap-styles.css";
-import { mapBG } from "../../data/ImagesData";
+import { mapBG } from "../../data/imagesData";
 import { UserContext } from "../../contexts/UserContext";
 import RoadmapLevel from "./road-map-components/RoadmapLevel";
 import { useSetLevel } from "@utils/useSetLevel";

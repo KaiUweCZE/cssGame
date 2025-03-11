@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { navbarImages } from "@/data/ImagesData";
+import { navbarImages } from "@/data/imagesData";
 
 const SubMenu = ({ specialClass, logout, setState }) => {
   const handleLogout = () => {

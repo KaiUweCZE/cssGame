@@ -53,6 +53,8 @@ frontend/build
 frontend/.env*
 !frontend/.env.example
 frontend/*.map
+frontend/src/assets/styles/index.css
+frontend/src/assets/styles/index.css.map
 # DO NOT ignore frontend/public - it contains important static assets
 
 # Backend specific
@@ -69,6 +71,7 @@ backend/.env*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
 
 # Optional - Large media files that should be served from CDN
 # frontend/public/videos/
