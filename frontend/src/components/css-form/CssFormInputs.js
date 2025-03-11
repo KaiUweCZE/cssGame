@@ -17,25 +17,23 @@ const CssFormInputs = (props) => {
     <>
       <form className="form-css" onSubmit={props.submit}>
         {props.properties.map((property, index) => (
-          <div className="form-css__row" key={index}>
-            <div>
+          <div className="form-css-row" key={index}>
+            <div
+              className={`form-css-value ${
+                focusedInput === index ? "focus-within" : ""
+              } ${property.length > 0 ? "input-filled" : ""}`}
+            >
               <input
                 className={
                   property.length > 0
-                    ? "form-css__input inputed"
-                    : "form-css__input"
+                    ? "form-css-input inputed"
+                    : "form-css-input"
                 }
                 type="text"
                 placeholder={
                   props.name === "parts" ? `${index + 1}.element` : ""
                 }
-                value={
-                  property.length > 0 &&
-                  property.length < CHAR_LIMIT &&
-                  focusedInput !== index
-                    ? `${property}:`
-                    : property
-                }
+                value={property}
                 onFocus={() => {
                   setIsFocused(true);
                   setFocusedInput(index);
@@ -44,7 +42,7 @@ const CssFormInputs = (props) => {
                 onBlur={() =>
                   setTimeout(() => {
                     setIsFocused(false);
-                    setFocusedInput(null); // Přidáno resetování focusedInput
+                    setFocusedInput(null);
                   }, 50)
                 }
                 onChange={(e) => {
@@ -53,27 +51,25 @@ const CssFormInputs = (props) => {
                   setSuggestValue(newValue);
                 }}
               />
-              {property.length > CHAR_LIMIT && focusedInput !== index && (
-                <span>:</span>
+              {property.length > 0 && focusedInput !== index && (
+                <span className="form-css-span">:</span>
               )}
             </div>
 
-            <div>
+            <div
+              className={`form-css-value ${
+                focusedSecondInput === index ? "focus-within" : ""
+              } ${props.values[index]?.length > 0 ? "input-filled" : ""}`}
+            >
               <input
                 className={
                   props.values[index]?.length > 0
-                    ? "form-css__input inputed"
-                    : "form-css__input"
+                    ? "form-css-input inputed"
+                    : "form-css-input"
                 }
                 type="text"
                 placeholder=""
-                value={
-                  props.values[index]?.length > 0 &&
-                  props.values[index]?.length < CHAR_LIMIT &&
-                  focusedSecondInput !== index
-                    ? `${props.values[index]};`
-                    : props.values[index]
-                }
+                value={props.values[index] || ""}
                 onChange={(e) => {
                   const newValue = e.target.value.replace(/;$/, "");
                   props.setValueAtIndex(index, newValue);
@@ -81,8 +77,10 @@ const CssFormInputs = (props) => {
                 onFocus={() => setFocusedSecondInput(index)}
                 onBlur={() => setFocusedSecondInput(null)}
               />
-              {props.values[index]?.length > CHAR_LIMIT &&
-                focusedSecondInput !== index && <span>;</span>}
+              {props.values[index]?.length > 0 &&
+                focusedSecondInput !== index && (
+                  <span className="form-css-span">;</span>
+                )}
             </div>
 
             <RemoveInput
@@ -98,8 +96,8 @@ const CssFormInputs = (props) => {
           addLabel={props.addLabel}
           stop={
             props.name === "parts"
-              ? props.properties.length >= props.maxInputs // Use level's partOfBridge value passed as maxInputs
-              : props.properties.length >= (props.maxInputs || 3) // Default or specified max for others
+              ? props.properties.length >= props.maxInputs
+              : props.properties.length >= (props.maxInputs || 3)
           }
           name={props.name}
         />

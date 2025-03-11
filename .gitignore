@@ -55,8 +55,18 @@ frontend/.env*
 frontend/*.map
 frontend/src/assets/styles/index.css
 frontend/src/assets/styles/index.css.map
-# DO NOT ignore frontend/public - it contains important static assets
-
+frontend/src/pages/database/database-styles.css
+frontend/src/pages/database/database-styles.css.map
+frontend/src/pages/building-mode/building-styles.css
+frontend/src/pages/building-mode/building-styles.css.map
+frontend/src/pages/intro/intro-styles.css
+frontend/src/pages/intro/intro-styles.css.map
+frontend/src/pages/academy/academy-styles.css
+frontend/src/pages/academy/academy-styles.css.map
+frontend/src/assets/styles/aside-styles.css
+frontend/src/assets/styles/aside-styles.css.map
+frontend/src/assets/styles/game-styles.css
+frontend/src/assets/styles/game-styles.css.map
 # Backend specific
 backend/dist
 backend/build
