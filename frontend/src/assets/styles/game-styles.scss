@@ -133,10 +133,14 @@ $checked-color: #b7e9b1;
   }
 
   .icon {
-    place-self: center end;
+    place-self: start end;
     translate: 2rem;
     cursor: pointer;
     z-index: 1;
+    transition: 0.3s;
+    &:hover {
+      scale: 1.1;
+    }
   }
 
   div {
@@ -180,7 +184,6 @@ $checked-color: #b7e9b1;
   }
 }
 
-/* Styly pro input */
 .form-css-input {
   display: inline-flex;
   position: relative;
@@ -189,7 +192,7 @@ $checked-color: #b7e9b1;
   white-space: nowrap;
   border: none;
   background-color: transparent;
-  padding-bottom: 1px; /* Prostor pro tečkovanou čáru */
+  padding-bottom: 1px;
 
   &:focus {
     outline: none;
@@ -237,9 +240,12 @@ $checked-color: #b7e9b1;
     grid-row: 1;
     grid-column: 2;
     display: grid;
+    place-self: end start;
+    translate: 0.5rem;
     cursor: pointer;
-    img {
-      position: relative;
+    transition: 0.3s;
+    &:hover {
+      scale: 1.1;
     }
   }
 
@@ -356,7 +362,7 @@ button {
   background-color: $addons-color;
   width: 100%;
   min-width: 10rem;
-  margin-left: 0.5rem;
+  // margin-left: 0.5rem;
   gap: 0.25rem;
   padding-block: 0.25rem;
   margin-top: 0.5rem;

@@ -4,7 +4,7 @@ import CssFormBoxButtons from "./CssFormBoxButtons";
 import SuggestList from "@components/SuggestList";
 import RightBracket from "./RightBracket";
 
-const CHAR_LIMIT = 11;
+const CHAR_LIMIT = 10;
 
 const CssFormInputs = (props) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -33,7 +33,11 @@ const CssFormInputs = (props) => {
                 placeholder={
                   props.name === "parts" ? `${index + 1}.element` : ""
                 }
-                value={property}
+                value={
+                  property.length > 0 && focusedInput !== index
+                    ? `${property}:` // add double colon to the end of value
+                    : property
+                }
                 onFocus={() => {
                   setIsFocused(true);
                   setFocusedInput(index);
@@ -52,7 +56,15 @@ const CssFormInputs = (props) => {
                 }}
               />
               {property.length > 0 && focusedInput !== index && (
-                <span className="form-css-span">:</span>
+                <span
+                  className={
+                    property.length < CHAR_LIMIT
+                      ? "form-css-span opacity-0"
+                      : "form-css-span"
+                  }
+                >
+                  :
+                </span>
               )}
             </div>
 
@@ -69,7 +81,12 @@ const CssFormInputs = (props) => {
                 }
                 type="text"
                 placeholder=""
-                value={props.values[index] || ""}
+                value={
+                  props.values[index]?.length > 0 &&
+                  focusedSecondInput !== index
+                    ? `${props.values[index]};`
+                    : props.values[index] || ""
+                }
                 onChange={(e) => {
                   const newValue = e.target.value.replace(/;$/, "");
                   props.setValueAtIndex(index, newValue);
@@ -79,7 +96,15 @@ const CssFormInputs = (props) => {
               />
               {props.values[index]?.length > 0 &&
                 focusedSecondInput !== index && (
-                  <span className="form-css-span">;</span>
+                  <span
+                    className={
+                      props.values[index]?.length < CHAR_LIMIT
+                        ? "form-css-span opacity-0"
+                        : "form-css-span"
+                    }
+                  >
+                    ;
+                  </span>
                 )}
             </div>
 

@@ -86,3 +86,6 @@ Thumbs.db
 # Optional - Large media files that should be served from CDN
 # frontend/public/videos/
 # frontend/public/large-assets/
+
+# guide/presentation
+frontend/src/pages/presentation/

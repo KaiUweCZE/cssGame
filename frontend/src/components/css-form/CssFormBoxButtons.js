@@ -3,7 +3,7 @@ import { playIcon, playIconAfter, plusIcon } from "@/data/imagesData";
 import React, { useContext, useState } from "react";
 import pinIcon from "@/assets/images/icons/pin.webp";
 import pinFillIcon from "@/assets/images/icons/pin-fill.webp";
-import { PlusCircle, PlusCircleIcon } from "lucide-react";
+import { PlusCircle } from "lucide-react";
 
 const CssFormBoxButtons = (props) => {
   const [icon, setIcon] = useState(playIcon);
@@ -16,6 +16,7 @@ const CssFormBoxButtons = (props) => {
       setCheckedBoxes((prev) => [...prev, props.name]);
     }
   };
+
   return (
     <div className="box-buttons">
       {!props.stop && (

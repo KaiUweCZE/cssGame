@@ -1,6 +1,12 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    //"checkJs": true,
+    "jsx": "react",
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
@@ -14,6 +20,6 @@
     },
     "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": ["src/**/*", "../src/intro-components", "../src/IntroOld.js", "src/hooks"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
