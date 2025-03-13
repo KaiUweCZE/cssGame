@@ -76,8 +76,9 @@ $main-color: #0a3a40;
 
 @mixin scroll-primary {
   overflow-y: scroll;
+  scroll-behavior: smooth;
   &::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0.35rem;
   }
   &::-webkit-scrollbar-thumb {
     background-color: rgba($background-secondary, 0.5);

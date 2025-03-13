@@ -122,44 +122,95 @@ $checked-color: #b7e9b1;
   padding-bottom: 1rem;
 }
 
-.form-css__row {
+.form-css-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
+  gap: 0.75rem;
   position: relative;
+
   img {
     cursor: pointer;
   }
 
   .icon {
-    place-self: center end;
+    place-self: start end;
     translate: 2rem;
     cursor: pointer;
     z-index: 1;
+    transition: 0.3s;
+    &:hover {
+      scale: 1.1;
+    }
   }
+
   div {
     display: flex;
     gap: 0.05rem;
+    position: relative;
   }
-  .form-css__input {
-    display: inline-flex;
-    max-width: 5rem;
-    font-weight: bold;
-    white-space: nowrap;
-    border: none;
-    background-color: transparent;
-    border-bottom: 2px dotted rgba($primary-color, 0.6);
-    &:focus {
-      outline: none;
-    }
-    &.inputed:not(:focus) {
-      border-bottom: none;
-    }
-    &::placeholder {
-      font-size: 0.75rem;
-      color: #666666;
-    }
+}
+
+.form-css-value {
+  display: grid;
+  position: relative;
+
+  /* dotted line under input */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(30, 30, 30, 0.6) 50%,
+      transparent 50%
+    );
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
+    transition: opacity 0.2s;
   }
+
+  /* change style after focus */
+  &:focus-within::after {
+    height: 2px;
+    background-size: 6px 2px;
+  }
+
+  /* hide dotted line if value is inputed */
+  &:has(.form-css-input.inputed:not(:focus))::after {
+    opacity: 0;
+  }
+}
+
+.form-css-input {
+  display: inline-flex;
+  position: relative;
+  max-width: 5rem;
+  font-weight: bold;
+  white-space: nowrap;
+  border: none;
+  background-color: transparent;
+  padding-bottom: 1px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    font-size: 0.75rem;
+    color: #666666;
+  }
+}
+
+/* double dot and semicolon */
+.form-css-span {
+  display: grid;
+  position: absolute;
+  font-size: 1rem;
+  font-weight: bold;
+  inset: auto -0.35rem -0.05rem auto;
 }
 
 // box of buttons for cssForm component
@@ -189,9 +240,12 @@ $checked-color: #b7e9b1;
     grid-row: 1;
     grid-column: 2;
     display: grid;
+    place-self: end start;
+    translate: 0.5rem;
     cursor: pointer;
-    img {
-      position: relative;
+    transition: 0.3s;
+    &:hover {
+      scale: 1.1;
     }
   }
 
@@ -306,12 +360,13 @@ button {
   top: 100%;
   list-style: none;
   background-color: $addons-color;
-  width: fit-content;
+  width: 100%;
   min-width: 10rem;
-  margin-left: 0.5rem;
+  // margin-left: 0.5rem;
+  gap: 0.25rem;
+  padding-block: 0.25rem;
   margin-top: 0.5rem;
-  padding-block: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.15rem;
   max-height: 8rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   @include scroll-primary;
@@ -320,6 +375,7 @@ button {
     font-weight: bold;
   }
   li {
+    padding-block: 0.1rem;
     padding-inline: 0.5rem;
     color: white;
     cursor: pointer;
@@ -327,6 +383,9 @@ button {
     &:hover {
       background-color: rgba(255, 255, 255, 0.15);
     }
+  }
+  li.selected {
+    background-color: rgba(255, 255, 255, 0.15);
   }
 }
 
@@ -368,7 +427,7 @@ button {
   font-size: 2.5rem;
   padding-right: 1rem;
   font-weight: bold;
-  z-index: 100;
+  z-index: 10;
   color: lighten(#a77347, 40);
   text-shadow: 0 0 4px black;
   @include large-screen {
@@ -880,12 +939,20 @@ img.obstacle {
 }
 
 // magnifier, game element
+.about-class-container {
+  display: grid;
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  background-color: #1eb637b0;
+  z-index: 100;
+  width: 12rem;
+}
+
 .glass {
   display: grid;
-  grid-template: 1fr / 1fr;
   position: absolute;
-  top: -125%;
-  right: -88%;
+  right: 0;
   width: 3rem;
   cursor: pointer;
   transition: 0.5s;
@@ -894,43 +961,57 @@ img.obstacle {
   &:hover {
     transform: scale(1.15);
   }
-  @include large-screen {
-    position: fixed;
-    top: 5rem;
-    right: 5vw;
-  }
-  @include different-aspect-ratio {
-    position: absolute;
-    top: -40vh;
-    right: -88%;
-  }
 }
 
 // box where is an information about properties of css classes
 .about-class {
-  display: flex;
-  position: absolute;
-  width: 12rem;
-  right: -95%;
-  top: -110%;
-  flex-direction: column;
+  display: none;
+  width: 100%;
+  opacity: 1;
+  scale: 1;
+  transition: opacity 0.3s, display 0.3s, scale 0.3s;
+  transition-behavior: allow-discrete;
   background-color: $addons-color;
   border-radius: 0.35rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  @include large-screen {
-    position: fixed;
-    top: 8.5rem;
-    right: 2vw;
-  }
-  @include different-aspect-ratio {
+  &.about-open {
+    display: grid;
     position: absolute;
-    top: -20vh;
-    right: -95%;
+    top: 4rem;
+    right: 0;
+    opacity: 1;
+    scale: 1;
+    @starting-style {
+      opacity: 0;
+      scale: 0.75;
+    }
+  }
+}
+
+// menu of opitons to selecet from
+.about-class-menu {
+  display: flex;
+  z-index: 1;
+  li {
+    display: flex;
+    padding: 0.25rem;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    &.active {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
   }
 }
 
 // information about specific css class(bridge/container)
-.about-class__article {
+.about-class-info {
   z-index: 1;
   transition: 0.3s;
   padding: 0.5rem;
@@ -939,7 +1020,6 @@ img.obstacle {
   height: 0;
   animation: blure 0.5s linear forwards;
   @include scroll-primary;
-
   li {
     font-size: 1rem;
     list-style: none;
@@ -969,28 +1049,6 @@ img.obstacle {
   100% {
     height: 8rem;
     opacity: 1;
-  }
-}
-
-// menu of opitons to selecet from
-.about-class__menu {
-  display: flex;
-  z-index: 1;
-  li {
-    display: flex;
-    padding: 0.25rem;
-    justify-content: center;
-    width: 100%;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.5s;
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
-    &.active {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
   }
 }
 

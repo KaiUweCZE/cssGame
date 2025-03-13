@@ -12,13 +12,12 @@ import EmptyBox from "@components/EmptyBox";
 import Clouds from "./Clouds";
 import MessageResult from "@components/feedback/MessageResult";
 import ContainerTemporaryLabels from "./labels/ContainerTemporaryLabels";
+import AboutClass from "@/components/about-class-components/AboutClass";
 
 const Mission = () => {
   const [containerClass, setContainerClass] = useState();
   const [partsClass, setPartsClass] = useState();
   const { level } = useContext(LevelContext);
-
-  console.log("level", level);
 
   return (
     <CheckContextProvider>
@@ -28,6 +27,13 @@ const Mission = () => {
             <ResultProvider>
               <PartsProvider>
                 <div className="container-mission">
+                  <AboutClass
+                    styles={{
+                      bridge: level.bridgeStyles,
+                      container: level.containerStyles,
+                    }}
+                    level={level.id}
+                  />
                   <Clouds />
                   <MessageResult />
                   <div className="box__classes">

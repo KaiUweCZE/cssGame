@@ -402,6 +402,7 @@ export const levelData = [
       mainStyle: {},
       childrenStyle: {},
     },
+    deniedList: ["display"],
     partOfBridge: 3,
     master: true,
     correctPosition: {

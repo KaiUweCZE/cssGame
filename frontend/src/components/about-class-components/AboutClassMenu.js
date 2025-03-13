@@ -10,10 +10,13 @@ const AboutClassMenu = (props) => {
     props.setActive(true);
     setFocused(e);
     setAboutClass(e);
+    console.log({
+      "co je to e?": e,
+    });
   };
 
   return (
-    <ul className="about-class__menu">
+    <ul className="about-class-menu">
       <li
         onClick={(e) => handleSetClass(e.target.innerText)}
         className={focused === "bridge" ? "active" : ""}

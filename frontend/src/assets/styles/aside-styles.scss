@@ -5,7 +5,8 @@
   grid-template-columns: 1fr 80rem 1fr;
   gap: 1rem;
   align-items: flex-start;
-  max-height: calc(100vh - 4rem);
+  height: calc(100vh - 4rem);
+  max-height: 1000px;
   position: relative;
   overflow: hidden;
 }
@@ -28,11 +29,12 @@
   }
 }
 
-.container-background:has(.AsideBox) {
-  max-height: calc(100vh - 4rem);
+.container-background:has(.aside-box) {
+  height: calc(100vh - 4rem);
+  max-height: 1000px;
   overflow: hidden;
   gap: 1rem;
-  .AsideBox {
+  .aside-box {
     @include clasicAside;
   }
 }
@@ -56,7 +58,7 @@
   @media (width < 100rem) {
     display: flex;
   }
-  .AsideBox {
+  .aside-box {
     &.workshop {
       @include clasicAside;
     }
@@ -115,12 +117,12 @@
   @media (width < 100rem) {
     display: flex;
   }
-  .AsideBox {
+  .aside-box {
     @include clasicAside;
   }
 }
 
-.AsideBox {
+.aside-box {
   grid-column: 1;
   grid-row: 1;
   max-height: 51vw;

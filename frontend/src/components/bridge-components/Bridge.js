@@ -2,11 +2,9 @@ import React, { forwardRef, useContext, useEffect } from "react";
 import { barkTexture } from "../../data/imagesData";
 import { LevelContext } from "@contexts/form-contexts/levelContext";
 import { BridgeContext } from "@contexts/form-contexts/bridgeContext";
-import { CheckContext } from "@contexts/form-contexts/checkContext";
 import { ResultContext } from "@contexts/form-contexts/resultContext";
 import { ContainerContext } from "@contexts/form-contexts/containerContext";
 import { PartsContext } from "@contexts/form-contexts/partsContext";
-import AboutClass from "../about-class-components/AboutClass";
 import Obstacle from "@components/game/Obstacle";
 import OneBridgeElement from "./OneBridgeElement";
 import ManyBridgeElement from "./ManyBridgeElement";
@@ -20,7 +18,6 @@ const Bridge = forwardRef((props, ref) => {
   const { propertiesContainer, valuesContainer, setContainerLength } =
     useContext(ContainerContext);
   const { propertiesParts, valuesParts } = useContext(PartsContext);
-  const { active, aboutClass } = useContext(CheckContext);
   const { addToBridgeRef } = useContext(ResultContext);
 
   useEffect(() => {
@@ -100,10 +97,6 @@ const Bridge = forwardRef((props, ref) => {
         }
         {level.obstacle ? <Obstacle /> : ""}
       </div>
-      <AboutClass
-        style={aboutClass === "bridge" ? style.bridge : style.container}
-        level={level.id}
-      />
     </>
   );
 });
