@@ -19,11 +19,13 @@ $logo-color: lighten($main-color, 30);
 // main navigation and menu
 .container-menu {
   display: flex;
-  position: relative;
+  position: sticky;
+  top: 0;
   background-color: $main-color;
   box-shadow: 0 0 5px black;
   justify-content: center;
   height: 4rem;
+  z-index: 30;
 }
 
 .navigation {

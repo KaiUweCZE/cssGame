@@ -1,18 +1,20 @@
 import React from "react";
 
-const AboutClassInfo = ({ information }) => {
-  if (!information || Object.keys(information).length === 0) {
+const AboutClassInfo = ({ info }) => {
+  if (!info || Object.keys(info).length === 0) {
+    console.log("no information", info);
+
     return (
-      <article className="about-class__article">
+      <article className="about-class-info">
         <li>nothing to see</li>
       </article>
     );
   }
 
   return (
-    <article className="about-class__article">
+    <article className="about-class-info">
       <ul>
-        {Object.entries(information).map(
+        {Object.entries(info).map(
           ([key, value]) =>
             key && (
               <li key={key}>
