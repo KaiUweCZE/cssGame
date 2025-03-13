@@ -1,4 +1,4 @@
-import { exercises } from "@/pages/academy/data/ExercisesSettings";
+import { exercises } from "@/pages/academy/data/exercises-settings";
 import React from "react";
 
 const ExerciseElement = ({ values, levelId, editable }) => {

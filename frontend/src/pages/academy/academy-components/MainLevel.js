@@ -2,9 +2,19 @@ import React from "react";
 import { hashtagIcon } from "@/data/imagesData";
 import AcademyExercise from "./AcademyExercise";
 import TipSection from "./TipSection";
+import ErrorPage from "@/components/errors/ErrorPage";
 
 const MainLevel = ({ levelName, data }) => {
   const { description, li, tip, videoSection } = data;
+
+  console.log({
+    "check data": levelName,
+    "IF LEVEL IS BIGGER THAN 2 LOLOLOLOL!!!! EDIT DATA!!!": levelName,
+  });
+
+  if (!description || !li || !tip || !videoSection || !data || levelName > 2) {
+    return <ErrorPage />;
+  }
   return (
     <main className="level-main">
       <h2 className="main-headline">level {levelName}</h2>

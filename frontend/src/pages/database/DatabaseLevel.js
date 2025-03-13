@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 import CustomFormBridge from "./CustomFormBridge";
 import { customBridgeContext } from "@contexts/building-contexts/customBridgeContext";
 import AboutClass from "@components/about-class-components/AboutClass";
-import { CheckContext } from "@contexts/form-contexts/checkContext";
 import { customCommonContext } from "@contexts/building-contexts/customCommonContext";
 import { useUserPlayed } from "@utils/queries/useUserPlayed";
 import { UserContext } from "@contexts/UserContext";
@@ -32,7 +31,6 @@ const DatabaseLevel = () => {
     setDeniedList,
     setLevelId,
   } = useContext(customCommonContext);
-  const { aboutClass } = useContext(CheckContext);
   const { playedLevel, error } = useUserPlayed(id, user.id);
 
   useEffect(() => {
@@ -76,10 +74,10 @@ const DatabaseLevel = () => {
   return (
     <div className="container-mission">
       <AboutClass
-        specificClass="database"
-        style={
-          aboutClass === "bridge" ? originBridgeStyle : originContainerStyle
-        }
+        styles={{
+          container: originContainerStyle,
+          bridge: originBridgeStyle,
+        }}
       />
       <div className="box__classes">
         <CustomFormBridge name="bridge" />

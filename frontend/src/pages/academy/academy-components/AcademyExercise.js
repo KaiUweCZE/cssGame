@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { exercises } from "../data/ExercisesSettings";
+import { exercises } from "../data/exercises-settings";
 import { AcamedyContext } from "../context/AcademyContext";
 import ExerciseBox from "./exercise/ExerciseBox";
 import ExerciseHelp from "./exercise/ExerciseHelp";

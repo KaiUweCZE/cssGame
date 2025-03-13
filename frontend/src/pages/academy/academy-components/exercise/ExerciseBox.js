@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import ExerciseElement from "./ExerciseElement";
 import { AcamedyContext } from "@/pages/academy/context/AcademyContext";
-import { exercises } from "@/pages/academy/data/ExercisesSettings";
+import { exercises } from "@/pages/academy/data/exercises-settings";
 
 const ExerciseBox = ({ levelId }) => {
   const data = exercises[levelId - 1];

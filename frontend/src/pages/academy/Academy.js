@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { aboutLevelData } from "@/pages/academy/data/AboutLevelData";
+import { aboutLevelData } from "@/pages/academy/data/about-level-data";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "@contexts/UserContext";
 import AsideBox from "@/components/aside/AsideBox";

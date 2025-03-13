@@ -19,11 +19,13 @@ $logo-color: lighten($main-color, 30);
 // main navigation and menu
 .container-menu {
   display: flex;
-  position: relative;
+  position: sticky;
+  top: 0;
   background-color: $main-color;
   box-shadow: 0 0 5px black;
   justify-content: center;
   height: 4rem;
+  z-index: 30;
 }
 
 .navigation {
@@ -486,8 +488,8 @@ a.menu-item {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   position: absolute;
-  right: -95%;
-  top: -130%;
+  right: -1.5rem;
+  top: -1rem;
   width: 15rem;
   height: 10rem;
   z-index: 0;
@@ -512,7 +514,6 @@ a.menu-item {
   }
   .label__close {
     position: absolute;
-    //place-self: end end;
     bottom: 0.15rem;
     left: 55%;
     cursor: pointer;
@@ -534,19 +535,6 @@ a.menu-item {
     grid-area: 3 / span 2;
     right: 2.5rem;
     width: 12rem;
-  }
-  @include large-screen {
-    position: fixed;
-    top: 4rem;
-    right: 2rem;
-  }
-  @include different-aspect-ratio {
-    position: absolute;
-    top: -43vh;
-    right: -95%;
-  }
-  @include medium-screen {
-    right: 1vw;
   }
   @include small-screen {
     visibility: hidden;

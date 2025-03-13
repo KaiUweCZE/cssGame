@@ -13,7 +13,7 @@ $checked-color: #b7e9b1;
   grid-template-columns: 1fr 80rem 1fr;
   position: relative;
   width: 100%;
-  max-height: calc(100vh - 4rem);
+  max-height: calc(100dvh - 4rem);
   opacity: 0;
   animation: blur 0.5s ease-out forwards;
   @media (width < 100rem) {
@@ -31,8 +31,8 @@ $checked-color: #b7e9b1;
   flex-direction: column;
   position: relative;
   gap: 2rem;
-  height: 100vh;
-  max-height: calc(100vh - 4rem);
+  height: calc(100dvh - 4rem);
+  max-height: 1200px;
   margin: 0 auto;
   width: 100%;
   max-width: $max-width;
@@ -427,7 +427,7 @@ button {
   font-size: 2.5rem;
   padding-right: 1rem;
   font-weight: bold;
-  z-index: 100;
+  z-index: 10;
   color: lighten(#a77347, 40);
   text-shadow: 0 0 4px black;
   @include large-screen {
@@ -939,12 +939,20 @@ img.obstacle {
 }
 
 // magnifier, game element
+.about-class-container {
+  display: grid;
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  background-color: #1eb637b0;
+  z-index: 100;
+  width: 12rem;
+}
+
 .glass {
   display: grid;
-  grid-template: 1fr / 1fr;
   position: absolute;
-  top: -125%;
-  right: -88%;
+  right: 0;
   width: 3rem;
   cursor: pointer;
   transition: 0.5s;
@@ -953,43 +961,57 @@ img.obstacle {
   &:hover {
     transform: scale(1.15);
   }
-  @include large-screen {
-    position: fixed;
-    top: 5rem;
-    right: 5vw;
-  }
-  @include different-aspect-ratio {
-    position: absolute;
-    top: -40vh;
-    right: -88%;
-  }
 }
 
 // box where is an information about properties of css classes
 .about-class {
-  display: flex;
-  position: absolute;
-  width: 12rem;
-  right: -95%;
-  top: -110%;
-  flex-direction: column;
+  display: none;
+  width: 100%;
+  opacity: 1;
+  scale: 1;
+  transition: opacity 0.3s, display 0.3s, scale 0.3s;
+  transition-behavior: allow-discrete;
   background-color: $addons-color;
   border-radius: 0.35rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  @include large-screen {
-    position: fixed;
-    top: 8.5rem;
-    right: 2vw;
-  }
-  @include different-aspect-ratio {
+  &.about-open {
+    display: grid;
     position: absolute;
-    top: -20vh;
-    right: -95%;
+    top: 4rem;
+    right: 0;
+    opacity: 1;
+    scale: 1;
+    @starting-style {
+      opacity: 0;
+      scale: 0.75;
+    }
+  }
+}
+
+// menu of opitons to selecet from
+.about-class-menu {
+  display: flex;
+  z-index: 1;
+  li {
+    display: flex;
+    padding: 0.25rem;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    &.active {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
   }
 }
 
 // information about specific css class(bridge/container)
-.about-class__article {
+.about-class-info {
   z-index: 1;
   transition: 0.3s;
   padding: 0.5rem;
@@ -998,7 +1020,6 @@ img.obstacle {
   height: 0;
   animation: blure 0.5s linear forwards;
   @include scroll-primary;
-
   li {
     font-size: 1rem;
     list-style: none;
@@ -1028,28 +1049,6 @@ img.obstacle {
   100% {
     height: 8rem;
     opacity: 1;
-  }
-}
-
-// menu of opitons to selecet from
-.about-class__menu {
-  display: flex;
-  z-index: 1;
-  li {
-    display: flex;
-    padding: 0.25rem;
-    justify-content: center;
-    width: 100%;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.5s;
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
-    &.active {
-      background-color: rgba(255, 255, 255, 0.15);
-    }
   }
 }
 

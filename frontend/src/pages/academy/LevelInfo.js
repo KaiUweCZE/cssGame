@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { aboutLevelData } from "./data/AboutLevelData";
+import { aboutLevelData } from "./data/about-level-data";
 import MainLevel from "./academy-components/MainLevel";
 import "./academy-styles.css";
 import { AcademyProvider } from "./context/AcademyContext";
