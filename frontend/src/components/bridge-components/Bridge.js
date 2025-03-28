@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext, useEffect } from "react";
-import { barkTexture } from "../../data/imagesData";
+import { barkTexture } from "@/data/imagesData";
 import { LevelContext } from "@contexts/form-contexts/levelContext";
 import { BridgeContext } from "@contexts/form-contexts/bridgeContext";
 import { ResultContext } from "@contexts/form-contexts/resultContext";

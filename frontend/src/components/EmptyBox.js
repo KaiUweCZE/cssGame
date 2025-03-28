@@ -1,5 +1,5 @@
 import React from "react";
-import { plusIcon } from "../data/imagesData";
+import { plusIcon } from "@/data/imagesData";
 
 const EmptyBox = (props) => {
   const handleClick = () => {

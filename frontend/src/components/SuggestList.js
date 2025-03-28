@@ -79,6 +79,7 @@ const SuggestList = (props) => {
 
   const confirmText = (property) => {
     setVisible(false);
+    props.measureText(property, `property-${props.valueIndex}`);
     props.func(props.valueIndex, property);
   };
 
