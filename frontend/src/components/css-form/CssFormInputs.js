@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import RemoveInput from "./RemoveInput";
 import CssFormBoxButtons from "./CssFormBoxButtons";
 import SuggestList from "@components/SuggestList";
 import RightBracket from "./RightBracket";
+import { useTextWidth } from "@/hooks/useTextWidth";
 
-const CHAR_LIMIT = 10;
+const INPUT_WIDTH = 85;
 
 const CssFormInputs = (props) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -12,9 +13,12 @@ const CssFormInputs = (props) => {
   const [propertyIndex, setPropertyIndex] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
   const [focusedSecondInput, setFocusedSecondInput] = useState(null);
+  const { textWidths, measureText, MeasuringSpan } = useTextWidth();
 
   return (
     <>
+      {/*check length of inputed text */}
+      <MeasuringSpan />
       <form className="form-css" onSubmit={props.submit}>
         {props.properties.map((property, index) => (
           <div className="form-css-row" key={index}>
@@ -34,7 +38,9 @@ const CssFormInputs = (props) => {
                   props.name === "parts" ? `${index + 1}.element` : ""
                 }
                 value={
-                  property.length > 0 && focusedInput !== index
+                  textWidths[`property-${index}`] < INPUT_WIDTH &&
+                  property.length > 0 &&
+                  focusedInput !== index
                     ? `${property}:` // add double colon to the end of value
                     : property
                 }
@@ -53,14 +59,15 @@ const CssFormInputs = (props) => {
                   const newValue = e.target.value.replace(/:$/, "");
                   props.setPropertyAtIndex(index, newValue);
                   setSuggestValue(newValue);
+                  measureText(newValue, `property-${index}`);
                 }}
               />
               {property.length > 0 && focusedInput !== index && (
                 <span
                   className={
-                    property.length < CHAR_LIMIT
-                      ? "form-css-span opacity-0"
-                      : "form-css-span"
+                    (textWidths[`property-${index}`] || 0) >= INPUT_WIDTH
+                      ? "form-css-span"
+                      : "form-css-span opacity-0"
                   }
                 >
                   :
@@ -82,6 +89,7 @@ const CssFormInputs = (props) => {
                 type="text"
                 placeholder=""
                 value={
+                  textWidths[`value-${index}`] <= INPUT_WIDTH &&
                   props.values[index]?.length > 0 &&
                   focusedSecondInput !== index
                     ? `${props.values[index]};`
@@ -90,6 +98,7 @@ const CssFormInputs = (props) => {
                 onChange={(e) => {
                   const newValue = e.target.value.replace(/;$/, "");
                   props.setValueAtIndex(index, newValue);
+                  measureText(newValue, `value-${index}`);
                 }}
                 onFocus={() => setFocusedSecondInput(index)}
                 onBlur={() => setFocusedSecondInput(null)}
@@ -98,7 +107,7 @@ const CssFormInputs = (props) => {
                 focusedSecondInput !== index && (
                   <span
                     className={
-                      props.values[index]?.length < CHAR_LIMIT
+                      textWidths[`value-${index}`] <= INPUT_WIDTH
                         ? "form-css-span opacity-0"
                         : "form-css-span"
                     }
@@ -132,6 +141,7 @@ const CssFormInputs = (props) => {
         <SuggestList
           value={suggestValue}
           func={props.setPropertyAtIndex}
+          measureText={measureText}
           valueIndex={propertyIndex}
         />
       ) : (
