@@ -13,6 +13,7 @@ import {
   GraduationCap,
   Home,
   LogIn,
+  Info,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -49,6 +50,10 @@ const Navbar = () => {
           <ul className={`menu ${specialClass}`}>
             {login ? (
               <>
+                <NavLink className="menu-item" to="/guide">
+                  <Info className="menu-item-icon" color="#fff" />
+                  <span>Guide</span>
+                </NavLink>
                 <NavLink className="menu-item" to="/map">
                   <Map className="menu-item-icon" color="#fff" />
                   <span>Map</span>
@@ -86,6 +91,10 @@ const Navbar = () => {
                 <NavLink className="menu-item" to="/">
                   <Home className="menu-item-icon" color="#fff" />
                   <span>Home</span>
+                </NavLink>
+                <NavLink className="menu-item" to="/guide">
+                  <Info className="menu-item-icon" color="#fff" />
+                  <span>Guide</span>
                 </NavLink>
 
                 <NavLink className="menu-item" to="/login">

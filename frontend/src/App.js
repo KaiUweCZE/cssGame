@@ -21,6 +21,7 @@ import Verify from "./pages/verify/Verify";
 import ErrorPage from "./components/errors/ErrorPage";
 import ProfileDashboard from "./pages/profile/ProfileDashboard";
 import ResetPassword from "./pages/reset-password/ResetPassword";
+import Guide from "./pages/guide/Guide";
 
 const App = () => {
   return (
@@ -33,8 +34,7 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<SharedLayout />}>
                     <Route index element={<Home />} />
-                    <Route path="/academy" element={<Academy />} />
-                    <Route path="/game" element={<Game />} />
+                    <Route path="/guide" element={<Guide />} />
                     <Route path="/login" element={<Registration />} />
                     <Route path="/verify/:id" element={<Verify />} />
                     <Route
@@ -42,6 +42,8 @@ const App = () => {
                       element={<ResetPassword />}
                     />
                     <Route element={<ProtectedLayout />}>
+                      <Route path="/academy" element={<Academy />} />
+                      <Route path="/game" element={<Game />} />
                       <Route path="/profile" element={<ProfileDashboard />} />
                       <Route path="/database" element={<Database />} />
                       <Route path="/building" element={<Building />} />
