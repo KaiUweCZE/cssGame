@@ -72,6 +72,7 @@ const BuildingGuide = () => {
         </article>
       </section>
 
+  
       <article className="guide-tip-box">
         <h3 className="guide-tip-title">
           Tips for creating interesting levels
