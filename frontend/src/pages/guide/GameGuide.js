@@ -12,11 +12,11 @@ const GameGuide = () => {
         obstacle by modifying the CSS properties of the bridge.
       </p>
 
-      <figure className="screenshot-container">
+      <figure className="guide-screenshot-container">
         <img
           src={gameModeScreen}
           alt="Herní prostředí CSS Bridge"
-          className="screenshot"
+          className="guide-screenshot"
         />
         <figcaption className="screenshot-caption">
           Game environment with an emoji character, water obstacle, and a bridge
@@ -26,7 +26,7 @@ const GameGuide = () => {
         </figcaption>
       </figure>
 
-      <article className="info-box">
+      <article className="guide-info-box">
         <h3 className="subsection-title">How does the game work?</h3>
         <p className="mb-4">
           Each level presents a new challenge with different CSS concepts. Using
@@ -37,7 +37,7 @@ const GameGuide = () => {
       </article>
 
       <section className="two-column-grid">
-        <article className="feature-card">
+        <article className="guide-feature-card">
           <h3 className="subsection-title">
             What do you find in the game mode?
           </h3>
@@ -76,7 +76,7 @@ const GameGuide = () => {
           </ul>
         </article>
 
-        <article className="feature-card">
+        <article className="guide-feature-card">
           <h3 className="subsection-title">CSS Concepts</h3>
           <p className="mb-4">
             Během hry se postupně setkáš s různými CSS vlastnostmi včetně:
@@ -113,7 +113,7 @@ const GameGuide = () => {
         </article>
       </section>
 
-      <section className="info-box-large">
+      <section className="guide-info-box-large">
         <h3 className="subsection-title">Game Mechanics</h3>
 
         <section className="space-y-6">
@@ -141,15 +141,6 @@ const GameGuide = () => {
           </article>
         </section>
       </section>
-
-      {/* <article className="tip-box">
-        <h3 className="tip-title">Tip</h3>
-        <p>
-          V některých úrovních existuje více způsobů, jak dosáhnout řešení.
-          Experimentuj s různými CSS vlastnostmi a přístupy - často můžeš
-          objevit alternativní řešení, která jsou elegantní nebo efektivní!
-        </p>
-      </article> */}
     </section>
   );
 };

@@ -96,7 +96,7 @@
 }
 
 /* Images */
-.screenshot-container {
+.guide-screenshot-container {
   margin: 2rem 0;
   border-radius: 0.75rem;
   overflow: hidden;
@@ -105,7 +105,7 @@
   border: 1px solid #c2e5db;
 }
 
-.screenshot {
+.guide-screenshot {
   width: 100%;
   height: auto;
   display: block;
@@ -134,14 +134,14 @@
 }
 
 /* Info Boxes */
-.info-box {
+.guide-info-box {
   background-color: #e6f7f1; /* very light teal */
   padding: 1rem;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
 }
 
-.info-box-large {
+.guide-info-box-large {
   background-color: #e6f7f1; /* very light teal */
   padding: 1.5rem;
   border-radius: 0.5rem;
@@ -163,7 +163,7 @@
 }
 
 /* Cards */
-.feature-card {
+.guide-feature-card {
   background-image: linear-gradient(
     to bottom,
     white,
@@ -211,7 +211,7 @@
 }
 
 /* Tip Box */
-.tip-box {
+.guide-tip-box {
   padding: 1.5rem;
   background-color: #e1f3ef;
   border-radius: 0.5rem;
@@ -219,7 +219,7 @@
   margin-bottom: 2rem;
 }
 
-.tip-title {
+.guide-tip-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--guide-text);

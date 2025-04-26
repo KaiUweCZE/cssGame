@@ -12,7 +12,7 @@ const MainLevel = ({ levelName, data }) => {
     "IF LEVEL IS BIGGER THAN 2 LOLOLOLOL!!!! EDIT DATA!!!": levelName,
   });
 
-  if (!description || !li || !tip || !videoSection || !data || levelName > 2) {
+  if (!description || !li || !tip || !videoSection || !data || levelName > 5) {
     return <ErrorPage />;
   }
   return (

@@ -21,23 +21,20 @@
 export const levelData = [
   {
     id: 1,
-    numberOfProperties: 1,
-    banForm: true,
     containerStyles: {
       display: "flex",
+      position: "relative",
       width: "100%",
       height: "100%",
     },
-    //specific styles for .bridge etc.
     bridgeStyles: {
       display: "flex",
-      position: "relative",
-      top: "5rem",
+      width: "50%",
     },
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Posuň ten most nahoru!",
+    help: "Make the bridge longer!",
   },
   {
     id: 2,
@@ -54,27 +51,10 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Vnější odsazení je třeba změnit!",
+    help: "Adjust the outer margin!",
   },
   {
     id: 3,
-    containerStyles: {
-      display: "flex",
-      position: "relative",
-      width: "100%",
-      height: "100%",
-    },
-    bridgeStyles: {
-      display: "flex",
-      width: "50%",
-    },
-    partOfBridgeStyles: {},
-    partOfBridge: 1,
-    obstacle: false,
-    help: "Chtělo by to delší most!",
-  },
-  {
-    id: 4,
     containerStyles: {
       display: "flex",
       position: "relative",
@@ -88,28 +68,10 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Vnitřní odsazení ti brání jít dál!",
+    help: "The inner padding is blocking your progress!",
   },
   {
-    id: 5,
-    containerStyles: {
-      display: "flex",
-      position: "relative",
-      width: "100%",
-      height: "100%",
-      "align-items": "flex-end",
-    },
-    bridgeStyles: {
-      display: "flex",
-      width: "100%",
-    },
-    partOfBridgeStyles: {},
-    partOfBridge: 1,
-    obstacle: false,
-    help: "Dej pozor, prostor, v němž je umístěn most, zarovnává své prvky na konec.",
-  },
-  {
-    id: 6,
+    id: 4,
     containerStyles: {
       display: "flex",
       position: "relative",
@@ -124,27 +86,47 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Zaměř svou pozornost na odsazení vnitřní a vnější!",
+    help: "Focus on inner and outer padding!",
   },
   {
-    id: 7,
+    id: 5,
     containerStyles: {
       display: "flex",
-      "flex-direction": "column",
       position: "relative",
       width: "100%",
       height: "100%",
     },
     bridgeStyles: {
       display: "flex",
+      display: "none",
     },
     partOfBridgeStyles: {},
-    partOfBridge: 3,
+    partOfBridge: 1,
     obstacle: false,
-    help: "Prvky prostoru, v němž je umístěn most, jsou řazeny do sloupce... To by chtělo změnit.",
+    help: "Someone prevented the bridge from rendering...",
   },
   {
-    id: 8,
+    id: 6,
+    numberOfProperties: 1,
+    banForm: true,
+    containerStyles: {
+      display: "flex",
+      width: "100%",
+      height: "100%",
+    },
+    //specific styles for .bridge etc.
+    bridgeStyles: {
+      display: "flex",
+      position: "relative",
+      top: "5rem",
+    },
+    partOfBridgeStyles: {},
+    partOfBridge: 1,
+    obstacle: false,
+    help: "Move the bridge up!",
+  },
+  {
+    id: 7,
     containerStyles: {
       display: "flex",
       position: "relative",
@@ -160,10 +142,10 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Most je o kus víc nahoru a o kus více do leva, než by býti měl!",
+    help: "The bridge is too high and too far to the left!",
   },
   {
-    id: 9,
+    id: 8,
     containerStyles: {
       display: "flex",
       position: "relative",
@@ -178,7 +160,25 @@ export const levelData = [
     //styleResultBridge: {"overflow":"hidden"},
     styleResultContainer: { overflow: "hidden" },
     //styleResultBoth: {"overflow":"hidden"},
-    help: "Překážka je umístěna v prostoru ve kterém je umístěn i most, zkus se zaměřit na to, aby to, co přečnívá bylo skryto.",
+    help: "The obstacle is in the same container as the bridge; try hiding the overflow.",
+  },
+
+  {
+    id: 9,
+    containerStyles: {
+      display: "flex",
+      "flex-direction": "column",
+      position: "relative",
+      width: "100%",
+      height: "100%",
+    },
+    bridgeStyles: {
+      display: "flex",
+    },
+    partOfBridgeStyles: {},
+    partOfBridge: 3,
+    obstacle: false,
+    help: "The container's items are arranged in a column... that needs to change.",
   },
   {
     id: 10,
@@ -187,16 +187,18 @@ export const levelData = [
       position: "relative",
       width: "100%",
       height: "100%",
+      "align-items": "flex-end",
     },
     bridgeStyles: {
       display: "flex",
-      display: "none",
+      width: "100%",
     },
     partOfBridgeStyles: {},
     partOfBridge: 1,
     obstacle: false,
-    help: "Někdo zabránil, aby byl most vykreslen...",
+    help: "Watch out: the container holding the bridge aligns its items to the end.",
   },
+
   {
     id: 11,
     containerStyles: {
@@ -212,7 +214,7 @@ export const levelData = [
     partOfBridgeStyles: {},
     partOfBridge: 3,
     obstacle: false,
-    help: "Mezery mezi každou částí mostu je potřeba minimalizovat!",
+    help: "Minimize the gaps between each part of the bridge!",
   },
   {
     id: 12,
@@ -237,39 +239,30 @@ export const levelData = [
     partOfBridge: 3,
     master: true,
     obstacle: false,
-    help: "Když změní se směr z řady na sloupec, elementy naleznou nový řád, justify převezme roli align a align je nazván justify.",
+    help: "When you switch from row to column, justify becomes align and align becomes justify.",
   },
   {
     id: 13,
     startPointStyle: {},
-    endPointStyle: {
-      position: "relative",
-      top: "12rem",
-    },
+    endPointStyle: {},
     containerStyles: {
       display: "flex",
-      position: "relative",
       width: "100%",
       height: "100%",
     },
     bridgeStyles: {
       display: "flex",
-      position: "relative",
+      "flex-direction": "column",
+      "flex-wrap": "wrap-reverse",
       height: "100%",
+      //"grid-template-rows": "repeat(3, 1fr)",
     },
     partOfBridgeStyles: {
-      mainStyle: {},
-      childrenStyle: {
-        0: {
-          marginTop: "8rem",
-        },
-        1: {
-          marginTop: "4rem",
-        },
-        2: {
-          marginTop: "0rem",
-        },
+      mainStyle: {
+        width: "50%",
+        "max-width": "100%",
       },
+      childrenStyle: {},
     },
     partOfBridge: 3,
     master: true,
@@ -278,22 +271,70 @@ export const levelData = [
       childrenStyle: {
         0: {
           marginTop: "0rem",
+          width: "50%",
         },
         1: {
-          marginTop: "4rem",
+          marginTop: "0rem",
+          width: "50%",
         },
         2: {
-          marginTop: "8rem",
+          position: "absolute",
+          marginTop: "12rem",
+          left: "0",
+          width: "50%",
         },
       },
     },
     obstacle: false,
-    emojiRun: "stairs-run",
-    help: "Směr flexibilního displeje můžeš převrátit!",
+    emojiRun: false,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
+  },
+  {
+    id: 14,
+    startPointStyle: {},
+    endPointStyle: {},
+    containerStyles: {
+      display: "grid",
+      width: "100%",
+      height: "100%",
+    },
+    bridgeStyles: {
+      display: "flex",
+      height: "100%",
+      width: "100%",
+      gap: "1rem",
+    },
+    partOfBridgeStyles: {
+      mainStyle: {
+        width: "100%",
+        "max-width": "100%",
+      },
+      childrenStyle: {
+        0: {
+          flex: "1",
+        },
+        1: {
+          flex: "4",
+        },
+        2: {
+          flex: "1",
+        },
+      },
+    },
+    partOfBridge: 3,
+    master: true,
+    correctPosition: {
+      mainStyle: {},
+      childrenStyle: {},
+    },
+    obstacle: false,
+    emojiRun: false,
+    partsStyle: true,
+    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
 
   {
-    id: 14,
+    id: 15,
     startPointStyle: {},
     endPointStyle: {},
     containerStyles: {
@@ -331,56 +372,9 @@ export const levelData = [
     },
     obstacle: false,
     emojiRun: false,
-    help: "Mřížka o třech řádcích a jednom sloupci... Chtělo by to více sloupců!",
+    help: "A grid with three rows and one column... add more columns!",
   },
-  {
-    id: 15,
-    startPointStyle: {},
-    endPointStyle: {},
-    containerStyles: {
-      display: "flex",
-      width: "100%",
-      height: "100%",
-    },
-    bridgeStyles: {
-      display: "flex",
-      "flex-direction": "column",
-      "flex-wrap": "wrap-reverse",
-      height: "100%",
-      //"grid-template-rows": "repeat(3, 1fr)",
-    },
-    partOfBridgeStyles: {
-      mainStyle: {
-        width: "50%",
-        "max-width": "100%",
-      },
-      childrenStyle: {},
-    },
-    partOfBridge: 3,
-    master: true,
-    correctPosition: {
-      mainStyle: {},
-      childrenStyle: {
-        0: {
-          marginTop: "0rem",
-          width: "50%",
-        },
-        1: {
-          marginTop: "0rem",
-          width: "50%",
-        },
-        2: {
-          position: "absolute",
-          marginTop: "8rem",
-          left: "0",
-          width: "50%",
-        },
-      },
-    },
-    obstacle: false,
-    emojiRun: false,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
-  },
+
   {
     id: 16,
     startPointStyle: {},
@@ -458,51 +452,9 @@ export const levelData = [
     partsStyle: true,
     help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
+
   {
     id: 18,
-    startPointStyle: {},
-    endPointStyle: {},
-    containerStyles: {
-      display: "grid",
-      width: "100%",
-      height: "100%",
-    },
-    bridgeStyles: {
-      display: "flex",
-      height: "100%",
-      width: "100%",
-      gap: "1rem",
-    },
-    partOfBridgeStyles: {
-      mainStyle: {
-        width: "100%",
-        "max-width": "100%",
-      },
-      childrenStyle: {
-        0: {
-          flex: "1",
-        },
-        1: {
-          flex: "4",
-        },
-        2: {
-          flex: "1",
-        },
-      },
-    },
-    partOfBridge: 3,
-    master: true,
-    correctPosition: {
-      mainStyle: {},
-      childrenStyle: {},
-    },
-    obstacle: false,
-    emojiRun: false,
-    partsStyle: true,
-    help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
-  },
-  {
-    id: 19,
     startPointStyle: {},
     endPointStyle: {
       position: "relative",
@@ -557,7 +509,7 @@ export const levelData = [
     help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
-    id: 20,
+    id: 19,
     startPointStyle: {},
     endPointStyle: {
       position: "relative",
@@ -602,6 +554,58 @@ export const levelData = [
     help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
   {
+    id: 20,
+    startPointStyle: {},
+    endPointStyle: {
+      position: "relative",
+      top: "12rem",
+    },
+    containerStyles: {
+      display: "flex",
+      position: "relative",
+      width: "100%",
+      height: "100%",
+    },
+    bridgeStyles: {
+      display: "flex",
+      position: "relative",
+      height: "100%",
+    },
+    partOfBridgeStyles: {
+      mainStyle: {},
+      childrenStyle: {
+        0: {
+          marginTop: "8rem",
+        },
+        1: {
+          marginTop: "4rem",
+        },
+        2: {
+          marginTop: "0rem",
+        },
+      },
+    },
+    partOfBridge: 3,
+    master: true,
+    correctPosition: {
+      mainStyle: {},
+      childrenStyle: {
+        0: {
+          marginTop: "0rem",
+        },
+        1: {
+          marginTop: "4rem",
+        },
+        2: {
+          marginTop: "8rem",
+        },
+      },
+    },
+    obstacle: false,
+    emojiRun: "stairs-run",
+    help: "You can reverse the flex direction!",
+  },
+  {
     id: 21,
     containerStyles: {
       display: "flex",
@@ -623,82 +627,3 @@ export const levelData = [
     help: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut dolore quae dolorum iure. Saepe fugit maiores totam libero unde dicta?",
   },
 ];
-
-/*
-    {
-        id: 4,
-        name: "Level 4",
-        level: 4,
-        about: `„Z faktury je evidentní, že se 
-        zneužívá naše logo a název služby Firmy.cz,“ 
-        říká pro SZ Byznys manažerka PR a interní 
-        komunikace Seznam.cz Aneta Kapuciánová. 
-        „Základní zápis do katalogu Firmy.cz je u 
-        nás vždy zdarma, platí se pak doplňkové služby,
-         případně kampaně, 
-        které si zákazník může na svou firmu objednat.“`,
-        bridgeStyles: {
-            "display": "flex",
-            "width": "100%",
-            "height": "100%",
-            "alignItems": "flex-start",
-            "transform": "rotate(90deg)"
-        },
-        partOfBridgeStyles:{},
-        partOfBridge: 1,
-        obstacle: false
-    },
-    {
-        id: 6,
-        name: "Level 6",
-        level: 6,
-        about: `ti Alza a snaží se oklamat zákazníky,“ 
-        upozorňuje na varianty zneužívání společnost v 
-        tiskové zprávě. 
-        Jen za letošní rok podobných případů řešila 
-        stovky.`,
-        bridgeStyles: {
-            "alignItems": "flex-end",
-            "width": "100%",
-            "height": "100%",
-        },
-        partOfBridgeStyles:{
-            "max-width": "100%",
-        }, 
-        partOfBridge: 3,
-        obstacle: false
-    },
-    {
-        id: 7,
-        name: "Level 7",
-        level: 7,
-        about: `kturační údaje jsou správné, co však 
-        správné není, jsou kontaktní e-mail a bankovní 
-        údaje. To ale člověk, který chce 
-        fakturu zaplatit, 
-        nedokáže na první pohled odhalit,“ dodala.`,
-        bridgeStyles: {
-            "alignItems": "flex-end"
-        },
-        partOfBridgeStyles:{},
-        partOfBridge: 1,
-        obstacle: true
-    },
-    {
-        id: 8,
-        name: "Level 8",
-        level: 8,
-        about: `rvní takový případ, který Seznam řeší. 
-        Podobné podvody jeho jménem probíhaly již 
-        před dvěma roky. Útočníci si navíc zpravidla 
-        vybírají subjekty, 
-        které se službami, jako jsou Firm`,
-        bridgeStyles: {
-            "alignItems": "flex-end"
-        },
-        partOfBridgeStyles:{},
-        partOfBridge: 1,
-        obstacle: false
-    }
-
-*/
