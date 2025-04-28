@@ -1,18 +1,16 @@
 import { CheckContext } from "@contexts/form-contexts/checkContext";
 import React, { useContext, useState } from "react";
 
-const AboutClassMenu = (props) => {
+const AboutClassMenu = ({ parts }) => {
   const [focused, setFocused] = useState(false);
-  const { setAboutClass } = useContext(CheckContext);
+  const { setActive, setAboutClass } = useContext(CheckContext);
 
   const handleSetClass = (e) => {
-    //props.setActive(!props.active)
-    props.setActive(true);
+    setActive(true);
     setFocused(e);
     setAboutClass(e);
-    console.log({
-      "co je to e?": e,
-    });
+    console.log("parts exist?", parts);
+    
   };
 
   return (
@@ -29,6 +27,16 @@ const AboutClassMenu = (props) => {
       >
         container
       </li>
+      {
+        parts && (
+          <li
+            onClick={(e) => handleSetClass(e.target.innerText)}
+            className={focused === "parts" ? "active" : ""}
+          >
+            parts
+          </li>
+        )
+      }
     </ul>
   );
 };
