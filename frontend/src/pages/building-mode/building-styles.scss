@@ -20,7 +20,6 @@
   bottom: 0;
   width: 100%;
   height: 40vh;
-
   z-index: 1;
   .end {
     grid-column: 3;
@@ -142,7 +141,7 @@
 .building-button {
   display: flex;
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 0.35rem;
+  border-radius: $border-radius-md;
   box-shadow: $primary-shadow;
   gap: 0.5rem;
   padding-inline: 1rem;
@@ -232,7 +231,7 @@ img.select-icon {
   column-gap: 2rem;
   grid-column: span 2;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.35rem;
+  border-radius: $border-radius-md;
   background-color: rgba(white, 0.1);
   padding: 0.5rem;
   h3 {
@@ -336,7 +335,7 @@ textarea {
   background-color: rgba(white, 0.2);
   outline: none;
   border: none;
-  border-radius: 0.35rem;
+  border-radius: $border-radius-md;
   resize: none;
   &::placeholder {
     color: white;
@@ -428,7 +427,7 @@ textarea {
     left: 0;
     margin-inline: 5%;
     border: 2px solid rgba(255, 255, 255, 0.336);
-    border-radius: 0.35rem;
+    border-radius: $border-radius-md;
     background-color: rgba(lighten($main-color, 60), 0.5);
     backdrop-filter: blur(10px);
     z-index: 2;
@@ -489,7 +488,7 @@ textarea {
   display: flex;
   gap: 0.5rem;
   place-items: center;
-  border-radius: 0.35rem;
+  border-radius: $border-radius-md;
   font-weight: bold;
   border: 2px solid #404040;
   width: fit-content;

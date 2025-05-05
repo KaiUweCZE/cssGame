@@ -8,8 +8,8 @@ const ErrorList = (props) => {
         src={closeIcon}
         alt="close icon"
         onClick={props.remove}
-        width="16px"
-        height="16px"
+        width={10}
+        height={10}
       />
       <li className="error-headline">{props.type} </li>
       {props.list.map((item, index) => {

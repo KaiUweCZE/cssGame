@@ -31,13 +31,18 @@ const Mission = () => {
                     styles={{
                       bridge: level.bridgeStyles,
                       container: level.containerStyles,
+                      parts:
+                        (level?.partsStyle && level?.partOfBridgeStyles) ||
+                        false,
                     }}
                     level={level.id}
                   />
                   <Clouds />
                   <MessageResult />
                   <div className="box__classes">
-                    <CssForm name="bridge" />
+                    {!!(level.disabledForm !== "bridge") && (
+                      <CssForm name="bridge" />
+                    )}
                     <ContainerTemporaryLabels
                       level={level.id}
                       containerClass={containerClass}
@@ -48,15 +53,15 @@ const Mission = () => {
                         state={containerClass}
                         func={setContainerClass}
                       />
-                    ) : !level.banForm ? (
-                      <EmptyBox
-                        state={containerClass}
-                        func={setContainerClass}
-                      />
                     ) : (
-                      ""
+                      !!(level.disabledForm !== "container") && (
+                        <EmptyBox
+                          state={containerClass}
+                          func={setContainerClass}
+                        />
+                      )
                     )}
-                    {level?.partsStyle ? (
+                    {!!(level.disabledForm !== "parts") && level?.partsStyle ? (
                       partsClass ? (
                         <CssForm
                           name="parts"

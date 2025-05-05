@@ -45,7 +45,8 @@ const SignInForm = ({ setIsModalOpen }) => {
 
         // setUser(user);
         //const userString = JSON.parse(localStorage.getItem('user'))
-        user.level === 0 ? navigate("/welcome") : navigate("/map");
+        /* user.level === 0 ? navigate("/welcome") :*/
+        navigate("/map");
       }
     } catch (error) {
       console.error(error);
