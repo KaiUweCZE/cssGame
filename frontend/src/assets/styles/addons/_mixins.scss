@@ -49,6 +49,12 @@ $main-color: #0a3a40;
   }
 }
 
+@mixin small-header {
+  @media (max-width: 50rem) {
+    @content;
+  }
+}
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -56,7 +62,7 @@ $main-color: #0a3a40;
 }
 
 @mixin box-frame {
-  border-radius: $border-radius;
+  border-radius: $border-radius-md;
   box-shadow: $box-shadow;
 }
 
@@ -65,7 +71,7 @@ $main-color: #0a3a40;
   background-color: $bg-color;
   color: $text-color;
   border: none;
-  border-radius: $border-radius;
+  border-radius: $border-radius-md;
   cursor: pointer;
   transition: background-color 0.3s;
 

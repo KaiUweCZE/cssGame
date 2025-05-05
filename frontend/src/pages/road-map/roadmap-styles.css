@@ -16,6 +16,41 @@
   text-decoration: none;
 }
 
+.module-box-model::after {
+  background-color: oklch(0.39 0.09 240.876/75%);
+}
+.module-box-model:hover::after {
+  background-color: oklch(0.39 0.09 240.876);
+}
+
+.module-position::after {
+  background-color: oklch(0.38 0.063 188.416/75%);
+}
+.module-position:hover::after {
+  background-color: oklch(0.38 0.063 188.416);
+}
+
+.module-flex::after {
+  background-color: oklch(0.4 0.17 325.612/75%);
+}
+.module-flex:hover::after {
+  background-color: oklch(0.4 0.17 325.612);
+}
+
+.module-grid::after {
+  background-color: oklch(0.41 0.112 45.904/75%);
+}
+.module-grid:hover::after {
+  background-color: oklch(0.41 0.112 45.904);
+}
+
+.module-others::after {
+  background-color: oklch(0.4 0.153 2.432/75%);
+}
+.module-others:hover::after {
+  background-color: oklch(0.4 0.153 2.432);
+}
+
 .roadmap-background {
   display: flex;
   position: relative;
@@ -77,7 +112,6 @@
   height: clamp(1.5rem, 3vw, 3.5rem);
   opacity: 1;
   border-radius: 19% 81% 14% 86%/80% 10% 90% 20%;
-  background-color: rgba(10, 58, 64, 0.6);
   filter: blur(0px);
   z-index: -1;
   transition: 0.5s;
@@ -86,10 +120,9 @@
   opacity: 1;
   border-radius: 19% 81% 14% 86%/80% 10% 90% 20%;
   animation: light 1s linear forwards;
-  background-color: rgba(10, 58, 64, 0.9);
 }
 .roadmap__item.active::after {
-  background-color: rgba(201, 86, 97, 0.6);
+  background-color: #c95661;
 }
 
 @keyframes light {
@@ -106,14 +139,27 @@
     transform: rotate(90deg) scale(1);
   }
 }
+.locked {
+  cursor: not-allowed;
+  /* 
+  reset transform on hover, we need to be specific 
+  because of some crazy css settings made before...
+  */
+}
+.locked::after {
+  background-color: rgba(100, 100, 100, 0.75);
+}
 .locked img {
   width: 2vw;
   height: 2vw;
   transform: rotate(5deg);
-  transition: 0.5s;
 }
 .locked:hover img {
-  transform: rotate(5deg) scale(1.1);
+  transform: none;
+  rotate: 5deg;
+}
+.locked:hover::after {
+  animation: none;
 }
 
 .one {
@@ -230,6 +276,26 @@
 .twenty-one {
   grid-column: 50/span 2;
   grid-row: 30/span 2;
+}
+
+.twenty-two {
+  grid-column: 46/span 2;
+  grid-row: 33/span 2;
+}
+
+.twenty-three {
+  grid-column: 39/span 2;
+  grid-row: 33/span 2;
+}
+
+.twenty-four {
+  grid-column: 33/span 2;
+  grid-row: 32/span 2;
+}
+
+.twenty-five {
+  grid-column: 30/span 2;
+  grid-row: 32/span 2;
 }
 
 .jello-horizontal {

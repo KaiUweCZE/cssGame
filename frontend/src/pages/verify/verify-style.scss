@@ -16,7 +16,7 @@ $error-color: #f54a47;
   margin-top: 2rem;
   padding: 2rem;
   //box-shadow: $primary-shadow;
-  border-radius: 0.35rem;
+  border-radius: $border-radius-md;
   &.verified {
     background-color: lighten($main-color, 10);
   }

@@ -1,5 +1,4 @@
 import React from "react";
-import TipPicture from "./TipPicture";
 import videoIcon from "@images/icons/youtube.svg";
 import { Link } from "react-router-dom";
 
@@ -10,10 +9,10 @@ const TipSection = ({ tip, video }) => {
     <section className="dernier">
       <article className="tip-article">
         <span>
-          <img 
-            className="tip-icon" 
-            src={videoIcon} 
-            alt="Video tutorial icon" 
+          <img
+            className="tip-icon"
+            src={videoIcon}
+            alt="Video tutorial icon"
             loading="lazy"
           />
           <h3>Video</h3>
@@ -65,7 +64,6 @@ const TipSection = ({ tip, video }) => {
             To Tool
           </Link>
         </div>
-        {/* <TipPicture imgSrc={img.src} altText={img.alt} text={img.span} /> */}
       </article>
     </section>
   );

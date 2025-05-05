@@ -47,14 +47,15 @@ export const useFormInputs = (
   };
 
   // add empty element to array
+  // disable handleAddLabel it luks that handleAddInput is enough for stop adding
   const handleAddLabel = () => {
-    console.log(cssProperties);
-    if (cssProperties.length >= maxLength) {
+   /* console.log(cssProperties);
+    if (cssProperties.length >= maxLength + 4) {
       console.log("Done!", maxLength);
-    } else {
+    } else {*/
       setCssProperties((properties) => [...properties, ""]);
       setCssValues((values) => [...values, ""]);
-    }
+  //  }
   };
 
   // remove specific element from array

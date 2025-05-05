@@ -47,7 +47,6 @@ const Clouds = () => {
           width: Math.ceil(Math.random() * 7) + 30,
         },
       }));
-      console.log(position);
     }, time);
 
     return () => {

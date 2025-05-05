@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { lockIcon } from "../../../data/imagesData";
 
 const RoadmapLevel = ({
@@ -8,16 +8,8 @@ const RoadmapLevel = ({
   num,
   current,
   completed,
+  module,
 }) => {
-  const [active, setActive] = useState(false);
-
-  const handleActiveClass = () => {
-    setActive(true);
-    setTimeout(() => {
-      setActive(false);
-    }, 1000);
-  };
-
   const getAriaLabel = () => {
     if (locked)
       return `Level ${num} - Locked. Complete previous level to unlock`;
@@ -29,30 +21,23 @@ const RoadmapLevel = ({
   return (
     <>
       {locked ? (
-        <div
-          className={
-            active
-              ? `roadmap__item locked active ${specialClass}`
-              : `roadmap__item locked ${specialClass}`
-          }
-          onClick={() => handleActiveClass()}
-          role="button"
+        <button
+          className={`roadmap__item locked ${specialClass}`}
+          disabled={locked}
           aria-label={getAriaLabel()}
-          aria-disabled="true"
           tabIndex={0}
         >
           <img src={lockIcon} alt="" aria-hidden="true" />
-        </div>
+        </button>
       ) : (
-        <div
-          className={`roadmap__item ${specialClass}`}
+        <button
+          className={`roadmap__item ${module} ${specialClass}`}
           onClick={onClick}
-          role="button"
           aria-label={getAriaLabel()}
           tabIndex={0}
         >
           <span aria-hidden="true">{num}</span>
-        </div>
+        </button>
       )}
     </>
   );

@@ -13,7 +13,7 @@ const LevelInfo = () => {
   return (
     <AcademyProvider>
       <div className="container-level">
-        <MainLevel levelName={data.id} data={data.main} />
+        <MainLevel levelName={data.id} module={data.name} data={data.main} />
       </div>
     </AcademyProvider>
   );

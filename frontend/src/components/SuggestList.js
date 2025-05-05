@@ -78,6 +78,7 @@ const SuggestList = (props) => {
   }, [selectedIndex, visible]);
 
   const confirmText = (property) => {
+    props.checkForQuotes(property);
     setVisible(false);
     props.measureText(property, `property-${props.valueIndex}`);
     props.func(props.valueIndex, property);

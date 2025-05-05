@@ -2,82 +2,334 @@ import { tipsImages } from "../../../data/imagesData";
 
 /*
 next tips: uiverse, adobe/express/tools, svgrepo, haikei app, css battle, codepen, clip path, filter to specific color generator
-
 */
 
 export const aboutLevelData = [
   {
     id: 1,
-    introduction: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Ipsum dignissimos aliquid, excepturi dicta reiciendis ea aliquam magni harum! 
-            Iste rerum adipisci libero repellendus ea ab assumenda itaque vitae repudiandae aperiam.`,
+    name: "Box Model",
     main: {
       description: `
-                In CSS, the position property is fundamental 
-                for precisely placing HTML elements on a page. 
-                This property determines how an element is positioned 
-                relative to other elements or 
-                the browser's viewport. There are six main position values:
-                `,
+        Margins and padding are the unsung heroes of CSS layout. They create the visual breathing room that makes interfaces feel polished and professional rather than cramped and chaotic.
+        The key distinction: margins create space OUTSIDE an element (between elements), while padding creates space INSIDE an element (between content and border). Mastering both gives you precise control over your layout's spatial relationships.
+    `,
       li: [
         {
-          headline: "Static",
-          p: ` Every element has this position by default. 
-          Elements with position: static follow the normal page 
-          flow and are not affected by top, 
-          right, bottom, left properties or z-index. 
-          Think of it as the element's "natural state".`,
+          headline: "Margin: The Outer Space",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Margin defines the space around an element, creating separation between elements on the page. It offers incredible flexibility:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "Individual sides: margin-top, margin-right, margin-bottom, margin-left",
+                "Logical properties: margin-block (top/bottom), margin-inline (left/right)",
+                {
+                  text: "Shorthand notations:",
+                  subitems: [
+                    "margin: 10px (all sides)",
+                    "margin: 10px 20px (vertical horizontal)",
+                    "margin: 10px 20px 15px 25px (top right bottom left)",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "section",
+              title: "Unique behaviors to understand:",
+              items: [
+                "Margins can be negative, pulling elements closer or creating overlaps",
+                "Vertical margins collapse between block elements (only the larger value applies)",
+                "Margin: auto with a defined width centers elements horizontally",
+              ],
+            },
+          ],
         },
         {
-          headline: "Relative",
-          p: `The element stays in its original place in the document 
-          flow, just like static. However, you can now use top, right, 
-          bottom, and left properties to "nudge" it from its original 
-          position. The key point is that moving the element 
-          doesn't affect the position of other elements around it.`,
+          headline: "Padding: The Inner Space",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Padding creates space between an element's content and its border, giving your content room to breathe. Like margin, it offers multiple ways to control spacing:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "Individual sides: padding-top, padding-right, padding-bottom, padding-left",
+                "Logical properties: padding-block, padding-inline (follow writing direction)",
+                {
+                  text: "Shorthand options:",
+                  subitems: [
+                    "padding: 10px (all sides)",
+                    "padding: 10px 20px (vertical horizontal)",
+                    "padding: 5px 10px 15px 20px (top right bottom left)",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "section",
+              title: "Important distinctions:",
+              items: [
+                "Padding values cannot be negative (unlike margin)",
+                "Padding never collapses (unlike vertical margins)",
+                "Padding is included in background color/image area",
+                "Padding increases element size by default (unless using border-box)",
+              ],
+            },
+          ],
         },
+
+        // Box Model Mastery
         {
-          headline: "Absolute",
-          p: `The element is removed from the flow of the document 
-          and other elements will behave as if 
-          it’s not even there whilst all 
-          the other positional properties will work on it.`,
-        },
-        {
-          headline: "Fixed",
-          p: `The element is removed from the flow of the document like 
-          absolutely positioned elements. In fact they behave almost 
-          the same, only fixed positioned elements are always relative 
-          to the document, not any particular parent, 
-          and are unaffected by scrolling.`,
-        },
-        {
-          headline: "Sticky",
-          p: `The element is treated like a relative value until the 
-          scroll location of the viewport reaches a specified threshold, 
-          at which point the element takes a 
-          fixed position where it is told to stick.`,
-        },
-        {
-          headline: "Inherit",
-          p: `This position value doesn’t cascade, so this can be used 
-          to specifically force it to, 
-          and inherit the positioning value from its parent.`,
+          headline: "Box Model Mastery",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The relationship between margin, padding, and element size depends on the box-sizing property:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "content-box (default): width + padding + border = actual width",
+                "border-box: width includes padding and border",
+              ],
+            },
+            {
+              type: "paragraph",
+              text: "This seemingly small detail has massive layout implications! Most modern CSS frameworks use border-box globally for more intuitive sizing.",
+            },
+            {
+              type: "tip",
+              title: "Pro tip:",
+              text: "When debugging layouts, use the browser's element inspector to visualize the box model. It clearly shows how margin, border, padding, and content dimensions interact.",
+            },
+          ],
         },
       ],
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
 
+      aboutLevel: `In this level, you'll experiment with margin properties to help your emoji cross the river. While there are multiple approaches, consider which margin properties will most efficiently create the path you need. Remember that shorthand properties like margin can adjust multiple sides at once!`,
       videoSection: {
         src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
+        text: `Want a visual explanation? Check out Kevin Powell's excellent tutorial on CSS spacing properties. His clear examples demonstrate how margin and padding affect layout in real-world designs.`,
       },
-
       tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
+        text: `Developer hack: When troubleshooting layout issues, temporarily add outline: 1px solid red to elements instead of borders. Unlike borders, outlines don't affect the layout flow, making them perfect for visualization without changing spacing!`,
         img: {
-          src: tipsImages.adobeColor,
+          src: "tipsImages.animista",
+          alt: "Animista.net web app",
+          span: "Check it!",
+          href: "https://animista.net",
+        },
+      },
+    },
+  },
+  {
+    id: 2,
+    name: "Position",
+    main: {
+      description: `
+        The position property is your secret weapon for precise element placement in CSS layouts. It's like having a GPS system for your HTML elements, determining exactly where and how they appear on the page.
+        
+        Unlike margin and padding which create space, position changes where elements live in relation to other elements or the viewport itself. Mastering position unlocks layouts that would otherwise be impossible to achieve.
+      `,
+      li: [
+        {
+          headline: "Static: The Default State",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Static positioning is the default for every element. It's like the natural order of things in the HTML document flow:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "Elements appear exactly where they would normally appear in document flow",
+                "Directional properties (top, right, bottom, left) have no effect",
+                "z-index has no effect - stacking is determined purely by document order",
+              ],
+            },
+            {
+              type: "paragraph",
+              text: "You'll rarely set position: static explicitly - it's more often used to override another position value that was previously applied.",
+            },
+          ],
+        },
+        {
+          headline: "Relative: Subtle Adjustments",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Relative positioning is like giving your element a gentle nudge from its original position:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "The element stays in the document flow (other elements behave as if it's still in its original spot)",
+                "Directional properties (top, right, bottom, left) shift the element from its original position",
+                "Creates a positioning context for absolutely positioned children",
+              ],
+            },
+            {
+              type: "section",
+              title: "Key behavior to understand:",
+              items: [
+                "The element's original space is preserved - nothing collapses to fill it",
+                "Relative coordinates are counterintuitive: top: 10px moves DOWN by 10px",
+                "Multiple relative values can be combined (e.g., top and left together)",
+              ],
+            },
+          ],
+        },
+        {
+          headline: "Absolute: Breaking Free",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Absolute positioning removes an element from the document flow entirely, giving you complete control over its placement:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "Element is removed completely from normal flow (other elements ignore it)",
+                "Positioned relative to nearest positioned ancestor (or viewport if none exists)",
+                "No space is reserved for the element in layout",
+              ],
+            },
+            {
+              type: "section",
+              title: "Common applications:",
+              items: [
+                "Tooltips and popovers that need precise placement",
+                "Badges or notification indicators that overlay other elements",
+                "Custom UI controls that need to break out of normal document flow",
+              ],
+            },
+            {
+              type: "tip",
+              title: "Pro tip:",
+              text: "Always ensure your absolutely positioned elements have a positioned parent (position: relative, absolute, fixed, or sticky). Otherwise, they'll position relative to the document body, which often leads to unexpected behavior!",
+            },
+          ],
+        },
+        {
+          headline: "Fixed: Viewport Anchoring",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Fixed positioning locks an element to the viewport, making it stay in place even during scrolling:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "Element is removed from document flow (like absolute)",
+                "Always positioned relative to the viewport, ignoring any parent containers",
+                "Stays in the same screen position during scrolling",
+              ],
+            },
+            {
+              type: "section",
+              title: "Perfect for:",
+              items: [
+                "Navigation bars that stick to the top or bottom of the screen",
+                "Cookie consent banners that remain visible",
+                "Chat widgets that follow as users scroll",
+              ],
+            },
+          ],
+        },
+        {
+          headline: "Sticky: The Hybrid Powerhouse",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Sticky positioning is the chameleon of positioning methods, switching between relative and fixed behavior depending on scroll position:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "Acts like position: relative until a specified scroll threshold",
+                "Then behaves like position: fixed when the threshold is crossed",
+                "Remains within its parent container's boundaries",
+              ],
+            },
+            {
+              type: "paragraph",
+              text: "This modern positioning value solves countless UI patterns that previously required complex JavaScript. It's perfect for section headings that stick while scrolling through content, persistent action buttons that follow just until the end of a section, and sidebar navigation that stays visible within its container.",
+            },
+            {
+              type: "section",
+              title: "Browser support notes:",
+              items: [
+                "Well-supported in modern browsers",
+                "May require fallbacks in some legacy scenarios",
+                "Check positioning behavior when parent uses overflow properties",
+              ],
+            },
+          ],
+        },
+        {
+          headline: "Inset: The Positioning Shorthand",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The inset property is a powerful shorthand that lets you set all four directional properties (top, right, bottom, left) simultaneously:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "Accepts the same values as individual position properties",
+                "Works with any positioning method except static",
+                {
+                  text: "Follows the same pattern as margin/padding shorthands:",
+                  subitems: [
+                    "inset: 10px (all sides)",
+                    "inset: 10px 20px (vertical horizontal)",
+                    "inset: 5px 10px 15px 20px (top right bottom left)",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "paragraph",
+              text: "This modern CSS property drastically reduces the verbosity of your positioning code. Instead of setting four separate properties, you get the same result with a single clean declaration.",
+            },
+          ],
+        },
+        {
+          headline: "Z-Index: The Third Dimension",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "While technically not a position value, z-index is deeply connected to positioned elements, controlling their stacking order in 3D space:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "Only works on positioned elements (any value except static)",
+                "Higher values appear on top of lower values",
+                "Creates stacking contexts that can isolate groups of elements",
+              ],
+            },
+            {
+              type: "tip",
+              title: "Debugging tip:",
+              text: "When z-index seems not to work, check if your element (or its ancestors) is creating a new stacking context. Common causes include opacity values less than 1, transform properties, filter effects, or will-change declarations.",
+            },
+          ],
+        },
+      ],
+      aboutLevel: `In this level, you'll experiment with position properties to help your emoji cross the river. Try different position values to precisely place your bridge elements. Remember that multiple approaches can work - the key is understanding how position affects the document flow and element placement!`,
+      videoSection: {
+        src: "https://www.youtube.com/embed/P6UgYq3J3Qs?si=C2-rTWC3YYgzYgEX",
+        text: `Want to see positioning in action? Check out Kevin Powell's excellent breakdown of CSS position properties. His visual examples make it easy to grasp how each value behaves in real-world scenarios.`,
+      },
+      tip: {
+        text: `Designer tip: Creating complex layouts often requires a mix of position values. Try combining relative containers with absolute children for precise control, or experiment with sticky elements for scrolling interfaces. Always test on different screen sizes to ensure your positioning works responsively!`,
+        img: {
+          src: "tipsImages.adobeColor",
           alt: "Adobe Color Palette",
           span: "Check it!",
           href: "https://color.adobe.com/explore",
@@ -85,1232 +337,453 @@ export const aboutLevelData = [
       },
     },
   },
-
-  {
-    id: 2,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
+  /*{
+    id: 3,
+    name: "Basics",
+    introduction: `CSS layout fundamentals are essential for mastering web design. In this level, we'll explore the critical spacing properties that give your elements breathing room and proper positioning.`,
     main: {
       description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
+          Margins and padding are the cornerstone properties that control spacing in CSS layouts. While they might seem similar, they serve distinct purposes that dramatically affect how elements interact with their surroundings.
+          
+          The key difference: margins create space OUTSIDE an element (between elements), while padding creates space INSIDE an element (between content and border). Understanding when to use each is crucial for creating clean, responsive designs.
+      `,
       li: [
         {
-          headline: "margin",
+          headline: "Margin: The Outer Space",
           p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
+            Margin defines the space around an element, creating separation between elements. It has several powerful variations:
+            
+            • Individual sides: margin-top, margin-right, margin-bottom, margin-left
+            • Logical properties: margin-block, margin-inline (direction-agnostic)
+            • Shorthand values: margin: 10px (all sides), margin: 10px 20px (vertical horizontal), margin: 10px 20px 15px 25px (top right bottom left)
+            
+            Margins can also be negative, allowing elements to overlap or move outside their normal flow. They collapse vertically between block elements—when two margins meet, only the larger one remains visible.
+          `,
         },
         {
-          headline: "padding",
+          headline: "Padding: The Inner Space",
           p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
+            Padding creates space between an element's content and its border, giving content room to breathe. Like margin, it offers multiple variations:
+            
+            • Individual sides: padding-top, padding-right, padding-bottom, padding-left
+            • Logical properties: padding-block, padding-inline (work with writing direction)
+            • Shorthand values: padding: 10px (all sides), padding: 10px 20px (vertical horizontal), padding: 10px 20px 15px 25px (top right bottom left)
+            
+            Unlike margins, padding values cannot be negative and do not collapse. Padding adds to the element's dimensions unless modified by box-sizing: border-box, which keeps the element's overall size consistent regardless of padding changes.
+          `,
+        },
+        {
+          headline: "Box-Sizing: The Layout Game-Changer",
+          p: `
+            The box-sizing property dramatically affects how margin and padding behave:
+            
+            • content-box (default): Width/height apply to content only; padding and border add to total dimensions
+            • border-box: Width/height include content, padding, and border, making layout calculations more intuitive
+            
+            Most modern CSS frameworks set box-sizing: border-box globally to create more predictable layouts.
+          `,
         },
       ],
 
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
+      aboutLevel: `In this level, you'll practice manipulating margin properties to help your emoji cross the river. While there are multiple approaches, think about which margin properties would be most efficient for creating the perfect bridge!`,
       videoSection: {
         src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
+        text: `For a deeper understanding of margin and padding concepts, I recommend watching Kevin Powell's excellent tutorial on spacing properties in CSS.`,
       },
       tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
+        text: `Pro tip: When debugging layout issues, temporarily add a background color to your elements to visualize margins (transparent) and padding (shows the background). This simple technique can save hours of frustration when building complex layouts!`,
         img: {
-          src: tipsImages.animista,
+          src: "tipsImages.animista",
           alt: "Animista.net web app",
           span: "Check it!",
           href: "https://animista.net",
         },
       },
     },
-  },
+  },*/
   {
     id: 3,
-    introduction: `Každý element na webové stránce potřebuje svůj prostor, aby mohl být správně zobrazen.
-          Jedním z nejdůležitějších aspektů webového designu je použití správných CSS jednotek 
-          a nastavení velikostí elementů tak, aby vypadaly dobře na všech zařízeních.
-          Při budování mostů v reálném světě i těch na webu je klíčové znát jejich správné rozměry.`,
-    videoSection: {
-      text: "Pro lepší pochopení CSS jednotek a velikostí elementů se podívej na toto video od Kevina Powella:",
-      src: "https://www.youtube.com/embed/S0wilV67hjQ?si=nEkO_e3b1RHvW-xA",
-    },
+    name: "Flexbox",
     main: {
       description: `
-                 Při vytváření responzivních webových stránek je zásadní zvolit správné jednotky 
-                 pro šířku, výšku, mezery a další rozměry elementů. Různé typy jednotek mají 
-                 své specifické vlastnosti a použití. Při řešení tohoto levelu budeš potřebovat
-                 upravit šířku mostu, aby dosáhl druhého břehu. Porozumění tomu, jak pracovat
-                 s procentuálními jednotkami a vlastností width ti pomůže tento level vyřešit.
-                  `,
+        Flexbox is a powerful layout system that revolutionized how we build responsive interfaces. Unlike traditional CSS layouts, Flexbox thinks in terms of relationships between items, allowing content to expand, shrink, and rearrange itself intelligently.
+        
+        Think of Flexbox as a magical container that gives your elements superpowers - they can grow when there's extra space, shrink when things get tight, and align themselves perfectly without the need for complex calculations or hacks.
+      `,
       li: [
         {
-          headline: "absolutní jednotky",
-          p: `Jednotky jako px, pt nebo cm mají pevnou velikost nezávislou na jakémkoliv kontextu.
-              Pixel (px) je nejběžnější jednotkou pro přesné rozměry, ale není ideální 
-              pro responzivní design, protože se nepřizpůsobuje velikosti obrazovky. 
-              Například most se šířkou 500px může být příliš široký pro mobilní zařízení
-              nebo příliš úzký pro velké monitory.`,
+          headline: "The Flex Container",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Every Flexbox layout starts with a parent element (the flex container) that establishes a flex formatting context for its children. This relationship is the foundation of Flexbox's power:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "display: flex — Transforms an element into a flex container",
+                "flex-direction — Controls the primary axis (row, column, row-reverse, column-reverse)",
+                "flex-wrap — Determines whether items must stay on a single line or can wrap to multiple lines",
+                {
+                  text: "justify-content — Distributes space along the primary axis:",
+                  subitems: [
+                    "flex-start — Packs items at the start",
+                    "flex-end — Packs items at the end",
+                    "center — Centers items",
+                    "space-between — Spreads items with space between",
+                    "space-around/space-evenly — Distributes space evenly around items",
+                  ],
+                },
+                {
+                  text: "align-items — Controls alignment along the cross axis:",
+                  subitems: [
+                    "flex-start — Aligns to start of cross axis",
+                    "flex-end — Aligns to end of cross axis",
+                    "center — Centers items on cross axis",
+                    "stretch — Stretches items to fill container (default)",
+                    "baseline — Aligns by text baselines",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "tip",
+              title: "Primary vs Cross Axis",
+              text: "Remember that Flexbox is direction-agnostic! In row direction, primary axis is horizontal and cross axis is vertical. In column direction, they're flipped. This mental model is crucial for mastering Flexbox.",
+            },
+          ],
         },
         {
-          headline: "relativní jednotky",
-          p: `em a rem jsou odvozené od velikosti písma. em se vztahuje k velikosti 
-              písma aktuálního elementu, zatímco rem k velikosti písma kořenového 
-              elementu (html). Tyto jednotky jsou užitečné pro zachování poměrů 
-              mezi velikostí textu a okolními prostory. Pro most bychom je mohli 
-              použít, pokud by jeho šířka měla odpovídat nějaké textové referenci.`,
+          headline: "Flex Items: Growing & Shrinking",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The real magic of Flexbox happens with its ability to distribute space dynamically. These three properties control how flex items respond to available space:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "flex-grow — Determines how much an item should grow relative to its siblings when extra space is available (default: 0)",
+                "flex-shrink — Controls how much an item should shrink when there isn't enough space (default: 1)",
+                "flex-basis — Sets the initial 'ideal' size of an item before growing/shrinking happens (similar to width/height but axis-independent)",
+              ],
+            },
+            {
+              type: "paragraph",
+              text: "These three properties can be combined into the powerful flex shorthand: flex: grow shrink basis. For example, flex: 1 0 auto means 'grow proportionally, don't shrink, and start with auto size'.",
+            },
+            {
+              type: "section",
+              title: "Common flex patterns:",
+              items: [
+                "flex: 1 — Grow to fill available space equally (shorthand for flex: 1 1 0)",
+                "flex: 0 0 200px — Fixed-width item that won't grow or shrink",
+                "flex: 0 1 auto — Default behavior: don't grow, can shrink if needed",
+                "flex: 2 1 auto — Grow twice as much as siblings with flex: 1",
+              ],
+            },
+          ],
         },
         {
-          headline: "procentuální jednotky",
-          p: `Procenta (%) jsou velmi důležitá pro responzivní design, protože umožňují
-              definovat velikost elementu relativně k jeho rodiči. Most s šířkou 50% 
-              zabírá přesně polovinu dostupného prostoru, což může být nedostatečné, 
-              pokud potřebujeme přemostit celou mezeru. Změna na 100% by zajistila, 
-              že most vyplní celou dostupnou šířku svého kontejneru.`,
+          headline: "Advanced Alignment Techniques",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Flexbox provides powerful tools for solving complex alignment challenges without resorting to CSS hacks:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "align-self — Overrides the container's align-items for individual items",
+                "gap — Creates consistent spacing between items (modern alternative to margins)",
+                "margin: auto — In Flexbox, auto margins absorb all available space in their direction",
+              ],
+            },
+            {
+              type: "section",
+              title: "Practical applications:",
+              items: [
+                "Space-between navigation: Use margin-right: auto on one item to push others to the opposite end",
+                "Centering with auto margins: margin: auto centers perfectly in both directions",
+                "Double-ended distribution: Combine gap with space-between for sophisticated layouts",
+              ],
+            },
+            {
+              type: "tip",
+              title: "Minimum size gotcha",
+              text: "Flexbox won't shrink text content below its longest word by default. When a flex item contains text that refuses to shrink, add min-width: 0 to override this behavior and prevent overflow issues!",
+            },
+          ],
         },
         {
-          headline: "viewport jednotky",
-          p: `vw, vh, vmin a vmax jsou relativní k velikosti viewportu (viditelné oblasti 
-              okna prohlížeče). 1vw představuje 1% šířky viewportu, takže most o šířce 
-              100vw by byl stejně široký jako celá obrazovka. Tyto jednotky jsou užitečné, 
-              když potřebujeme, aby element reagoval přímo na velikost obrazovky, 
-              nezávisle na svém rodičovském kontejneru.`,
+          headline: "Multi-line Flex Magic",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "When flex items wrap onto multiple lines, we gain another dimension of control:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "flex-wrap: wrap — Allows items to break into multiple lines when needed",
+                "align-content — Controls how wrapped lines are positioned within container height",
+                {
+                  text: "The 'Deconstructed Pancake' pattern:",
+                  subitems: [
+                    "Set equal-width children with flex: 1 1 [min-width]",
+                    "When container narrows below [children × min-width], items automatically stack",
+                    "Creates responsive layouts without media queries!",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "section",
+              title: "When to use Grid vs Flexbox:",
+              items: [
+                "Use Flexbox for 1D layouts (rows OR columns)",
+                "Use Grid for 2D layouts (rows AND columns)",
+                "Use Flexbox when content should dictate layout",
+                "Use Grid when layout should dictate content",
+              ],
+            },
+          ],
         },
       ],
-      aboutLevel: `V tomto levelu je tvým úkolem prodloužit most tak, aby emoji mohlo přejít na druhou stranu.
-                  Most má výchozí šířku 50%, což nestačí k překlenutí mezery.
-                  Budeš muset zvětšit jeho šířku pomocí vlastnosti 'width' s procentuální hodnotou,
-                  aby most dosáhl od jednoho břehu ke druhému. Zkus experimentovat s různými hodnotami
-                  jako 75%, 90% nebo 100% a sleduj, jak se most přizpůsobuje.`,
-
+      aboutLevel: `In this level, you'll experiment with Flexbox properties to help your emoji cross the river. You'll need to manipulate flex container properties and individual item properties to create a perfect bridge. Remember that items can grow and shrink dynamically - this is the key to solving the level challenges!`,
       videoSection: {
-        src: "https://www.youtube.com/embed/N5A6CINFgmw?si=wbZ_7ftJSEMNVPrh",
-        text: `Podívej se na toto video, kde Kevin Powell vysvětluje rozdíly mezi CSS jednotkami 
-              a pomůže ti lépe pochopit, kdy použít jakou jednotku pro responzivní design.`,
+        src: "https://www.youtube.com/embed/K74l26pE4YA?si=Ij8s1N3pMXwQ8BCy",
+        text: `Want a visual explanation? Check out Kevin Powell's excellent tutorial on Flexbox. His clear examples demonstrate how flex properties interact to create powerful, responsive layouts.`,
       },
-
       tip: {
-        text: `Pro jednodušší práci s CSS velikostmi a responzivním designem můžeš využít nástroj CSS Gradient. 
-              Kromě vytváření gradientů nabízí i další užitečné generátory vlastností včetně rozměrů a jednotek. 
-              Pomůže ti lépe vizualizovat různé hodnoty a jejich dopad na vzhled stránky.`,
+        text: `Pro tip: Use Firefox's DevTools to inspect Flexbox layouts - it has special visualizations that show the flex container, direction, and individual item properties. This makes debugging complex layouts much easier than in other browsers!`,
         img: {
-          src: tipsImages.cssgradient,
-          alt: "CSS Gradient Tool",
-          span: "Vyzkoušej to!",
-          href: "https://cssgradient.io/",
+          src: "tipsImages.flexboxFroggy",
+          alt: "Flexbox Froggy game",
+          span: "Level up your skills!",
+          href: "https://flexboxfroggy.com/",
         },
       },
     },
-    images: {},
   },
-
   {
     id: 4,
-    introduction: `Prostor mezi elementy a jejich obsahem hraje klíčovou roli v designu webových stránek.
-          Někdy však vnitřní prostor (padding) může překážet tam, kde ho nepotřebujeme.
-          V tomto levelu se naučíš, jak pracovat s CSS vlastnostmi, které kontrolují prostor
-          uvnitř a kolem elementů, abys mohl vytvořit perfektně vyvážený layout.`,
-    videoSection: {
-      text: "Podívej se na toto skvělé video, které vysvětluje rozdíly mezi margin a padding vlastnostmi v CSS:",
-      src: "https://www.youtube.com/embed/n23zomcLCPg?si=eAuktA9vVDS6x6nq",
-    },
+    name: "Grid",
     main: {
       description: `
-                 CSS nabízí několik způsobů, jak kontrolovat prostor uvnitř a kolem elementů.
-                 Box model je základním konceptem v CSS, který definuje, jak je element
-                 vykreslován v prohlížeči. Skládá se ze čtyř částí: obsahu (content),
-                 vnitřního okraje (padding), rámečku (border) a vnějšího okraje (margin).
-                 
-                 Pochopení toho, jak tyto části spolupracují, je klíčové pro vytvoření
-                 přesných a responzivních layoutů. V některých případech může vnitřní padding
-                 způsobit, že element zabírá více místa, než očekáváme, což může bránit
-                 správnému zobrazení a fungování našeho designu.
-                  `,
+        CSS Grid is a two-dimensional layout system that transforms how we approach page layouts. While Flexbox excels at one-dimensional arrangements, Grid gives us precise control over both rows and columns simultaneously.
+        
+        Think of Grid as a digital canvas where you can position elements with pinpoint accuracy - regardless of their order in HTML. This powerful system lets you create complex layouts that would be nearly impossible with traditional CSS.
+      `,
       li: [
         {
-          headline: "padding vs. margin",
-          p: `Padding (vnitřní okraj) vytváří prostor uvnitř elementu, mezi jeho obsahem a hranicí.
-              Margin (vnější okraj) vytváří prostor kolem elementu, mezi jeho hranicí a okolními elementy.
-              Hlavní rozdíl je v tom, že padding je považován za součást elementu a ovlivňuje jeho celkovou velikost,
-              zatímco margin vytváří prostor kolem elementu a neovlivňuje jeho samotnou velikost.
-              Problém může nastat, když má rodičovský element nastavený padding a jeho dítě potřebuje
-              využít celý dostupný prostor - padding rodiče vytváří prostor, který dítě nemůže využít.`,
+          headline: "Grid Container Fundamentals",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The Grid system starts by turning a parent element into a grid container, establishing a new grid formatting context for its children:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "display: grid — Transforms an element into a grid container",
+                {
+                  text: "Creating columns and rows:",
+                  subitems: [
+                    "grid-template-columns — Defines width and number of columns",
+                    "grid-template-rows — Defines height and number of rows",
+                    "repeat() — Creates repeated track patterns (e.g., repeat(3, 1fr))",
+                    "minmax() — Sets size range between min and max values",
+                  ],
+                },
+                {
+                  text: "The magical fr unit:",
+                  subitems: [
+                    "Represents a fraction of available space",
+                    "1fr means 'one share of remaining space'",
+                    "grid-template-columns: 1fr 2fr — Second column gets twice the space of first",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "tip",
+              title: "Auto-fit vs Auto-fill",
+              text: "Use repeat(auto-fill, minmax(200px, 1fr)) to create as many columns as will fit, or repeat(auto-fit, minmax(200px, 1fr)) to create columns that expand to fill available space when there aren't enough items.",
+            },
+          ],
         },
         {
-          headline: "padding-inline a padding-block",
-          p: `Moderní CSS zavádí logické vlastnosti, které lépe odpovídají směru textu
-              a zjednodušují tvorbu vícejazyčných stránek. padding-inline ovlivňuje horizontální
-              padding v běžných jazycích psaných zleva doprava (jako čeština) - tedy
-              padding-left a padding-right. padding-block ovlivňuje vertikální padding
-              (padding-top a padding-bottom). Tyto vlastnosti jsou užitečné zejména pro
-              responzivní design a lokalizaci, ale mohou také způsobit nechtěné mezery v layoutu.`,
+          headline: "Placing Grid Items",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Grid's true power comes from its ability to precisely control where items are placed, regardless of HTML order:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "grid-column — Specifies which column(s) an item should occupy",
+                "grid-row — Specifies which row(s) an item should occupy",
+                {
+                  text: "Placement shortcuts:",
+                  subitems: [
+                    "grid-column: 1 / 3 — Spans from line 1 to line 3 (two columns wide)",
+                    "grid-column: 1 / -1 — Spans from first to last line (full width)",
+                    "grid-column: span 2 — Spans across 2 columns from its starting position",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "section",
+              title: "Understanding grid lines:",
+              items: [
+                "Grid lines are numbered starting at 1 (not 0)",
+                "Negative numbers count backwards from the end (-1 is the last line)",
+                "Line numbers include both explicit and implicit tracks",
+              ],
+            },
+            {
+              type: "paragraph",
+              text: "The ability to place items exactly where you want them—even overlapping other items—opens up layout possibilities that were previously impossible without absolute positioning.",
+            },
+          ],
         },
         {
-          headline: "box-sizing",
-          p: `Vlastnost box-sizing určuje, jak se počítá celková šířka a výška elementu.
-              Výchozí hodnota content-box znamená, že šířka a výška se aplikují pouze na obsah,
-              a padding a border se přidávají navíc. Hodnota border-box způsobí, že šířka a výška
-              zahrnují obsah, padding i border. Při řešení problémů s paddingem, který blokuje
-              prostor, může změna box-sizing na border-box pomoci, ale ne vždy je to nejlepší řešení.`,
+          headline: "Named Grid Areas",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "For complex layouts, Grid offers a visual way to design your page using named areas:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "grid-template-areas — Defines a grid template using named cells",
+                "grid-area — Assigns an item to a named area in the template",
+              ],
+            },
+            {
+              type: "section",
+              title: "Example grid template:",
+              items: [
+                `grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";`,
+                "Use '.' for empty cells: \"header . sidebar\"",
+                "Areas must form rectangles (can't create L-shapes)",
+              ],
+            },
+            {
+              type: "code",
+              language: "css",
+              code: `
+$/ // This does not work! $/
+$#.wrong-grid$# {
+  $##grid-template-areas$##: 
+  $###"a b c"$### 
+  $###"b b c"$###
+}
+              `,
+              caption: "Example of invalid grid-template-areas",
+            },
+            {
+              type: "tip",
+              title: "Responsive layout trick",
+              text: "Combine grid-template-areas with media queries to completely reorganize your layout at different breakpoints without changing your HTML structure.",
+            },
+          ],
         },
         {
-          headline: "calc() a řešení prostorových problémů",
-          p: `CSS funkce calc() umožňuje provádět matematické operace s různými jednotkami.
-              Může být použita k odečtení velikosti paddingu od celkové šířky, což je užitečné,
-              když potřebujeme, aby element vyplnil dostupný prostor navzdory paddingu rodiče.
-              Například width: calc(100% + 2rem) může rozšířit element tak, aby kompenzoval
-              padding-inline: 1rem na obou stranách rodičovského elementu.`,
+          headline: "Grid Gaps & Alignment",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Grid offers powerful tools for spacing and aligning content both at the container level and for individual items:",
+            },
+            {
+              type: "bulletList",
+              items: [
+                "column-gap/row-gap — Sets spacing between columns/rows",
+                "gap — Shorthand for both column and row gaps",
+                {
+                  text: "Container alignment properties:",
+                  subitems: [
+                    "justify-content — Aligns grid tracks within container (horizontal)",
+                    "align-content — Aligns grid tracks within container (vertical)",
+                    "place-content — Shorthand for both justify-content and align-content",
+                  ],
+                },
+                {
+                  text: "Item alignment properties:",
+                  subitems: [
+                    "justify-items — Aligns items within their cells (horizontal)",
+                    "align-items — Aligns items within their cells (vertical)",
+                    "place-items — Shorthand for both justify-items and align-items",
+                  ],
+                },
+              ],
+            },
+            {
+              type: "section",
+              title: "Self-alignment for individual items:",
+              items: [
+                "justify-self — Overrides justify-items for specific item",
+                "align-self — Overrides align-items for specific item",
+                "place-self — Shorthand for both justify-self and align-self",
+              ],
+            },
+          ],
+        },
+        {
+          headline: "Grid vs Flexbox: Choosing the Right Tool",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Grid and Flexbox are complementary tools, each with distinct strengths. Understanding when to use each will level up your layout skills:",
+            },
+            {
+              type: "section",
+              title: "Use Grid when:",
+              items: [
+                "Building two-dimensional layouts (rows AND columns)",
+                "Creating complex, precise layouts where items need specific placement",
+                "Working with overall page structure and major layout regions",
+                "You need alignment in both directions simultaneously",
+              ],
+            },
+            {
+              type: "section",
+              title: "Use Flexbox when:",
+              items: [
+                "Creating one-dimensional layouts (rows OR columns)",
+                "Distribution of space between items is the primary concern",
+                "Content should dictate layout rather than fitting into a rigid structure",
+                "Working with unknown or dynamic content sizes",
+              ],
+            },
+            {
+              type: "tip",
+              title: "Pro tip:",
+              text: "Combine both! Use Grid for page-level layout and Flexbox for component-level arrangements within grid areas. This hybrid approach leverages the strengths of both systems.",
+            },
+          ],
         },
       ],
-      aboutLevel: `V tomto levelu narazíš na problém, kde vnitřní padding kontejneru (padding-inline: 1rem)
-                  brání tvému mostu, aby plně spojil oba břehy. Musíš najít způsob, jak tento problém vyřešit.
-                  Můžeš buď odstranit padding z kontejneru (pokud máš přístup k jeho stylům), nebo upravit
-                  šířku mostu tak, aby překonal tento padding (například pomocí calc() nebo nastavením
-                  záporného margin). Experimentuj s různými přístupy a najdi ten, který pro tebe funguje nejlépe!`,
-
+      aboutLevel: `In this level, you'll use Grid properties to help your emoji cross the river. You'll need to manipulate columns, rows, and placement to create the perfect bridge. Remember that Grid gives you precise control over two-dimensional space - you can place bridge segments exactly where they need to be, regardless of their order in HTML!`,
       videoSection: {
-        src: "https://www.youtube.com/embed/n23zomcLCPg?si=eAuktA9vVDS6x6nq",
-        text: `Kevin Powell v tomto videu detailně vysvětluje rozdíly mezi margin a padding
-              a ukazuje různé techniky, jak s nimi pracovat pro dosažení požadovaného layoutu.`,
-      },
-
-      tip: {
-        text: `CSS gradient je skvělý nástroj nejen pro vytváření gradientů, ale také pro pochopení,
-              jak různé CSS vlastnosti ovlivňují rozvržení stránky. Zkoušej si vizualizovat padding
-              a margin jako barevné oblasti kolem elementů, což ti může pomoci lépe pochopit,
-              jak tyto vlastnosti ovlivňují layout a kde mohou způsobovat problémy.`,
-        img: {
-          src: tipsImages.cssgradient,
-          alt: "CSS Gradient Tool",
-          span: "Vyzkoušej to!",
-          href: "https://cssgradient.io/",
-        },
-      },
-    },
-    images: {},
-  },
-  {
-    id: 5,
-    introduction: `Flexbox je mocný nástroj pro vytváření flexibilních a responzivních layoutů. 
-          Umožňuje nám snadno kontrolovat zarovnání, směr a distribuci prostoru mezi položkami. 
-          Někdy však může určité nastavení Flexboxu způsobit neočekávané chování, 
-          které musíme umět rozpoznat a opravit.`,
-    main: {
-      description: `
-                 CSS Flexbox (Flexible Box Layout) je jedním z nejužitečnějších a nejpoužívanějších 
-                 nástrojů pro tvorbu moderních webových layoutů. Flexbox nabízí jednoduché a intuitivní
-                 řešení mnoha běžných problémů v CSS, jako je zarovnání prvků, distribuce prostoru
-                 a změna pořadí prvků bez nutnosti měnit HTML strukturu.
-                 
-                 Při práci s Flexboxem je důležité rozumět, jak fungují vlastnosti rodičovského 
-                 elementu (flex container) a jejich vliv na dětské elementy (flex items). 
-                 Jednou z těchto klíčových vlastností je align-items, která kontroluje 
-                 zarovnání položek kolmo k hlavní ose.
-                  `,
-      li: [
-        {
-          headline: "Flex kontejner a flex položky",
-          p: `Flexbox model se skládá ze dvou hlavních komponent: flex kontejneru a flex položek.
-              Flex kontejner je element, který má nastavenou vlastnost display: flex nebo 
-              display: inline-flex. Všechny jeho přímé potomky se automaticky stávají flex položkami.
-              Flex kontejner definuje směr (flex-direction), zarovnání (align-items, justify-content)
-              a další vlastnosti, které ovlivňují, jak se flex položky zobrazují.`,
-        },
-        {
-          headline: "Hlavní a příčná osa",
-          p: `V kontextu Flexboxu existují dvě osy: hlavní osa (main axis) a příčná osa (cross axis).
-              Hlavní osa je určena vlastností flex-direction (výchozí hodnota je row, tedy vodorovně zleva doprava).
-              Příčná osa je vždy kolmá k hlavní ose. Pokud je hlavní osa vodorovná, příčná osa je svislá.
-              Vlastnost align-items kontroluje zarovnání prvků podél příčné osy.`,
-        },
-        {
-          headline: "align-items vlastnost",
-          p: `Vlastnost align-items určuje, jak jsou flex položky zarovnány podél příčné osy.
-              Má několik možných hodnot:
-              - flex-start: položky jsou zarovnány k začátku příčné osy (obvykle nahoru)
-              - flex-end: položky jsou zarovnány ke konci příčné osy (obvykle dolů)
-              - center: položky jsou zarovnány na střed příčné osy
-              - stretch: položky se roztáhnou, aby vyplnily celou příčnou osu (výchozí hodnota)
-              - baseline: položky jsou zarovnány podle baseline (základní čáry textu)
-              
-              Když je align-items nastaveno na flex-end, všechny položky jsou umístěny u spodního
-              okraje kontejneru, což může způsobit, že se most ocitne příliš nízko.`,
-        },
-        {
-          headline: "Řešení problémů se zarovnáním",
-          p: `Existuje několik způsobů, jak vyřešit problém s nesprávně zarovnanými flex položkami:
-              
-              1. Změnit align-items v kontejneru na jinou hodnotu (flex-start, center, stretch)
-              2. Použít align-self na konkrétní položku (most), což přepíše zarovnání nastavené v kontejneru
-              3. Přidat margin-top: auto na most, což ho posune nahoru
-              4. Použít transformaci (transform: translateY()) pro přesné umístění mostu
-              
-              Volba správného přístupu závisí na konkrétním případu a na tom, 
-              k jakým vlastnostem máme přístup.`,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu se setkáváš s kontejnerem, který má nastavenou vlastnost
-                  align-items: flex-end. To způsobuje, že most je zarovnán ke spodnímu okraji
-                  kontejneru, což brání emoji v přechodu. Tvým úkolem je najít způsob, jak změnit
-                  zarovnání mostu tak, aby byl ve správné pozici. Můžeš to vyřešit změnou
-                  align-items na kontejneru nebo použitím align-self na samotném mostu. Experimentuj
-                  s různými hodnotami a sleduj, jak ovlivňují pozici mostu v kontejneru.`,
-
-      videoSection: {
-        src: "https://www.youtube.com/embed/k32voqQhODc?si=NuKiNs9S9dKNb_SJ",
-        text: `V tomto videu Kevin Powell vysvětluje, jak funguje vlastnost align-items
-              v CSS Flexboxu a jak ji můžeš využít pro správné zarovnání prvků.`,
-      },
-
-      tip: {
-        text: `Animista je skvělý nástroj pro vytváření CSS animací, který ti může pomoci
-              lépe vizualizovat, jak se prvky pohybují a mění svou pozici v závislosti na
-              různých vlastnostech. Zkoušej experimentovat s různými hodnotami align-items
-              a pozoruj, jak ovlivňují rozložení stránky.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista - CSS Animation Library",
-          span: "Vyzkoušej to!",
-          href: "https://animista.net",
-        },
-      },
-    },
-    images: {},
-  },
-  {
-    id: 6,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
+        src: "https://www.youtube.com/embed/EiNiSFIPIQE?si=1WLHwKggzWkrCH6Z",
+        text: `Want a visual explanation? Check out this comprehensive tutorial on CSS Grid. The examples demonstrate how Grid properties work together to create powerful, precise layouts that would be challenging with other CSS techniques.`,
       },
       tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
+        text: `Developer trick: When building Grid layouts, enable the Grid Inspector in your browser's DevTools (available in Firefox and Chrome). It visually highlights grid lines, areas, and track sizes - making complex layouts much easier to debug and understand!`,
         img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 7,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 8,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 9,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 10,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 11,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 12,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 13,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 14,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 15,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 16,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 17,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 18,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 19,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },
-  {
-    id: 20,
-    introduction: `Praesentium amet, iusto est sunt 
-        facilis, dicta recusandae aperiam nisi nulla autem, 
-        error sapiente quae asperiores dolor enim `,
-    main: {
-      description: `
-               Margins and padding are among the fundamental properties
-                that influence the layout and spatial relationships between
-                 elements on a webpage. Although they may seem similar at
-                  first glance, they serve different purposes, and their
-                   correct usage is crucial for creating well-structured and
-                    visually appealing web layouts. The main difference between 
-                    margins and padding lies in the fact that margins affect the
-                     space outside an element,
-                while padding affects the space inside an element.
-                `,
-      li: [
-        {
-          headline: "margin",
-          p: `
-                        margin defines the space around an element; it is the space
-                         between the edge of an element and its neighboring elements. 
-                         Margins can be applied to all four sides of an element 
-                         (top, right, bottom, left) and can have different values, 
-                         allowing for flexible control of spacing between elements. 
-                        Margins can also be negative, which enables elements to overlap.
-                        `,
-        },
-        {
-          headline: "padding",
-          p: `
-              unlike margins, padding, or inner spacing, defines the space 
-              between the edge of an element and its content. Padding increases 
-              the outer dimensions of an element by adding space inside it. 
-              Like margins, padding can be applied to all four sides. 
-              Padding is important for user visual comfort, as it ensures 
-              that text and other content are not too close to the edges of elements, 
-              making reading and interaction with the content easier.
-               `,
-        },
-      ],
-
-      aboutLevel: `V tomto levelu si vyzkoušíš manipulaci s position(možností je samozřejmě více, a kreativitě se meze nekladou)
-                nicméně emoji se musí dostat přes řeku!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `Pro jasnější a hlubší pochopení paddingu/marginu opět doporučuji shlédnout
-                            vido od Kevina Powella`,
-      },
-      tip: {
-        text: `Color selection plays a vital role in web design, influencing not only your website's appearance but also how visitors perceive it. Adobe Color helps overcome creative blocks by offering an intuitive interface to experiment with color combinations, create custom palettes, and analyze current color trends.`,
-        img: {
-          src: tipsImages.animista,
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
+          src: "tipsImages.gridGarden",
+          alt: "Grid Garden game",
+          span: "Master Grid!",
+          href: "https://cssgridgarden.com/",
         },
       },
     },

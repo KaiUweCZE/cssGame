@@ -19,5 +19,5 @@ export const calculateDifficulty = (finish, usersCount) => {
   const weight = Math.min(1, usersCount / (MIN_ATTEMPTS * 2));
   difficulty = difficulty * weight + 1 * (1 - weight);
 
-  return difficulty;
+  return difficulty.toFixed(1);
 };
