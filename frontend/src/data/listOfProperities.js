@@ -137,6 +137,8 @@ export const list = [
   "isolation",
   "line-break",
   "justify-content",
+  "justify-items",
+  "justify-self",
   "@keyframes",
   "left",
   "letter-spacing",
