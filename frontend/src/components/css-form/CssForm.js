@@ -122,11 +122,16 @@ const CssForm = (props) => {
     return !properties.some((prop) => level.deniedList.includes(prop));
   };
 
+  const validateAllowedProperties = (properties) => {
+    if (!level.allowedList) return true;
+    return properties.every((prop) => level.allowedList.includes(prop));
+  };
+
   // check result
   const checkResult = () => {
-    // validateDeniedProperties(cssProperties);
     const propertiesValidator = cssProperties.every(checkTypo);
     const deniedValidator = validateDeniedProperties(cssProperties);
+    const allowedValidator = validateAllowedProperties(cssProperties);
 
     if (!propertiesValidator) {
       // wrong property?
@@ -134,7 +139,7 @@ const CssForm = (props) => {
       // text to error component
       setErrorMessage("Oh man, this is not a correct css property");
       setTimeout(() => setError(false), 3000);
-    } else if (!deniedValidator) {
+    } else if (!deniedValidator || !allowedValidator) {
       setListError(true);
     } else {
       setProperties(cssProperties);
@@ -193,8 +198,10 @@ const CssForm = (props) => {
           // wrong list?
           listError ? (
             <ErrorList
-              type="Denied Properties"
-              list={level.deniedList}
+              type={
+                level.deniedList ? "Denied Properties" : "Allowed Properties"
+              }
+              list={level.allowedList || level.deniedList}
               remove={() => setListError(false)}
             />
           ) : (

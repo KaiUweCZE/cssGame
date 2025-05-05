@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import RemoveInput from "./RemoveInput";
 import CssFormBoxButtons from "./CssFormBoxButtons";
 import SuggestList from "@components/SuggestList";
 import RightBracket from "./RightBracket";
 import { useTextWidth } from "@/hooks/useTextWidth";
+import QuotesTip from "../ToolTip";
+import ToolTip from "../ToolTip";
 
 const INPUT_WIDTH = 85;
 
@@ -14,6 +16,20 @@ const CssFormInputs = (props) => {
   const [focusedInput, setFocusedInput] = useState(null);
   const [focusedSecondInput, setFocusedSecondInput] = useState(null);
   const { textWidths, measureText, MeasuringSpan } = useTextWidth();
+  const [activeTip, setActiveTip] = useState(false);
+  const [tipShown, setTipShown] = useState(false);
+
+  const checkForQuotesRequired = (property) => {
+    if (tipShown) return;
+    if (
+      property === "x" ||
+      property === "grid-template-areas" ||
+      property === "grid-template"
+    ) {
+      setActiveTip(true);
+      setTipShown(true);
+    }
+  };
 
   return (
     <>
@@ -49,17 +65,16 @@ const CssFormInputs = (props) => {
                   setFocusedInput(index);
                   setPropertyIndex(index);
                 }}
-                onBlur={() =>
-                  setTimeout(() => {
-                    setIsFocused(false);
-                    setFocusedInput(null);
-                  }, 50)
-                }
+                onBlur={() => {
+                  setIsFocused(false);
+                  setFocusedInput(null);
+                }}
                 onChange={(e) => {
                   const newValue = e.target.value.replace(/:$/, "");
                   props.setPropertyAtIndex(index, newValue);
                   setSuggestValue(newValue);
                   measureText(newValue, `property-${index}`);
+                  checkForQuotesRequired(newValue);
                 }}
               />
               {property.length > 0 && focusedInput !== index && (
@@ -74,7 +89,6 @@ const CssFormInputs = (props) => {
                 </span>
               )}
             </div>
-
             <div
               className={`form-css-value ${
                 focusedSecondInput === index ? "focus-within" : ""
@@ -136,13 +150,22 @@ const CssFormInputs = (props) => {
           name={props.name}
         />
       </form>
+
+      {activeTip && (
+        <ToolTip
+          anchor="--anchor-form"
+          property="grid-template, grid-template-areas"
+          onDismiss={() => setActiveTip(false)}
+        />
+      )}
       <RightBracket />
-      {isFocused ? (
+      {!activeTip && isFocused ? (
         <SuggestList
           value={suggestValue}
           func={props.setPropertyAtIndex}
           measureText={measureText}
           valueIndex={propertyIndex}
+          checkForQuotes={checkForQuotesRequired}
         />
       ) : (
         ""

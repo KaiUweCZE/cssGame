@@ -2,10 +2,7 @@ import React, { useContext, useState } from "react";
 import bugIcon from "@images/icons/bug.svg";
 import { useCreateMessage } from "@utils/queries/useCreateMessage";
 import { UserContext } from "@contexts/UserContext";
-import uploadImg from "@images/icons/upload.webp";
-import reportImg from "@images/icons/report.webp";
 import binImg from "@images/icons/bin.png";
-import { Image, Transformation } from "cloudinary-react";
 import { cld, cloudinaryConfig } from "@/utils/cloudinaryClient";
 import { Send, Upload } from "lucide-react";
 
@@ -64,7 +61,6 @@ const BugMessage = () => {
       setText(""); // Reset text field
       setActive(false); // Optionally close the form
       alert("Message sent successfully.");
-      console.log("Message sent successfully.", uploadedImages, imageUrls);
     } catch (error) {
       console.error("error: ", error);
 
