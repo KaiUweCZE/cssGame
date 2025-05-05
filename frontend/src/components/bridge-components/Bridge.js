@@ -21,9 +21,9 @@ const Bridge = forwardRef((props, ref) => {
   const { addToBridgeRef } = useContext(ResultContext);
 
   useEffect(() => {
-    if (level?.numberOfProperties) {
-      setBridgeLength(level.numberOfProperties);
-      setContainerLength(level.numberOfProperties);
+    if (level?.inputAmount) {
+      setBridgeLength(level.inputAmount);
+      setContainerLength(level.inputAmount);
     }
   }, []);
 

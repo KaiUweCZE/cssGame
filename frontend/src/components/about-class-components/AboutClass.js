@@ -7,10 +7,9 @@ import MagnifierTemporaryLabel from "../../pages/game/game-components/labels/Mag
 
 const AboutClass = ({ level, styles, specificClass }) => {
   const [option, setOption] = useState(false);
-  const { active, setActive, aboutClass} =
-    useContext(CheckContext);
+  const { active, setActive, aboutClass } = useContext(CheckContext);
 
- // const style = aboutClass === "container" ? styles["container"] : styles["bridge"];
+  // const style = aboutClass === "container" ? styles["container"] : styles["bridge"];
 
   const handleMenu = () => {
     setActive(false);
@@ -20,10 +19,6 @@ const AboutClass = ({ level, styles, specificClass }) => {
   useEffect(() => {
     setActive(false);
   }, []);
-
-  console.log({
-    "parts": styles.parts,
-  });
 
   return (
     <section className="about-class-container">
@@ -41,7 +36,7 @@ const AboutClass = ({ level, styles, specificClass }) => {
               : `about-class ${option && "about-open"}`
           }
         >
-          <AboutClassMenu parts={styles?.parts}/>
+          <AboutClassMenu parts={styles?.parts} />
           {active && (
             <AboutClassInfo
               active={active}

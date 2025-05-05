@@ -9,8 +9,6 @@ const AboutClassMenu = ({ parts }) => {
     setActive(true);
     setFocused(e);
     setAboutClass(e);
-    console.log("parts exist?", parts);
-    
   };
 
   return (
@@ -27,16 +25,14 @@ const AboutClassMenu = ({ parts }) => {
       >
         container
       </li>
-      {
-        parts && (
-          <li
-            onClick={(e) => handleSetClass(e.target.innerText)}
-            className={focused === "parts" ? "active" : ""}
-          >
-            parts
-          </li>
-        )
-      }
+      {parts && (
+        <li
+          onClick={(e) => handleSetClass(e.target.innerText)}
+          className={focused === "parts" ? "active" : ""}
+        >
+          parts
+        </li>
+      )}
     </ul>
   );
 };

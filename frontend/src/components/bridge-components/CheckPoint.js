@@ -20,13 +20,19 @@ const CheckPoint = forwardRef((props, ref) => {
           <div className="target-area__part"></div>
         </div>
       ) : (
-        <div className="target-area">
+        <div
+          className="target-area"
+          style={{ ...level.correctPosition?.wrapperStyle }}
+        >
           {
             // here we render parts and send info about each to checkpointRef([])
-            elements.map((part, index) => {
+            elements.map((_, index) => {
+              console.log("part", level.correctPosition);
+
               return (
                 <div
                   key={index}
+                  id={index}
                   ref={addToCheckpointRef}
                   className="target-area__part"
                   style={{

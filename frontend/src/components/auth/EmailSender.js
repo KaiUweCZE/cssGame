@@ -8,7 +8,6 @@ const EmailSender = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("start sending");
 
     try {
       await sendEmail({ variables: { email } });

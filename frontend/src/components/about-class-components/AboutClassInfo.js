@@ -20,38 +20,46 @@ const AboutClassInfo = ({ info, name }) => {
     return (
       <article className="about-class-info">
         {/* Main style section */}
-        {info.mainStyle && info.mainStyle.length > 0 && <div className="style-section">
-          <h3>Common styles</h3>
-          <ul>
-            {Object.entries(info.mainStyle || {}).map(
-              ([key, value]) => key && renderStyleItem(key, value)
-            )}
-          </ul>
-        </div>}
+        {info.mainStyle && Object.keys(info.mainStyle).length > 0 && (
+          <div className="style-section">
+            <h3>Common styles:</h3>
+            <ul style={{ marginLeft: "1rem" }}>
+              {Object.entries(info.mainStyle || {}).map(
+                ([key, value]) => key && renderStyleItem(key, value)
+              )}
+            </ul>
+          </div>
+        )}
 
         {/* Children styles section */}
         {info.childrenStyle && Object.keys(info.childrenStyle).length > 0 && (
           <div className="style-section children-styles">
-            {Object.entries(info.childrenStyle).map(([childKey, childValue]) => {
-              // Skip if not a valid element object
-              if (Object.keys(childValue).length === 0) return null;
-              
-              // Convert numeric keys to numbered elements
-              const elementNum = isNaN(Number(childKey)) ? childKey : Number(childKey) + 1;
-              
-              return (
-                <div key={childKey} className="element-style">
-                  <h4>{elementNum}. element {"{"}</h4>
-                  <ul>
-                    {Object.entries(childValue).map(
-                      ([styleKey, styleValue]) => 
-                        styleKey && renderStyleItem(styleKey, styleValue)
-                    )}
-                  </ul>
-                  <h4>{"}"}</h4>
-                </div>
-              );
-            })}
+            {Object.entries(info.childrenStyle).map(
+              ([childKey, childValue]) => {
+                // Skip if not a valid element object
+                if (Object.keys(childValue).length === 0) return null;
+
+                // Convert numeric keys to numbered elements
+                const elementNum = isNaN(Number(childKey))
+                  ? childKey
+                  : Number(childKey) + 1;
+
+                return (
+                  <div key={childKey} className="element-style">
+                    <h4>
+                      {elementNum}. element {"{"}
+                    </h4>
+                    <ul>
+                      {Object.entries(childValue).map(
+                        ([styleKey, styleValue]) =>
+                          styleKey && renderStyleItem(styleKey, styleValue)
+                      )}
+                    </ul>
+                    <h4>{"}"}</h4>
+                  </div>
+                );
+              }
+            )}
           </div>
         )}
       </article>
