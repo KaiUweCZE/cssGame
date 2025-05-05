@@ -4,6 +4,52 @@
 @include main-setting;
 
 $con: 2;
+$alpha: 75%;
+
+.module-box-model {
+  &::after {
+    background-color: oklch(0.39 0.09 240.876 / #{$alpha});
+  }
+  &:hover::after {
+    background-color: oklch(0.39 0.09 240.876);
+  }
+}
+
+.module-position {
+  &::after {
+    background-color: oklch(0.38 0.063 188.416 / #{$alpha});
+  }
+  &:hover::after {
+    background-color: oklch(0.38 0.063 188.416);
+  }
+}
+
+.module-flex {
+  &::after {
+    background-color: oklch(0.4 0.17 325.612 / #{$alpha});
+  }
+  &:hover::after {
+    background-color: oklch(0.4 0.17 325.612);
+  }
+}
+
+.module-grid {
+  &::after {
+    background-color: oklch(0.41 0.112 45.904 / #{$alpha});
+  }
+  &:hover::after {
+    background-color: oklch(0.41 0.112 45.904);
+  }
+}
+
+.module-others {
+  &::after {
+    background-color: oklch(0.4 0.153 2.432 / #{$alpha});
+  }
+  &:hover::after {
+    background-color: oklch(0.4 0.153 2.432);
+  }
+}
 
 // background of roadmap
 .roadmap-background {
@@ -69,7 +115,6 @@ $con: 2;
     height: clamp(1.5rem, 3vw, 3.5rem);
     opacity: 1;
     border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
-    background-color: rgba($main-color, 0.6);
     filter: blur(0px);
     z-index: -1;
     transition: 0.5s;
@@ -77,12 +122,10 @@ $con: 2;
   &:hover::after {
     opacity: 1;
     border-radius: 19% 81% 14% 86% / 80% 10% 90% 20%;
-    //animation: jello-horizontal .8s linear;
     animation: light 1s linear forwards;
-    background-color: rgba($main-color, 0.9);
   }
   &.active::after {
-    background-color: rgba($error-color, 0.6);
+    background-color: $error-color;
   }
 }
 
@@ -104,14 +147,28 @@ $con: 2;
 // locked is additional class for roadmap__item,
 // it is used when user's level is too low
 .locked {
+  cursor: not-allowed;
+  &::after {
+    background-color: rgba($bg-disabled, $alpha);
+  }
   img {
     width: 2vw;
     height: 2vw;
     transform: rotate(5deg);
-    transition: 0.5s;
   }
-  &:hover img {
-    transform: rotate(5deg) scale(1.1);
+  /* 
+  reset transform on hover, we need to be specific 
+  because of some crazy css settings made before...
+  */
+  &:hover {
+    img {
+      transform: none;
+      rotate: 5deg;
+    }
+    &::after {
+      animation: none;
+    }
+    // transform: rotate(5deg) scale(1.1);
   }
 }
 
@@ -230,6 +287,26 @@ $con: 2;
 .twenty-one {
   grid-column: (25 * $con) / span 2;
   grid-row: (15 * $con) / span 2;
+}
+
+.twenty-two {
+  grid-column: (23 * $con) / span 2;
+  grid-row: (16.5 * $con) / span 2;
+}
+
+.twenty-three {
+  grid-column: (19.5 * $con) / span 2;
+  grid-row: (16.5 * $con) / span 2;
+}
+
+.twenty-four {
+  grid-column: (16.5 * $con) / span 2;
+  grid-row: (16 * $con) / span 2;
+}
+
+.twenty-five {
+  grid-column: (15 * $con) / span 2;
+  grid-row: (16 * $con) / span 2;
 }
 
 .jello-horizontal {
