@@ -35,7 +35,7 @@ const AcademyExercise = ({ level }) => {
   return (
     <div className="level-exercise">
       <div className="editable-box">
-        <h3>Try Own Setting:</h3>
+        <h3>Interactive Box:</h3>
 
         <form
           onSubmit={(e) => e.preventDefault()}

@@ -8,8 +8,8 @@ import book1Img from "@images/book1.webp";
 import book2Img from "@images/book2.webp";
 import SecretText from "@components/aside/SecretText";
 import paperBg from "@images/paper.webp";
+import { lockIcon } from "@/data/imagesData";
 
-//I need to try subgrid
 const Academy = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -21,28 +21,30 @@ const Academy = () => {
 
   return (
     <div className="wrapper-academy">
-      <div className="container-about">
-        {isOpen ? (
+      <section className="container-about">
+        {isOpen && (
           <SecretText text={isOpen} func={setIsOpen} background={paperBg} />
-        ) : (
-          ""
         )}
         {aboutLevelData.map((level, index) => (
           <React.Fragment key={level.id}>
             {user.level + 1 < level.id ? (
-              <article className="low-level">
-                <h2>Your level is too low {level.id}</h2>
-              </article>
+              <button
+                className="button-academy low-level"
+                disabled={user.level + 1 < level.id}
+              >
+                <img src={lockIcon} alt="" width={32} height={32} />
+              </button>
             ) : (
-              <article>
-                <h2>level {level.id}</h2>
-                <p>{level.introduction}</p>
-                <button onClick={() => toClass(level.id)}>more</button>
-              </article>
+              <button
+                className="button-academy"
+                onClick={() => toClass(level.id)}
+              >
+                <span>{level.name}</span>
+              </button>
             )}
           </React.Fragment>
         ))}
-      </div>
+      </section>
       <AsideBox cssClass="academyLibrary" background={academyImg}>
         <div
           className="book bookOne"
