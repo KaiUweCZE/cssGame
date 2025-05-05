@@ -13,6 +13,8 @@
 // emojiRun sets specific class with keyframes for emoji animation
 // partsStyle true/false it allows additional forms for styling individual parts
 
+import { transition } from "@cloudinary/url-gen/actions/effect";
+
 /* Will be add: 
 1. number of css properties => it defines how many styles a user can use for a change
 2. allowed css properties => list of properties wich can be used
@@ -687,6 +689,64 @@ export const levelData = [
     help: "Check the bridge sections, they have a defined area.",
   },
   /* ===== OTHERS ===== */
+  {
+    id: 25,
+    module: "others",
+    containerStyles: {
+      display: "flex",
+      position: "relative",
+    },
+    bridgeStyles: {},
+    partOfBridge: 1,
+    obstacle: true,
+    styleResolver: true,
+    styleResultContainer: { overflow: "hidden" },
+    obstacleStyle: "obstacle-25",
+    help: "The obstacle is in the same container as the bridge; try hiding the overflow.",
+  },
+  {
+    id: 26,
+    module: "transform",
+    containerStyles: {
+      display: "flex",
+      position: "relative",
+    },
+    bridgeStyles: {
+      transform: "rotate(45deg) scale(0.5) translateY(2rem)",
+    },
+    inputAmount: 3,
+    deniedList: ["transform"],
+    disabledForm: "container",
+    partOfBridge: 1,
+    obstacle: false,
+    help: "It is necessary to approach these transformations individually.",
+  },
+  {
+    id: 27,
+    module: "transform",
+    endPointStyle: {
+      position: "relative",
+      top: "-4rem",
+      height: "50rem",
+    },
+    containerStyles: {
+      "--bridge-width": "30%",
+    },
+    bridgeStyles: {
+      width: "var(--bridge-width)",
+    },
+    correctPosition: {
+      wrapperStyle: {
+        "clip-path": "polygon(100% 0, 0% 100%, 100% 100%)",
+        height: "8rem",
+      },
+    },
+    deniedList: ["transform"],
+    disabledForm: "container",
+    partOfBridge: 1,
+    obstacle: false,
+    help: "It is necessary to approach these transformations individually.",
+  },
 ];
 
 /*

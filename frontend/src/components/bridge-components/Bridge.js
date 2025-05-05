@@ -95,7 +95,9 @@ const Bridge = forwardRef((props, ref) => {
             />
           )
         }
-        {level.obstacle ? <Obstacle /> : ""}
+        {level?.obstacle && (
+          <Obstacle obstacleStyle={level.obstacleStyle ?? "obstacle"} />
+        )}
       </div>
     </>
   );

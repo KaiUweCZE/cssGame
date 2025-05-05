@@ -1,9 +1,13 @@
 import React from "react";
 import { stoneImg } from "@/data/imagesData";
 
-const Obstacle = () => {
+const Obstacle = ({ obstacleStyle }) => {
   return (
-    <img className="obstacle" src={stoneImg} alt="Stone obstacle in the game" />
+    <img
+      className={obstacleStyle}
+      src={stoneImg}
+      alt="Stone obstacle in the game"
+    />
   );
 };
 

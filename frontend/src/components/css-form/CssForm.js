@@ -106,7 +106,7 @@ const CssForm = (props) => {
       // emoji element gets class according to level and result
       handleEmojiClass(isCorrectPosition && styleResult, level.emojiRun);
       //setTimeout(() => setResultText(""), 2000)
-      if (isCorrectPosition) {
+      if (isCorrectPosition && styleResult) {
         levelUp(user.id, user.level < level.id ? level.id : user.level);
       }
     }

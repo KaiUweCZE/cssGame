@@ -13,11 +13,12 @@ const CheckPoint = forwardRef((props, ref) => {
   return (
     <>
       {props.parts === 1 ? (
-        <div
-          ref={props?.addRef ? props.addRef : addToCheckpointRef}
-          className={props.custom ? "target-area__custom" : "target-area"}
-        >
-          <div className="target-area__part"></div>
+        <div className={props.custom ? "target-area__custom" : "target-area"}>
+          <div
+            ref={props?.addRef ? props.addRef : addToCheckpointRef}
+            className="target-area__part"
+            style={{ ...level.correctPosition?.wrapperStyle }}
+          ></div>
         </div>
       ) : (
         <div

@@ -13,11 +13,20 @@ import { lockIcon } from "@/data/imagesData";
 const Academy = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { user, login } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const toClass = (i) => {
     navigate(`/level/${i}`);
   };
+
+  const getCategoryNumber = () => {
+    if (user.level > 17) return 4;
+    if (user.level > 11) return 3;
+    if (user.level >= 5) return 2;
+    return 1;
+  };
+
+  const categoryNumber = getCategoryNumber();
 
   return (
     <div className="wrapper-academy">
@@ -27,10 +36,10 @@ const Academy = () => {
         )}
         {aboutLevelData.map((level, index) => (
           <React.Fragment key={level.id}>
-            {user.level + 1 < level.id ? (
+            {categoryNumber < level.id ? (
               <button
                 className="button-academy low-level"
-                disabled={user.level + 1 < level.id}
+                disabled={categoryNumber < level.id}
               >
                 <img src={lockIcon} alt="" width={32} height={32} />
               </button>

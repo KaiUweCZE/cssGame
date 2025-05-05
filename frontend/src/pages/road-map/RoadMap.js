@@ -30,6 +30,9 @@ const ROADMAP_LEVELS = [
   { num: 22, specialClass: "twenty-two", module: "module-grid" },
   { num: 23, specialClass: "twenty-three", module: "module-grid" },
   { num: 24, specialClass: "twenty-four", module: "module-grid" },
+  { num: 25, specialClass: "twenty-five", module: "module-others" },
+  { num: 26, specialClass: "twenty-six", module: "module-others" },
+  // { num: 27, specialClass: "twenty-seven", module: "module-others" },
 ];
 
 const RoadMap = () => {

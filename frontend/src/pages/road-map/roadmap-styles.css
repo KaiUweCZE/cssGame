@@ -17,38 +17,38 @@
 }
 
 .module-box-model::after {
-  background-color: oklch(0.39 0.09 240.876/75%);
+  background-color: rgba(233, 0, 63, 0.6);
 }
 .module-box-model:hover::after {
-  background-color: oklch(0.39 0.09 240.876);
+  background-color: rgb(233, 0, 63);
 }
 
 .module-position::after {
-  background-color: oklch(0.38 0.063 188.416/75%);
+  background-color: rgba(252, 200, 0, 0.6);
 }
 .module-position:hover::after {
-  background-color: oklch(0.38 0.063 188.416);
+  background-color: rgb(252, 200, 0);
 }
 
 .module-flex::after {
-  background-color: oklch(0.4 0.17 325.612/75%);
+  background-color: rgba(0, 150, 137, 0.6);
 }
 .module-flex:hover::after {
-  background-color: oklch(0.4 0.17 325.612);
+  background-color: rgb(0, 150, 137);
 }
 
 .module-grid::after {
-  background-color: oklch(0.41 0.112 45.904/75%);
+  background-color: rgba(0, 132, 209, 0.6);
 }
 .module-grid:hover::after {
-  background-color: oklch(0.41 0.112 45.904);
+  background-color: rgb(0, 132, 209);
 }
 
 .module-others::after {
-  background-color: oklch(0.4 0.153 2.432/75%);
+  background-color: rgba(138, 1, 148, 0.6);
 }
 .module-others:hover::after {
-  background-color: oklch(0.4 0.153 2.432);
+  background-color: rgb(138, 1, 148);
 }
 
 .roadmap-background {
@@ -147,7 +147,7 @@
   */
 }
 .locked::after {
-  background-color: rgba(100, 100, 100, 0.75);
+  background-color: rgba(100, 100, 100, 0.6);
 }
 .locked img {
   width: 2vw;
@@ -279,25 +279,38 @@
 }
 
 .twenty-two {
-  grid-column: 46/span 2;
+  grid-column: 47/span 2;
   grid-row: 33/span 2;
 }
 
 .twenty-three {
-  grid-column: 39/span 2;
+  grid-column: 42/span 2;
   grid-row: 33/span 2;
+  top: 25%;
 }
 
 .twenty-four {
-  grid-column: 33/span 2;
-  grid-row: 32/span 2;
+  grid-column: 38/span 2;
+  grid-row: 33/span 2;
+  right: 20%;
 }
 
 .twenty-five {
-  grid-column: 30/span 2;
+  grid-column: 33/span 2;
+  grid-row: 32/span 2;
+  top: 10%;
+}
+
+.twenty-six {
+  grid-column: 29/span 2;
   grid-row: 32/span 2;
 }
 
+/*
+.twenty-seven {
+  grid-column: (12.5 * $con) / span 2;
+  grid-row: (16.5 * $con) / span 2;
+}*/
 .jello-horizontal {
   animation: jello-horizontal 0.9s both;
 }

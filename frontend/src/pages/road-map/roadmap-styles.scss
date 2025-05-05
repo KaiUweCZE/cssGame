@@ -4,50 +4,57 @@
 @include main-setting;
 
 $con: 2;
-$alpha: 75%;
+$alpha: 0.6;
+$box-model-bg: rgb(233, 0, 63);
+$position-bg: rgb(252, 200, 0);
+$flex-bg: rgb(0, 150, 137);
+$grid-bg: rgb(0, 132, 209);
+$others-bg: rgb(138, 1, 148);
 
 .module-box-model {
   &::after {
-    background-color: oklch(0.39 0.09 240.876 / #{$alpha});
+    // background-color: oklch(0.39 0.09 240.876 / #{$alpha});
+    background-color: rgba($box-model-bg, $alpha);
   }
   &:hover::after {
-    background-color: oklch(0.39 0.09 240.876);
+    background-color: $box-model-bg;
   }
 }
 
 .module-position {
   &::after {
-    background-color: oklch(0.38 0.063 188.416 / #{$alpha});
+    //background-color: oklch(0.38 0.063 188.416 / #{$alpha});
+    background-color: rgba($position-bg, $alpha);
   }
   &:hover::after {
-    background-color: oklch(0.38 0.063 188.416);
+    background-color: $position-bg;
   }
 }
 
 .module-flex {
   &::after {
-    background-color: oklch(0.4 0.17 325.612 / #{$alpha});
+    background-color: rgba($flex-bg, $alpha);
   }
   &:hover::after {
-    background-color: oklch(0.4 0.17 325.612);
+    background-color: $flex-bg;
   }
 }
 
 .module-grid {
   &::after {
-    background-color: oklch(0.41 0.112 45.904 / #{$alpha});
+    background-color: rgba($grid-bg, $alpha);
   }
   &:hover::after {
-    background-color: oklch(0.41 0.112 45.904);
+    background-color: $grid-bg;
   }
 }
 
 .module-others {
   &::after {
-    background-color: oklch(0.4 0.153 2.432 / #{$alpha});
+    background-color: rgba($others-bg, $alpha);
   }
   &:hover::after {
-    background-color: oklch(0.4 0.153 2.432);
+    background-color: $others-bg;
   }
 }
 
@@ -290,24 +297,37 @@ $alpha: 75%;
 }
 
 .twenty-two {
-  grid-column: (23 * $con) / span 2;
+  grid-column: (23.5 * $con) / span 2;
   grid-row: (16.5 * $con) / span 2;
 }
 
 .twenty-three {
-  grid-column: (19.5 * $con) / span 2;
+  grid-column: (21 * $con) / span 2;
   grid-row: (16.5 * $con) / span 2;
+  top: 25%;
 }
 
 .twenty-four {
-  grid-column: (16.5 * $con) / span 2;
-  grid-row: (16 * $con) / span 2;
+  grid-column: (19 * $con) / span 2;
+  grid-row: (16.5 * $con) / span 2;
+  right: 20%;
 }
 
 .twenty-five {
-  grid-column: (15 * $con) / span 2;
+  grid-column: (16.5 * $con) / span 2;
+  grid-row: (16 * $con) / span 2;
+  top: 10%;
+}
+
+.twenty-six {
+  grid-column: (14.5 * $con) / span 2;
   grid-row: (16 * $con) / span 2;
 }
+/*
+.twenty-seven {
+  grid-column: (12.5 * $con) / span 2;
+  grid-row: (16.5 * $con) / span 2;
+}*/
 
 .jello-horizontal {
   -webkit-animation: jello-horizontal 0.9s both;

@@ -1,6 +1,21 @@
 export const exercises = [
   {
     id: 1,
+    properties: ["padding", "margin" /*"gap"*/],
+    help: {
+      padding: ["0 2rem  0", "1rem 0", "1rem"],
+      margin: ["0 2rem  0", "1rem 0", "1rem"],
+      //gap: ["0.25rem", "0.5rem", "1rem"],
+    },
+    editableIndex: 1,
+    wraperStyle: "",
+    containerStyle: "",
+    elementStyle: "padding-level-element",
+    subWrap: true,
+    numberOfElements: 3,
+  },
+  {
+    id: 2,
     properties: ["position", "top", "left", "z-index"],
     help: {
       position: ["absolute", "fixed", "relative", "static", "sticky"],
@@ -15,21 +30,7 @@ export const exercises = [
     subWrap: true,
     numberOfElements: 3,
   },
-  {
-    id: 2,
-    properties: ["padding", "margin" /*"gap"*/],
-    help: {
-      padding: ["0 2rem  0", "1rem 0", "1rem"],
-      margin: ["0 2rem  0", "1rem 0", "1rem"],
-      //gap: ["0.25rem", "0.5rem", "1rem"],
-    },
-    editableIndex: 1,
-    wraperStyle: "",
-    containerStyle: "",
-    elementStyle: "padding-level-element",
-    subWrap: true,
-    numberOfElements: 3,
-  },
+
   {
     id: 3,
     properties: ["padding", "margin", "gap"],
