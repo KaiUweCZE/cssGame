@@ -61,19 +61,44 @@ $checked-color: #b7e9b1;
 
 // contianer where is a .bridge, user can style it
 .container-bridge {
-  display: flex;
   width: 100%;
   height: 100%;
-  div {
-    width: 100%;
-    height: 4rem;
-    background-size: cover;
-  }
+  z-index: 1;
   img {
     width: 100%;
     height: 4rem;
     height: auto;
   }
+}
+
+.bridge {
+  width: 100%;
+  height: 4rem;
+  background-size: cover;
+}
+
+// if the bridge has multiple parts so each part has this original state
+.bridge__item {
+  height: 4rem;
+  width: 100%;
+  max-width: 33.334%;
+}
+
+// area with correct location, if user's bridge is there,
+// the mission will be completed
+.target-area {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+// If bridge has more parts target-area has the same number of parts
+.target-area__part {
+  height: 4rem;
+  width: 100%;
+  background-color: rgba(white, 0.35);
+  border: 2px dashed grey;
 }
 
 /* Container for css component
@@ -120,6 +145,7 @@ $checked-color: #b7e9b1;
   padding: 0.5rem;
   padding-inline: 2rem;
   padding-bottom: 1rem;
+  anchor-name: --anchor-form;
 }
 
 .form-css-row {
@@ -148,6 +174,58 @@ $checked-color: #b7e9b1;
     gap: 0.05rem;
     position: relative;
   }
+}
+
+.tool-tip {
+  display: grid;
+  position: absolute;
+  position-area: bottom;
+  background: $main-color;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  animation: tipFadeIn 0.3s ease-out forwards;
+  p,
+  code {
+    font-size: 0.8rem;
+    color: white;
+    text-wrap: pretty;
+  }
+}
+
+.tool-tip-arrow {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid $main-color;
+}
+
+.tool-tip code {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.tool-tip-close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  width: 16px;
+  height: 16px;
 }
 
 .form-css-value {
@@ -296,7 +374,7 @@ $checked-color: #b7e9b1;
       transition: 0.25s;
       translate: 0 2.5rem;
       padding: 0.35rem;
-      border-radius: 0.35rem;
+      border-radius: $border-radius-md;
       opacity: 0;
       box-shadow: $primary-shadow;
       &::before {
@@ -324,7 +402,7 @@ $checked-color: #b7e9b1;
   width: fit-content;
   padding: 0.25rem;
   margin: 0.5rem;
-  border-radius: 0.35rem;
+  border-radius: $border-radius-md;
   box-shadow: 0 0px 8px -2px rgb(0, 0, 0);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -359,7 +437,7 @@ button {
   position: absolute;
   top: 100%;
   list-style: none;
-  background-color: $addons-color;
+  background-color: $accent-color;
   width: 100%;
   min-width: 10rem;
   // margin-left: 0.5rem;
@@ -458,24 +536,6 @@ button {
   //z-index: 1;
 }
 
-// area with correct location, if user's bridge is there,
-// the mission will be completed
-.target-area {
-  display: flex;
-  position: absolute;
-  flex-direction: row;
-  height: 100%;
-  width: 100%;
-}
-
-// If bridge has more parts target-area has the same number of parts
-.target-area__part {
-  height: 4rem;
-  width: 100%;
-  background-color: rgba(white, 0.35);
-  border: 2px dashed grey;
-}
-
 // main emoji character in game
 .emoji-character {
   display: flex;
@@ -568,6 +628,13 @@ button {
   animation: fromStairs 6s linear;
 }
 
+.emoji-character.twenty-one-stairs {
+  left: 90%;
+  top: 8rem;
+  z-index: 1;
+  animation: fromStairsTwentyOne 6s linear;
+}
+
 .emoji-character.twenty-one {
   animation: rotate 6s linear 2s forwards;
 }
@@ -581,6 +648,50 @@ button {
   100% {
     transform: rotate(1080deg);
     left: 90%;
+  }
+}
+
+@keyframes fromStairsTwentyOne {
+  0% {
+    transform: rotate(0deg);
+    left: 0;
+    top: -3.95rem;
+  }
+
+  44% {
+    transform: rotate(475deg);
+    left: 44%;
+    top: -3.95rem;
+  }
+  50% {
+    transform: rotate(540deg);
+    left: 44%;
+    top: 1rem;
+  }
+  61% {
+    transform: rotate(650deg);
+    left: 55%;
+    top: 1rem;
+  }
+  70% {
+    transform: rotate(750deg);
+    left: 55%;
+    top: 5.25rem;
+  }
+  81% {
+    transform: rotate(860deg);
+    left: 66%;
+    top: 5.25rem;
+  }
+  90% {
+    transform: rotate(960deg);
+    left: 66%;
+    top: 8rem;
+  }
+  100% {
+    transform: rotate(1080deg);
+    left: 90%;
+    top: 8rem;
   }
 }
 
@@ -677,7 +788,7 @@ button {
   width: 100%;
   height: 100%;
   background-color: #2c74b3;
-  box-shadow: inset 0 0 50px 0 $addons-color;
+  box-shadow: inset 0 0 50px 0 $accent-color;
   overflow: hidden;
   z-index: -1;
 }
@@ -742,7 +853,7 @@ button {
   padding: 1rem;
   padding-inline: 3rem;
   gap: 1rem;
-  box-shadow: 0 0 8px $addons-color;
+  box-shadow: 0 0 8px $accent-color;
   border-radius: 0.5rem;
   opacity: 0;
   animation: blur 1s forwards;
@@ -932,21 +1043,14 @@ img.obstacle {
   width: 12rem;
 }
 
-// if the bridge has multiple parts so each part has this original state
-.bridge__item {
-  height: 4rem;
-  max-width: 33.334%;
-}
-
 // magnifier, game element
 .about-class-container {
   display: grid;
   position: absolute;
   right: 2rem;
   top: 1.5rem;
-  background-color: #1eb637b0;
   z-index: 100;
-  width: 12rem;
+  min-width: 12rem;
 }
 
 .glass {
@@ -971,12 +1075,12 @@ img.obstacle {
   scale: 1;
   transition: opacity 0.3s, display 0.3s, scale 0.3s;
   transition-behavior: allow-discrete;
-  background-color: $addons-color;
-  border-radius: 0.35rem;
+  background-color: $accent-color;
+  border-radius: $border-radius-md;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   &.about-open {
     display: grid;
-    position: absolute;
+    position: relative;
     top: 4rem;
     right: 0;
     opacity: 1;
@@ -995,6 +1099,7 @@ img.obstacle {
   li {
     display: flex;
     padding: 0.25rem;
+    padding-inline: 0.75rem;
     justify-content: center;
     width: 100%;
     color: white;
@@ -1007,6 +1112,12 @@ img.obstacle {
     &.active {
       background-color: rgba(255, 255, 255, 0.15);
     }
+    // &:first-child {
+    //   padding-left: 1rem;
+    // }
+    // &:last-child {
+    //   padding-right: 1rem;
+    // }
   }
 }
 
@@ -1020,10 +1131,19 @@ img.obstacle {
   height: 0;
   animation: blure 0.5s linear forwards;
   @include scroll-primary;
+  h3,
+  h4,
   li {
+    font-weight: normal;
     font-size: 1rem;
     list-style: none;
     color: white;
+  }
+}
+
+.element-style {
+  ul {
+    margin-left: 1rem;
   }
 }
 
@@ -1066,7 +1186,6 @@ img.obstacle {
   scale: 0;
   transition: display 0.3s, scale 0.3s, opacity 0.3s;
   transition-behavior: allow-discrete;
-  //border-radius: 0.35rem;
   box-shadow: 0 0 4px #303030;
   border-top: 2px solid #3030308c;
   border-bottom: 2px solid #3030308c;

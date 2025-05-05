@@ -3,9 +3,10 @@ $primary-color: rgb(50, 50, 50);
 $secondary-color: white;
 $error-color: #c95661;
 $correct-color: #69c972;
-$addons-color: rgba(0, 0, 0, 0.75);
+$accent-color: rgba(0, 0, 0, 0.7);
 $text-color: #303030;
 $bg-light: #f9f9f9;
+$bg-disabled: rgb(100, 100, 100);
 
 // background themes
 $background-primary: #50a0bf;
@@ -33,8 +34,8 @@ $breakpoint-lg: 992px; // 62rem?
 $breakpoint-xl: 75rem; // or more?
 
 // shadows and border
-$border-radius: 0.35rem;
-$border-sm: 0.15rem;
+$border-radius-md: 0.35rem;
+$border-radius-sm: 0.15rem;
 
 //length
 $max-width: 80rem;
