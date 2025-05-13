@@ -116,12 +116,16 @@ export const aboutLevelData = [
         text: `Want a visual explanation? Check out Kevin Powell's excellent tutorial on CSS spacing properties. His clear examples demonstrate how margin and padding affect layout in real-world designs.`,
       },
       tip: {
-        text: `Developer hack: When troubleshooting layout issues, temporarily add outline: 1px solid red to elements instead of borders. Unlike borders, outlines don't affect the layout flow, making them perfect for visualization without changing spacing!`,
+        title: "My Color Space",
+        text: `
+        Color selection is fundamental to creating stunning interfaces, and My Color 
+        Space transforms this challenging process into something effortless and intuitive
+        `,
         img: {
-          src: "tipsImages.animista",
-          alt: "Animista.net web app",
+          src: "",
+          alt: "",
           span: "Check it!",
-          href: "https://animista.net",
+          href: "https://mycolor.space/",
         },
       },
     },
@@ -327,80 +331,23 @@ export const aboutLevelData = [
         text: `Want to see positioning in action? Check out Kevin Powell's excellent breakdown of CSS position properties. His visual examples make it easy to grasp how each value behaves in real-world scenarios.`,
       },
       tip: {
-        text: `Designer tip: Creating complex layouts often requires a mix of position values. Try combining relative containers with absolute children for precise control, or experiment with sticky elements for scrolling interfaces. Always test on different screen sizes to ensure your positioning works responsively!`,
+        title: "Uiverse",
+        text: `
+        Uiverse is a treasure trove of beautiful, copy-paste-ready CSS
+        components that'll instantly level up your projects! From buttons that
+        spark joy to cards with delightful hover effects, it's like having a secret
+        weapon for those moments when you need
+        something that looks professional without reinventing the wheel.
+        `,
         img: {
-          src: "tipsImages.adobeColor",
-          alt: "Adobe Color Palette",
+          src: "",
+          alt: "UI Universe",
           span: "Check it!",
-          href: "https://color.adobe.com/explore",
+          href: "https://uiverse.io/",
         },
       },
     },
   },
-  /*{
-    id: 3,
-    name: "Basics",
-    introduction: `CSS layout fundamentals are essential for mastering web design. In this level, we'll explore the critical spacing properties that give your elements breathing room and proper positioning.`,
-    main: {
-      description: `
-          Margins and padding are the cornerstone properties that control spacing in CSS layouts. While they might seem similar, they serve distinct purposes that dramatically affect how elements interact with their surroundings.
-          
-          The key difference: margins create space OUTSIDE an element (between elements), while padding creates space INSIDE an element (between content and border). Understanding when to use each is crucial for creating clean, responsive designs.
-      `,
-      li: [
-        {
-          headline: "Margin: The Outer Space",
-          p: `
-            Margin defines the space around an element, creating separation between elements. It has several powerful variations:
-            
-            • Individual sides: margin-top, margin-right, margin-bottom, margin-left
-            • Logical properties: margin-block, margin-inline (direction-agnostic)
-            • Shorthand values: margin: 10px (all sides), margin: 10px 20px (vertical horizontal), margin: 10px 20px 15px 25px (top right bottom left)
-            
-            Margins can also be negative, allowing elements to overlap or move outside their normal flow. They collapse vertically between block elements—when two margins meet, only the larger one remains visible.
-          `,
-        },
-        {
-          headline: "Padding: The Inner Space",
-          p: `
-            Padding creates space between an element's content and its border, giving content room to breathe. Like margin, it offers multiple variations:
-            
-            • Individual sides: padding-top, padding-right, padding-bottom, padding-left
-            • Logical properties: padding-block, padding-inline (work with writing direction)
-            • Shorthand values: padding: 10px (all sides), padding: 10px 20px (vertical horizontal), padding: 10px 20px 15px 25px (top right bottom left)
-            
-            Unlike margins, padding values cannot be negative and do not collapse. Padding adds to the element's dimensions unless modified by box-sizing: border-box, which keeps the element's overall size consistent regardless of padding changes.
-          `,
-        },
-        {
-          headline: "Box-Sizing: The Layout Game-Changer",
-          p: `
-            The box-sizing property dramatically affects how margin and padding behave:
-            
-            • content-box (default): Width/height apply to content only; padding and border add to total dimensions
-            • border-box: Width/height include content, padding, and border, making layout calculations more intuitive
-            
-            Most modern CSS frameworks set box-sizing: border-box globally to create more predictable layouts.
-          `,
-        },
-      ],
-
-      aboutLevel: `In this level, you'll practice manipulating margin properties to help your emoji cross the river. While there are multiple approaches, think about which margin properties would be most efficient for creating the perfect bridge!`,
-      videoSection: {
-        src: "https://www.youtube.com/embed/EhbZGV2dqZ4?si=ahNQORJGR6jH5lEj",
-        text: `For a deeper understanding of margin and padding concepts, I recommend watching Kevin Powell's excellent tutorial on spacing properties in CSS.`,
-      },
-      tip: {
-        text: `Pro tip: When debugging layout issues, temporarily add a background color to your elements to visualize margins (transparent) and padding (shows the background). This simple technique can save hours of frustration when building complex layouts!`,
-        img: {
-          src: "tipsImages.animista",
-          alt: "Animista.net web app",
-          span: "Check it!",
-          href: "https://animista.net",
-        },
-      },
-    },
-  },*/
   {
     id: 3,
     name: "Flexbox",
@@ -556,12 +503,15 @@ export const aboutLevelData = [
         text: `Want a visual explanation? Check out Kevin Powell's excellent tutorial on Flexbox. His clear examples demonstrate how flex properties interact to create powerful, responsive layouts.`,
       },
       tip: {
-        text: `Pro tip: Use Firefox's DevTools to inspect Flexbox layouts - it has special visualizations that show the flex container, direction, and individual item properties. This makes debugging complex layouts much easier than in other browsers!`,
+        title: "CSS Portal - Flexbox Generator",
+        text: `CSS Portal is like having a Swiss Army knife for your flexbox needs!
+        It offers interactive demos, property visualizations, and ready-to-use code
+        snippets that make even the trickiest flex layouts feel approachable and fun to build.`,
         img: {
           src: "tipsImages.flexboxFroggy",
           alt: "Flexbox Froggy game",
           span: "Level up your skills!",
-          href: "https://flexboxfroggy.com/",
+          href: "https://www.cssportal.com/css-flexbox-generator/",
         },
       },
     },
@@ -778,12 +728,18 @@ $#.wrong-grid$# {
         text: `Want a visual explanation? Check out this comprehensive tutorial on CSS Grid. The examples demonstrate how Grid properties work together to create powerful, precise layouts that would be challenging with other CSS techniques.`,
       },
       tip: {
-        text: `Developer trick: When building Grid layouts, enable the Grid Inspector in your browser's DevTools (available in Firefox and Chrome). It visually highlights grid lines, areas, and track sizes - making complex layouts much easier to debug and understand!`,
+        title: "CSS Grid Generator",
+        text: `
+        This interactive tool is a game-changer for visualizing CSS Grid layouts!
+        You can drag, resize, and adjust your grid visually,
+        then simply copy the
+        generated CSS — perfect for both learning grid concepts and speeding up your workflow
+        `,
         img: {
-          src: "tipsImages.gridGarden",
-          alt: "Grid Garden game",
+          src: "",
+          alt: "",
           span: "Master Grid!",
-          href: "https://cssgridgarden.com/",
+          href: "https://cssgrid-generator.netlify.app/",
         },
       },
     },

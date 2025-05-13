@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const TipSection = ({ tip, video }) => {
   const { img } = tip;
-  console.log(tip, video);
+
   return (
     <section className="dernier">
       <article className="tip-article">
@@ -18,7 +18,7 @@ const TipSection = ({ tip, video }) => {
           <h3>Video</h3>
         </span>
         <div className="academy-tip">
-          <p>For deeply understanding you can check this video:</p>
+          <p>{video.text}</p>
           <Link to={video.src} className="academy-link">
             To the video
           </Link>
@@ -55,8 +55,7 @@ const TipSection = ({ tip, video }) => {
               ></path>{" "}
             </g>
           </svg>
-
-          <h3>Tip</h3>
+          <h3>{tip.title}</h3>
         </span>
         <div className="academy-tip">
           <p>{tip.text}</p>

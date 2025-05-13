@@ -28,13 +28,15 @@ const MessageResult = () => {
           <span>retry</span>
         </button>
       ) : (
-        <button
-          className="next-level-button"
-          onClick={() => nextLevel(level.id + 1)}
-        >
-          <span>next level</span>
-          <img className="next-level" src={next} alt="" />
-        </button>
+        level.id !== 26 && (
+          <button
+            className="next-level-button"
+            onClick={() => nextLevel(level.id + 1)}
+          >
+            <span>next level</span>
+            <img className="next-level" src={next} alt="" />
+          </button>
+        )
       )}
     </div>
   );
