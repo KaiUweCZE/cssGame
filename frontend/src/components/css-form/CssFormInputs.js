@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import RemoveInput from "./RemoveInput";
 import CssFormBoxButtons from "./CssFormBoxButtons";
 import SuggestList from "@components/SuggestList";
 import RightBracket from "./RightBracket";
 import { useTextWidth } from "@/hooks/useTextWidth";
-import QuotesTip from "../ToolTip";
 import ToolTip from "../ToolTip";
 
 const INPUT_WIDTH = 85;

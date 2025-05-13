@@ -1,13 +1,17 @@
-import React from "react";
-import { hashtagIcon } from "@/data/imagesData";
+import React, { useContext } from "react";
 import AcademyExercise from "./AcademyExercise";
 import TipSection from "./TipSection";
 import ErrorPage from "@/components/errors/ErrorPage";
 import { RenderContent } from "./RenderContent";
-import { HashIcon } from "lucide-react";
+import { AcademyContext } from "../context/AcademyContext";
+import { exercises } from "../data/exercises-settings";
 
 const MainLevel = ({ module, levelName, data }) => {
   const { description, li, tip, videoSection } = data;
+  const exerciseData = exercises.find((e) => e.id === levelName);
+  const { setEditablePart } = useContext(AcademyContext);
+
+  setEditablePart(exerciseData.editablePart);
 
   if (!description || !li || !tip || !videoSection || !data || levelName > 5) {
     return <ErrorPage />;
@@ -23,13 +27,6 @@ const MainLevel = ({ module, levelName, data }) => {
             {li?.map((item, index) => (
               <li key={index} className="academy-content-item">
                 <div className="academy-headline-box">
-                  {/* <img
-                    src={hashtagIcon}
-                    alt="hash tag icon"
-                    width={16}
-                    height={16}
-                  /> 
-                  <HashIcon color="#2a7d8aa5" size={16} />*/}
                   <h3>{item.headline}</h3>
                 </div>
                 <div className="academy-content-wrapper">

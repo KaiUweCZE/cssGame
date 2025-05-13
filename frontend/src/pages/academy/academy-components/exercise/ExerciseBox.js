@@ -1,20 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ExerciseElement from "./ExerciseElement";
-import { AcamedyContext } from "@/pages/academy/context/AcademyContext";
+import { AcademyContext } from "@/pages/academy/context/AcademyContext";
 import { exercises } from "@/pages/academy/data/exercises-settings";
 
 const ExerciseBox = ({ levelId }) => {
   const data = exercises[levelId - 1];
-  const { cssValues } = useContext(AcamedyContext);
+  const { cssValues, editablePart, amountOfElements } =
+    useContext(AcademyContext);
   const { wraperStyle, containerStyle, subWrap, editableIndex } = data;
+
+  console.log("actual data: ", data.editablePart);
+
+  const styles =
+    editablePart === "box"
+      ? cssValues.reduce((acc, { property, value }) => {
+          return {
+            ...acc,
+            [property]: value,
+          };
+        }, {})
+      : {};
+
   // variable count of elemnts
   const elements = Array.from(
-    { length: data.numberOfElements || 1 },
+    { length: amountOfElements || data.numberOfElements },
     (_, i) => i
   );
+
+  useEffect(() => {
+    console.log("cssValues: ", cssValues);
+  }, [cssValues]);
   return (
     <div className={`exercise-wrapper ${wraperStyle}`}>
-      <div className={`exercise-box ${containerStyle}`}>
+      <div
+        className={`exercise-box ${containerStyle}`}
+        style={editablePart === "box" ? styles : {}}
+      >
         {subWrap ? (
           <div className="subwrap">
             {elements.map((index) => (
@@ -22,7 +43,7 @@ const ExerciseBox = ({ levelId }) => {
                 key={index}
                 values={cssValues}
                 levelId={levelId}
-                editable={index === editableIndex}
+                editable={editablePart === "element" && index === editableIndex}
               />
             ))}
           </div>
@@ -32,7 +53,7 @@ const ExerciseBox = ({ levelId }) => {
               key={index}
               values={cssValues}
               levelId={levelId}
-              editable={index === editableIndex}
+              editable={editablePart === "element" && index === editableIndex}
             />
           ))
         )}

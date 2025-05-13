@@ -1,21 +1,26 @@
 import React, { createContext, useState } from "react";
 
-export const AcamedyContext = createContext({});
+export const AcademyContext = createContext({});
 
 export const AcademyProvider = ({ children }) => {
   const [cssValues, setCssValues] = useState([]);
+  const [editablePart, setEditablePart] = useState("element");
+  const [amountOfElements, setAmountOfElements] = useState(1);
   const [levelId, setLevelId] = useState(0);
-
   const contextValues = {
     cssValues,
     setCssValues,
+    editablePart,
+    setEditablePart,
+    amountOfElements,
+    setAmountOfElements,
     levelId,
     setLevelId,
   };
 
   return (
-    <AcamedyContext.Provider value={contextValues}>
+    <AcademyContext.Provider value={contextValues}>
       {children}
-    </AcamedyContext.Provider>
+    </AcademyContext.Provider>
   );
 };

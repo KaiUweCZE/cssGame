@@ -140,7 +140,7 @@ $font-size-xl: 1.5rem;
 
 .academy-main-layout {
   display: grid;
-  grid-template-columns: 1fr 0.5fr;
+  grid-template-columns: 1fr 0.6fr;
   gap: $spacing-sm;
   padding-inline: $spacing-md;
   padding-block: $spacing-lg;
@@ -472,26 +472,28 @@ $font-size-xl: 1.5rem;
   label {
     font-weight: bold;
   }
-  .input-box {
-    display: grid;
-    grid-template-columns: subgrid;
-    position: relative;
-    grid-column: span 2;
-    gap: $standard-size;
-    place-items: end;
-  }
-  input[type="text"] {
-    border: none;
-    background-color: transparent;
-    border-bottom: 2px dashed $main-color;
-    padding: $standard-size * 0.5;
-    //padding-bottom: 0;
-    //@include basic-focus;
-    &:focus {
-      //border: none;
-      outline: none;
-      background-color: rgba(255, 255, 255, 0.4);
-    }
+}
+
+.input-box {
+  display: grid;
+  grid-template-columns: subgrid;
+  position: relative;
+  grid-column: span 2;
+  gap: $standard-size;
+  place-items: end;
+}
+
+.exercise-input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px dashed $main-color;
+  padding: $standard-size * 0.5;
+  //padding-bottom: 0;
+  //@include basic-focus;
+  &:focus {
+    //border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.4);
   }
 }
 
@@ -503,13 +505,11 @@ $font-size-xl: 1.5rem;
   border-radius: $border-radius-md;
   position: absolute;
   box-shadow: $primary-shadow;
-  max-height: 8rem;
-  overflow-y: auto;
   @include scroll-primary;
+  overflow-y: visible;
   right: 0;
-  top: 2rem;
+  top: 2.5rem;
   z-index: 1;
-
   li {
     font-size: 1rem;
     padding-inline: $standard-size;
@@ -519,6 +519,17 @@ $font-size-xl: 1.5rem;
     &:hover {
       background-color: #297883;
     }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    place-self: start center;
+    z-index: 100;
+    width: 1rem;
+    height: 1rem;
+    top: -0.5rem;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    background-color: $main-color;
   }
 }
 
@@ -536,16 +547,20 @@ $font-size-xl: 1.5rem;
 }
 
 .exercise-box {
-  display: grid;
-  width: 10rem;
-  height: 10rem;
   // background-color: #297883;
+  min-width: 10rem;
+  min-height: 10rem;
 }
 
 .exercise-element {
+  display: grid;
+  place-items: center;
   width: 2rem;
   height: 2rem;
   background-color: $main-color;
+  span {
+    color: white;
+  }
 }
 
 .editable-element {
@@ -566,6 +581,54 @@ $font-size-xl: 1.5rem;
 .position-level-container {
   display: grid;
   height: 20rem;
+}
+
+.flex-level-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 20svh;
+  overflow-x: hidden;
+  @include scroll-primary;
+  padding: 1rem;
+}
+
+.flex-level-container {
+  display: flex;
+  width: 100%;
+  background-color: rgba($main-color, 0.1);
+  gap: 0.5rem;
+  min-height: auto;
+  flex-wrap: wrap;
+}
+
+.grid-level-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 20svh;
+  overflow-x: hidden;
+  @include scroll-primary;
+  padding: 1rem;
+  background-color: rgba($main-color, 0);
+  background-size: 50px 50px;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+}
+
+.grid-level-container {
+  display: grid;
+  width: 100%;
+
+  background-color: rgba($main-color, 0.1);
+  gap: 0.5rem;
+}
+
+.grid-item-element {
+  width: auto;
+  height: auto;
 }
 
 // padding level settings

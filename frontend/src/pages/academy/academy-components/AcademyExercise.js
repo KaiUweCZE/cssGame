@@ -1,14 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { exercises } from "../data/exercises-settings";
-import { AcamedyContext } from "../context/AcademyContext";
+import { AcademyContext } from "../context/AcademyContext";
 import ExerciseBox from "./exercise/ExerciseBox";
 import ExerciseHelp from "./exercise/ExerciseHelp";
 
 const AcademyExercise = ({ level }) => {
-  const { cssValues, setCssValues } = useContext(AcamedyContext);
+  const { cssValues, setCssValues, amountOfElements, setAmountOfElements } =
+    useContext(AcademyContext);
   const data = exercises.find((e) => e.id === level);
   const { properties, help } = data;
   const [focusedProperty, setFocusedProperty] = useState(null);
+  const maxElements = 20;
 
   const handleState = (value, property) => {
     const newValue = { property, value };
@@ -32,10 +34,33 @@ const AcademyExercise = ({ level }) => {
     return input ? input.value : "";
   };
 
+  useEffect(() => {
+    setAmountOfElements(data.numberOfElements);
+  }, [data.numberOfElements]);
+
+  const handleAmount = (value) => {
+    const newValue = Math.max(Math.min(value, maxElements), 1);
+
+    return newValue;
+  };
+
   return (
     <div className="level-exercise">
       <div className="editable-box">
         <h3>Interactive Box:</h3>
+
+        {data.addElements && (
+          <div>
+            <input
+              type="number"
+              max={maxElements}
+              value={handleAmount(amountOfElements)}
+              onChange={(e) =>
+                setAmountOfElements(handleAmount(e.target.value))
+              }
+            />
+          </div>
+        )}
 
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -47,6 +72,7 @@ const AcademyExercise = ({ level }) => {
                 <label htmlFor={`input-${property}`}>{property}: </label>{" "}
                 <input
                   type="text"
+                  className="exercise-input"
                   value={getValue(property)}
                   id={`input-${property}`}
                   onChange={(e) => handleState(e.target.value, property)}
