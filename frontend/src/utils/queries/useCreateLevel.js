@@ -1,5 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 
+import { GET_LEVELS } from "@/pages/database/Database";
+
 const CREATE_LEVEL = gql`
   mutation CreateLevel(
     $name: String!
@@ -31,8 +33,12 @@ const CREATE_LEVEL = gql`
 `;
 
 export const useCreateLevel = () => {
-  const [createLevelMutation, { data, loading, error }] =
-    useMutation(CREATE_LEVEL);
+  const [createLevelMutation, { data, loading, error }] = useMutation(
+    CREATE_LEVEL,
+    {
+      refetchQueries: [{ query: GET_LEVELS }],
+    }
+  );
 
   const createLevel = async ({
     name,

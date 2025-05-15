@@ -9,7 +9,7 @@ import { CustomContainerProvider } from "@contexts/building-contexts/customConta
 import ProgressBar from "@/components/feedback/ProgressBar";
 import { UserContext } from "@/contexts/UserContext";
 
-const GET_LEVELS = gql`
+export const GET_LEVELS = gql`
   query GetLevels {
     levels {
       id
